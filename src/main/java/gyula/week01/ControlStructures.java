@@ -20,5 +20,12 @@ public class ControlStructures {
         for (int i = 0; i < 10; i = i + 1){
             System.out.println("i: " + i);
         }
+
+        // Schleife (alternative)
+        int k = 0;
+        while (k < 10){
+            System.out.println("k: " + k);
+            k = k + 1;
+        }
     }
 }
