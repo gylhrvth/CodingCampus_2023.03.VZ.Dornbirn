@@ -2,19 +2,25 @@ package joachim.Week01;
 
 public class Funktionen {
     public static void main(String[] args) {
-        int start = 0;
-        int end = 10;
 
-        int altstart = 10;
+        int maxValue = meinMax(10, -5)
+
+        int start = 0;
         int altend = -10;
 
-        zahlenfor(start, end);
-        zahlenwhile(start, end);
-        zahlentrick(start, end);
-        zahlenrewind(altstart, altend);
+        zahlenfor(start, maxValue);
+        zahlenwhile(start, maxValue);
+        zahlentrick(start, maxValue);
+        zahlenrewind(maxValue, altend);
 
     }
+    public static int meinMax(int a, int b){
+        int result = b;
+        if (a > b){
+            result = a;
+        }
 
+        return result;}
 
     public static void zahlenfor(int start, int end) {
 
