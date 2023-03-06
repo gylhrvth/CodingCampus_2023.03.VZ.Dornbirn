@@ -2,51 +2,56 @@ package eric.Week01;
 
 public class AufgabeZaehlen {
     public static void main(String[] args) {
-        System.out.println("Aufgabe 1:");           //Aufgabe 1 for und while Schleife
+        int maxValue = meinMax(10, -5);
 
-        /*for (int i = 0; i < 11; i = i + 1) {         //for Schleife
-            System.out.println(i);
+        aufgabe1(0, maxValue);
+        aufgabe2(0, maxValue);
+        aufgabe3(0, maxValue);
+        aufgabe4(maxValue, -10);
+
+    }
+
+        public static int meinMax(int a,int b) {
+            int result = b;
+            if (a > b) {
+                result = a;
+            }
+            return result;
         }
+        public static void aufgabe1 ( int start, int end) {
+            System.out.println("Aufgabe 1:");           //Aufgabe 1 for und while Schleife
 
-         */
-        System.out.println();
+            for (int i = start; i <= end; i = i + 1) {         //for Schleife
+                System.out.println(i);
+            }
 
-        int k = 0;                                  //while Schleife
-        while (k < 11) {
-            System.out.println(k);
-            k = k + 1;
-        }
-
-        System.out.println();
-
-        System.out.println("Aufgabe 2:");          //Aufgabe 2 Zählervariable
-        for (int l = 0; l < 10; l = l + 1) {
-            System.out.println("zähler: " + l);
-        }
-
-        System.out.println();
-
-        System.out.println("Aufgabe 3");            //Aufgabe 3 Zählen mit Trick
-        for (int p = 0; p <= 10; p = p + 1) {
-            if (p % 2 == 0) {
-                System.out.println(p);
+            int k = start;                                  //while Schleife
+            while (k <= end) {
+                System.out.println(k);
+                k = k + 1;
             }
         }
-
-        System.out.println();
-
-        for (int o = 0; o < 11; o = o + 2) {
-            System.out.println(o);
+        public static void aufgabe2 ( int start, int end){
+            System.out.println("Aufgabe 2:");          //Aufgabe 2 Zählervariable
+            for (int l = start; l <= end; l = l + 1) {
+                System.out.println("zähler: " + l);
+            }
         }
-
-        System.out.println();
-
-        System.out.println("Aufgabe 4");            //Rewind
-        for (int i = 10; i > -11; i = i - 1){
-            System.out.println(i);
+        public static void aufgabe3 ( int start, int end){
+            System.out.println("Aufgabe 3");            //Aufgabe 3 Zählen mit Trick
+            for (int p = start; p <= end; p = p + 1) {
+                if (p % 2 == 0) {
+                    System.out.println(p);
+                }
+            }
+            for (int o = start; o <= end; o = o + 2) {
+                System.out.println(o);
+            }
         }
-
-
-
+        public static void aufgabe4 ( int start, int end){
+            System.out.println("Aufgabe 4");            //Rewind
+            for (int m = start; m >= end; m = m - 1) {
+                System.out.println(m);
+            }
     }
 }
