@@ -3,7 +3,7 @@ package joachim.Week01;
 public class Funktionen {
     public static void main(String[] args) {
 
-        int maxValue = meinMax(10, -5)
+        int maxValue = meinMax(10, -5);
 
         int start = 0;
         int altend = -10;
