@@ -32,7 +32,7 @@ public class Strukturiertes_Prog {
             for (int j = 1; j <= countSquare; j++) {
                 System.out.print(text);
             }
-            System.out.println();
+            System.out.println(); //hier ist es wichtig das print nl ausserhalb der Funktion zu haben, ansoonsten wird diese mit dem Text und nicht danach wiederholt.
 
         }
 
@@ -40,7 +40,7 @@ public class Strukturiertes_Prog {
 
     public static void printRectangle(String text, int countRectangleX, int countRectangleY){
         for (int i = 1; i <= countRectangleY ; i++) {
-            for (int j = 1; j < countRectangleX ; j++) {
+            for (int j = 1; j < countRectangleX ; j++) { //Es werden zuerst die Reihen danach die Anzahl der X definiert.
                 System.out.print(text);
 
             }
