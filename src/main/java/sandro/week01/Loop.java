@@ -18,17 +18,14 @@ public class Loop {
         return result;
     }
     public static void loopinclusiv(int start, int end){
-//Task1
-        System.out.println("Loop Inclusiv 10");
-        // Schleife
+        System.out.println("Loop Inclusiv 10");                         // Schleife
         for (int i = start; i <= end; i = i + 1) {
             System.out.println(i);
         }
 
         System.out.println();
 
-        // Schleife (while)
-        System.out.println("Loop Inclusiv 10 with while Function");
+        System.out.println("Loop Inclusiv 10 with while Function");     // Schleife (while)
         int k = start;
         while (k <= end) {
             System.out.println(k);
@@ -38,9 +35,7 @@ public class Loop {
         System.out.println();}
 
     public static void loopexclusiv(int start, int end){
-//Task2
-        System.out.println("Loop Exclusiv 10");
-        // Schleife (exclude 10)
+        System.out.println("Loop Exclusiv 10");                           // Schleife (exclude 10)
         for (int i = start; i < end; i = i + 1) {
             System.out.println(i);
         }
@@ -48,11 +43,8 @@ public class Loop {
         System.out.println();}
 
     public static void loopmodular(int start, int end){
-//Task3
-        System.out.println("Loop with Modular Operation");
-        // Schleife (nur gerade)
+        System.out.println("Loop with Modular Operation");                // Schleife (nur gerade)
         for (int i = start; i <= end; i = i + 1) {
-
             if (i % 2 == 0) {
                 System.out.println(i);
             }
@@ -61,10 +53,8 @@ public class Loop {
 
         System.out.println();}
 
-    public static void looprewind(int start, int end){
-//Task4
+    public static void looprewind(int start, int end){                  // Schleife (Rückwerts)
         System.out.println("Loop Rewind");
-        // Schleife (Rückwerts)
         for (int i = start; i >= end; i = i - 1) {
             System.out.println(i);}
         }
