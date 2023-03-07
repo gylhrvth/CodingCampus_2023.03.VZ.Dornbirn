@@ -17,6 +17,12 @@ public class Strukturiertes_Prog {
         System.out.println("Aufgabe: printRectangle");
         printRectangle("x", 5, 3);
 
+        System.out.println();
+        System.out.println();
+
+        System.out.println("Aufgabe: printTriangle");
+        printTriangle("x", 5);
+
     }
 
     public static void printChars(String text, int count) {
@@ -46,6 +52,16 @@ public class Strukturiertes_Prog {
             }
             System.out.println(text);
         }
+    }
+
+    public static void printTriangle(String text, int Steigung){
+        for (int i = 1; i <= Steigung; i++) {
+            for (int j = Steigung; j <= Steigung; j++) {
+                System.out.print(text);
+            }
+            System.out.println();
+        }
+
     }
 
 
