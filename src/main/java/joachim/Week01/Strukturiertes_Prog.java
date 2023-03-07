@@ -29,6 +29,17 @@ public class Strukturiertes_Prog {
         System.out.println("Aufgabe: printTriangle2");
         printTriangle2("x", 6);
 
+        System.out.println();
+        System.out.println();
+
+        System.out.println("Aufgabe: printTriangle3");
+        printTriangle3("x", 8);
+        System.out.println();
+        System.out.println();
+
+        System.out.println("Aufgabe: printTriangle4");
+        printTriangle4("x", 8);
+
     }
 
     public static void printChars(String text, int count) {
@@ -50,9 +61,9 @@ public class Strukturiertes_Prog {
 
     }
 
-    public static void printRectangle(String text, int countRectangleX, int countRectangleY){
-        for (int i = 1; i <= countRectangleY ; i++) {
-            for (int j = 1; j < countRectangleX ; j++) { //Es werden zuerst die Reihen danach die Anzahl der X definiert.
+    public static void printRectangle(String text, int countRectangleX, int countRectangleY) {
+        for (int i = 1; i <= countRectangleY; i++) {
+            for (int j = 1; j < countRectangleX; j++) { //Es werden zuerst die Reihen danach die Anzahl der X definiert.
                 System.out.print(text);
 
             }
@@ -60,7 +71,7 @@ public class Strukturiertes_Prog {
         }
     }
 
-    public static void printTriangle(String text, int steigung){
+    public static void printTriangle(String text, int steigung) {
         for (int i = 0; i < steigung; i++) {
             for (int j = 0; j <= i; j++) {
                 System.out.print(text);
@@ -70,7 +81,7 @@ public class Strukturiertes_Prog {
 
     }
 
-    public static void printTriangle2(String text, int steigung){
+    public static void printTriangle2(String text, int steigung) {
         for (int i = steigung; i > 0; i--) {
             for (int j = 1; j <= i; j++) {
                 System.out.print(text);
@@ -80,10 +91,38 @@ public class Strukturiertes_Prog {
 
     }
 
+    public static void printTriangle3(String text, int steigung) {
+        for (int i = 1; i <= steigung; i++) {
+            for (int j = 1; j <= steigung; j++) {
+                if (i  > j)
+                    System.out.print(" ");
+                else {
+                    System.out.print(text);
+                }
+            }
+            System.out.println();
+        }
+    }
 
-
-
+    public static void printTriangle4(String text, int steigung) {
+        for (int i = 1; i <= steigung; i++) {
+            for (int j = 1; j <= steigung; j++) {
+                if (i  > j)
+                    System.out.print(".");
+                else {
+                    System.out.print(text);
+                }
+            }
+            System.out.println();
+        }
+    }
 
 }
+
+
+
+
+
+
 
 
