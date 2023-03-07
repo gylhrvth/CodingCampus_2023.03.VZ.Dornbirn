@@ -26,8 +26,8 @@ public class Strukturiertes_Prog {
         System.out.println();
         System.out.println();
 
-        System.out.println("Aufgabe: printTriangle");
-        printTriangle2("x", 5);
+        System.out.println("Aufgabe: printTriangle2");
+        printTriangle2("x", 6);
 
     }
 
@@ -62,7 +62,7 @@ public class Strukturiertes_Prog {
 
     public static void printTriangle(String text, int steigung){
         for (int i = 0; i < steigung; i++) {
-            for (int j = steigung; j <= steigung +i; j++) {
+            for (int j = 0; j <= i; j++) {
                 System.out.print(text);
             }
             System.out.println();
@@ -71,8 +71,8 @@ public class Strukturiertes_Prog {
     }
 
     public static void printTriangle2(String text, int steigung){
-        for (int i = steigung - 1; i >= 0; i--) {
-            for (int j = steigung; j <= steigung +i; j++) {
+        for (int i = steigung; i > 0; i--) {
+            for (int j = 1; j <= i; j++) {
                 System.out.print(text);
             }
             System.out.println();
