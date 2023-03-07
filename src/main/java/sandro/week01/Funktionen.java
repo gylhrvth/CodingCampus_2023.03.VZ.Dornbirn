@@ -11,7 +11,7 @@ public class Funktionen {
         printTriangleTopLeft("E ", 5);
         printTriangleTopRight("F ", 5);
         printTriangleBottomRight("G ", 5);
-        printEmptySpquare();
+        printEmptySpquare("H ", 10);
     }
 
     public static void printchars(String text, int count) {
@@ -103,5 +103,31 @@ public class Funktionen {
             System.out.println();
         }
         System.out.println();                                                           //Zeilenumbruch
+    }
+    public static void printEmptySpquare (String text, int count){
+        for (int i = 0; i < count; i++) {
+            for (int j = 0; j < count; j++) {
+                if (i == 0) {
+                    System.out.print("A ");
+                } else if (j == 0) {
+                    System.out.print("B ");
+                } else if (i == count -1) {
+                    System.out.print("C ");
+                } else if (j == count -1) {
+                    System.out.print("D ");
+                } else if (i == 1) {
+                    System.out.print("+ ");
+                } else if (j == 1) {
+                    System.out.print("* ");
+                } else if (i == count -1 - 1) {
+                    System.out.print("/ ");
+                } else if (j == count -1 - 1) {
+                    System.out.print("% ");
+                } else {
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
     }
 }
