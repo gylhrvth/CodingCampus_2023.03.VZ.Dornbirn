@@ -91,7 +91,7 @@ public class Strukturiertes_Prog {
 
     }
 
-    public static void printTriangle3(String text, int steigung) {
+    public static void printTriangle3(String text, int steigung) { //Gundsätzlich ein Viereck aber X werden mit einem Leerfeld getauscht
         for (int i = 1; i <= steigung; i++) {
             for (int j = 1; j <= steigung; j++) {
                 if (i  > j)
