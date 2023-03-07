@@ -3,7 +3,7 @@ package joachim.Week01;
 public class Funktionen {
     public static void main(String[] args) {
 
-        int maxValue = meinMax(10, -5);
+        int maxValue = meinMax(15, -5);
 
         int start = 0;
         int altend = -10;
@@ -22,19 +22,19 @@ public class Funktionen {
 
         return result;}
 
-    public static void zahlenfor(int start, int end) {
+    public static void zahlenfor(int start, int maxValue) {
 
         System.out.println("Zaehlen for");
-        for (int i = start; i <= end; i++) {
+        for (int i = start; i <= maxValue; i++) {
             System.out.println("i: " + i);
         }
     }
 
 
-    public static void zahlenwhile(int start, int end) {
+    public static void zahlenwhile(int start, int maxValue) {
         System.out.println("Zaehlen while");
         int k = start;
-        while (k <= end) {
+        while (k <= maxValue) {
 
             System.out.println("k: " + k);
             k += 1;
@@ -42,9 +42,9 @@ public class Funktionen {
     }
 
 
-    public static void zahlentrick(int start, int end) {
+    public static void zahlentrick(int start, int maxValue) {
         System.out.println("Zaehlen Trick");
-        for (int i = start; i <= end; i += 1) {
+        for (int i = start; i <= maxValue; i += 1) {
             if (i % 2 < 1) {
                 System.out.println(i);
             }
@@ -52,10 +52,10 @@ public class Funktionen {
     }
 
 
-    public static void zahlenrewind(int altstart, int altend) {
+    public static void zahlenrewind(int maxValue, int altend) {
 
         System.out.println("Zaehlen rewind");
-        for (int j = altstart; j >= altend; j = j - 1) {
+        for (int j = maxValue; j >= altend; j = j - 1) {
             System.out.println("j: " + j);
         }
 
