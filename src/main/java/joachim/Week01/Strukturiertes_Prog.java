@@ -2,28 +2,32 @@ package joachim.Week01;
 
 public class Strukturiertes_Prog {
     public static void main(String[] args) {
-        printChars("x", 10);
+//        printChars("x", 10);
+//
+//
+//        printSquare("x", 5);
+//
+//
+//        printRectangle("x", 5, 3);
+//
+//
+//        printTriangle("x", 5);
+//
+//
+//        printTriangle2("x", 6);
+//
+//
+//        printTriangle3("x", 8);
+//
+//
+//        printTriangle4("x", 8);
+//
+//
+//        printSquare2("x", 8);
 
+        printSlash("x ", 3, true);
+        printSlash("y ", 7, false);
 
-        printSquare("x", 5);
-
-
-        printRectangle("x", 5, 3);
-
-
-        printTriangle("x", 5);
-
-
-        printTriangle2("x", 6);
-
-
-        printTriangle3("x", 8);
-
-
-        printTriangle4("x", 8);
-
-
-        printSquare2("x", 8);
 
     }
 
@@ -120,6 +124,31 @@ public class Strukturiertes_Prog {
                 } else {
                     System.out.print(". ");
 
+                }
+
+            }
+            System.out.println();
+
+        }
+    }
+
+    public static void printSlash(String text, int laenge, boolean richtung){
+        System.out.println("Aufgabe: Slash");
+        for (int i = 0; i < laenge; i++) {
+            for (int j = 0; j < laenge; j++) {
+                if (richtung){
+                    if(i == j){
+                        System.out.print(text);
+                    }else{
+                        System.out.print(". ");
+                    }
+                }
+                else {
+                    if(i + j == laenge - 1){
+                        System.out.print(text);
+                    }else{
+                        System.out.print(". ");
+                    }
                 }
 
             }
