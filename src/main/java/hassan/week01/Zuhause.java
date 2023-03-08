@@ -4,7 +4,7 @@ public class Zuhause {
 
     public static void main(String[] args) {
         System.out.println("=== Zuhause ===");
-        dreieck("X",3);
+        dreieck("A",3);
 
     }
     public static void dreieck(String text, int count) {
