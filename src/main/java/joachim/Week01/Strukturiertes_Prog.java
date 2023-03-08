@@ -85,7 +85,7 @@ public class Strukturiertes_Prog {
         System.out.println("Aufgabe: printTriangle3");
         for (int i = 1; i <= steigung; i++) {
             for (int j = 1; j <= steigung; j++) {
-                if (i  > j)
+                if (i > j)
                     System.out.print(" ");
                 else {
                     System.out.print(text);
@@ -97,31 +97,36 @@ public class Strukturiertes_Prog {
 
     public static void printTriangle4(String text, int steigung) {
         System.out.println("Aufgabe: printTriangle4");
-        for (int i = 1; i <= steigung; i++) {
-            for (int j = 1; j <= steigung; j++) {
-                if (i  > j)
-                    System.out.print(".");
-                else {
+        for (int i = 0; i <= steigung; i++) {
+            for (int j = 0; j <= steigung; j++) {
+                if (i + j >= steigung)
                     System.out.print(text);
+                else {
+                    System.out.print(".");
                 }
             }
             System.out.println();
         }
     }
-    public static void printSquare2(String text, int groesse){
+
+    public static void printSquare2(String text, int groesse) {
         System.out.println("Aufgabe: printSquare2");
-        for (int i = 0; i < groesse; i++) {
-            for (int j = 0; j < groesse; j++) {
-                System.out.print("A");
-                if(i == 0 || i == j){
-                    System.out.print(".");
+        for (int i = 1; i < groesse; i++) {
+            for (int j = 1; j < groesse; j++) {
+                if (i == 1 || j == groesse) {
+                    System.out.print("A ");
+                } else if (j == 1 || i == groesse) {
+                    System.out.print("B ");
+                } else {
+                    System.out.print(". ");
+
                 }
 
             }
             System.out.println();
 
         }
-}
+    }
 }
 
 
