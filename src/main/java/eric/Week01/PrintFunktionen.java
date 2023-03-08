@@ -10,6 +10,12 @@ public class PrintFunktionen {
         printTriangleTopRight("x", 5);
         printTriangleBottomRight("x", 5);
         printEmptySquare("x", 10);
+        printTinySquare("A", 3);
+        printSlash("x", 3, true);
+        printSlashUp("y", 4, false);
+        printTriangle("x", 6);
+        printRhombus("x", 7);
+        //printX("x" , 7);
     }
 
     //X wird 10 mal in einer Reihe angezeigt (print)
@@ -30,16 +36,18 @@ public class PrintFunktionen {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     //X wird 10 in mal in der Selben Reihe und 3 Zeilen nach unten angezeigt
-    public static void printRect(String text, int count, int row){
-        for (int i = 1; i <= row; i++) {
+    public static void printRect(String text, int count, int row) {
+        for (int i = 0; i < row; i++) {
             for (int j = 0; j < count; j++) {
                 System.out.print(text);
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     //X wird in einem dreieck Geprinted von links unten
@@ -49,14 +57,16 @@ public class PrintFunktionen {
         xxx
         xxxx
      */
-    public static void printTriangleBottomLeft(String text, int row){
+    public static void printTriangleBottomLeft(String text, int row) {
         for (int i = 0; i < row; i++) {
-            System.out.println();
+            System.out.print("");
             for (int j = 0; j <= i; j++) {
                 System.out.print(text);
 
             }
+            System.out.println();
         }
+        System.out.println();
     }
 
     //X wird in einem dreieck von rechts oben Geprinted
@@ -67,13 +77,14 @@ public class PrintFunktionen {
         xx
         x
      */
-    public static void printTriangleTopLeft(String text, int row){
+    public static void printTriangleTopLeft(String text, int row) {
         for (int i = 0; i < row; i++) {
-            System.out.println();
+            System.out.println("");
             for (int j = row; j > i; j--) {
                 System.out.print(text);
             }
         }
+        System.out.println();
     }
 
     //X wird mit einem IF Statement in einem Dreieck von Rechts oben Geprinted
@@ -84,17 +95,18 @@ public class PrintFunktionen {
            xx
             x
      */
-    public static void printTriangleTopRight(String text, int row){
+    public static void printTriangleTopRight(String text, int row) {
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < row; j++) {
-                if (j >= i){
+                if (j >= i) {
                     System.out.print(text);
-                } else{
+                } else {
                     System.out.print(" ");
                 }
             }
             System.out.println();
         }
+
     }
 
     //X wird als Dreieck von rechts unten Geprinted
@@ -111,85 +123,163 @@ public class PrintFunktionen {
              xxxxx
      */
     public static void printTriangleBottomRight(String text, int row) {
-        for (int i = 1; i <= row; i++) {
+        for (int i = 0; i < row; i++) {
             for (int j = 0; j < row - i; j++) {
-                System.out.print(" ");
+                System.out.print("");
             }
-                for (int f = 0; f < i; f++) {
-                    System.out.print(text);
-                }
-                System.out.println();
-            }
-        }
-
-
-
-    /*public static void printEmptySquare(String text, int row) {
-        for (int i = 0; i < row; i++) {
-            System.out.print(text);
-        }
-
-        System.out.println();
-
-        for (int i = 0; i < row -2; i++) {
-            System.out.print(text + "        " + text);
-            for (int j = 0; j <= row -2; j++) {
-                System.out.print(" ");
-            }
-            System.out.println();
-        }
-
-        for (int i = 0; i < row; i++) {
-            System.out.print(text);
-        }
-        System.out.println();
-    }*/
-
-    public static void printEmptySquare(String text, int row) {
-        for (int i = 0; i < row; i++) {
-            System.out.print(text);
-        }
-        System.out.println();
-
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < row; j++) {
-
-                    if (i >= j - 2) {
-                        System.out.print("y");
-                    } else if (j >= i) {
-                        System.out.print(".");
-                    } else if (i == j - 2) {
-                        System.out.print(text);
-                    } else if (j == i) {
-                        System.out.print("c");
-                    }
-
-
-
-            }
-        }
-
-            System.out.println();
-            for (int i = 0; i < row; i++) {
+            for (int f = 0; f < i; f++) {
                 System.out.print(text);
             }
             System.out.println();
         }
+        System.out.println();
+    }
 
-}
-
-
-
-
-    /*public static void (String text, int row) {
+    public static void printEmptySquare(String text, int row) {
         for (int i = 0; i < row; i++) {
-            for (int j = 0; j <= row - i; j++) {
-                if (i <= j) {
+            for (int j = 0; j < row; j++) {
+
+                if (i == 0) {
+                    System.out.print("A");
+                } else if (j == 0) {
+                    System.out.print("B");
+                } else if (i == row - 1) {
+                    System.out.print("C");
+                } else if (j == row - 1) {
+                    System.out.print("C");
+                } else {
+                    System.out.print(".");
+                }
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    public static void printTinySquare(String text, int row) {
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < row; j++) {
+
+                if (i == 0) {
+                    System.out.print(text);
+                } else if (j == 0) {
+                    System.out.print(text);
+                } else if (i == row - 1) {
+                    System.out.print(text);
+                } else if (j == row - 1) {
                     System.out.print(text);
                 } else {
-                    System.out.print(" ");
+                    System.out.print(".");
+                }
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    public static void printSlashRightDown(String text, int row) {
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < row; j++) {
+                if (i == j) {
+                    System.out.print("A");
+                } else {
+                    System.out.print(".");
+                }
+            }
+            System.out.println();
+        }
+
+    }
+
+    public static void printSlashRightUp(String text, int row) {
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < row - 1; j++) {
+                if (i == j) {
+                    System.out.print("B");
+                } else {
+                    System.out.print(".");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printSlash(String text, int row, boolean direction) {
+        if (direction) {
+            printSlashRightDown(text, row);
+        } else {
+            printSlashRightUp(text, row);
+        }
+        System.out.println();
+    }
+
+    public static void printSlashUp(String text, int row, boolean direction) {
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < row; j++) {
+                if ((direction && (i == j) || (!direction && (i + j == row - 1)))) {
+                    System.out.print("B");
+                } else {
+                    System.out.print(".");
+                }
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    public static void printTriangle(String text, int row) {
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < row - i - 1; j++) {
+                System.out.print(".");
+            }
+            System.out.print(text);
+            for (int f = 0; f < 2 * i - 1; f++) {
+                if (i == row - 1) {
+                    System.out.print(text);
+                } else {
+                    System.out.print(".");
+                }
+
+            }
+            if (i > 0) {
+                System.out.print(text);
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    public static void printRhombus(String text, int row) {
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < row; j++) {
+                if (i + j == row + 2){
+                    System.out.print("+");
+                } else if (i - j == row *2 -1){
+                    System.out.print("*");
+                } else {
+                    System.out.print("");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+
+
+
+
+
+    /*public static void printX(String text, int row) {
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < row; j++) {
+                if (i == j || i + j == row -1){
+                    System.out.print(text);
+                } else {
+                    System.out.print(".");
                 }
             }
             System.out.println();
         }
     }*/
+}
+
