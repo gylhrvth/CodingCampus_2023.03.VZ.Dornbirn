@@ -111,11 +111,11 @@ public class Strukturiertes_Prog {
 
     public static void printSquare2(String text, int groesse) {
         System.out.println("Aufgabe: printSquare2");
-        for (int i = 1; i < groesse; i++) {
-            for (int j = 1; j < groesse; j++) {
-                if (i == 1 || j == groesse) {
+        for (int i = 0; i <= groesse; i++) {
+            for (int j = 0; j <= groesse; j++) {
+                if (i == 0 || j == groesse) {
                     System.out.print("A ");
-                } else if (j == 1 || i == groesse) {
+                } else if (j == 0 || i == groesse) {
                     System.out.print("B ");
                 } else {
                     System.out.print(". ");
