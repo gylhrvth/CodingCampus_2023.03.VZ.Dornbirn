@@ -25,6 +25,8 @@ public class Strukturiertes_Prog {
 
         printSquare2("x", 8);
 
+        printSlash()
+
     }
 
     public static void printChars(String text, int count) {
@@ -126,6 +128,10 @@ public class Strukturiertes_Prog {
             System.out.println();
 
         }
+    }
+
+    public static void printSlash(String text, int laenge, boolean richtiung){
+
     }
 }
 
