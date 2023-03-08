@@ -11,9 +11,11 @@ public class Loops {
     }
 
     public static int meinMax(int a, int b){
-        int result = b;
+        int result = 0;
         if (a > b){
             result = a;
+        } else {
+            result = b;
         }
 
         return result;
