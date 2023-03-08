@@ -3,10 +3,11 @@ package hassan.week01;
 public class Zuhause {
 
     public static void main(String[] args) {
-        Dreieck("X",3);
+        System.out.println("=== Zuhause ===");
+        dreieck("X",3);
 
     }
-    public static void Dreieck (String text,int count) {
+    public static void dreieck(String text, int count) {
         for (int i = 1; i <= count; i++) {
 
             // Schleife für die Spalten
