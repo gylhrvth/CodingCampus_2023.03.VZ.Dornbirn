@@ -2,47 +2,33 @@ package joachim.Week01;
 
 public class Strukturiertes_Prog {
     public static void main(String[] args) {
-        System.out.println("Aufgabe: printChars");
         printChars("x", 10);
 
-        System.out.println();
-        System.out.println();
 
-        System.out.println("Aufgabe: printSquare");
         printSquare("x", 5);
 
-        System.out.println();
-        System.out.println();
 
-        System.out.println("Aufgabe: printRectangle");
         printRectangle("x", 5, 3);
 
-        System.out.println();
-        System.out.println();
 
-        System.out.println("Aufgabe: printTriangle");
         printTriangle("x", 5);
 
-        System.out.println();
-        System.out.println();
 
-        System.out.println("Aufgabe: printTriangle2");
         printTriangle2("x", 6);
 
-        System.out.println();
-        System.out.println();
 
-        System.out.println("Aufgabe: printTriangle3");
         printTriangle3("x", 8);
-        System.out.println();
-        System.out.println();
 
-        System.out.println("Aufgabe: printTriangle4");
+
         printTriangle4("x", 8);
+
+
+        printSquare2("x", 8);
 
     }
 
     public static void printChars(String text, int count) {
+        System.out.println("Aufgabe: printChars");
         for (int i = 1; i <= count; i++) {
             System.out.print(text);
 
@@ -51,6 +37,7 @@ public class Strukturiertes_Prog {
     }
 
     public static void printSquare(String text, int countSquare) {
+        System.out.println("Aufgabe: printSquare");
         for (int i = 1; i <= countSquare; i++) {
             for (int j = 1; j <= countSquare; j++) {
                 System.out.print(text);
@@ -62,6 +49,7 @@ public class Strukturiertes_Prog {
     }
 
     public static void printRectangle(String text, int countRectangleX, int countRectangleY) {
+        System.out.println("Aufgabe: printRectangle");
         for (int i = 1; i <= countRectangleY; i++) {
             for (int j = 1; j < countRectangleX; j++) { //Es werden zuerst die Reihen danach die Anzahl der X definiert.
                 System.out.print(text);
@@ -72,6 +60,7 @@ public class Strukturiertes_Prog {
     }
 
     public static void printTriangle(String text, int steigung) {
+        System.out.println("Aufgabe: printTriangle");
         for (int i = 0; i < steigung; i++) {
             for (int j = 0; j <= i; j++) {
                 System.out.print(text);
@@ -82,6 +71,7 @@ public class Strukturiertes_Prog {
     }
 
     public static void printTriangle2(String text, int steigung) {
+        System.out.println("Aufgabe: printTriangle2");
         for (int i = steigung; i > 0; i--) {
             for (int j = 1; j <= i; j++) {
                 System.out.print(text);
@@ -91,10 +81,11 @@ public class Strukturiertes_Prog {
 
     }
 
-    public static void printTriangle3(String text, int steigung) {
+    public static void printTriangle3(String text, int steigung) { //Gundsätzlich ein Viereck aber X werden mit einem Leerfeld getauscht
+        System.out.println("Aufgabe: printTriangle3");
         for (int i = 1; i <= steigung; i++) {
             for (int j = 1; j <= steigung; j++) {
-                if (i  > j)
+                if (i > j)
                     System.out.print(" ");
                 else {
                     System.out.print(text);
@@ -105,18 +96,37 @@ public class Strukturiertes_Prog {
     }
 
     public static void printTriangle4(String text, int steigung) {
-        for (int i = 1; i <= steigung; i++) {
-            for (int j = 1; j <= steigung; j++) {
-                if (i  > j)
-                    System.out.print(".");
-                else {
+        System.out.println("Aufgabe: printTriangle4");
+        for (int i = 0; i <= steigung; i++) {
+            for (int j = 0; j <= steigung; j++) {
+                if (i + j >= steigung)
                     System.out.print(text);
+                else {
+                    System.out.print(".");
                 }
             }
             System.out.println();
         }
     }
 
+    public static void printSquare2(String text, int groesse) {
+        System.out.println("Aufgabe: printSquare2");
+        for (int i = 0; i <= groesse; i++) {
+            for (int j = 0; j <= groesse; j++) {
+                if (i == 0 || j == groesse) {
+                    System.out.print("A ");
+                } else if (j == 0 || i == groesse) {
+                    System.out.print("B ");
+                } else {
+                    System.out.print(". ");
+
+                }
+
+            }
+            System.out.println();
+
+        }
+    }
 }
 
 

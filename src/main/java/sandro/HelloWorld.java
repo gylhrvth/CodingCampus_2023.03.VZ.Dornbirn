@@ -1,4 +1,4 @@
-package sandro.week01;
+package sandro;
 
 public class HelloWorld {
     public static void main(String[] args) {
