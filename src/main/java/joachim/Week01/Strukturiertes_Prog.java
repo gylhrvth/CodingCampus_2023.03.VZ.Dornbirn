@@ -13,7 +13,7 @@ public class Strukturiertes_Prog {
 //        printSlash("x ", 3, true);
 //        printSlash("y ", 7, false);
 
-        printtriangleCenter("x", 7);
+        printtriangleCenter("x ", 7);
 
 
     }
@@ -146,18 +146,19 @@ public class Strukturiertes_Prog {
     public static void printtriangleCenter(String text, int groesse) {
         System.out.println("Aufgabe: triangleCenter");
         for (int i = 0; i < groesse; i++) {
-            for (int j = 0; j < 2 * groesse; j++) {
-                if (i + j >= groesse -1) {
-                    if (j < groesse +i)
-                    System.out.print(text);
+            for (int j = 0; j < 2 * groesse - 1; j++) {
+                    if ((i + j == groesse - 1) || (j == groesse + i - 1) || (i == groesse - 1)) {
+                        System.out.print(text);
+                    } else {
+                        System.out.print(". ");
+                    }
                 }
-
-            } System.out.println();
+            System.out.println();
         }
-
-
     }
 }
+
+
 
 
 
