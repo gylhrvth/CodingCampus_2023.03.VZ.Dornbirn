@@ -22,5 +22,8 @@ public class Aufgabe1 {
         System.out.println("|  ________  |     / =====\\           ______                                ");
         System.out.println("|  |      |  |    /        \\                |                               ");
         System.out.println("|  |      |  |   /          \\        ______ |                               ");
+
+
+
     }
 }
