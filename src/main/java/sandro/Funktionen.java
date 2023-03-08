@@ -4,17 +4,21 @@ import org.w3c.dom.ls.LSOutput;
 
 public class Funktionen {
     public static void main(String[] args) {
-        printchars("A ", 10);
-        printsquare("B ", 10);
-        printrect("C ", 10, 3);
-        printTriangleBottomLeft("D ", 4);
-        printTriangleTopLeft("E ", 5);
-        printTriangleTopRight("F ", 5);
-        printTriangleBottomRight("G ", 5);
-        printEmptySpquare1("H ", 10);
-        printEmptySpquare2("I ", 3);
-        printSlash1("J ", 3, true);
-        printSlash2("text", 4, false);
+//        printchars("A ", 10);
+//        printsquare("B ", 10);
+//        printrect("C ", 10, 3);
+//        printTriangleBottomLeft("D ", 5);
+//        printTriangleTopLeft("E ", 5);
+//        printTriangleTopRight("F ", 5);
+//        printTriangleBottomRight("G ", 5);
+//        printEmptySpquare1("H ", 10);
+//        printEmptySpquare2("I ", 3);
+//        printSlash1("J ", 3, true);
+//        printSlash2("K", 4, false);
+//        printTriangle1("L ", 3);
+//        printTriangle2("M ", 5);
+//        printRhombus("N ", 7);
+        printRhombus2("N ", 8);
     }
 
     public static void printchars(String text, int count) {
@@ -199,6 +203,7 @@ public class Funktionen {
             }
             System.out.println();
         }
+        System.out.println();                                                           //Zeilenumbruch
     }
     public static void SlashLeftTop (String text, int count){
         for (int i = 0; i < count; i++) {
@@ -211,13 +216,76 @@ public class Funktionen {
             }
             System.out.println();
         }
+        System.out.println();                                                           //Zeilenumbruch
     }
 
 
-
-
-
-    public static void printSlash2 (String text, int count, boolean backslash){
-        if (backslash)
+    public static void printSlash2 (String text, int count, boolean backslash) {
+        if (backslash) {
+            SlashRightTop(text, count);
+        } else {
+                SlashLeftTop(text, count);
+        }
+        System.out.println();                                                           //Zeilenumbruch
     }
+
+    public static void printTriangle1 (String text, int count) {
+        for (int i = 0; i < count; i++) {
+            for (int j = 0; j < 2 * count -1 ; j++) {
+                if ((i + j == count -1) || (j == count + i -1)|| (i == count-1)) {
+                    System.out.print(text);
+                } else {
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+        System.out.println();                                                           //Zeilenumbruch
+    }
+    public static void printTriangle2 (String text, int count) {
+        for (int i = 0; i < count; i++) {
+            for (int j = 0; j < 2 * count -1 ; j++) {
+                if ((i + j == count -1) || (j == count + i -1)|| (i == count-1)) {
+                    System.out.print(text);
+                } else {
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+        System.out.println();                                                           //Zeilenumbruch
+    }
+    public static void printRhombus (String text, int count){
+        for (int i = 0; i < count; i++) {
+            for (int j = 0; j < count; j++) {
+                if (( i + j == count - 4 ) || ( i == j )) {
+                    System.out.print(text);
+                } else {
+                    System.out.print(". ");}
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+    public static void printRhombus2 (String text, int count) {
+        count = count / 2 + count % 2;
+        for (int i = 0; i < 2 * count - 1; i++) {
+            for (int j = 0; j < 2 * count -1 ; j++) {
+                if (i + j == count -1) {
+                    System.out.print(text);
+                }else if (j == count + i - 1) {
+                    System.out.print(text);
+                }else if (j == i -count +1 ) {
+                    System.out.print("T ");
+                }else if (i + j == 3 * (count - 1)) {
+                    System.out.print("o ");
+                } else {
+                    System.out.print(". ");
+                }
+            }
+            System.out.println();
+        }
+        System.out.println();                                                           //Zeilenumbruch
+    }
+
 }
