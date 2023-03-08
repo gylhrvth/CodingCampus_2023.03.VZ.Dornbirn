@@ -12,6 +12,7 @@ public class MethodenSchleifen {
         printEmptySquare("G ", 3);
         printSlash("H ", 5, true);
         printSlash("H ", 3, false);
+        printTriangle("I",3);
     }
 
     public static void printChars(String text, int count) {
@@ -150,6 +151,13 @@ public class MethodenSchleifen {
 
     public static void printTriangle(String text, int count){
         System.out.println("Triangle");
+        for (int i = 0; i < count; i++) {
+            for (int j = 0; j < count; j++) {
+
+
+            }
+
+        }
     }
 
 }
