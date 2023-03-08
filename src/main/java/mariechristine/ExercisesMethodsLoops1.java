@@ -14,6 +14,7 @@ public class ExercisesMethodsLoops1 {
         printEmptySquare("F ", 10);
         printEmptySquareA("A", 3);
         printSlash("X", 3, true );
+        printSlashA("Y ", 4, false);
     }
 
     public static void printChars(String text, int count) {
@@ -100,6 +101,7 @@ public class ExercisesMethodsLoops1 {
 
 
     public static void printEmptySquare(String text, int size) {
+        System.out.println("Aufgabe: Print Empty Square");
         // Erste Zeile
         printCharsWOLineBreak(text, size);
         System.out.println();
@@ -115,11 +117,12 @@ public class ExercisesMethodsLoops1 {
         // Letze Zeile
         printCharsWOLineBreak(text, size);
         System.out.println();
-
+        System.out.println();
 
     }
 
     public static void printEmptySquareA(String text, int count) {
+        System.out.println("Aufgabe: Print Empty SquareA");
         //Erste Zeile
         printCharsWOLineBreak(text, count);
         System.out.println();
@@ -136,15 +139,26 @@ public class ExercisesMethodsLoops1 {
         //Lezte Zeile
         printCharsWOLineBreak(text, count);
         System.out.println();
-
-        //Letzte Zeile
+        System.out.println();
 
     }
 
     public static void printSlash(String text, int count, boolean direction) {
+        System.out.println("Aufgabe: Print Slash");
+        System.out.println(text);
+        boolean test = (count == 3);
+        System.out.println("  " + text);
+        System.out.println("    " + text);
 
     }
 
+    public static void printSlashA(String text, int count, boolean direction) {
+        System.out.println("Aufgabe: Print SlashA");
+        System.out.println("      " + text);
+        System.out.println("    " + text);
+        System.out.println("  " + text);
+        System.out.println(text);
+    }
 
 }
 
