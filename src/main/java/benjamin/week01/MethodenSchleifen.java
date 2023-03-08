@@ -2,7 +2,7 @@ package benjamin.week01;
 
 public class MethodenSchleifen {
     public static void main(String[] args) {
-//        printChars("X ", 10);
+//       printChars("X ", 10);
 //        printSquare("A ", 10);
 //        printRect("B ", 10, 3);
 //        printTriangle1("C ", 4);
@@ -13,7 +13,7 @@ public class MethodenSchleifen {
 //        printSlash("H ", 5, true);
 //        printSlash("H ", 3, false);
 //        printTriangle("I ", 5);
-        printRhombus2("J ", 7);
+        printRhombus("J ", 7);
     }
 
     public static void printChars(String text, int count) {
@@ -163,32 +163,18 @@ public class MethodenSchleifen {
 
     }
 
-    public static void printRhomus(String text, int count) {
-        System.out.println("Rhombus");
-        for (int i = 0; i < count; i++) {
-            for (int j = 0; j < count ; j++) {
-                if (i + j >= count - 1) {
-                    System.out.print(text);
-                }else{
-                    System.out.print(". ");
-                }
-            }
-            System.out.println();
-        }
-    }
-
-    public static void printRhombus2(String text, int count) {
+    public static void printRhombus(String text, int count) {
         System.out.println("Rhombus 2");
         for (int i = 0; i < 2 * count - 1; i++) {
             for (int j = 0; j < 2 * count - 1; j++) {
                 if (i + j == count - 1) {
                     System.out.print(text);
                 }else if (j == count + i - 1) {
-                    System.out.print(text);
-                }else if (j == count + i - count - 6) {
+                    System.out.print("d ");
+                }else if (j == i -count + 1) {
                     System.out.print("o ");
-                }else if (i + j == count + 11) {
-                    System.out.print("o ");
+                }else if (i + j == 3*(count - 1)) {
+                    System.out.print("v ");
                 } else {
                     System.out.print(". ");
                 }
