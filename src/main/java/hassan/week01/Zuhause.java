@@ -8,6 +8,9 @@ public class Zuhause {
         RR(10,"X" );
         printRhombus(5,"X");
         xbild("X",5);
+        baum(9,3,3,(9 - 1)/2,1,"x");
+
+
     }
     public static void RR(int size, String Symbol) {   //Voller raute
         // Obere Teil
@@ -79,14 +82,38 @@ public class Zuhause {
         System.out.println();
     }
 
-    public static void xbild(String text, int count){
+    public static void xbild(String text, int count) {
         for (int i = 0; i < count; i++) {
             for (int j = 0; j < count; j++) {
-                if (i ==j || i + j == count - 1){
+                if (i == j || i + j == count - 1) {
                     System.out.print(text);
-                }else {
+                } else {
                     System.out.print(" ");
                 }
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    public static void baum(int breite, int stammb, int stammhoe,int leer,int stern ,String text){
+        for (int zeile = 1; zeile <=(breite+1)/2; zeile++) {
+            for (int leerspalte = 1; leerspalte <= leer ; leerspalte++) {
+                System.out.print(" ");
+            }
+            for (int sternch = 1; sternch <= stern ; sternch++) {
+                System.out.print(text);
+            }
+            leer--;
+            stern+=2;
+            System.out.println();
+        }
+        for (int stammzeile = 1; stammzeile <=stammhoe ; stammzeile++) {
+            for (int leerspalte = 1; leerspalte <=(breite - stammb)/2 ; leerspalte++) {
+                System.out.print(" ");
+            }
+            for (int t = 1; t <=stammb ; t++) {
+                System.out.print("T");
             }
             System.out.println();
         }
