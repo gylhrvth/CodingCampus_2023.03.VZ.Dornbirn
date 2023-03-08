@@ -4,12 +4,16 @@ import org.w3c.dom.Text;
 
 public class MethodenSchleifen {
     public static void main(String[] args) {
-        printChars("a ", 10);
-        printSquare("b", 10);
-        printrect("c", 3, 10);
-        printangle("d", 4);
-        printangletopleft("e", 5);
-        printangletopright("f", 5);
+//        printChars("a ", 10);
+//        printSquare("b", 10);
+//        printrect("c", 3, 10);
+//        printangle("d", 4);
+//        printangletopleft("e", 5);
+//        printangletopright("f", 5);
+//        printanglebottomright("g", 5);
+        printemptysquare2("x", 10);
+        printemptysquare2("A", 3);
+        printslash("x", 3);
     }
 
     public static void printChars(String Text, int count) {
@@ -66,19 +70,110 @@ public class MethodenSchleifen {
 
     public static void printangletopright(String Text, int count) {
         for (int i = 0; i < count; i++) {
-            System.out.println(Text);
             for (int j = 0; j < count; j++) {
-if (i == j)
-    System.out.println(Text);
-else
-    System.out.print(".");
+                if (j < i)
+                    System.out.print(" ");
+                else
+                    System.out.print(Text);
+
             }
             System.out.println();
         }
+        System.out.println();
 
     }
 
+
+    public static void printanglebottomright(String text, int count) {
+        for (int i = 0; i < count; i++) {
+            for (int j = 0; j < count; j++) {
+                if (i + j >= count - 1) {
+                    System.out.print(text);
+                } else {
+                    System.out.print(" ");
+                }
+
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    public static void printemptysquare(String text, int count) {
+        for (int i = 0; i < count; i++) {
+            System.out.print(text);
+
+        }
+        System.out.println();
+
+        for (int i = 0; i < count - 2; i++) {
+            System.out.print(text);
+
+            for (int j = 0; j < count - 2; j++) {
+                System.out.print(".");
+
+            }
+            System.out.println(text);
+        }
+        for (int i = 0; i < count; i++) {
+            System.out.print(text);
+
+        }
+        System.out.println();
+        System.out.println();
+    }
+
+    public static void printemptysquare2(String text, int count) {
+        // erste Zeile
+        for (int i = 0; i < count; i++) {
+            System.out.print(text);
+        }
+        System.out.println();
+
+        // mitte
+        for (int i = 0; i < count - 2; i++) {
+            System.out.print(text);
+            for (int j = 0; j < count - 2; j++) {
+                System.out.print(".");
+            }
+            System.out.print(text);
+            System.out.println();
+        }
+
+        //dritte Zeile
+        for (int i = 0; i < count; i++) {
+            System.out.print(text);
+        }
+        System.out.println();
+        System.out.println();
+    }
+
+    public static void printslash(String text, int count) {
+        for (int i = 0; i < count - 2; i++) {
+            System.out.print(text);
+            System.out.println();
+
+        }
+        for (int j = 0; j < count; j++) {
+            System.out.print(text);
+
+        }
+        System.out.println();
+
+        for (int i = 0; i < count; i++) {
+            if (i < 2)
+                System.out.println(".");
+            else
+                System.out.print(text);
+        }
+        System.out.println();
+    }
+
+
 }
+
+
+
 
 
 
