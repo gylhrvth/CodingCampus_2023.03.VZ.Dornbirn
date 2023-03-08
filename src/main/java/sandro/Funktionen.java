@@ -11,7 +11,10 @@ public class Funktionen {
         printTriangleTopLeft("E ", 5);
         printTriangleTopRight("F ", 5);
         printTriangleBottomRight("G ", 5);
-        printEmptySpquare("H ", 10);
+        printEmptySpquare1("H ", 10);
+        printEmptySpquare2("I ", 3);
+        printSlash1("J ", 3, true);
+        printSlash2("text", 4, false);
     }
 
     public static void printchars(String text, int count) {
@@ -104,7 +107,7 @@ public class Funktionen {
         }
         System.out.println();                                                           //Zeilenumbruch
     }
-    public static void printEmptySpquare (String text, int count){
+    public static void printEmptySpquare1 (String text, int count){
         for (int i = 0; i < count; i++) {
             for (int j = 0; j < count; j++) {
                 if (i == 0) {
@@ -129,5 +132,92 @@ public class Funktionen {
             }
             System.out.println();
         }
+        System.out.println();                                                           //Zeilenumbruch
+    }
+    public static void printEmptySpquare2 (String text, int count){
+        for (int i = 0; i < count; i++) {
+            for (int j = 0; j < count; j++) {
+                if (i == 0) {
+                    System.out.print("A ");
+                } else if (j == 0) {
+                    System.out.print("B ");
+                } else if (i == count -1) {
+                    System.out.print("C ");
+                } else if (j == count -1) {
+                    System.out.print("D ");
+                } else if (i == 1) {
+                    System.out.print("+ ");
+                } else if (j == 1) {
+                    System.out.print("* ");
+                } else if (i == count -1 - 1) {
+                    System.out.print("/ ");
+                } else if (j == count -1 - 1) {
+                    System.out.print("% ");
+                } else {
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+        System.out.println();                                                           //Zeilenumbruch
+    }
+    public static void printSlash1 (String text, int count, boolean backslash){
+        if (backslash == true) {
+            for (int i = 0; i < count; i++) {
+                for (int j = 0; j < count; j++) {
+                    if (i == j) {
+                        System.out.println(text);
+                    } else {
+                        System.out.print("  ");
+                    }
+                }
+                System.out.println();
+            }
+        }
+        else {
+            for (int i = 0; i < count; i++) {
+                for (int j = 0; j < count; j++) {
+                    if (i + j == count -1) {
+                        System.out.println(text);
+                    } else {
+                        System.out.print("  ");
+                    }
+                }
+                System.out.println();
+            }
+        }
+        System.out.println();                                                           //Zeilenumbruch
+    }
+    public static void SlashRightTop (String text, int count){
+        for (int i = 0; i < count; i++) {
+            for (int j = 0; j < count; j++) {
+                if (i == j) {
+                    System.out.println(text);
+                } else {
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+    }
+    public static void SlashLeftTop (String text, int count){
+        for (int i = 0; i < count; i++) {
+            for (int j = 0; j < count; j++) {
+                if (i + j == count -1) {
+                    System.out.println(text);
+                } else {
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+
+
+
+
+    public static void printSlash2 (String text, int count, boolean backslash){
+        if (backslash)
     }
 }
