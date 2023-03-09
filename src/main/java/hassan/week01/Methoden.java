@@ -5,19 +5,23 @@ import java.util.Arrays;
 public class Methoden {
     public static void main(String[] args) {
         printChars("x ", 10);
-        PrintSquare("x ",10);
+        PrintSquare("x ", 10);
         PrintRectangle("x ", 10, 3);
         PrintTriangle("x ", 4);
-        PrintTriangle2("x ",5);
-        PrintTriangle3("x ",5);
-        PrintTriangle4("x ",5);
-        PrintEmptysquare("x",10);
-        Printemptysquare2("A",3);
-        printslash("x",3,true);
-        printslash2("y",4,false);
-        printtriangle5("x",7);
+        PrintTriangle2("x ", 5);
+        PrintTriangle3("x ", 5);
+        PrintTriangle4("x ", 5);
+        PrintEmptysquare("x", 10);
+        Printemptysquare2("A", 3);
+        printslash("x", 3, true);
+        printslash2("y", 4, false);
+        printtriangle5("x", 7);
+        baum(20, 5, 3, (20 - 1) / 2, 1, "*");
 
 
+        for(int i = 10; i < 20; i++) {
+            baum(i);
+        }
     }
 
     public static void printChars(String text, int count) {
@@ -192,6 +196,34 @@ public class Methoden {
             System.out.println();
         }
         System.out.println();
+        System.out.println();
+    }
+
+    public static void baum(int breite) {
+        baum(breite, breite / 4, breite/4,(breite - 1) / 2,1,"*");
+    }
+    public static void baum(int breite, int stammb, int stammhoe, int leer, int stern, String text) {
+        for (int zeile = 1; zeile <= (breite + 1) / 2; zeile++) {
+            for (int leerspalte = 1; leerspalte <= leer; leerspalte++) { //abstaende
+                System.out.print(" ");
+            }
+            for (int sternch = 1; sternch <= stern; sternch++) { //text
+                System.out.print(text);
+            }
+            leer--; // abstaende weniger machen
+            stern = stern + 2; // sterne hinzufuegen
+            System.out.println();
+        }
+        for (int stammzeile = 1; stammzeile <= stammhoe; stammzeile++) { //abstaende stamm
+            for (int leerspalte = 1; leerspalte <= (breite - stammb) / 2; leerspalte++) {
+                System.out.print(" ");
+            }
+            for (int t = 1; t <= stammb; t++) {
+                System.out.print("T");
+            }
+            System.out.println();
+        }
+
     }
 }
 
