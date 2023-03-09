@@ -4,19 +4,19 @@ import java.util.Arrays;
 
 public class Methoden {
     public static void main(String[] args) {
-//        printChars("x ", 10);
-//        PrintSquare("x ",10);
-//        PrintRectangle("x ", 10, 3);
-//        PrintTriangle("x ", 4);
-//        PrintTriangle2("x ",5);
-//        PrintTriangle3("x ",5);
-//        PrintTriangle4("x ",5);
-//        PrintEmptysquare("x",10);
-//        Printemptysquare2("A",3);
-//        printslash("x",3,true);
-//        printslash2("y",4,false);
-        //       printtriangle5("x",7);
-        printRhombus("x", 7);
+        printChars("x ", 10);
+        PrintSquare("x ",10);
+        PrintRectangle("x ", 10, 3);
+        PrintTriangle("x ", 4);
+        PrintTriangle2("x ",5);
+        PrintTriangle3("x ",5);
+        PrintTriangle4("x ",5);
+        PrintEmptysquare("x",10);
+        Printemptysquare2("A",3);
+        printslash("x",3,true);
+        printslash2("y",4,false);
+        printtriangle5("x",7);
+
 
     }
 
@@ -96,7 +96,7 @@ public class Methoden {
     public static void PrintTriangle4(String text, int count) {
         System.out.println();
         System.out.println();
-        System.out.println("PrintTriangle4");
+        System.out.println("PrintTriangle!!!!");
         for (int i = 1; i <= count; i++) {
             for (int j = 0; j < count - i; j++) {
                 System.out.print(" ");
@@ -193,22 +193,7 @@ public class Methoden {
         }
         System.out.println();
     }
-
-    public static void printRhombus(String text, int count) {
-        System.out.println();
-        System.out.println();
-        System.out.println("printrhombus");
-        for (int i = 0; i < count; i++) {
-            for (int j = 0; j < count + i ; j++) {
-                System.out.print(" ");
-            }
-            for (int k = 0; k < count - i ; k++) {
-                System.out.print(text);
-            }
-            System.out.println();
-        }
-        System.out.println();
-    }
 }
+
 
 
