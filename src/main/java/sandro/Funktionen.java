@@ -20,7 +20,12 @@ public class Funktionen {
 //        printRhombus("N ", 7);
 //        printRhombus2("N ", 8);
 //        printX("O ", 5);
-        printChristmastree(30);
+        printChristmastree(15);
+
+        for (int j = 1; j <= 15; j++) {
+            printChristmastree(j);
+        }
+
     }
 
     public static void printchars(String text, int count) {
@@ -338,6 +343,7 @@ public class Funktionen {
             printTextLn(trunkX, "+");
 
         }
+
 
 
     }
