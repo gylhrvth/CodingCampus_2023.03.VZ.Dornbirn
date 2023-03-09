@@ -8,7 +8,7 @@ public class Zuhause {
         RR(10,"X" );
         printRhombus(5,"X");
         xbild("X",5);
-        baum(9,3,3,(9 - 1)/2,1,"x");
+        baum(20,5,5,(20 - 1)/2,1,"*");
 
 
     }
@@ -43,13 +43,13 @@ public class Zuhause {
     }
 
     public static void printRhombus(int size, String symbol) { // leere mitte
-        // Print the upper half of the rhombus
+        // oben
         for (int i = 1; i <= size; i++) {
             // Print spaces for the left half
             for (int j = size; j > i; j--) {
                 System.out.print(" ");
             }
-            // Print the symbol for the left half
+            // symbol links
             for (int j = 1; j <= i * 2 - 1; j++) {
                 if (j == 1 || j == i * 2 - 1 ) {
                     System.out.print(symbol + " ");
@@ -96,6 +96,9 @@ public class Zuhause {
         System.out.println();
     }
 
+
+
+
     public static void baum(int breite, int stammb, int stammhoe,int leer,int stern ,String text){
         for (int zeile = 1; zeile <=(breite+1)/2; zeile++) {
             for (int leerspalte = 1; leerspalte <= leer ; leerspalte++) {
@@ -105,7 +108,7 @@ public class Zuhause {
                 System.out.print(text);
             }
             leer--;
-            stern+=2;
+            stern= stern +2;
             System.out.println();
         }
         for (int stammzeile = 1; stammzeile <=stammhoe ; stammzeile++) {
