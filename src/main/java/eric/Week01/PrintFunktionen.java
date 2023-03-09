@@ -15,7 +15,10 @@ public class PrintFunktionen {
         printSlashUp("y", 4, false);
         printTriangle("x", 6);
         printRhombus("x", 7);
-        //printX("x" , 7);
+        printX("x" , 7);
+        printFullTriangle("*" , 9);
+        printChristmasTree(9);
+        christmasTreeBottom("+", 9);
     }
 
     //X wird 10 mal in einer Reihe angezeigt (print)
@@ -123,17 +126,16 @@ public class PrintFunktionen {
              xxxxx
      */
     public static void printTriangleBottomRight(String text, int row) {
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < row - i; j++) {
-                System.out.print("");
+            for (int i = 1; i <= row; i++) {
+                for (int j = 0; j < row - i; j++) {
+                    System.out.print(" ");
+                }
+                for (int k = 0; k < i; k++) {
+                    System.out.print(text);
+                }
+                System.out.println();
             }
-            for (int f = 0; f < i; f++) {
-                System.out.print(text);
-            }
-            System.out.println();
         }
-        System.out.println();
-    }
 
     public static void printEmptySquare(String text, int row) {
         for (int i = 0; i < row; i++) {
@@ -252,24 +254,23 @@ public class PrintFunktionen {
     public static void printRhombus(String text, int row) {
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < row; j++) {
-                if (i + j == row + 2){
-                    System.out.print("+");
-                } else if (i - j == row *2 -1){
-                    System.out.print("*");
+                if (i + j == row + 2) {
+                    System.out.print("A");
+                } else if (j - i == row - 4) {
+                    System.out.print("B");
+                } else if (i + j == row - 4){
+                    System.out.print("C");
+                } else if (i - j == row - 4){
+                    System.out.print("D");
                 } else {
-                    System.out.print("");
+                    System.out.print(" ");
                 }
             }
             System.out.println();
         }
     }
 
-
-
-
-
-
-    /*public static void printX(String text, int row) {
+    public static void printX(String text, int row) {
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < row; j++) {
                 if (i == j || i + j == row -1){
@@ -280,6 +281,41 @@ public class PrintFunktionen {
             }
             System.out.println();
         }
-    }*/
+        System.out.println();
+    }
+
+    public static void printFullTriangle(String text, int row){
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < row - i - 1; j++) {
+                System.out.print(".");
+            }
+            System.out.print(text);
+            for (int f = 0; f < 2 * i - 1; f++) {
+                if (i == row - 1) {
+                    System.out.print(text);
+                } else {
+                    System.out.print(text);
+                }
+
+            }
+            if (i > 0) {
+                System.out.print(text);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void christmasTreeBottom(String text, int row) {
+
+    }
+
+
+
+
+    public static void printChristmasTree(int row){
+            printFullTriangle("*", 9);
+            printChars("O ", 9);
+
+    }
 }
 
