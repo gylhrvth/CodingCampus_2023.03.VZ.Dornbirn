@@ -1,5 +1,7 @@
 package eric.Week01;
 
+import org.w3c.dom.ls.LSOutput;
+
 public class PrintFunktionen {
     public static void main(String[] args) {
         printChars("x", 10);
@@ -18,7 +20,7 @@ public class PrintFunktionen {
         printX("x", 7);
         printFullTriangle("*", 9);
         printChristmasTree(14);
-
+        printCircle("0", 10);
     }
 
     //X wird 10 mal in einer Reihe angezeigt (print)
@@ -328,5 +330,20 @@ public class PrintFunktionen {
         printChars("O ", row);
         christmasTreeBottom("+", row);
     }
+
+
+    public static void printCircle(String text, int dia) {
+        System.out.println();
+        System.out.println();
+
+        for (int i = 0; i < dia; i++) {
+            for (int j = 0; j < dia; j++) {
+                System.out.print(text);
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
 }
+
 
