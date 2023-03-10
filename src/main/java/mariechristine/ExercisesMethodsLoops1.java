@@ -50,8 +50,8 @@ public class ExercisesMethodsLoops1 {
 
     public static void printTriangleBottomLeft(String text, int count) {
         System.out.println("Aufgabe: Print Trinagle 1");
-        for (int i = 0; i < count; ++i) { // Anzahl der Zeile wird gedruckt
-            for (int k = 0; k < i + 1; ++k) { // Buchstaben in einer Zeile schreiben
+        for (int i = 0; i < count; ++i) { // Anzahl der Zeilen wird gedruckt
+            for (int k = 0; k < i + 1; ++k) { // Buchstaben in einer Zeile werden geschrieben
                 System.out.print(text);  // Schreibt ein Buchstabe
             }
             System.out.println(); // Zeilenumbruch am Ende der Zeile
@@ -61,7 +61,7 @@ public class ExercisesMethodsLoops1 {
 
     public static void printTriangleTopLeft(String text, int count) {
         System.out.println("Aufgabe: Print Triangle 2");
-        for (int z = 0; z < count; ++z) { //Anzahl der Zeile wird gedruckt
+        for (int z = 0; z < count; ++z) { //Anzahl der Zeilen wird gedruckt
             for (int i = 0; i < count - z; ++i) { //Buchstaben in einer Zeile
                 System.out.print(text);
             }
@@ -91,14 +91,15 @@ public class ExercisesMethodsLoops1 {
     public static void printTriangleBottomRight(String text, int count) {
         System.out.println("Aufgabe: Print Trinagle 4");
         for (int i = 0; i < count; ++i) { // Anzahl der Zeilen wird gedruckt
-            printCharsWOLineBreak(" ", count - i); //Wie viel Leerzeichen pro Zeile
-            for (int j = 0; j < i + 1 ; j++) {
+            printCharsWOLineBreak(". ", count - i - 1);
+            printCharsWOLineBreak(text, +i);
+            {
                 System.out.print(text);
 
             }
 
 
-            System.out.println(text);
+            System.out.println();
         }
     }
 
