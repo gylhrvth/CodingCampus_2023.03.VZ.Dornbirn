@@ -203,6 +203,9 @@ public class Methoden {
         baum(breite, breite / 4, breite/4,(breite - 1) / 2,1,"*");
     }
     public static void baum(int breite, int stammb, int stammhoe, int leer, int stern, String text) {
+        System.out.println("baum");
+        System.out.println();
+        System.out.println();
         for (int zeile = 1; zeile <= (breite + 1) / 2; zeile++) {
             for (int leerspalte = 1; leerspalte <= leer; leerspalte++) { //abstaende
                 System.out.print(" ");
