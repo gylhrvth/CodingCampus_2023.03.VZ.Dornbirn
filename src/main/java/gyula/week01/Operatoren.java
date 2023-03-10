@@ -101,6 +101,7 @@ public class Operatoren {
         System.out.printf("%2d : %5d\n", 2, 33341);
 
         System.out.printf("%8.3f", 80.3);
+        System.out.println();
 
         System.out.println("======================");
         System.out.println(10000 + 10000);
