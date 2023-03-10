@@ -10,7 +10,7 @@ public class ExercisesMethodsLoops1 {
         printTriangleTopLeft("D ", 5);
         printTriangleTopRight("E ", 5);
         printTriangleBottomRight("X ", 5);
-//        printEmptySquare("F ", 10);
+        printEmptySquare("F ", 10);
 //        printEmptySquareA("A", 3);
 //        printSlash("X ", 3);printSlashA("Y ", 4);
 //        printTriangle("X ", 3);
@@ -81,7 +81,7 @@ public class ExercisesMethodsLoops1 {
     public static void printTriangleTopRight(String text, int count) {
         System.out.println("Aufgabe: Print Triangle 3");
         for (int z = 0; z < count; ++z) { //Anzahl der Zeilen wird gedruckt
-            printCharsWOLineBreak("  ", z); // Beginnend bei Zeile 0 (Z1 kein Leerzeichen, Z2 1 Leerzeichen, etc
+            printCharsWOLineBreak(". ", z); // Beginnend bei Zeile 0 (Z1 kein Leerzeichen, Z2 1 Leerzeichen, etc
             printCharsWOLineBreak(text, count - z); //definiert wie viel Buchstaben in einer Zeile sind
             System.out.println();
         }
@@ -97,7 +97,6 @@ public class ExercisesMethodsLoops1 {
                 System.out.print(text);
 
             }
-
 
             System.out.println();
         }

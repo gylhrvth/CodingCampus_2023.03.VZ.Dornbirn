@@ -4,23 +4,23 @@ import org.w3c.dom.ls.LSOutput;
 
 public class PrintFunktionen {
     public static void main(String[] args) {
-        printChars("x", 10);
-        printSquare("x", 10);
-        printRect("x", 10, 3);
-        printTriangleBottomLeft("x", 4);
-        printTriangleTopLeft("x", 5);
-        printTriangleTopRight("x", 5);
-        printTriangleBottomRight("x", 5);
-        printEmptySquare("x", 10);
-        printTinySquare("A", 3);
-        printSlash("x", 3, true);
-        printSlashUp("y", 4, false);
-        printTriangle("x", 6);
-        printRhombus("x", 7);
-        printX("x", 7);
-        printFullTriangle("*", 9);
-        printChristmasTree(14);
-        printCircle("0", 10);
+//        printChars("x", 10);
+//        printSquare("x", 10);
+//        printRect("x", 10, 3);
+//        printTriangleBottomLeft("x", 4);
+//        printTriangleTopLeft("x", 5);
+//        printTriangleTopRight("x", 5);
+//        printTriangleBottomRight("x", 5);
+//        printEmptySquare("x", 10);
+//        printTinySquare("A", 3);
+//        printSlash("x", 3, true);
+//        printSlashUp("y", 4, false);
+//        printTriangle("x", 6);
+//        printRhombus("x", 7);
+//        printX("x", 7);
+//        printFullTriangle("*", 9);
+//        printChristmasTree(15);
+//        printCircle("0", 10);
     }
 
     //X wird 10 mal in einer Reihe angezeigt (print)
