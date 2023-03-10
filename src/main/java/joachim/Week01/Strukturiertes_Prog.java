@@ -10,7 +10,7 @@ public class Strukturiertes_Prog {
 //        printTriangle3("x", 8);
 //        printTriangle4("x", 8);
 //        printSquare2("x", 8);
-//        printSlash("x ", 3, true);
+//       printSlash("x ", 3, true);
 //        printSlash("y ", 7, false);
 //        printtriangleCenter("x ", 8);
 //        printRhombus2("x ", 8);

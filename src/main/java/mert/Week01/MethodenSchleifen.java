@@ -14,6 +14,10 @@ public class MethodenSchleifen {
         printemptysquare2("x", 10);
         printemptysquare2("A", 3);
         printslash("x", 3);
+        printslash2("y", 4);
+        printtriangle("x", 3);
+
+
     }
 
     public static void printChars(String Text, int count) {
@@ -149,28 +153,51 @@ public class MethodenSchleifen {
     }
 
     public static void printslash(String text, int count) {
-        for (int i = 0; i < count - 2; i++) {
+        for (int i = 0; i < count; i++) {
+            for (int j = 0; j < count; j++) {
+                if (i == j) {
+                    System.out.print(text);
+                } else System.out.print(".");
+
+            }
+
+            System.out.println();
+
+        }
+    }
+
+
+    public static void printslash2(String text, int count) {
+        System.out.println();
+        for (int i = 1; i <= count; i++) {
+            for (int j = 0; j < count - i; j++) {
+                System.out.print(".");
+
+            }
             System.out.print(text);
             System.out.println();
 
         }
-        for (int j = 0; j < count; j++) {
-            System.out.print(text);
-
-        }
-        System.out.println();
-
-        for (int i = 0; i < count; i++) {
-            if (i < 2)
-                System.out.println(".");
-            else
-                System.out.print(text);
-        }
         System.out.println();
     }
 
+    public static void printtriangle(String text, int count) {
+        for (int i = 0; i < count; i++) {
 
+            System.out.println(text);
+        }
+
+    }
 }
+
+
+
+
+
+
+
+
+
 
 
 
