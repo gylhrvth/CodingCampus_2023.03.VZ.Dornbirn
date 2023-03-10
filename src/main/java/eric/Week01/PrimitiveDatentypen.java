@@ -16,6 +16,8 @@ public class PrimitiveDatentypen {
 
         System.out.println("---");
 
+        System.out.println();
+
         System.out.println("Aufgabe Faktorial");
         for (int i = 1; i <= 20; i++) {
             long factorial = 1;
@@ -25,17 +27,25 @@ public class PrimitiveDatentypen {
             System.out.println(factorial);
         }
 
+        System.out.println();
+
+        System.out.println("---");
+
+        System.out.println();
+
         System.out.println("Aufgabe Faktorial (erweiter)");
         long factorial = 1;
         for (long i = 1; i <= 20; i++) {
             factorial *= i;
             System.out.printf("%3d = %20d\n", i, factorial);
         }
+
         System.out.println();
 
         System.out.println("---");
 
         System.out.println();
+
 
         System.out.println("Aufgabe von 0 - 100 in 0.1 Schritten");
 
@@ -54,6 +64,12 @@ public class PrimitiveDatentypen {
         for (int i = 0; i < 1000; i++) {
             System.out.printf(i / 10.0);
         }
+
+        System.out.println();
+
+        System.out.println("---");
+
+        System.out.println();
     */
 
         System.out.println("Teilen und Herrschen");
