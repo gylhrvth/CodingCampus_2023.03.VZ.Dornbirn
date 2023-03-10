@@ -13,7 +13,7 @@ public class Strukturiertes_Prog {
 //       printSlash("x ", 3, true);
 //        printSlash("y ", 7, false);
 //        printtriangleCenter("x ", 8);
-//        printRhombus2("x ", 8);
+//        printRhombus("x ", 8);
 //        printBigX("x ", 6);
 
     }
@@ -157,7 +157,7 @@ public class Strukturiertes_Prog {
         }
     }
 
-    public static void printRhombus2(String text, int groesse) {
+    public static void printRhombus(String text, int groesse) {
         int upperHeight = groesse / 2;
 
         int lowerHeight = groesse - upperHeight;

@@ -16,7 +16,7 @@ public class MethodenSchleifen {
         printRhombus("J ", 10);
         printX("K ", 5);
         printChristmasTree(15);
-
+        printCirclePythagoras(10);
 
     }
 
@@ -219,29 +219,44 @@ public class MethodenSchleifen {
             christmasX(".", ChristmasSpaces);
             christmasXLn("*", ChristmasX);
 
-
             ChristmasX = ChristmasX + 2;
             ChristmasSpaces = ChristmasSpaces - 1;
         }
         printChars("O ", height);
 
         int trunkX = height / 2;
-        int treeWidth= height * 2 -1;
+        int treeWidth = height * 2 - 1;
         int trunkHeight = height / 3 - 1;
-        int trunkSpaces =  treeWidth / 2 - trunkX / 2 ;
+        int trunkSpaces = treeWidth / 2 - trunkX / 2;
 
         for (int i = 0; i < trunkHeight; i++) {
             christmasX(".", trunkSpaces);
             christmasXLn("+", trunkX);
 
+        }
 
+    }
+
+    public static void printCirclePythagoras(int radius) {
+        System.out.println("Pythagoras");
+        for (int i = -radius; i <= radius; i++) {
+            for (int j = -radius; j <= radius; j++) {
+                if (i * i + j * j == radius * radius) {
+                    System.out.print("x ");
+                } else {
+                    System.out.print(". ");
+                }
+
+            }
+            System.out.println();
         }
 
 
     }
-
-
 }
+
+
+
 
 
 

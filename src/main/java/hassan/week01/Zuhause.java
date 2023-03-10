@@ -6,7 +6,7 @@ public class Zuhause {
         System.out.println("=== Zuhause ===");
 
         RR(10,"X" );
-        printRhombus(5,"X");
+        printRhombus(7,"X");
         xbild("X",5);
         baum(20,5,5,(20 - 1)/2,1,"*");
 
