@@ -10,7 +10,7 @@ public class MethodenSchleifen {
 //        printTriangle3("E ", 5);
 //        printTriangle4("F ", 5);
 //        printEmptySquare("G ", 3);
-//        printSlash("H ", 5, true);
+//       printSlash("H ", 5, true);
 //        printSlash("H ", 3, false);
 //        printTriangle("I ", 5);
         printRhombus("J ", 7);
