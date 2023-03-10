@@ -19,7 +19,7 @@ public class PrintFunktionen {
         printRhombus("x", 7);
         printX("x", 7);
         printFullTriangle("*", 9);
-        printChristmasTree(14);
+        printChristmasTree(15);
         printCircle("0", 10);
     }
 
