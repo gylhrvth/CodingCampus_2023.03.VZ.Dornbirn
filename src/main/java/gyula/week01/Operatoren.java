@@ -104,7 +104,7 @@ public class Operatoren {
 
         System.out.println("======================");
         System.out.println(10000 + 10000);
-        System.out.println(12345.0 * 3);
+        System.out.println(2.8 + 0.17);
 
     }
 }
