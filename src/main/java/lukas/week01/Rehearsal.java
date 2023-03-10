@@ -83,7 +83,7 @@ public class Rehearsal {
         System.out.println("Pyramide");
         printPyramide(15);
         System.out.println("Tippi aka. Zelt");
-        printTippi(3);
+        printTippi(5);
 
         System.out.println("Tipi generator von 1 bis 100");
         for (int j = 1; j <= 15; j++) {

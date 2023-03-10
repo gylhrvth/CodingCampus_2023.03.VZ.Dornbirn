@@ -12,9 +12,9 @@ public class Strukturiertes_Prog {
 //        printSquare2("x", 8);
 //       printSlash("x ", 3, true);
 //        printSlash("y ", 7, false);
-
-        printtriangleCenter("x", 7);
-
+//        printtriangleCenter("x ", 8);
+//        printRhombus2("x ", 8);
+//        printBigX("x ", 6);
 
     }
 
@@ -146,18 +146,69 @@ public class Strukturiertes_Prog {
     public static void printtriangleCenter(String text, int groesse) {
         System.out.println("Aufgabe: triangleCenter");
         for (int i = 0; i < groesse; i++) {
-            for (int j = 0; j < 2 * groesse; j++) {
-                if (i + j >= groesse -1) {
-                    if (j < groesse +i)
+            for (int j = 0; j < 2 * groesse - 1; j++) {
+                if ((i + j == groesse - 1) || (j == groesse + i - 1) || (i == groesse - 1)) { // (links) || (rechts) || (unten)
                     System.out.print(text);
+                } else {
+                    System.out.print(". ");
                 }
+            }
+            System.out.println();
+        }
+    }
 
-            } System.out.println();
+    public static void printRhombus2(String text, int groesse) {
+        int upperHeight = groesse / 2;
+
+        int lowerHeight = groesse - upperHeight;
+
+
+        for (int i = 0; i < upperHeight; i++) {
+            for (int j = 0; j < upperHeight * 2; j++) {
+                if (i + upperHeight == j) {
+                    System.out.print(text);
+                } else if (i + j == upperHeight - 1) {
+                    System.out.print("v ");
+                } else {
+                    System.out.print(". ");
+                }
+            }
+            System.out.println();
+        }
+        for (int i = 0; i < lowerHeight; i++) {
+            for (int j = 0; j < lowerHeight * 2; j++) {
+                if (i == j) {
+                    System.out.print("Y ");
+                } else if (i + j == lowerHeight * 2 -1) {
+                    System.out.print("u ");
+                } else {
+                    System.out.print(". ");
+                }
+            }
+            System.out.println();
+
+
         }
 
-
     }
+
+    public static void printBigX(String text, int groesse) {
+        System.out.println();
+        for (int i = 0; i < groesse; i++) {
+            for (int j = 0; j < groesse; j++) {
+                if ((i == j) || (j + i == groesse - 1)) { // (links) || (rechts) | (i + j == groesse - 1)
+                    System.out.print(text);
+                } else {
+                    System.out.print(". ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
 }
+
+
 
 
 
