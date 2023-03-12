@@ -5,7 +5,7 @@ public class Mathmatik {
 
         printSummenrechnung(20, 50);
         printFraktionalrechnung(20);
-        printDezimalZahlen(2);
+        printDezimalZahlen(2.05);
     }
 
 
