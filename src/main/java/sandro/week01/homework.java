@@ -40,11 +40,11 @@ public class homework {
                 pi = pi - iterationValue;
             }
             addValues = !addValues;
-            if (i == 0) {
-                b = 3;
-            } else {
+          // if (i == 0) {
+          //      b = 3;
+          //  } else {
                 b = b + 2;
-            }
+          // }
         }
         System.out.println(pi);
     }
