@@ -7,7 +7,7 @@ public class PrimitiveDatentypen {
         //      faktorial(1, 20);
         //      kommaschritte(0F, 100F, 0.1F);
               teilen(0,20,0);
-        //      piLeibniz(4,1,0);
+
     }
 
     public static void addieren(int summe, int start, int end) {
@@ -53,14 +53,15 @@ public class PrimitiveDatentypen {
             System.out.println(i);
             summe = i / 5;
             System.out.println(summe);
+            summe = i / 5.0f;
+            System.out.println(summe);
 
         }
         System.out.println();
     }
 
-    public static void piLeibniz(double a, double b,double summe){
 
-    }
+
 
 }
 
