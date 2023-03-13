@@ -126,6 +126,7 @@ public class Methoden {
              xxxxx
      */
     public static void printTriangleBottomRight(String text, int row) {
+        System.out.println("printTriangleBottomRight \"" + text +  "\"");
         for (int i = 1; i <= row; i++) {
             for (int j = 0; j < row - i; j++) {
                 System.out.print(" ".repeat(text.length()));
@@ -331,17 +332,20 @@ public class Methoden {
 
 
     public static void printCircle(String text, int dia) {
-        System.out.println();
-        System.out.println();
-
-        for (int i = 0; i < dia; i++) {
-            for (int j = 0; j < dia; j++) {
-                System.out.print(text);
+        int size = 10;
+        for (int i = -1 * size; i <= size; i++) {
+            for (int j = -1 * size; j <= size; j++) {
+                // a^2 + b^2 <= c^2 Pythagoras
+                if ((i * i) + (j * j) <= (size * size)) {
+                    System.out.print(text);
+                } else {
+                    System.out.print(" ");
+                }
             }
             System.out.println();
         }
-        System.out.println();
     }
+
 }
 
 
