@@ -1,4 +1,4 @@
-package mariechristine;
+package mariechristine.Week1;
 
 public class ExercisesMethodsLoops1 {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package mariechristine;
+package mariechristine.Week1;
 
 public class HelloWorld {
     public static void main(String[] args){

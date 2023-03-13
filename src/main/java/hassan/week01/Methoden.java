@@ -1,13 +1,11 @@
 package hassan.week01;
 
-import java.util.Arrays;
-
 public class Methoden {
     public static void main(String[] args) {
         printChars("x ", 10);
-        PrintSquare("x ", 10);
+        printSquare("x ", 10);
         PrintRectangle("x ", 10, 3);
-        PrintTriangle("x ", 4);
+        printTriangle("x ", 4);
         PrintTriangle2("x ", 5);
         PrintTriangle3("x ", 5);
         PrintTriangle4("x ", 5);
@@ -33,7 +31,7 @@ public class Methoden {
 
     }
 
-    public static void PrintSquare(String text, int count) {
+    public static void printSquare(String text, int count) {
         System.out.println();
         System.out.println();
         System.out.println("PrintSquare");
@@ -58,7 +56,7 @@ public class Methoden {
         }
     }
 
-    public static void PrintTriangle(String text, int count) {
+    public static void printTriangle(String text, int count) {
         System.out.println();
         System.out.println();
         System.out.println("PrintTriangle");
