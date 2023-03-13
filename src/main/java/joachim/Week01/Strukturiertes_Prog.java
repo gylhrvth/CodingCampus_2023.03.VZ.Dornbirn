@@ -12,7 +12,7 @@ public class Strukturiertes_Prog {
 //        printSquare2("x", 8);
 //       printSlash("x ", 3, true);
 //        printSlash("y ", 7, false);
-        printtriangleCenter("x ", 8);
+//        printtriangleCenter("x ", 8);
 //        printRhombus2("x ", 8);
 //        printBigX("x ", 6);
 

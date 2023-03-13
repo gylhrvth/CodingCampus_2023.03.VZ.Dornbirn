@@ -2,6 +2,8 @@ package benjamin.week01;
 
 public class MethodenSchleifen {
     public static void main(String[] args) {
+
+
         printChars("X ", 10);
         printSquare("A ", 10);
         printRect("B ", 10, 3);
@@ -15,7 +17,8 @@ public class MethodenSchleifen {
         printTriangle("I ", 5);
         printRhombus("J ", 10);
         printX("K ", 5);
-        printChristmasTree(15);
+        printChristmasTree(10);
+        printCirclePythagoras(10);
 
 
     }
@@ -214,34 +217,49 @@ public class MethodenSchleifen {
 
     public static void printChristmasTree(int height) {
         int ChristmasX = 1;
-        int ChristmasSpaces = height - 1;
+        int Spaces = height - 1;
         for (int i = 0; i < height; i++) {
-            christmasX(".", ChristmasSpaces);
+            christmasX(".", Spaces);
             christmasXLn("*", ChristmasX);
 
-
             ChristmasX = ChristmasX + 2;
-            ChristmasSpaces = ChristmasSpaces - 1;
+            Spaces = Spaces - 1;
         }
         printChars("O ", height);
 
         int trunkX = height / 2;
-        int treeWidth= height * 2 -1;
+        int treeWidth = height * 2 - 1;
         int trunkHeight = height / 3 - 1;
-        int trunkSpaces =  treeWidth / 2 - trunkX / 2 ;
+        int trunkSpaces = treeWidth / 2 - trunkX / 2;
 
         for (int i = 0; i < trunkHeight; i++) {
             christmasX(".", trunkSpaces);
             christmasXLn("+", trunkX);
 
+        }
 
+    }
+
+    public static void printCirclePythagoras(int radius) {
+        System.out.println("Pythagoras");
+        for (int i = -radius; i <= radius ; i++) {
+            for (int j = -radius; j <= radius; j++) {
+                if (i * i + j * j <= radius * radius) {
+                    System.out.print("X");
+                } else {
+                    System.out.print(".");
+                }
+
+            }
+            System.out.println();
         }
 
 
     }
-
-
 }
+
+
+
 
 
 
