@@ -35,9 +35,42 @@ public class PrimitiveDatentypen {
                 System.out.println("x / 5.0 = " + (x / 5.0));
                 System.out.println();
             }
+        System.out.println("Pi Leibniz Series");
+            double pi = 0;
+            int zeichen = 1;
+        for (int i = 1; i <=100000; i += 2) {
+            pi += zeichen * 4.0 / i;
+            zeichen *=  -1;
+        }
+        System.out.println("pi = " + pi);
+        System.out.println();
+        System.out.println();
+        System.out.println("Pi Nilakantha Series");
 
 
+        double pi1 = 3;
+        int zeichen1 = 1;
+        long a = 2;
+        long b = 3;
+        long c = 4;
+        for (int i = 1; i <= 100000 ; i++) {
+            pi1 += zeichen1 * 4.0 / (a * b * c);
+            zeichen1 *= -1;
+            a += 2;
+            b += 2;
+            c += 2;
+        }
+        System.out.println("Pi = " + pi1);
 
+        System.out.println();
+        System.out.println();
+        System.out.println("Geheime Reihe");
+        double zahl = 1.0;
+        for (int i = 1; i <=10 ; i++) {
+            zahl = zahl / 2 + 1 / zahl;
+
+
+        } System.out.println(zahl);
     }
 }
 
