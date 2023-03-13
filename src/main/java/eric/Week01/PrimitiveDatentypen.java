@@ -70,7 +70,7 @@ public class PrimitiveDatentypen {
         System.out.println("---");
 
         System.out.println();
-    */
+
 
         System.out.println("Teilen und Herrschen");
         for (int x = 1; x <= 20; x++) {
@@ -81,6 +81,42 @@ public class PrimitiveDatentypen {
         }
 
 
+        System.out.println("Berechung von Pi");
+        double pi = 0;
+        int zahl = 1;
+        for (int i = 1; i <= 100000; i += 2) {
+            pi += zahl  * 4.0 / i;
+            zahl *= -1;
+        }
+        System.out.println("Pi: " + pi);
 
+
+        System.out.println("Pi Nilakantha Reihe");
+        double pi = 3;
+        int zahl = 1;
+        long a = 2;
+        long b = 3;
+        long c = 4;
+        for (int i = 1; i <= 10000; i++) {
+            pi += zahl * 4.0 / (a*b*c);
+            zahl *= -1;
+            a += 2;
+            b += 2;
+            c += 2;
+        }
+        System.out.println("Pi: " + pi);
+
+        System.out.println("Geheime Reihe");
+        double wert = 1.0;
+        for (int i = 0; i <= 1.0; i++) {
+            wert = wert / 2 + 1 / wert;
+        }
+        System.out.println(wert);
+    */
+        System.out.println("Wurzelnäherung");
+        double random = new java.util.Random().nextInt(10000) + 1;
+        random /= 2;
+        System.out.println(random);
+        random /= 4;
     }
 }
