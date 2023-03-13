@@ -11,13 +11,13 @@ public class ConsoleInput {
         System.out.println("3 - Dreieck Links");
         System.out.println("4 - Dreieck Rechts");
         System.out.println("5 - Volles Dreieck");
-        System.out.println("6 - ");
-        System.out.println("7 - ");
-        System.out.println("8 - ");
-        System.out.println("9 - ");
+        System.out.println("6 - Dreieck Oben Links");
+        System.out.println("7 - Dreieck Oben Rechts");
+        System.out.println("8 - X");
+        System.out.println("9 - Kreis");
         System.out.println("10 - Weihnachts Baum");
 
-        int choose = readSquare("Was soll ich Ausdrucken?", 1, 6);
+        int choose = readSquare("Was soll ich Ausdrucken?", 1, 10);
 
         int size = readSquare("Wie Groß soll das Symbol von 1 - 20 sein", 1, 20);
         String line = readSquareSymbol("Welches Symbol möchtest du Verwenden?");
@@ -32,7 +32,15 @@ public class ConsoleInput {
             Methoden.printTriangleBottomRight(line, size);
         } else if (choose == 5){
             Methoden.printFullTriangle(line, size);
-        } else if (choose == 6){
+        }  else if (choose == 6){
+            Methoden.printTriangleTopLeft(line, size);
+        } else if (choose == 7){
+            Methoden.printTriangleTopRight(line, size);
+        } else if (choose == 8){
+            Methoden.printX(line, size);
+        } else if (choose == 9){
+            Methoden.printCircle(line, size);
+        } else if (choose == 10){
             Methoden.printChristmasTree(size);
         } else {
             System.out.println("Probier es Nochmal");
