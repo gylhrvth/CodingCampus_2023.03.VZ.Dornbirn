@@ -89,7 +89,6 @@ public class ConsoleInputNumber {
                 }
             } catch (NumberFormatException nfe) {
                 System.out.println("Es ist kein gültiger Zahl.");
-                sc.nextLine();
             }
         }
         return value;
