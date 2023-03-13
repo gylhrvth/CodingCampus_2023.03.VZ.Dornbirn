@@ -73,12 +73,11 @@ public class PrimitiveDatentypen {
     */
 
         System.out.println("Teilen und Herrschen");
-        for (int i = 1; i <= 20; i++) {
-            System.out.println("x: " + i);
-        }
-
-        for (int i = 1; i <= 20.0; i++) {
-            System.out.printf("%2.1f\n", 0.00 + i);
+        for (int x = 1; x <= 20; x++) {
+            System.out.println("x: " + x);
+            System.out.println("x / 5: " + x / 5);
+            System.out.println("x / 5.0: " + x / 5.0);
+            System.out.println();
         }
 
 

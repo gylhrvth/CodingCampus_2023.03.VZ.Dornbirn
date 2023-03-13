@@ -3,18 +3,19 @@ package joachim.Week01;
 public class Strukturiertes_Prog {
     public static void main(String[] args) {
    //     printChars("x", 10);
-        printSquare("x ", 5);
-        printRectangle("x ", 5, 3);
-        printTriangle("x ", 5);
-        printTriangle2("x ", 6);
-        printTriangle3("x ", 8);
-        printTriangle4("x ", 8);
-        printSquare2("x ", 8);
-        printSlash("x ", 3, true);
-        printSlash("y ", 7, false);
-        printtriangleCenter("x ", 8);
-        printRhombus("x ", 8);
-        printBigX("x ", 6);
+//        printSquare("x ", 5);
+//        printRectangle("x ", 5, 3);
+//        printTriangle("x ", 5);
+//        printTriangle2("x ", 6);
+//        printTriangle3("x ", 8);
+//        printTriangle4("x ", 8);
+//        printSquare2("x ", 8);
+//        printSlash("x ", 3, true);
+//        printSlash("y ", 7, false);
+//        printtriangleCenter("x ", 8);
+//        printRhombus("x ", 8);
+//        printBigX("x ", 6);
+        Kreis(20);
 
     }
 
@@ -205,6 +206,21 @@ public class Strukturiertes_Prog {
             }
             System.out.println();
         }
+    }
+
+    public static void Kreis(int Radius){
+        for (int i = -1 * Radius; i <= Radius ; i++) {
+            for (int j = -1 * Radius; j <= Radius; j++) {
+                if ((i * i) + (j * j) <= (Radius * Radius)){
+                    System.out.print("x ");
+                }else{
+                    System.out.print(". ");
+                }
+
+            }
+            System.out.println();
+        }
+
     }
 
 }
