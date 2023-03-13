@@ -5,7 +5,7 @@ public class Mathmatik {
 
         printSummenrechnung(20, 50);
         printFraktionalrechnung(20);
-        printDezimalZahlen(5);
+        printDezimalZahlen(2.05);
     }
 
 
@@ -31,12 +31,12 @@ public class Mathmatik {
         System.out.println();
     }
 
-    public static void printDezimalZahlen(int wert) {
+    public static void printDezimalZahlen(double wert) {
         double dezimal = 0.1;
-        for (float i = 1; i <= wert; i += dezimal) {
-            System.out.println("Summe: " + i);
+        for (double i = 0; i <= wert; i += dezimal) {
+            System.out.printf("Summe: %8.3f\n", i);
         }
-
+        System.out.println("hier wird die 2 nicht angezeigt da die Nachkommastelle über 2 ist. \ndaran kann Ich nicht viel ändern auser den Grenzbereich zu erweiter. z.B. wert + 0.1");
     }
 }
 
