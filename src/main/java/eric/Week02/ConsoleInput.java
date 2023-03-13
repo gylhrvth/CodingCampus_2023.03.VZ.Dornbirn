@@ -22,25 +22,26 @@ public class ConsoleInput {
         int size = readSquare("Wie Groß soll das Symbol von 1 - 20 sein", 1, 20);
         String line = readSquareSymbol("Welches Symbol möchtest du Verwenden?");
 
-        if (choose == 1) {
+        if (choose == 1) {                                                              //Quadrat
             Methoden.printSquare(line, size);
-        } else if (choose == 2) {
+        } else if (choose == 2) {                                                       //Dreieck
             Methoden.printTriangle(line, size);
-        } else if (choose == 3){
+        } else if (choose == 3){                                                        //Dreieck Links
             Methoden.printTriangleBottomLeft(line, size);
-        } else if (choose == 4){
+        } else if (choose == 4){                                                        //Dreieck Rechts
             Methoden.printTriangleBottomRight(line, size);
-        } else if (choose == 5){
+        } else if (choose == 5){                                                        //Volles Dreieck
             Methoden.printFullTriangle(line, size);
-        }  else if (choose == 6){
+        }  else if (choose == 6){                                                       //Dreieck Oben Links
             Methoden.printTriangleTopLeft(line, size);
-        } else if (choose == 7){
+        } else if (choose == 7){                                                        //Dreieck Oben Rechts
             Methoden.printTriangleTopRight(line, size);
-        } else if (choose == 8){
+        } else if (choose == 8){                                                        //X
             Methoden.printX(line, size);
-        } else if (choose == 9){
+            System.out.println("Gerade Zahlen Funktionieren Schlecht :(");
+        } else if (choose == 9){                                                        //Keis
             Methoden.printCircle(line, size);
-        } else if (choose == 10){
+        } else if (choose == 10){                                                       //Weihnachts Baum
             Methoden.printChristmasTree(size);
         } else {
             System.out.println("Probier es Nochmal");
