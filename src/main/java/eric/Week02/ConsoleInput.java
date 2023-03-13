@@ -11,7 +11,12 @@ public class ConsoleInput {
         System.out.println("3 - Dreieck Links");
         System.out.println("4 - Dreieck Rechts");
         System.out.println("5 - Volles Dreieck");
-        System.out.println("6 - Weihnachts Baum");
+        System.out.println("6 - ");
+        System.out.println("7 - ");
+        System.out.println("8 - ");
+        System.out.println("9 - ");
+        System.out.println("10 - Weihnachts Baum");
+
         int choose = readSquare("Was soll ich Ausdrucken?", 1, 6);
 
         int size = readSquare("Wie Groß soll das Symbol von 1 - 20 sein", 1, 20);
@@ -39,11 +44,11 @@ public class ConsoleInput {
         int value = 0;
         boolean nubmerIsValid = false;
         while (!nubmerIsValid) {
+
             System.out.println(message);
             try {
                 String line = sc.nextLine();
                 value = Integer.valueOf(line);
-                sc.nextLine();
                 if ((value >= minValue) && (value <= maxValue)) {
                     nubmerIsValid = true;
                 } else {
@@ -51,7 +56,6 @@ public class ConsoleInput {
                 }
             } catch (NumberFormatException nfe) {
                 System.out.println("Das ist keine Gültige Zahl");
-                sc.nextLine();
             }
         }
         return value;
