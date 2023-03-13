@@ -61,7 +61,7 @@ public class PrimitiveDatentypen {
             System.out.println(i / 5.0);
             System.out.println();
         }
-        System.out.println((4/1)-(4/3)+(4/5)-(4/7)+(4/9)-(4/11)+(4/13)-(4/15));
+
 
     }
 }
