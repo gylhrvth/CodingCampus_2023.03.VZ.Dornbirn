@@ -2,9 +2,11 @@ package mert.Week01;
 
 public class PrimitiveDatentypen {
     public static void main(String[] args) {
-        summe(20, 50);
-        faktorial(20);
-        zaehlen(100);
+//        summe(20, 50);
+//        faktorial(20);
+        zaehlen(10);
+        teilen(20);
+
     }
 
     public static void summe(int start, int end) {
@@ -36,12 +38,35 @@ public class PrimitiveDatentypen {
     }
 
     public static void zaehlen(int limit2) {
+        for (float f = 0; f <= limit2; f += 0.1) {
+            System.out.println(f);
+        }
+        for (int i = 0; i <= 10 * limit2; i++) {
+            System.out.println(i / 10.0);
+        }
+
+
         System.out.println();
         for (double i = 0; i <= limit2; i += 0.1) {
-            System.out.println(i);
+            System.out.printf("%5.1f\n", i);
 
         }
     }
 
+    public static void teilen(int int1) {
+        System.out.println();
+        for (int i = 0; i <= int1; i++) {
+            System.out.println(i);
+            System.out.println(i / 5);
+            System.out.println(i / 5.0);
+            System.out.println();
+        }
+        System.out.println((4/1)-(4/3)+(4/5)-(4/7)+(4/9)-(4/11)+(4/13)-(4/15));
+
+    }
 }
+    
+        
+
+
 

@@ -18,9 +18,10 @@ public class Funktionen {
 //        printTriangle1("L ", 3);
 //        printTriangle2("M ", 5);
 //        printRhombus("N ", 7);
-        printRhombus2("N ", 11);
+//        printRhombus2("N ", 11);
 //        printX("O ", 5);
 //        printChristmastree(15);
+        printCirclePythagoras(10);
 
 //        for (int j = 1; j <= 15; j++) {
 //            printChristmastree(j);
@@ -360,6 +361,17 @@ public class Funktionen {
     }
 
     public static void printCirclePythagoras (int count) {
-
+    int size = 10;
+        for (int i = -1 *size; i <= size; i++) {
+            for (int j = -1 *size; j <= size; j++) {
+                if ((i*i) + (j*j) <= (size*size)){
+                    System.out.print("* ");
+                }else{
+                    System.out.print(". ");
+                }
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 }
