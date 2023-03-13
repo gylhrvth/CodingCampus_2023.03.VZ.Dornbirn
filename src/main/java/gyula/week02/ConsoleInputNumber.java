@@ -82,7 +82,6 @@ public class ConsoleInputNumber {
             try {
                 String line = sc.nextLine();
                 value = Integer.valueOf(line);
-                sc.nextLine();
                 if ((value >= minValue) && (value <= maxValue)) {
                     nubmerIsValid = true;
                 } else {
@@ -90,7 +89,6 @@ public class ConsoleInputNumber {
                 }
             } catch (NumberFormatException nfe) {
                 System.out.println("Es ist kein gültiger Zahl.");
-                sc.nextLine();
             }
         }
         return value;

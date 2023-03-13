@@ -1,26 +1,24 @@
 package eric.Week01;
 
-import org.w3c.dom.ls.LSOutput;
-
-public class PrintFunktionen {
+public class Methoden {
     public static void main(String[] args) {
-//        printChars("x", 10);
-//        printSquare("x", 10);
-//        printRect("x", 10, 3);
-//        printTriangleBottomLeft("x", 4);
-//        printTriangleTopLeft("x", 5);
-//        printTriangleTopRight("x", 5);
-//        printTriangleBottomRight("x", 5);
-//        printEmptySquare("x", 10);
-//        printTinySquare("A", 3);
-//        printSlash("x", 3, true);
-//        printSlashUp("y", 4, false);
-//        printTriangle("x", 6);
-//        printRhombus("x", 7);
-//        printX("x", 7);
-//        printFullTriangle("*", 9);
-//        printChristmasTree(15);
-//        printCircle("0", 10);
+        printChars("x", 10);
+        printSquare("x", 10);
+        printRect("x", 10, 3);
+        printTriangleBottomLeft("x", 4);
+        printTriangleTopLeft("x", 5);
+        printTriangleTopRight("x", 5);
+        printTriangleBottomRight("x", 5);
+        printEmptySquare("x", 10);
+        printTinySquare("A", 3);
+        printSlash("x", 3, true);
+        printSlashUp("y", 4, false);
+        printTriangle("x", 6);
+        printRhombus("x", 7);
+        printX("x", 7);
+        printFullTriangle("*", 9);
+        printChristmasTree(15);
+        printCircle("0", 10);
     }
 
     //X wird 10 mal in einer Reihe angezeigt (print)
@@ -128,9 +126,10 @@ public class PrintFunktionen {
              xxxxx
      */
     public static void printTriangleBottomRight(String text, int row) {
+        System.out.println("printTriangleBottomRight \"" + text +  "\"");
         for (int i = 1; i <= row; i++) {
             for (int j = 0; j < row - i; j++) {
-                System.out.print(" ");
+                System.out.print(" ".repeat(text.length()));
             }
             for (int k = 0; k < i; k++) {
                 System.out.print(text);
@@ -333,17 +332,20 @@ public class PrintFunktionen {
 
 
     public static void printCircle(String text, int dia) {
-        System.out.println();
-        System.out.println();
-
-        for (int i = 0; i < dia; i++) {
-            for (int j = 0; j < dia; j++) {
-                System.out.print(text);
+        int size = 10;
+        for (int i = -1 * size; i <= size; i++) {
+            for (int j = -1 * size; j <= size; j++) {
+                // a^2 + b^2 <= c^2 Pythagoras
+                if ((i * i) + (j * j) <= (size * size)) {
+                    System.out.print(text);
+                } else {
+                    System.out.print(" ");
+                }
             }
             System.out.println();
         }
-        System.out.println();
     }
+
 }
 
 
