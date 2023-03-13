@@ -1,14 +1,17 @@
-package gyula.week02;
+package mert.Week02;
 
-import java.util.InputMismatchException;
+import gyula.week02.ConsoleInputText;
+
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class ConsoleInputNumber {
     public static void main(String[] args) {
-        String text = ConsoleInputText.readText("Mit welchem Buchstaben?");
-        int size = readNumber_v5("Wie viel Mal soll ich ausdrucken?", 1, 10);
 
-        hassan.week01.Methoden.printTriangle(text, size);
+        String text = ConsoleInputText.readText("Mit welchem Buchstaben?");
+        int size = readNumber_v4("Wie viel Mal soll ich ausdrucken?", 1, 10);
+
+        hassan.week01.Methoden.PrintTriangle(text, size);
     }
 
     public static int readNumber_v1(String message) {
@@ -82,6 +85,7 @@ public class ConsoleInputNumber {
             try {
                 String line = sc.nextLine();
                 value = Integer.valueOf(line);
+                sc.nextLine();
                 if ((value >= minValue) && (value <= maxValue)) {
                     nubmerIsValid = true;
                 } else {
@@ -89,6 +93,7 @@ public class ConsoleInputNumber {
                 }
             } catch (NumberFormatException nfe) {
                 System.out.println("Es ist kein gültiger Zahl.");
+                sc.nextLine();
             }
         }
         return value;
@@ -96,3 +101,5 @@ public class ConsoleInputNumber {
 
 
 }
+
+
