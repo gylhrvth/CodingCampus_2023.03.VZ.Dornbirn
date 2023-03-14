@@ -128,17 +128,28 @@ public class ConsoleInputNumber {
 
         int number = readNumber3("Bitte wählen Sie nun?", 1, 3);
         String line = readText("Welches Zeichen soll verwendet werden?");
-        if (number == 1){
+        int size = readNumber3("Wie groß soll es sein?", 1, 20);
+        if (number == 1) {
             MethodenSchleifen.printChristmasTree(10);
-        } else if (number ==2){
-            MethodenSchleifen.printEmptySquare(line, 10);
-        } else if (number ==3){
-            MethodenSchleifen.printRhombus(line, 15);
+        } else if (number == 2) {
+            MethodenSchleifen.printEmptySquare(line, size);
+        } else if (number == 3) {
+            MethodenSchleifen.printRhombus(line, size);
         }
+        String line2 = readText("Möchten Sie noch etwas zeichnen? (j/n)");
+
+
+
+
+
 
 
     }
-    public static String readText(String message){
+
+
+
+
+    public static String readText(String message) {
         Scanner sc = new Scanner(System.in);
         System.out.println(message);
         return sc.nextLine();
