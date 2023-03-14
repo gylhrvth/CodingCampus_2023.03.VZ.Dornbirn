@@ -1,5 +1,7 @@
 package benjamin.week02;
 
+import benjamin.week01.MethodenSchleifen;
+
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
@@ -13,15 +15,9 @@ public class ConsoleInputNumber {
         // stringEinlesen();
         // zahlEinlesen1();
         // zahlEinlesen2();
-        rateSpiel();
-    }
+        //rateSpiel();
+        menue();
 
-    public static void rateSpiel() {
-        for (int i = 0; i < 100; i++) {
-            int randomValue = rand.nextInt();
-            System.out.printf("%2d - %3d\n", i, randomValue);
-
-        }
     }
 
 
@@ -29,9 +25,6 @@ public class ConsoleInputNumber {
     // int size = readNumber3("Wieviel Zeilen sollen ausgegebn werden", 1, 10);
 
     //benjamin.week01.MethodenSchleifen.printRhombus(text,size);
-
-
-
 
     public static void stringEinlesen() {
         String name = ConsoleInputText.readText("Wie ist lautet Name?");
@@ -106,5 +99,51 @@ public class ConsoleInputNumber {
 
     }
 
+    public static int rateSpiel() {
+        System.out.println("Willkommen beim super coolen Zahlen Ratespiel!");
+        System.out.println("Errate die Zahl zwischen 0 und 100!");
+        int randomValue = rand.nextInt(101);
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Gib die Zahl nun ein:");
 
+        while (true) {
+            int guess = sc.nextInt();
+            if (guess == randomValue) {
+                System.out.println("Du hast gewonnen!!!");
+            } else if (guess < randomValue) {
+                System.out.println("Die Zahl ist zu niedrig!");
+            } else if (guess > randomValue) {
+                System.out.println("Die Zahl ist zu hoch!");
+            }
+        }
+    }
+
+
+    public static void menue() {
+        System.out.println("Willkommen bei meinen Aufgaben!");
+        System.out.println("Was möchten Sie zeichnen?");
+        System.out.println("1) Christbaum");
+        System.out.println("2) Square");
+        System.out.println("3) Rhombus");
+
+        int number = readNumber3("Bitte wählen Sie nun?", 1, 3);
+        String line = readText("Welches Zeichen soll verwendet werden?");
+        if (number == 1){
+            MethodenSchleifen.printChristmasTree(10);
+        } else if (number ==2){
+            MethodenSchleifen.printEmptySquare(line, 10);
+        } else if (number ==3){
+            MethodenSchleifen.printRhombus(line, 15);
+        }
+
+
+    }
+    public static String readText(String message){
+        Scanner sc = new Scanner(System.in);
+        System.out.println(message);
+        return sc.nextLine();
+    }
 }
+
+
+
