@@ -1,28 +1,37 @@
 package benjamin.week02;
 
-import benjamin.week01.MethodenSchleifen;
-
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
 public class ConsoleInputNumber {
 
-    static Random random = new Random();
+    static Random rand = new Random();
 
     public static void main(String[] args) {
 
         // stringEinlesen();
         // zahlEinlesen1();
-       // zahlEinlesen2();
-
-
-        // String text = ConsoleInputText.readText("Welcher Buchstabe?");
-        // int size = readNumber3("Wieviel Zeilen sollen ausgegebn werden", 1, 10);
-
-        //benjamin.week01.MethodenSchleifen.printRhombus(text,size);
-
+        // zahlEinlesen2();
+        rateSpiel();
     }
+
+    public static void rateSpiel() {
+        for (int i = 0; i < 100; i++) {
+            int randomValue = rand.nextInt();
+            System.out.printf("%2d - %3d\n", i, randomValue);
+
+        }
+    }
+
+
+    // String text = ConsoleInputText.readText("Welcher Buchstabe?");
+    // int size = readNumber3("Wieviel Zeilen sollen ausgegebn werden", 1, 10);
+
+    //benjamin.week01.MethodenSchleifen.printRhombus(text,size);
+
+
+
 
     public static void stringEinlesen() {
         String name = ConsoleInputText.readText("Wie ist lautet Name?");
@@ -97,10 +106,5 @@ public class ConsoleInputNumber {
 
     }
 
-    public static void rateSpiel(){
-        int random = new Random()
 
-
-
-    }
 }
