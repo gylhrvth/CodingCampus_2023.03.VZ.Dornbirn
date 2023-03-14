@@ -37,7 +37,7 @@ public class ZufallGenerator {
             }
         }
         if (!win){
-            System.out.println("Du hast verloren Die Zahl war " + target);
+            System.out.println("Du hast VERLOREN DU LOSER, die Zahl war " + target);
         }
 
     }
