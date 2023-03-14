@@ -23,7 +23,7 @@ public class InputZahl {
             System.out.println("Bitte eine Nummerische Zahl!");
             scotty.nextLine();
         }
-// Diese Programm loopt ich da es keine Schleife gibt. Entweder ein If oder While hinzufügen. Siehe mitLoop
+// Diese Programm loopt nicht da es keine Schleife gibt. Entweder ein If oder While hinzufügen. Siehe mitLoop
         return value;
     }
 

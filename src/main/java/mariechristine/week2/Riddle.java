@@ -1,17 +1,19 @@
 package mariechristine.week2;
 
 import java.util.Scanner;
+import java.util.Random;
 
 public class Riddle {
+    static Random ran = new Random();
+
     public static void main(String[] args) {
 
-        riddleGreeting("Willkommen beim super coolen Zahlenspiel!\nErrate die Zahl zwischen 0 und 100!\nGib die Zahl nun ein:");
-    }
+        System.out.println("Willkommen beim super coolen Zahlen Ratespiel!\nErrate die Zahl zwischen 0 und 100!\nWas ist deine Zahl?");
+        int x = ran.nextInt(101);
+        System.out.println();
 
-    public static String riddleGreeting(String text) {
-        Scanner guess = new Scanner(System.in);
-        System.out.println(text);
-        return guess.nextLine();
+
     }
 
 }
+
