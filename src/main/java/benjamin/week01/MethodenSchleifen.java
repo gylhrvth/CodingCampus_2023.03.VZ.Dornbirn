@@ -106,9 +106,9 @@ public class MethodenSchleifen {
         for (int i = 0; i < count; i++) {
             for (int j = 0; j < count; j++) {
                 if (i == 0 || j == count - 1) {
-                    System.out.print("A ");
+                    System.out.print(text);
                 } else if (j == 0 || i == count - 1) {
-                    System.out.print("B ");
+                    System.out.print(text );
                 } else {
                     System.out.print(". ");
                 }
@@ -175,15 +175,15 @@ public class MethodenSchleifen {
         for (int i = 0; i < 2 * count - 1; i++) {
             for (int j = 0; j < 2 * count - 1; j++) {
                 if (i + j == count - 1) {
-                    System.out.print("c ");
+                    System.out.print(text);
                 } else if (j == count + i - 1) {
-                    System.out.print("d ");
+                    System.out.print(text);
                 } else if (j == i - count + 1) {
-                    System.out.print("o ");
+                    System.out.print(text);
                 } else if (i + j == 3 * (count - 1)) {
-                    System.out.print("v ");
+                    System.out.print(text);
                 } else {
-                    System.out.print(". ");
+                    System.out.print(" ");
                 }
             }
             System.out.println();
