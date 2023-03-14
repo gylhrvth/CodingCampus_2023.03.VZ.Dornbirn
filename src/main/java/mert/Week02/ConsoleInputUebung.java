@@ -19,7 +19,14 @@ public class ConsoleInputUebung {
 
     }
 
-    public static int readNumber(String message) {
-        System.out.println("Zahl einlesen");
+//    public static int readNumber(String message) {
+
+//        System.out.println("Zahl einlesen");
+
+//        int size = readNumber();
+
+//        Scanner sc = new Scanner(System.in);
+//        int value = sc.nextInt();
+//        return value;
     }
-}
+
