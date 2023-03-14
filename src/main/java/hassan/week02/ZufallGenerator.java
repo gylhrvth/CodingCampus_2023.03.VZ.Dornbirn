@@ -15,15 +15,16 @@ public class ZufallGenerator {
         System.out.println("Rate Spiel (Made by Hassan)");
         System.out.println();
         System.out.println("Errate einen zahl zwischen 1 - 100: ");
-
+        int count = 0;
         boolean win = false;
-        while (!win) {
+        while (!win && count < 5) {
             while (!sc.hasNextInt()) {
                 System.out.println("Bitte einen zahl geben");
                 sc.nextLine();
 
             }
             int guess = sc.nextInt();
+            count++;
             sc.nextLine();
 
             if (guess < target) {
@@ -34,6 +35,9 @@ public class ZufallGenerator {
                 System.out.println("Gratuliere du hast 30.000$ Gewonnen!!:))))");
                 win = true;
             }
+        }
+        if (!win){
+            System.out.println("Du hast verloren Die Zahl war " + target);
         }
 
     }
