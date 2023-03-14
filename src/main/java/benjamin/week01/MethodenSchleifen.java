@@ -106,9 +106,9 @@ public class MethodenSchleifen {
         for (int i = 0; i < count; i++) {
             for (int j = 0; j < count; j++) {
                 if (i == 0 || j == count - 1) {
-                    System.out.print(text);
+                    System.out.print(text + " ");
                 } else if (j == 0 || i == count - 1) {
-                    System.out.print(text );
+                    System.out.print(text + " ");
                 } else {
                     System.out.print(". ");
                 }
