@@ -86,7 +86,7 @@ public class ConsoleInput {
         }
     }
 
-    public static void menue
+
 }
 
 
