@@ -4,7 +4,7 @@ import eric.Week01.Methoden;
 
 import java.util.Scanner;
 
-public class ConsoleInput {
+public class ConsoleMenuMethode {
     public static void main(String[] args) {
         System.out.println("1 - Quadrat");
         System.out.println("2 - Dreieck");
