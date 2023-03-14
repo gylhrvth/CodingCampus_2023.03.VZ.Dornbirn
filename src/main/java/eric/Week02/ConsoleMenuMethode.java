@@ -22,8 +22,8 @@ public class ConsoleMenuMethode {
             System.out.println("10 - Weihnachts Baum");
 
             int choose = readWhatForm("Was soll ich Ausdrucken?", 1, 10);
-
             int size = readWhatForm("Wie Groß soll die Form von 1 - 20 sein", 1, 20);
+
             String line = readWhatSymbole("Welches Symbol möchtest du Verwenden?");
 
             if (choose == 1) {                                                              //Quadrat
