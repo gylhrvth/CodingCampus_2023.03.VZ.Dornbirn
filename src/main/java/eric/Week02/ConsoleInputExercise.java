@@ -1,3 +1,4 @@
+/*
 package eric.Week02;
 
 import java.util.Random;
@@ -11,3 +12,4 @@ public class ConsoleInputExercise {
     }
 
 }
+*/
