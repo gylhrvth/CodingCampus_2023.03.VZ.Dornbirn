@@ -1,13 +1,13 @@
 package mariechristine.week2;
 
+
 import java.util.InputMismatchException;
-import java.util.Random;
 import java.util.Scanner;
 
 public class InputZahl {
     public static void main(String[] args) {
 
-//        frage1("wie alt bist du?");
+//        frage1("Wie alt bist du?");
 //        mitLoop("Wie alt bist du?");
 
     }
@@ -46,8 +46,8 @@ public class InputZahl {
         return value;
 
     }
-}
 
+}
 
 
 
