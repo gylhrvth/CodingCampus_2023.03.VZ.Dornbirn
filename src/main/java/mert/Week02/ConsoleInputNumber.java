@@ -11,7 +11,7 @@ public class ConsoleInputNumber {
         String text = ConsoleInputText.readText("Mit welchem Buchstaben?");
         int size = readNumber_v4("Wie viel Mal soll ich ausdrucken?", 1, 10);
 
-        hassan.week01.Methoden.PrintTriangle(text, size);
+        hassan.week01.Methoden.PrintEmptysquare(text, size);
     }
 
     public static int readNumber_v1(String message) {
