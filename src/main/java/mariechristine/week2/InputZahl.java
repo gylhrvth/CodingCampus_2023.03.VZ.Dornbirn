@@ -9,7 +9,7 @@ public class InputZahl {
 
 //        frage1("wie alt bist du?");
 //        mitLoop("Wie alt bist du?");
-        printRaetselSpiel(100);
+
     }
 
     public static int frage1(String text) {
@@ -46,13 +46,9 @@ public class InputZahl {
         return value;
 
     }
-
-    public static Random printRaetselSpiel(int Eingabe) {
-        new Random()
-
-
-    }
 }
+
+
 
 
 
