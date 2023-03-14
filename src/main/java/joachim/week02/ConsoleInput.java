@@ -1,16 +1,19 @@
 package joachim.week02;
 
+import com.sun.source.tree.IfTree;
+
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.Random;
 
 public class ConsoleInput {
+    static Random zahl = new Random();
+
     public static void main(String[] args) {
 
 //        frage1("wie alt bist du?");
 //        mitLoop("Wie alt bist du?");
-        printRaetselSpiel2(100);
+//        printRaetselSpiel2();
     }
 
     public static int frage1(String text) {
@@ -48,11 +51,45 @@ public class ConsoleInput {
 
     }
 
-    public static Random printRaetselSpiel2(int Eingabe) {
-        Random zahl = new Random();
-        System.out.println(zahl);
-        return zahl;
+    public static int readGuess() {
+        Scanner scotty = new Scanner(System.in);
+        int guess = -1;
+        while ((guess < 0) || (guess > 100)) {
+            try {
+                guess = scotty.nextInt();
+                scotty.nextLine();
+            } catch (InputMismatchException ime) {
+                System.out.println("Eine Nummerische Zahl bitte!");
+                scotty.nextLine();
+            }
+        }
+        return guess;
     }
+
+    public static void printRaetselSpiel2() {
+        int answer = zahl.nextInt(101);
+        boolean ziel = false;
+        // der boolean ist dazu da die while Schleife zu loopen wenn eine falsche Antwort gegeben wird.
+        System.out.println("Geben Sie eine Zahl zwischen 0 und 100 ein");
+        while (!ziel) {
+            int guess = readGuess();
+            if (answer == guess) {
+                System.out.println("Good Job");
+                ziel = true;
+                // Durch das ziel = false statement wird die while Loop aufgelöst
+            } else if (answer > guess) {
+                System.out.println("Leider zu niedrig, versuche es nochmal");
+            } else {
+                System.out.println("Leider zu hoch, versuche es nochmal");
+            }
+
+        }
+    }
+
+    public static void menue
 }
+
+
+
 
 
