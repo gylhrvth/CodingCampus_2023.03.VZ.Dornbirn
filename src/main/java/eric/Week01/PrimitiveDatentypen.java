@@ -6,9 +6,10 @@ public class PrimitiveDatentypen {
     public static void main(String[] args) {
 
 
-    /*    System.out.println("Aufgabe Summe");
+/*        System.out.println("Aufgabe Summe");
         int num = 0;
-        for (int i = 20; i <= 50; i++) {
+        for (int i = 20; i <= 50; i+
+        +) {
             num += i;
             System.out.print(" " + num);
         }
@@ -59,19 +60,6 @@ public class PrimitiveDatentypen {
 
         System.out.println();
 
-
-        System.out.println("Aufgabe von 0 - 100 in 0.1 Schritten");
-        for (int i = 0; i < 1000; i++) {
-            System.out.printf(i / 10.0);
-        }
-
-        System.out.println();
-
-        System.out.println("---");
-
-        System.out.println();
-
-
         System.out.println("Teilen und Herrschen");
         for (int x = 1; x <= 20; x++) {
             System.out.println("x: " + x);
@@ -92,19 +80,19 @@ public class PrimitiveDatentypen {
 
 
         System.out.println("Pi Nilakantha Reihe");
-        double pi = 3;
-        int zahl = 1;
+        double pi2 = 3;
+        int zahl1 = 1;
         long a = 2;
         long b = 3;
         long c = 4;
         for (int i = 1; i <= 10000; i++) {
-            pi += zahl * 4.0 / (a*b*c);
-            zahl *= -1;
+            pi2 += zahl1 * 4.0 / (a*b*c);
+            zahl1 *= -1;
             a += 2;
             b += 2;
             c += 2;
         }
-        System.out.println("Pi: " + pi);
+        System.out.println("Pi: " + pi2);
 
         System.out.println("Geheime Reihe");
         double wert = 1.0;
@@ -112,7 +100,7 @@ public class PrimitiveDatentypen {
             wert = wert / 2 + 1 / wert;
         }
         System.out.println(wert);
-    */
+*/
         System.out.println("Wurzelnäherung");
         double random = new java.util.Random().nextInt(10000) + 1;
         random /= 2;
