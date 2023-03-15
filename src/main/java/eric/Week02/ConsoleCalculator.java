@@ -14,7 +14,7 @@ public class ConsoleCalculator {
             System.out.println("Bitte gib die Erste Zahl an: ");
             while (!scan.hasNextFloat()) {
                 System.out.println("Bitte gib eine Zahl an!");
-                scan.nextLine();
+                scan.next();
             }
 
             zahl1 = scan.nextFloat();
@@ -25,14 +25,15 @@ public class ConsoleCalculator {
                     !operator.equals("+") && !operator.equals("*") && !operator.equals("/") &&
                     !operator.equals("-") && !operator.equals("^")
             ) {
-                System.out.println("Bitte gib einen Operator ein: ");
+                System.out.println("Bitte gib einen gültigen Operator wie +, -, * ein: ");
                 operator = scan.next();
+
             }
 
             System.out.println("Bitte gib die Zweite Zahl an: ");
             while (!scan.hasNextFloat()) {
                 System.out.println("Bitte gib eine Zahl an!");
-                scan.nextLine();
+                scan.next();
             }
             zahl2 = scan.nextFloat();
             scan.nextLine();
