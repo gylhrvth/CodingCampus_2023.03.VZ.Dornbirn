@@ -32,12 +32,12 @@ public class ZufallGenerator {
             } else if (guess > target) {
                 System.out.println("Die Zahl ist zu Hoch, versuche es noch ein mal!!");
             } else {
-                System.out.println("Gratuliere du hast 30.000$ Gewonnen!!:))))");
+                System.out.println("Gratuliere du hast 30.000$ GEWONNEN!!:))))");
                 win = true;
             }
         }
         if (!win){
-            System.out.println("Du hast verloren Die Zahl war " + target);
+            System.out.println("Du hast VERLOREN DU LOSER, die Zahl war " + target);
         }
 
     }

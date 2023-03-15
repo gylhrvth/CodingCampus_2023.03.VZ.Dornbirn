@@ -11,8 +11,8 @@ public class AufgabeMenu {
             System.out.println("1 - Quadrat");
             System.out.println("2 - Dreieck Oben Links");
             System.out.println("3 - Dreieck Unten Links");
-            System.out.println("4 - Dreieck Unten Mitte");
-            System.out.println("5 - Dreieck Oben Mitte");
+            System.out.println("4 - Dreieck Unten Rechts");
+            System.out.println("5 - Dreieck Oben Rechts");
             System.out.println("6 - Pyramide");
             System.out.println();
             int choose = readSquare("Was darf ich drucken?", 1, 6);
@@ -36,9 +36,10 @@ public class AufgabeMenu {
                 System.out.println("Nicht gewonnen!");
 
             }
+            System.out.println();
             repeat = readJaNein("Noch mal was ausdrucken? Ja/Nein");
         }
-        System.out.println("Ciao!!");
+        System.out.println("Ciaoooooo!!");
     }
 
 
