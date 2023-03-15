@@ -23,9 +23,9 @@ public class ArraysUebungen {
         System.out.println(Arrays.toString(arr2));
 
     }
-    public static int makeACopy(int [] original){
+   /* public static int makeACopy(int [] original){
 
-    }
+    }*/
 
 
 
