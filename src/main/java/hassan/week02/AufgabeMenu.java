@@ -43,8 +43,6 @@ public class AufgabeMenu {
     }
 
 
-
-
     public static int readSquare (String message, int minValue, int maxValue){
         Scanner sc = new Scanner(System.in);
         int value = 0;
@@ -65,8 +63,8 @@ public class AufgabeMenu {
             }
         }
         return value;
-
     }
+
     public static String readSquareSymbol(String symbol){
         Scanner sc = new Scanner(System.in);
         System.out.println(symbol);
@@ -79,8 +77,4 @@ public class AufgabeMenu {
 
         return answer.equals("ja") || answer.equals("Ja") || answer.equals("j") || answer.equals("J");
     }
-
-
-
-
 }
