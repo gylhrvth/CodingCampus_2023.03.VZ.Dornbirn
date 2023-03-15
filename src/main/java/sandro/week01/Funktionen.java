@@ -21,7 +21,7 @@ public class Funktionen {
 //        printRhombus2("N ", 11);
 //        printX("O ", 5);
 //        printChristmastree(15);
-        printCirclePythagoras(10);
+//        printCirclePythagoras(10);
 
 //        for (int j = 1; j <= 15; j++) {
 //            printChristmastree(j);
