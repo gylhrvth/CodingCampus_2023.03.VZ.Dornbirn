@@ -7,11 +7,12 @@ public class ConsoleCalculator {
         boolean repeat = true;
         String operator = "";
         Scanner scan = new Scanner(System.in);
-        float zahl1, zahl2, ergebnis, zwischenergebnis = 0, memory = 0;
+        float zahl1, zahl2, ergebnis = 0, zwischenergebnis = 0, memory = 0;
 
 
         while (repeat) {
-            System.out.println("Memory Funktion:");
+            System.out.println();
+            System.out.println("Memory Function:");
             System.out.println("MC - Memory Clear");
             System.out.println("M+ - Memory Add");
             System.out.println("M- - Memory Sub");
@@ -26,7 +27,7 @@ public class ConsoleCalculator {
                 }
                 zahl1 = scan.nextFloat();
                 scan.nextLine();
-
+                System.out.println();
             }
             operator = "";
             while (
@@ -37,25 +38,21 @@ public class ConsoleCalculator {
             ) {
                 System.out.println("Bitte gib einen gültigen Operator wie +, -, * ein: ");
                 operator = scan.next();
-
+                System.out.println();
             }
 
             if (operator.equals("MC")) {
                 memory = zwischenergebnis = 0;
                 System.out.println("Memory Wert: 0");
-                continue;
             } else if (operator.equals("M+")) {
                 zwischenergebnis += zahl1;
                 System.out.println("Ergebnis: " + zwischenergebnis);
-                continue;
             } else if (operator.equals("M-")) {
                 zwischenergebnis -= zahl1;
                 System.out.println("Ergebnis: " + zwischenergebnis);
-                continue;
             } else if (operator.equals("MR")) {
-                ergebnis = memory;
-                System.out.println("Memory Wert: " + zwischenergebnis);
-                continue;
+                memory = ergebnis;
+                System.out.println("Ergebnis: " + memory);
             } else {
                 System.out.println("Bitte gib die Zweite Zahl an: ");
                 while (!scan.hasNextFloat()) {
@@ -64,7 +61,7 @@ public class ConsoleCalculator {
                 }
                 zahl2 = scan.nextFloat();
                 scan.nextLine();
-
+                System.out.println();
 
                 if (operator.equals("+")) {
                     ergebnis = zahl1 + zahl2;
@@ -88,6 +85,7 @@ public class ConsoleCalculator {
                 repeat = readJaNein("Weiter Rechnen? J/N");
             }
         }
+        System.out.println("Dann Hau halt ab");
     }
 
     public static boolean readJaNein(String message) {
