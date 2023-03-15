@@ -7,7 +7,7 @@ public class ConsoleCalculator {
         boolean repeat = true;
         String operator = "";
         Scanner scan = new Scanner(System.in);
-        float zahl1, zahl2, ergebnis, zwischenergebnis = 0, memory = 0;
+        float zahl1, zahl2, ergebnis = 0, zwischenergebnis = 0, memory = 0;
 
 
         while (repeat) {
@@ -17,7 +17,6 @@ public class ConsoleCalculator {
             System.out.println("M+ - Memory Add");
             System.out.println("M- - Memory Sub");
             System.out.println("MR - Memory Read");
-            System.out.println();
             if (zwischenergebnis != 0) {
                 zahl1 = zwischenergebnis;
             } else {
@@ -45,19 +44,15 @@ public class ConsoleCalculator {
             if (operator.equals("MC")) {
                 memory = zwischenergebnis = 0;
                 System.out.println("Memory Wert: 0");
-                continue;
             } else if (operator.equals("M+")) {
                 zwischenergebnis += zahl1;
                 System.out.println("Ergebnis: " + zwischenergebnis);
-                continue;
             } else if (operator.equals("M-")) {
                 zwischenergebnis -= zahl1;
                 System.out.println("Ergebnis: " + zwischenergebnis);
-                continue;
             } else if (operator.equals("MR")) {
-                ergebnis = memory;
-                System.out.println("Memory Wert: " + zwischenergebnis);
-                continue;
+                memory = ergebnis;
+                System.out.println("Ergebnis: " + memory);
             } else {
                 System.out.println("Bitte gib die Zweite Zahl an: ");
                 while (!scan.hasNextFloat()) {
