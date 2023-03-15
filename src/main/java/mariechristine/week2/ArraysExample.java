@@ -21,4 +21,17 @@ public class ArraysExample {
         System.out.println(Arrays.toString(input));
 
     }
+    public static void numberArray( int size) {
+
+        //Array
+        int[] up = new int[size];
+
+        for (int i = 0; i > up.length; i++ ) {
+            up[i] = 1;
+
+            //Ausdruck
+            System.out.println(Arrays.toString(up));
+        }
+    }
+
 }
