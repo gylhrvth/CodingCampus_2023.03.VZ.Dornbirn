@@ -12,17 +12,22 @@ public class Menu {
         while (repeat) {
             System.out.println("Was möchtest du zeichnen?");
             int auswahl = readZahl("1) Christbaum\n2) Quader\n3) Rhombus\n", 1, 3);
-            int size = readZahl("Wie groß möchtest du Zeichnen", 1, 30);
-            String line = readText("Mit Welchem Zeichen möchtest du zeichnen?");
+            //int size = readZahl("Wie groß möchtest du Zeichnen", 1, 30);
+            //String line = readText("Mit Welchem Zeichen möchtest du zeichnen?");
 
             // wie kann ich bei der frage, wie groß zeichnen, den objektname dazu geben
             //beispiel, wie groß soll der Quader sein?
 
             if (auswahl == 1) {
-                Funktionen.printChristmastree(size);
+                makeChrismasTree();
+                //Funktionen.printChristmastree(size);
             } else if (auswahl == 2) {
+                int size = readZahl("Wie groß möchtest du Zeichnen", 1, 30);
+                String line = readText("Mit Welchem Zeichen möchtest du zeichnen?");
                 Funktionen.printEmptySpquare1(line, size);
             } else if (auswahl == 3) {
+                int size = readZahl("Wie groß möchtest du Zeichnen", 1, 30);
+                String line = readText("Mit Welchem Zeichen möchtest du zeichnen?");
                 Funktionen.printRhombus2(line, size);
             } else {
 
@@ -31,6 +36,14 @@ public class Menu {
 
         }
     }
+
+
+
+    public static void makeChrismasTree(){
+        int size = readZahl("Wie groß möchtest du den Weihnachtsbaum haben?", 1, 10);
+        Funktionen.printChristmastree(size);
+    }
+
 
     public static String readText(String message) {
         Scanner sc = new Scanner(System.in);
