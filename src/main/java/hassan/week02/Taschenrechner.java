@@ -4,10 +4,19 @@ public class Taschenrechner {
     public static void main(String[] args) {
         boolean repeat = true;
         Scanner scan = new Scanner(System.in);
-        float zahl1, zahl2, ergebniss;
+        float zahl1, zahl2, ergebniss = 0, zwischenergebniss = 0, memory = ergebniss;
         String operator = "";
         boolean endergebniss = false;
         while (repeat) {
+            System.out.println("Memory Funktion: ");
+            System.out.println();
+            System.out.println("MC - Memory Clear");
+            System.out.println("M+ - Memory Add");
+            System.out.println("M- - Memory Sub");
+            System.out.println("MR - Memory Read");
+            if (zwischenergebniss != 0) {
+                zahl1 = zwischenergebniss;
+            } else {
                 System.out.println("Bitte gib die erste zahl ein: ");
                 while (!scan.hasNextFloat()) {
                     System.out.println("Das ist keine gültige Zahl. Bitte gib eine Zahl ein:");
@@ -15,24 +24,41 @@ public class Taschenrechner {
                 }
                 zahl1 = scan.nextFloat();
                 scan.nextLine();
-
-                operator = "";
-                while (
-                        !operator.equals("+") &&
-                        !operator.equals("-") &&
-                        !operator.equals("*") &&
-                        !operator.equals("/") &&
-                        !operator.equals("^")
-                ) {
-                    System.out.println("Bitte gib einen operator ein: ");
-                    operator = scan.nextLine();
-                }
-
-                System.out.println("Bitte gib die zweite zahl ein: ");
+            }
+            operator = "";
+            while (
+                            !operator.equals("+") &&
+                            !operator.equals("-") &&
+                            !operator.equals("*") &&
+                            !operator.equals("/") &&
+                            !operator.equals("^") &&
+                            !operator.equals("MC") &&
+                            !operator.equals("M+") &&
+                            !operator.equals("M-") &&
+                            !operator.equals("MR")
+            ) {
+                System.out.println("Bitte gib einen operator ein: ");
+                operator = scan.nextLine();
+            }
+            if (operator.equals("MC")) {
+                memory = zwischenergebniss = 0;
+                System.out.println("Memory Wert: 0");
+            } else if (operator.equals("M+")) {
+                zwischenergebniss += zahl1;
+                System.out.println("Ergebnis: " + zwischenergebniss);
+            } else if (operator.equals("M-")) {
+                zwischenergebniss -= zahl1;
+                System.out.println("Ergebnis: " + zwischenergebniss);
+            } else if (operator.equals("MR")) {
+                ergebniss = memory;
+                System.out.println("Memory Wert: " + zwischenergebniss);
+            } else {
+                System.out.println("Bitte gib die Zweite Zahl an: ");
                 while (!scan.hasNextFloat()) {
-                    System.out.println("Das ist keine glültige Zahl. Bitte gib eine Zahl ein:");
-                    scan.nextLine();
+                    System.out.println("Bitte gib eine Zahl an!");
+                    scan.next();
                 }
+
                 zahl2 = scan.nextFloat();
                 scan.nextLine();
                 if (operator.equals("+")) {
@@ -48,15 +74,17 @@ public class Taschenrechner {
                     for (int i = 0; i < zahl2; i++) {
                         ergebniss *= zahl1;
                     }
-                }else {
+                } else {
                     System.out.println("Ungültiger operator");
                     continue;
                 }
                 System.out.println("Ergebniss: " + ergebniss);
-                repeat = readJaNein("Nochmal? Ja/nein");
+                zwischenergebniss = ergebniss;
+                repeat = readJaNein("Weiter rechnen? Ja/nein");
             }
-            System.out.println("Ciaooooooooooooooo!!");
         }
+        System.out.println("Ciaooooooooooooooo!!");
+    }
 
     public static boolean readJaNein(String message){
         Scanner sc = new Scanner(System.in);
