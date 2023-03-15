@@ -1,19 +1,18 @@
 package joachim.week02;
 
-import com.sun.source.tree.IfTree;
-
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
 public class ConsoleInput {
-    static Random zahl = new Random();
+    static Random randomGenerator = new Random();
 
     public static void main(String[] args) {
 
 //        frage1("wie alt bist du?");
 //        mitLoop("Wie alt bist du?");
 //        printRaetselSpiel2();
+        highLowGame();
     }
 
     public static int frage1(String text) {
@@ -54,11 +53,12 @@ public class ConsoleInput {
     public static int readGuess() {
         Scanner scotty = new Scanner(System.in);
         int guess = -1;
-        while ((guess < 0) || (guess > 100)) {
+        while ((guess < 0) || (guess > 10)) {
             try {
+                System.out.println("Geben Sie eine Zahl zwischen 0 und 100 ein");
                 guess = scotty.nextInt();
                 scotty.nextLine();
-            } catch (InputMismatchException ime) {
+            } catch (InputMismatchException ignore) {
                 System.out.println("Eine Nummerische Zahl bitte!");
                 scotty.nextLine();
             }
@@ -67,29 +67,36 @@ public class ConsoleInput {
     }
 
     public static void printRaetselSpiel2() {
-        int answer = zahl.nextInt(101);
+        int answer = randomGenerator.nextInt(101);
         boolean ziel = false;
         // der boolean ist dazu da die while Schleife zu loopen wenn eine falsche Antwort gegeben wird.
-        System.out.println("Geben Sie eine Zahl zwischen 0 und 100 ein");
         while (!ziel) {
             int guess = readGuess();
             if (answer == guess) {
                 System.out.println("Good Job");
                 ziel = true;
-                // Durch das ziel = false statement wird die while Loop aufgelöst
+                // Durch das ziel = false statement wird die while Loop beendet
             } else if (answer > guess) {
                 System.out.println("Leider zu niedrig, versuche es nochmal");
             } else {
                 System.out.println("Leider zu hoch, versuche es nochmal");
             }
-
         }
     }
 
-
+    public static void highLowGame() {
+//        Joachims Orginal
+        int secretNumber = randomGenerator.nextInt(11);
+        int guess = - 1;
+        while (secretNumber != guess) {
+            guess = readGuess();
+            if (guess < secretNumber) {
+                System.out.println("Leider zu niedrig");
+            } else if (guess > secretNumber) {
+                System.out.println("Leider zu Hoch");
+            }
+        }
+        System.out.println("Good Job, Dude");
+    }
 }
-
-
-
-
 
