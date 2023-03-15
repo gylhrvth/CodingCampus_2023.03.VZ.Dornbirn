@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Taschenrechner {
 
+    public static int save = 0;
 
     public static void main(String[] args) {
         calculator();
@@ -42,7 +43,7 @@ public class Taschenrechner {
 
     public static int operation(String operator, int param1, int param2) {
         int result = 0;
-        int save = 0;
+
 
         if (operator.equals("+")) {
             result = param1 + param2;
