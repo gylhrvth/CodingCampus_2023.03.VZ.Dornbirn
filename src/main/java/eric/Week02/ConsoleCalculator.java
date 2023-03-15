@@ -11,11 +11,13 @@ public class ConsoleCalculator {
 
 
         while (repeat) {
-            System.out.println("Memory Funktion:");
+            System.out.println();
+            System.out.println("Memory Function:");
             System.out.println("MC - Memory Clear");
             System.out.println("M+ - Memory Add");
             System.out.println("M- - Memory Sub");
             System.out.println("MR - Memory Read");
+            System.out.println();
             if (zwischenergebnis != 0) {
                 zahl1 = zwischenergebnis;
             } else {
@@ -26,7 +28,7 @@ public class ConsoleCalculator {
                 }
                 zahl1 = scan.nextFloat();
                 scan.nextLine();
-
+                System.out.println();
             }
             operator = "";
             while (
@@ -37,7 +39,7 @@ public class ConsoleCalculator {
             ) {
                 System.out.println("Bitte gib einen gültigen Operator wie +, -, * ein: ");
                 operator = scan.next();
-
+                System.out.println();
             }
 
             if (operator.equals("MC")) {
@@ -64,7 +66,7 @@ public class ConsoleCalculator {
                 }
                 zahl2 = scan.nextFloat();
                 scan.nextLine();
-
+                System.out.println();
 
                 if (operator.equals("+")) {
                     ergebnis = zahl1 + zahl2;
@@ -88,6 +90,7 @@ public class ConsoleCalculator {
                 repeat = readJaNein("Weiter Rechnen? J/N");
             }
         }
+        System.out.println("Dann Hau halt ab");
     }
 
     public static boolean readJaNein(String message) {
