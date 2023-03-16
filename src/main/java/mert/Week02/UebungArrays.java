@@ -2,10 +2,13 @@ package mert.Week02;
 
 import gyula.week02.ConsoleInputNumber;
 
+import java.util.Random;
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class UebungArrays {
+
+    static Random rand = new Random();
+
     public static void main(String[] args) {
         int size = ConsoleInputNumber.readNumber_v5("Wie viele Elemente sollen erstellt werden?", 1, 1000);
 
@@ -19,20 +22,21 @@ public class UebungArrays {
             array2[i] = array2.length - i;
         }
 
-
-
         System.out.println(Arrays.toString(array));
         System.out.println(Arrays.toString(array2));
-        /*
-        for (int i = 0; i < array.length; i++) {
-            System.out.println(array[i]);
-        }
-         */
+
+        int[] namesCopy = new int[array.length];
+        System.arraycopy(array, 0, namesCopy, 0, array.length);
+        System.out.println(Arrays.toString(namesCopy));
+
 
     }
 
 
 }
+
+
+
 
 
 
