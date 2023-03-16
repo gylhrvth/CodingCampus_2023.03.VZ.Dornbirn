@@ -11,7 +11,7 @@ public class Funktionen {
 //        printTriangleTopLeft("E ", 5);
 //        printTriangleTopRight("F ", 5);
 //        printTriangleBottomRight("G ", 5);
-//        printEmptySpquare1("H ", 10);
+        printEmptySpquare1("H ", 10);
 //        printEmptySpquare2("I ", 3);
 //        printSlash1("J ", 3, true);
 //        printSlash2("K", 4, false);

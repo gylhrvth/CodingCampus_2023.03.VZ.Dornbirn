@@ -3,11 +3,11 @@ package sandro.week01;
 public class PrimitiveDatentypen {
     public static void main(String[] args) {
 
-        //      addieren(0, 20, 50);
-        //      faktorial(1, 20);
-        //      kommaschritte(0F, 100F, 0.1F);
-        //      teilen(0,20,0);
-        //      calculatePi(20000000);
+              addieren(0, 20, 50);
+              faktorial(1, 20);
+              kommaschritte(0F, 100F, 0.1F);
+              teilen(0,20,0);
+              calculatePi(20000000);
         //      calculatePi2(20000000);
         //      calculatePi3(20000000);
         //      calculatePi4(20000000);
