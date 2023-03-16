@@ -10,13 +10,13 @@ public class RateSpiel {
     public static void main(String[] args) {
         String name = readText("Wie ist dein Name?");
         System.out.println("Willkommen " + name + " beim super coolen Zahlen Ratespiel ");
-        System.out.println("Du hast nur 5 versuche!");
+        System.out.println("Du hast nur 10 versuche!");
         int randomValue = rand.nextInt(101);
         //  System.out.println(randomValue);
 
         int i = 0;
         int nummer = -1;
-        while ((i < 5) && (nummer != randomValue)) {
+        while ((i < 10) && (nummer != randomValue)) {
             nummer = spielerZahl("Was ist deine Nummer", 0, 100);
             if (nummer < randomValue) {
                 System.out.println("deine Zahl ist zu niedrig");
@@ -26,9 +26,9 @@ public class RateSpiel {
             ++i;
         }
         if (nummer == randomValue) {
-            System.out.println("du hast gewonnen");
+            System.out.println("du hast gewonnen, Drini geht mit ein Bier trinken");
         } else {
-            System.out.println("Looooser!\nDie richtige Zahl war: " + randomValue);
+            System.out.println("Mike!\nDie richtige Zahl war: " + randomValue);
         }
         System.out.println("Danke fürs Spielen");
     }
