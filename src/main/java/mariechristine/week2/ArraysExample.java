@@ -21,18 +21,7 @@ public class ArraysExample {
             System.out.println(Arrays.toString(input));
         }
     }
-
-    public static void tryArray() {
-
-        int[] numbers = new int[10];
-
-        for (int i = 1; i < numbers.length; i++)
-            numbers[i - 10] = i;
-
-        System.out.println(Arrays.toString(numbers));
-
-        }
-    }
+}
 
 
 
