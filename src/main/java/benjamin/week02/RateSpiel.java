@@ -18,7 +18,7 @@ public class RateSpiel {
         System.out.println("Willkommen beim super coolen Zahlen Ratespiel!");
         System.out.println("Errate die Zahl zwischen 0 und 100!");
         int randomValue = rand.nextInt(101);
-         System.out.println(randomValue);
+      //   System.out.println(randomValue);
 
         int count = 0;
         int number = -1;  //bezieht sich auf (number != randomValue)
