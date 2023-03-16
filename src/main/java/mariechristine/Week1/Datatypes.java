@@ -3,7 +3,7 @@ package mariechristine.Week1;
 public class Datatypes {
     public static void main(String[] args) {
 
-//        sumUpNewValue(20, 50);
+        sumUpNewValue(20, 50);
 //        factorResult(20);
 //        factorResult2(20);
 //        stepsToHundred(100);
