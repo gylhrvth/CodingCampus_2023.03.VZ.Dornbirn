@@ -10,14 +10,16 @@ public class ArraysExample {
 //        copy();
 //        random();
 //        int[] randomArray = randomArray();
-//        forBeach();
-//        forBeach2();
-//        forBeach3();
-        forBeach4();
+//        arrayCrazyRange();
+//        arrayGreater30();
+//        arraySum();
+//        max();
+//        min();
+//        avg();
     }
 
     static Random random = new Random();
-    public static int ARRAY_WIDTH = 10000000;
+    public static int ARRAY_WIDTH = 10;
 
     public static void exel() {
         Scanner scanner = new Scanner(System.in);
@@ -55,7 +57,7 @@ public class ArraysExample {
         return rand;
     }
 
-    public static void forBeach() {
+    public static void arrayCrazyRange() {
         int[] numbers = randomArray(-50, 50);
         for (int number : numbers) {
             System.out.println(number + " ");
@@ -64,7 +66,7 @@ public class ArraysExample {
 
     }
 
-    public static void forBeach2() {
+    public static void arrayGreater30() {
         int[] numbers = randomArray(1, 100);
         for (int number : numbers) {
             if (number > 30)
@@ -73,7 +75,7 @@ public class ArraysExample {
         }
     }
 
-    public static void forBeach3() {
+    public static void arraySum() {
         int result = 0;
         int[] numbers = randomArray(1, 100);
         for (int number : numbers) {
@@ -83,14 +85,46 @@ public class ArraysExample {
 
     }
 
-    public static void forBeach4() {
-        int result = 0;
+    public static int max() {
         int[] numbers = randomArray(1, 100);
+        int max = numbers[0];
         for (int number : numbers) {
-            result = (number + result);
+            if (max < number) {
+                max = number;
+            }
         }
-        double average = result / (double) numbers.length;
-        System.out.println(average);
-        System.out.println();
+        System.out.println(Arrays.toString(numbers));
+        System.out.println(max);
+        return max;
+    }
+
+    public static int min() {
+        int[] numbers = randomArray(1, 100);
+        int min = numbers[0];
+        for (int number : numbers) {
+            if (min > number) {
+                min = number;
+            }
+        }
+        System.out.println(Arrays.toString(numbers));
+        System.out.println(min);
+        return min;
+    }
+
+    public static double avg() {
+        int[] numbers = randomArray(1, 100);
+        int avgb = 0;
+        for (int number : numbers) {
+            avgb = avgb + number;
+
+        }
+        double avg = (double) avgb / numbers.length;
+        System.out.println(avg);
+        return avg;
+    }
+
+    public static void sotieren{
+        int[] numbera = randomArray(1, 100);
+
     }
 }
