@@ -2,23 +2,32 @@ package mariechristine.week2;
 
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class ExercisesArraysNew {
+
+    static Random random = new Random();
+
     public static void main(String[] args) {
-        int[] numbers = new int[8];
 
-        numbers[0] = 1;
+        int[] arrIncreasing = createNumbersInrc(15);
+        System.out.println(Arrays.toString(arrIncreasing));
 
-        System.out.println(Arrays.toString(numbers));
+        int[] arrDecreasing = createNumbersDecr(20);
+        System.out.println(Arrays.toString(arrDecreasing));
 
-        printArray(numbers);
+        int[] originalCopy = makeACopy(arrDecreasing);
+        System.out.println(Arrays.toString(originalCopy));
 
-        //int size = readNumberFromUser();
+        int randomLength = random.nextInt(21);
+        int[] ranArray = createNumbersRandom(randomLength);
+        System.out.println("Print in 3 different kind");
+        System.out.println(Arrays.toString(ranArray));
+        printWithForI(ranArray);
+        printWithForEach(ranArray);
 
-        numbers1(15);
-        numbers2(20);
-        int[] makeACopy = new int[]{};
-    }
+
+        }
 
     public static void printArray(int[] numbers) {
         for (int i = 0; i < numbers.length; i++) {
@@ -27,26 +36,54 @@ public class ExercisesArraysNew {
         System.out.println();
     }
 
-    public static void numbers1(int size) {
+    public static int[] createNumbersRandom(int size) {
         int[] numbers = new int[size];
 
-        for (int i = 1; i <= numbers.length; i++) {
-            numbers[i - 1] = i;
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = random.nextInt(101);
         }
-        System.out.println(Arrays.toString(numbers));
+        return numbers;
+    }
+
+    public static int[] createNumbersInrc(int size) {
+        int[] numbers = new int[size];
+
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = 1 + i;
+        }
+        return numbers;
+        //System.out.println(Arrays.toString(numbers));
+    }
+
+    public static int[] createNumbersDecr(int size) {
+        int[] numbers = new int[size];
+
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = numbers.length - i;
+        }
+        return numbers;
+    }
+
+    public static int[] makeACopy(int[] original) {
+        int[] makeACopy = new int[original.length];
+        for (int i = 0; i < original.length; i++) {
+            makeACopy[i] = original[i];
+        }
+        return makeACopy;
 
     }
 
-    public static void numbers2(int size) {
-        int[] numbers = new int[size];
 
-        for (int i = numbers.length; i > 0; i--) {
-            numbers[i - 1] = numbers.length - i;
-        }
-        System.out.println(Arrays.toString(numbers));
+    public static void printWithForEach(int[] arr) {
+
     }
 
+
+    public static void printWithForI(int[] arr) {
+
+    }
 
 }
+
 
 
