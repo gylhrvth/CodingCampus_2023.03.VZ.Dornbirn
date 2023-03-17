@@ -123,8 +123,8 @@ public class ArraysExample {
         return avg;
     }
 
-//    public static void sotieren{
-//        int[] numbera = randomArray(1, 100);
+    /*public static void sotieren{
+        int[] numbera = randomArray(1, 100);
 
-    }
+    }*/
 }
