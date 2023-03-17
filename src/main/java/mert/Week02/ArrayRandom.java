@@ -40,21 +40,32 @@ public class ArrayRandom {
 //        }
 //        System.out.print("]");
 
+
+        int size2 = ConsoleInputNumber.readNumber_v5("Wie groß", 1, 1000);
+        int[] myCrazyArray = crazyRange(size2);
+
+        System.out.println(Arrays.toString(myCrazyArray));
+        printArrayWithForI(myCrazyArray);
+        printArrayWithForEach(myCrazyArray);
+
+
     }
 
-    public static int[] crazyRange(int[] size) {
-        int[] numbers = new int[10];
-        for (int i = 0; i < numbers.length; i++) {
-            int zufallszahl = rand.nextInt(101);
-            numbers[i] = zufallszahl;
-
-            for (int asdf : numbers) {
-
-                System.out.println(asdf);
-            }
-
+    public static int[] crazyRange(int size) {
+        int[] array2 = new int[size];
+        for (int i = 0; i < array2.length; i++) {
+            array2[i] = rand.nextInt(-50, 51);
         }
-return numbers;
+        return array2;
+    }
+
+    public static void printArrayWithForI(int[] arr) {
+
+    }
+
+    public static void printArrayWithForEach(int[] arr) {
 
     }
 }
+
+
