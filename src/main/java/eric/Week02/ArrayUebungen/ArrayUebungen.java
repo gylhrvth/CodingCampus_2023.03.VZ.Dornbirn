@@ -2,6 +2,7 @@ package eric.Week02.ArrayUebungen;
 
 import java.security.SecureRandom;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ArrayUebungen {
@@ -9,7 +10,7 @@ public class ArrayUebungen {
     static SecureRandom number = new SecureRandom();
 
     public static void main(String[] args) {
-        //numberArray();                                    //Array übung
+        numberArray();                                    //Array übung
 
         System.out.println("Copy Array");                   //Copy Array
         int[] arr = new int[]{1, 2, 3};
@@ -28,7 +29,6 @@ public class ArrayUebungen {
 
         System.out.println("------");
         System.out.println();
-
 
         System.out.println("Array Random number Zählen");   //Zählt von 1 - 100 mit Zufalls Zahlen
         int[] zufallZahlen = new int[15];
@@ -53,15 +53,15 @@ public class ArrayUebungen {
         printArray(ranNum);
         System.out.println("------");
 
-        int min = minimumNumbers(ranNum);
+        int min = minNum(ranNum);
         System.out.println("Minimum: " + min);
         System.out.println("------");
 
-        int max = maximumNumbers(ranNum);
+        int max = maxNum(ranNum);
         System.out.println("Maximum: " + max);
         System.out.println("------");
 
-        double avg = averageNumbers(ranNum);
+        double avg = avgNum(ranNum);
         System.out.println("Average: " + avg);
         System.out.println("------");
 
@@ -69,12 +69,14 @@ public class ArrayUebungen {
 
     public static void numberArray() {
         System.out.println("Number Array");
+
         Scanner scan = new Scanner(System.in);
 
-        try {
-            System.out.println("Gib eine Zahl ein");
-        } catch (NumberFormatException exp){
-            System.out.println("Gib eine Zahl ein");
+        System.out.println("Gib ein Zahl an!");
+        try{
+            scan.nextInt();
+        } catch (InputMismatchException ime){
+            System.out.println("Gib eine kack Zahl an!");
             scan.nextLine();
         }
 
@@ -175,7 +177,7 @@ public class ArrayUebungen {
         return ranNum;
     }
 
-    public static int minimumNumbers(int[] num) {
+    public static int minNum(int[] num) {
         int minNumbers = num[0];
         for (int j : num) {
             if (j < minNumbers) {
@@ -185,7 +187,7 @@ public class ArrayUebungen {
         return minNumbers;
     }
 
-    public static int maximumNumbers(int[] num) {
+    public static int maxNum(int[] num) {
         int maxNumbers = num[0];
         for (int j : num) {
             if (j > maxNumbers) {
@@ -195,7 +197,7 @@ public class ArrayUebungen {
         return maxNumbers;
     }
 
-    public static double averageNumbers(int[] num) {
+    public static double avgNum(int[] num) {
         int avgNumbers = 0;
         for (int j : num) {
             avgNumbers += j;
