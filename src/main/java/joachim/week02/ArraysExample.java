@@ -13,10 +13,9 @@ public class ArraysExample {
 //        arrayCrazyRange();
 //        arrayGreater30();
 //        arraySum();
-        max();
-        min();
-        avg();
-
+//        max();
+//        min();
+//        avg();
     }
 
     static Random random = new Random();
@@ -122,5 +121,10 @@ public class ArraysExample {
         double avg = (double) avgb / numbers.length;
         System.out.println(avg);
         return avg;
+    }
+
+    public static void sotieren{
+        int[] numbera = randomArray(1, 100);
+
     }
 }
