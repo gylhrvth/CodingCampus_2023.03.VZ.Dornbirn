@@ -295,7 +295,10 @@ public class Array {
                 String line = sc.nextLine();
                 value = Integer.valueOf(line);
                 if (value >0){
-                valid = true;}
+                valid = true;
+                } else {
+                    System.out.println("die Zahl muss positiv sein");
+                }
             } catch (NumberFormatException nfe) {
                 System.out.println("das ist keine gültige Zahl");
             }
