@@ -24,15 +24,15 @@ public class ArraysExample {
         System.out.println("arrayCrazyRange generiert eine Array die Zahlen zwischen -50 und 50 generiert. SUCH WOW, MUCH CRAZE\n" + Arrays.toString(arrayCrazyRange()) + "\n");
 
         System.out.println("Array Greater 30: zählt Alle Zahlen aus dem zufällig generiertem Array über 30 diese Betragen " + arrayGreater30(rand) + "\n");
-        System.out.println("arraySum gibt die Summe aller Werte aus der Arrays aus" + arraySum() + "\n");
-//        max();
-//        min();
-//        avg();
+
+        System.out.println("arraySum: gibt die Summe aller Werte aus der Array aus \nMenge: " + arraySum() + "\n");
+
+        System.out.println(max() + " " + min() + " " + avg() + " max/min/avg geben genau das aus was der name verspricht.\n");
+
 //        bubbleSort(randomArray(1, 100), ARRAY_WIDTH);
     }
 
     static Random random = new Random();
-    public static int ARRAY_WIDTH = 10;
 
     //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^here i define the width of the random generated Array, the "from" and "to" is defined in the methods themself, ---> see randomArray.
     public static int[] randomArray(int width, int from, int to) {
@@ -94,7 +94,6 @@ public class ArraysExample {
         for (int number : numbers) {
             result = number + result;
         }
-        System.out.println(result);
         return result;
     }
 
@@ -107,7 +106,7 @@ public class ArraysExample {
             }
         }
         System.out.println(Arrays.toString(numbers));
-        System.out.println(max);
+        System.out.println("Max: " + max);
         return max;
     }
 
@@ -120,7 +119,7 @@ public class ArraysExample {
             }
         }
         System.out.println(Arrays.toString(numbers));
-        System.out.println(min);
+        System.out.println("Min: " + min);
         return min;
     }
 
@@ -132,7 +131,8 @@ public class ArraysExample {
 
         }
         double avg = (double) avgb / numbers.length;
-        System.out.println(avg);
+        System.out.println(Arrays.toString(numbers));
+        System.out.println("Avg: " + avg);
         return avg;
     }
 
@@ -149,4 +149,4 @@ public class ArraysExample {
         }
         System.out.println(Arrays.toString(array));
     }
-}
+//}
