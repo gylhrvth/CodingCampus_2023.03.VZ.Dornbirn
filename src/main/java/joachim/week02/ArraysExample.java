@@ -26,8 +26,10 @@ public class ArraysExample {
         System.out.println("Array Greater 30: zählt Alle Zahlen aus dem zufällig generiertem Array über 30 diese Betragen " + arrayGreater30(rand) + "\n");
 
         System.out.println("arraySum: gibt die Summe aller Werte aus der Array aus \nMenge: " + arraySum() + "\n");
-
-        System.out.println(max() + " " + min() + " " + avg() + " max/min/avg geben genau das aus was der name verspricht.\n");
+        max();
+        min();
+        avg();
+        System.out.println("max/min/avg geben genau das aus was der Name verspricht.\n");
 
 //        bubbleSort(randomArray(1, 100), ARRAY_WIDTH);
     }
