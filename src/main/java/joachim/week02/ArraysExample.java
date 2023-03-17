@@ -9,17 +9,27 @@ public class ArraysExample {
 //        exel();
 //        copy();
 //        random();
-//        int[] randomArray = randomArray();
+//        int[] randomArray = randomArray(1, 100);
 //        arrayCrazyRange();
 //        arrayGreater30();
 //        arraySum();
 //        max();
 //        min();
 //        avg();
+        bubbleSort(randomArray(1, 100), ARRAY_WIDTH);
     }
 
     static Random random = new Random();
     public static int ARRAY_WIDTH = 10;
+
+    //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^here i define the width of the random generated Array, the "from" and "to" is defined in the methods themself, ---> see randomArray.
+    public static int[] randomArray(int from, int to) {
+        int[] rand = new int[ARRAY_WIDTH];
+        for (int i = 0; i < rand.length; i++) { // The rand.length and the ARRAY_WIDTH are the same number, just for easier understanding it is named differently as the ARRAY_WIDTH is no normal occurence.
+            rand[i] = random.nextInt(from, to + 1);
+        }
+        return rand;
+    }
 
     public static void exel() {
         Scanner scanner = new Scanner(System.in);
@@ -47,14 +57,6 @@ public class ArraysExample {
 
         }
         return makeACopy;
-    }
-
-    public static int[] randomArray(int from, int to) {
-        int[] rand = new int[ARRAY_WIDTH];
-        for (int i = 0; i < rand.length; i++) {
-            rand[i] = random.nextInt(from, to + 1);
-        }
-        return rand;
     }
 
     public static void arrayCrazyRange() {
@@ -123,8 +125,21 @@ public class ArraysExample {
         return avg;
     }
 
-//    public static void sotieren{
-//        int[] numbera = randomArray(1, 100);
+    static void bubbleSort(int[] array, int n) { //the Array is defined at the Top, also int n is the Array width wich is also defined at the top.
+        if (n == 1)                             //passes are done
+        {
+            return;
+        }
 
+        for (int i = 0; i < n - 1; i++)    //iteration through unsorted elements
+        {
+            if (array[i] > array[i + 1])      //check if the elements are in order
+            {
+                int temp = array[i];        //if not, swap them
+                array[i] = array[i + 1];
+                array[i + 1] = temp;
+            }
+        }
+        System.out.println(Arrays.toString(array));
     }
 }
