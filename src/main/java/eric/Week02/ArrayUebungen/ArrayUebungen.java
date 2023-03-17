@@ -61,7 +61,7 @@ public class ArrayUebungen {
         System.out.println("Maximum: " + max);
         System.out.println("------");
 
-        double  avg = averageNumbers(ranNum);
+        double avg = averageNumbers(ranNum);
         System.out.println("Average: " + avg);
         System.out.println("------");
 
@@ -70,8 +70,16 @@ public class ArrayUebungen {
     public static void numberArray() {
         System.out.println("Number Array");
         Scanner scan = new Scanner(System.in);
-        System.out.println("Gib eine Zahl ein");
+
+        try {
+            System.out.println("Gib eine Zahl ein");
+        } catch (NumberFormatException exp){
+            System.out.println("Gib eine Zahl ein");
+            scan.nextLine();
+        }
+
         int size = scan.nextInt();
+
 
         int[] arr2 = new int[size];
         for (int i = 0; i < arr2.length; i++) {
@@ -88,15 +96,13 @@ public class ArrayUebungen {
 
     public static int[] makeACopy(int[] arr) {
         int[] makeACopy = new int[arr.length];
-        for (int i = 0; i < makeACopy.length; i++) {
-            makeACopy[i] = arr[i];
-        }
+        System.arraycopy(arr, 0, makeACopy, 0, makeACopy.length);
         return makeACopy;
     }
 
     public static void printArray(int[] numbers) {
-        for (int i = 0; i < numbers.length; i++) {
-            System.out.print(numbers[i] + " ");
+        for (int j : numbers) {
+            System.out.print(j + " ");
         }
         System.out.println();
     }
@@ -119,8 +125,8 @@ public class ArrayUebungen {
         System.out.println("------");
 
         System.out.println("ForI Schleife");
-        for (int i = 0; i < ranArr.length; i++) {
-            System.out.print(ranArr[i] + " ");
+        for (int j : ranArr) {
+            System.out.print(j + " ");
         }
         System.out.println();
         System.out.println("------");
@@ -153,8 +159,8 @@ public class ArrayUebungen {
 
     public static int countBiggerThan30(int[] arrCount) {
         int count = 0;
-        for (int i = 0; i < arrCount.length; i++) {
-            if (arrCount[i] > 30) {
+        for (int j : arrCount) {
+            if (j > 30) {
                 count++;
             }
         }
@@ -171,9 +177,9 @@ public class ArrayUebungen {
 
     public static int minimumNumbers(int[] num) {
         int minNumbers = num[0];
-        for (int i = 0; i < num.length; i++) {
-            if (num[i] < minNumbers) {
-                minNumbers = num[i];
+        for (int j : num) {
+            if (j < minNumbers) {
+                minNumbers = j;
             }
         }
         return minNumbers;
@@ -181,9 +187,9 @@ public class ArrayUebungen {
 
     public static int maximumNumbers(int[] num) {
         int maxNumbers = num[0];
-        for (int i = 0; i < num.length; i++) {
-            if (num[i] > maxNumbers) {
-                maxNumbers = num[i];
+        for (int j : num) {
+            if (j > maxNumbers) {
+                maxNumbers = j;
             }
         }
         return maxNumbers;
@@ -191,8 +197,8 @@ public class ArrayUebungen {
 
     public static double averageNumbers(int[] num) {
         int avgNumbers = 0;
-        for (int i = 0; i < num.length; i++) {
-                avgNumbers += num[i];
+        for (int j : num) {
+            avgNumbers += j;
         }
         return (double) avgNumbers / num.length;
     }
