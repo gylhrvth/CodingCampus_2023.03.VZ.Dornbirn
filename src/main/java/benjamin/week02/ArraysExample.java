@@ -1,6 +1,5 @@
 package benjamin.week02;
 
-import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
@@ -59,7 +58,7 @@ public class ArraysExample {
             }
         }
         System.out.println(Arrays.toString(rand));
-        System.out.println(count + "Zahlen über 30");
+        System.out.println(count + " Zahlen über 30");
 
         System.out.println("Random Number Array Summe");
         int sum = 0;
@@ -122,6 +121,10 @@ public class ArraysExample {
         }
         return randArray;
     }
+
+ //   public static int [] minMaxValue(int[] array) {
+
+  //  }
 
 
     public static int number() {
