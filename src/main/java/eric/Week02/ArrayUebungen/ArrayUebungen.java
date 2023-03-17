@@ -10,13 +10,13 @@ public class ArrayUebungen {
     static SecureRandom number = new SecureRandom();
 
     public static void main(String[] args) {
-        numberArray();                                    //Array übung
+        int[] testArray = randomNumber(20);
+        System.out.println(Arrays.toString(testArray));
 
-        System.out.println("Copy Array");                   //Copy Array
-        int[] arr = new int[]{1, 2, 3};
-        int[] arrCopy = makeACopy(arr);
-        printArray(arr);
-        printArray(arrCopy);
+        int[] doACopy = makeACopy(testArray);
+        System.out.println(Arrays.toString(doACopy));
+
+        numberArray();                                    //Array übung
 
         System.out.println("------");
 
@@ -74,9 +74,10 @@ public class ArrayUebungen {
 
         System.out.println("Gib ein Zahl an!");
         try{
-            scan.nextInt();
+            scan.hasNextInt();
+            System.out.println("------");
         } catch (InputMismatchException ime){
-            System.out.println("Gib eine kack Zahl an!");
+            System.out.println("Wer Lesen kann ist KLAR IM VORTEIL!");
             scan.nextLine();
         }
 
@@ -94,11 +95,14 @@ public class ArrayUebungen {
             arr3[i] = size - i;
         }
         System.out.println(Arrays.toString(arr3));
+        System.out.println("------");
     }
 
     public static int[] makeACopy(int[] arr) {
         int[] makeACopy = new int[arr.length];
-        System.arraycopy(arr, 0, makeACopy, 0, makeACopy.length);
+        for (int i = 0; i < makeACopy.length; i++) {
+            makeACopy[i] = arr[i];
+        }
         return makeACopy;
     }
 
@@ -121,14 +125,14 @@ public class ArrayUebungen {
 
         System.out.println("ForEach Schleife");
         for (int element : ranArr) {
-            System.out.print(element + " ");
+            System.out.print("[" + element + "]");
         }
         System.out.println();
         System.out.println("------");
 
         System.out.println("ForI Schleife");
-        for (int j : ranArr) {
-            System.out.print(j + " ");
+        for (int i = 0; i < ranArr.length; i++) {
+            System.out.print("[" + ranArr[i] + "]");
         }
         System.out.println();
         System.out.println("------");
@@ -146,6 +150,7 @@ public class ArrayUebungen {
         for (int i = 0; i < ranArr.length; i += 2) {
             System.out.print("[" + ranArr[i] + "]");
         }
+        System.out.println("------");
     }
 
     public static void crazyRangeArray() {
@@ -157,6 +162,7 @@ public class ArrayUebungen {
         for (int crazyRange : zufallZahlen) {
             System.out.print("[" + crazyRange + "]");
         }
+        System.out.println("------");
     }
 
     public static int countBiggerThan30(int[] arrCount) {
@@ -178,7 +184,7 @@ public class ArrayUebungen {
     }
 
     public static int minNum(int[] num) {
-        int minNumbers = num[0];
+        int minNumbers = 0;
         for (int j : num) {
             if (j < minNumbers) {
                 minNumbers = j;
@@ -188,7 +194,7 @@ public class ArrayUebungen {
     }
 
     public static int maxNum(int[] num) {
-        int maxNumbers = num[0];
+        int maxNumbers = 0;
         for (int j : num) {
             if (j > maxNumbers) {
                 maxNumbers = j;
