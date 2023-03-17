@@ -20,18 +20,19 @@ public class ArraysUebungen {
         int[] random30 = randomzaehlen30(arrayspace);
 
 
-        System.out.println("Aufgabe 1");
+        System.out.println("Aufgabe 1, Plus");
         System.out.println(Arrays.toString(countNumber2));
-        System.out.println();
-        System.out.println("Aufgabe 1 part 2");
+        System.out.println("-----------");
+        System.out.println("Aufgabe 1, Minus");
         System.out.println(Arrays.toString(countNumber1));
-        System.out.println();
-        System.out.println("Aufgabe Kopie");
+        System.out.println("--------------------");
+        System.out.println("Aufgabe Kopie (von erste aufgabe)");
         System.out.println(Arrays.toString(countNumber3));
-        System.out.println();
-        System.out.println("Aufgabe Random");
+        System.out.println("----------------------");
+        System.out.println("Aufgabe Random fori schleife");
         System.out.println(Arrays.toString(countNumber4));
-        System.out.println("Aufgabe Random ForEach");
+        System.out.println("======");
+        System.out.println("Aufgabe Random ForEach schleife");
         for (int random : countNumber4) {
             System.out.print(random + " ");
         }
@@ -39,12 +40,13 @@ public class ArraysUebungen {
         System.out.println("Der 2te Wert ist : " + countNumber4[1] + " ");
         System.out.println("Der 5te Wert ist : " + countNumber4[4] + " ");
         System.out.println("Der 10te Wert ist : " + countNumber4[9] + " ");
-        System.out.println("-----");
+        System.out.println("---------");
         System.out.println("Jede zweite wert anzeigen..");
         for (int i = 0; i < countNumber4.length; i += 2) {
             System.out.print(countNumber4[i] + " ");
         }
         System.out.println();
+        System.out.println("----------");
         System.out.println("Crazy Range");
         for (int crazy : crazyRange) {
             System.out.print(crazy + " ");
@@ -52,7 +54,7 @@ public class ArraysUebungen {
         System.out.println();
         System.out.print("Summe : ");
         System.out.println(randSumme);
-        System.out.println();
+        System.out.println("------------");
         System.out.println("Zahlen über 30 zählen");
         System.out.println(Arrays.toString(random30));
         int count = 0;
