@@ -22,7 +22,7 @@ public class ConsoleCalculator {
             } else {
                 System.out.println("Bitte gib die Erste Zahl an: ");
                 while (!scan.hasNextFloat()) {
-                    System.out.println("Bitte gib eine Zahl an!");
+                    System.out.println("Lies Richtig Gib eine Zahl an man!! (҂ `з´) ︻╦̵̵̿╤──");
                     scan.next();
                 }
                 zahl1 = scan.nextFloat();
