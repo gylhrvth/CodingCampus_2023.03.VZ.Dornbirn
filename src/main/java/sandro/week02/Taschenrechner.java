@@ -29,29 +29,29 @@ public class Taschenrechner {
             } else if (operator.equals("MS")) {
                 memory = zahl;
             } else {
-                    float zahl2 = readZahl("Nächste Zahl ");
-                    float wert = 0.0f;
+                float zahl2 = readZahl("Nächste Zahl ");
+                float wert = 0.0f;
 
-                    if (operator.equals("+")) {
-                        wert = zahl + zahl2;
-                    } else if (operator.equals("-")) {
-                        wert = zahl - zahl2;
-                    } else if (operator.equals("*")) {
-                        wert = zahl * zahl2;
-                    } else if (operator.equals("^")) {
-                        wert = 1;
-                        for (int i = 0; i < zahl2; i++) {
-                            wert *= zahl;
-                        }
-                    } else if (operator.equals("/")) {
-                        wert = zahl / zahl2;
-                    } else {
-                        System.out.println("Unknown operator");
+                if (operator.equals("+")) {
+                    wert = zahl + zahl2;
+                } else if (operator.equals("-")) {
+                    wert = zahl - zahl2;
+                } else if (operator.equals("*")) {
+                    wert = zahl * zahl2;
+                } else if (operator.equals("^")) {
+                    wert = 1;
+                    for (int i = 0; i < zahl2; i++) {
+                        wert *= zahl;
                     }
-                    System.out.println("Ergebnis     : " + wert);
-                    zahl = wert;
+                } else if (operator.equals("/")) {
+                    wert = zahl / zahl2;
+                } else {
+                    System.out.println("Unknown operator");
                 }
+                System.out.println("Ergebnis     : " + wert);
+                zahl = wert;
             }
+        }
 
         System.out.println("Auf Wiedersehen!");
     }
