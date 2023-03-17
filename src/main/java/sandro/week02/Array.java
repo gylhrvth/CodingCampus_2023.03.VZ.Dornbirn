@@ -19,7 +19,6 @@ public class Array {
         int[] crazyRandom = crazyRandomnumbers(arrayspace);
         int[] random100add = randomAddieren(arrayspace);
         int[] random30iger = random30Plus(arrayspace);
-        int[] randomMinMaxAvg = randomNumberMinMaxAvg(arrayspace);
 
 
 
@@ -30,23 +29,14 @@ public class Array {
         System.out.println(Arrays.toString(copyNumbers));
         System.out.println("---");
         System.out.println("Random Output mit forEach");
-        for (int random : randomNumber) {
-            System.out.print(random + ", ");
-        }
+        myArrayPrintForEach(randomNumber);
         System.out.println();
         System.out.println("---");
         System.out.println("Random Output mit Array.toString");
         System.out.println(Arrays.toString(randomNumber));
         System.out.println("---");
         System.out.println("Random Output mit fori");
-        System.out.print("[");
-        for (int i = 0; i < randomNumber.length; i++) {
-            System.out.print(randomNumber[i]);
-            if (i < randomNumber.length - 1) {
-                System.out.print(", ");
-            }
-        }
-        System.out.print("]");
+        myArrayPrint(randomNumber);
 
         System.out.println();
         System.out.println("---");
@@ -101,7 +91,14 @@ public class Array {
         System.out.println("Die Summer der Zahlen ist :" +summe);
         System.out.println("---");
         System.out.println("RandomMinMaxAvg");
-        System.out.println(Arrays.toString(randomMinMaxAvg));
+
+        int[] inputArray = createRandomArray(arrayspace);
+        System.out.println(Arrays.toString(inputArray));
+
+        System.out.println("Der Maximus ist: " + maxValue(inputArray));
+        System.out.println("Der Maximus aus COPY ist: " + maxValue(copyNumbers));
+        System.out.println("Der Maximus aus 30iger ist: " + maxValue(random30iger));
+
 
     }
 
@@ -167,24 +164,53 @@ public class Array {
         }
         return random30iger;
     }
-    public static int[] randomNumberMinMaxAvg(int arrayspace) {
+
+
+
+
+    public static int[] createRandomArray(int arrayspace) {
         int[] randomMinMaxAvg = new int[arrayspace];
         for (int i = 0; i < randomMinMaxAvg.length; i++) {
-            int randomValue = rand.nextInt(101);
-            randomMinMaxAvg[i] = randomValue;
+            randomMinMaxAvg[i] = rand.nextInt(101);
         }
         return randomMinMaxAvg;
-
     }
 
-   /* public static int maxValue(int[]max){
-
+    public static int maxValue(int[] arr){
+        int max = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        return max;
     }
-     */
 
 
+    public static void myArrayPrint(int[] arr){
+        System.out.print("[");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]);
+            if (i < arr.length - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.print("]");
+    }
 
 
+    public static void myArrayPrintForEach(int[] arr){
+        System.out.print("[");
+        boolean first = true;
+        for (int random : arr) {
+            if (!first){
+                System.out.print(", ");
+            }
+            System.out.print(random);
+            first = false;
+        }
+        System.out.println("]");
+    }
 
     public static int readArrayspace(String message) {
         Scanner sc = new Scanner(System.in);

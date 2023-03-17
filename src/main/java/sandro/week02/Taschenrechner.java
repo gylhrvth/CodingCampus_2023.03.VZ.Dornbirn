@@ -4,28 +4,34 @@ import java.util.Scanner;
 
 public class Taschenrechner {
 
-    // TODO: 15.03.2023 MC,M+,M- und MR implementieren
-    // MC = Memory Clear    Speicher löschen
-    // M+ = Memory add      Speicher addiert gespeicherten Wert 100=Speicher (100+100)
-    // M- = Memory sub      Speicher subtrahiert gespeicherten Wert 100=Speicher (100-100)
-    // MR = Memory read     Speicher wird angezeigt
-    // MS = Memory save     Speicher wird mit Wert erstellt
 
     public static void main(String[] args) {
         System.out.println("*****+++++Taschenrechner Premium Deluxe 3000 (s Series)+++++*****");
         System.out.println();
 
         boolean repeat = true;
+        float memory = 0.0f;
         float zahl = readZahl("Erste Zahl   ");
 
         while (repeat) {
             String operator = readOperator("Operator     ");
             if (operator.equals("exit")) {
                 repeat = false;
+            } else if (operator.equals("M+")) {
+                memory += zahl;
+            } else if (operator.equals("M-")) {
+                memory -= zahl;
+            } else if (operator.equals("MR")) {
+                zahl = memory;
+                System.out.println("Ergebnis     : " + zahl);
+            } else if (operator.equals("MC")) {
+                memory = 0;
+            } else if (operator.equals("MS")) {
+                memory = zahl;
             } else {
                     float zahl2 = readZahl("Nächste Zahl ");
                     float wert = 0.0f;
-                    float memory = 0.0f;
+
                     if (operator.equals("+")) {
                         wert = zahl + zahl2;
                     } else if (operator.equals("-")) {
@@ -39,8 +45,6 @@ public class Taschenrechner {
                         }
                     } else if (operator.equals("/")) {
                         wert = zahl / zahl2;
-                    } else if (operator.equals("M+")) {
-                        memory = zahl + memory;
                     } else {
                         System.out.println("Unknown operator");
                     }
