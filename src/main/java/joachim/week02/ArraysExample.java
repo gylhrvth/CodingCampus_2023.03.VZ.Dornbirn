@@ -6,22 +6,46 @@ import java.util.Scanner;
 
 public class ArraysExample {
     public static void main(String[] args) {
-//        exel();
-//        copy();
-//        random();
-//        int[] randomArray = randomArray();
-//        forBeach();
-//        forBeach2();
-//        forBeach3();
-        forBeach4();
+        int[] rand = randomArray(25, 1, 100);
+        System.out.println(Arrays.toString(rand));
+        System.out.println("Hier wird die zufällig generierte Array dargestellt\n");
+        //myPrintWithForI(rand);
+        //myPrintWithForEach(rand);
+        System.out.println("Exel: generiert 2 Arrays die linear von 1 bis zur Array größe " + exel() + " zählt und umgekehrt\n");
+
+        int[] copyOf = copy(rand);
+        System.out.println("Copy of a Array");
+        System.out.println("Orginal: " + Arrays.toString(rand) + "\nCopy:    " + Arrays.toString(copyOf) + "\nCopy: hier wir eine Array mit den momentanen werten kopiert.\n");
+        rand[4] = 1337;
+        System.out.println("Hier habe Ich die (rand) Array an dem [4] Platz auf 1337 geändert und wie man sieht bleibt die Kopie gleich!");
+        System.out.println("Orginal: " + Arrays.toString(rand) + "\nCopy:    " + Arrays.toString(copyOf));
+        System.out.println();
+
+        System.out.println("arrayCrazyRange generiert eine Array die Zahlen zwischen -50 und 50 generiert. SUCH WOW, MUCH CRAZE\n" + Arrays.toString(arrayCrazyRange()) + "\n");
+
+        System.out.println("Array Greater 30: zählt Alle Zahlen aus dem zufällig generiertem Array über 30 diese Betragen " + arrayGreater30(rand) + "\n");
+        System.out.println("arraySum gibt die Summe aller Werte aus der Arrays aus" + arraySum() + "\n");
+//        max();
+//        min();
+//        avg();
+//        bubbleSort(randomArray(1, 100), ARRAY_WIDTH);
     }
 
     static Random random = new Random();
-    public static int ARRAY_WIDTH = 10000000;
+    public static int ARRAY_WIDTH = 10;
 
-    public static void exel() {
+    //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^here i define the width of the random generated Array, the "from" and "to" is defined in the methods themself, ---> see randomArray.
+    public static int[] randomArray(int width, int from, int to) {
+        int[] rand = new int[width];
+        for (int i = 0; i < rand.length; i++) { // The rand.length and the new int[width] are the same number, just for understanding it is named differently
+            rand[i] = random.nextInt(from, to + 1);
+        }
+        return rand;
+    }
+
+    public static int exel() {
         Scanner scanner = new Scanner(System.in);
-        int width = scanner.nextInt();
+        int width = 10;
         int[] safes = new int[width];
 
         for (int i = 0; i < safes.length; i++) {
@@ -35,62 +59,94 @@ public class ArraysExample {
 
         System.out.println(Arrays.toString(safes));
         System.out.println(Arrays.toString(safes2));
-
+        return width;
     }
 
     public static int[] copy(int[] orginal) {
         int[] makeACopy = new int[orginal.length];
         for (int i = 0; i < orginal.length; i++) {
             makeACopy[i] = orginal[i];
-
         }
         return makeACopy;
     }
 
-    public static int[] randomArray(int from, int to) {
-        int[] rand = new int[ARRAY_WIDTH];
-        for (int i = 0; i < rand.length; i++) {
-            rand[i] = random.nextInt(from, to + 1);
-        }
-        return rand;
-    }
-
-    public static void forBeach() {
-        int[] numbers = randomArray(-50, 50);
+    public static int[] arrayCrazyRange() {
+        int[] numbers = randomArray(10, -50, 50);
         for (int number : numbers) {
-            System.out.println(number + " ");
-
         }
-
+        return numbers;
     }
 
-    public static void forBeach2() {
-        int[] numbers = randomArray(1, 100);
-        for (int number : numbers) {
-            if (number > 30)
-                System.out.println(number + " ");
+    public static int arrayGreater30(int[] arr) {
+        int count = 0;
+        for (int number : arr) {                           //rand is the Array we are reading and number is the INT inside the Array wich we are looking at.
+            if (number > 30) {
+                count = count + 1;                           // count is the amount of times the if function repeated itself. wich is the same amount as numbers are above 30.
+            }
 
         }
+        return count;
     }
 
-    public static void forBeach3() {
+    public static int arraySum() {
         int result = 0;
-        int[] numbers = randomArray(1, 100);
+        int[] numbers = randomArray(10, 1, 100);
         for (int number : numbers) {
             result = number + result;
         }
         System.out.println(result);
-
+        return result;
     }
 
-    public static void forBeach4() {
-        int result = 0;
-        int[] numbers = randomArray(1, 100);
+    public static int max() {
+        int[] numbers = randomArray(10, 1, 100);
+        int max = numbers[0];
         for (int number : numbers) {
-            result = (number + result);
+            if (max < number) {
+                max = number;
+            }
         }
-        double average = result / (double) numbers.length;
-        System.out.println(average);
-        System.out.println();
+        System.out.println(Arrays.toString(numbers));
+        System.out.println(max);
+        return max;
+    }
+
+    public static int min() {
+        int[] numbers = randomArray(10, 1, 100);
+        int min = numbers[0];
+        for (int number : numbers) {
+            if (min > number) {
+                min = number;
+            }
+        }
+        System.out.println(Arrays.toString(numbers));
+        System.out.println(min);
+        return min;
+    }
+
+    public static double avg() {
+        int[] numbers = randomArray(10, 1, 100);
+        int avgb = 0;
+        for (int number : numbers) {
+            avgb = avgb + number;
+
+        }
+        double avg = (double) avgb / numbers.length;
+        System.out.println(avg);
+        return avg;
+    }
+
+    static void bubbleSort(int[] array, int n) { //the Array is defined at the Top, also int n is the Array width wich is also defined at the top.
+
+
+        for (int i = 0; i < n - 1; i++)    //iteration through unsorted elements
+        {
+            if (array[i] > array[i + 1]) {      //check if the elements are in order
+                int temp = array[i];        //if not, swap them
+                array[i] = array[i + 1];
+                array[i + 1] = temp;
+            }
+        }
+        System.out.println(Arrays.toString(array));
     }
 }
