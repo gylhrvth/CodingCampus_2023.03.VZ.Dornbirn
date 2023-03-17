@@ -1,4 +1,4 @@
-package sandro.week01;
+package sandro.week02;
 
 import java.util.Scanner;
 

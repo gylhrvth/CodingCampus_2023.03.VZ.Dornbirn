@@ -28,7 +28,6 @@ public class Taschenrechner {
                     num1 = readNumber();
                 }
 
-                //Todo hier soll das Ergbnis + die Abfragen beginnen, zuerst mit Operator und dann zweite Zahl
                 operator = operator("Gib einen Operator ein (+,-,*,^,/): ");
 
                 System.out.println("Gib deine zweite Zahl ein.");
@@ -60,8 +59,6 @@ public class Taschenrechner {
                     repeat = readJaNein("Möchtest du weiterrechnen?");
                 }
 
-
-                   //Todo Taschenrechner soll mit result weiterrechnen falls gewünscht ansonsten "Auf Wiedersehen"
                    System.out.println("Auf Wiedersehen!");
 
 
