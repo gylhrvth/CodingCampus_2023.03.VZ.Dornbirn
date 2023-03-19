@@ -14,9 +14,11 @@ public class ArraysUebungen {
 
         //Methoden Aufrufen
         int arrayspace = readArrayspace("Wie Groß willst du deine Array haben?");
+
         int[] countNumber1 = decreasingArray(arrayspace);
         int[] countNumber2 = increasingArray(arrayspace);
         int[] countNumber3 = makeacopy(countNumber2);
+
         int[] countNumber4 = randomArray(10);
         int[] crazyRange = crazyRange(arrayspace);
         int randSumme = randSumme(crazyRange);
@@ -55,7 +57,7 @@ public class ArraysUebungen {
 
         System.out.println("---------");
 
-        System.out.println("Jede zweite wert anzeigen..");
+        System.out.println("Jede zweite wert anzeigen : ");
         for (int i = 0; i < countNumber4.length; i += 2) {
             System.out.print(countNumber4[i] + " ");
         }
@@ -70,7 +72,7 @@ public class ArraysUebungen {
         }
 
         System.out.println();
-        System.out.print("SUMME : ");
+        System.out.print("SUMME vom oberen array: ");
         System.out.println(randSumme);
 
         System.out.println("------------");
@@ -84,9 +86,9 @@ public class ArraysUebungen {
             }
         }
 
-        System.out.println(count + " Zahlen über 30");
-        System.out.println();
-
+        System.out.println("Es sind " + count + " Zahlen über 30");
+        System.out.println("-------------");
+        System.out.println("Min, Max, Avg");
         int[] ranNum = random30;
         System.out.println(Arrays.toString(random30));
 
@@ -101,6 +103,11 @@ public class ArraysUebungen {
         double avg = avgNumber(ranNum);
         System.out.println("Average: " + avg);
         System.out.println("----------");
+
+        System.out.println("Zwei Demonsial Array");
+        System.out.println(Arrays.toString(zweiDArray(arrayspace,arrayspace)));
+
+
     }
 
     public static int[] decreasingArray(int arrayspace) {
@@ -206,15 +213,41 @@ public class ArraysUebungen {
     }
 
 
+    public static int [][] zweiDArray(int rows, int cols){
+
+        int [][] array = new int [rows][cols];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                array[i][j] = (int) (Math.random() * 10);
+            }
+        }
+        for (int i = 0; i <rows ; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.print(array [i][j] + " ");
+            }
+            System.out.println();
+        }
+        return array;
+    }
+
+
     public static int readArrayspace(String message) {
         Scanner sc = new Scanner(System.in);
         int value = 0;
-        System.out.println(message);
-        try {
-            String line = sc.nextLine();
-            value = Integer.parseInt(line);
-        } catch (NumberFormatException nfe) {
-            System.out.println("Das ist keine gültige ZAHL mein Lieber");
+        boolean valid = false;
+        while (!valid) {
+            System.out.println(message);
+            try {
+                String line = sc.nextLine();
+                value = Integer.parseInt(line);
+                if (value > 0) {
+                    valid = true;
+                } else {
+                    System.out.println("die Zahl Muss positiv sein");
+                }
+            } catch (NumberFormatException nfe) {
+                System.out.println("Das ist keine gültige ZAHL mein Lieber");
+            }
         }
 
         return value;
