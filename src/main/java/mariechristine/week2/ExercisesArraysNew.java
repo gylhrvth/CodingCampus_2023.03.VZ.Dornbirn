@@ -34,6 +34,13 @@ public class ExercisesArraysNew {
             System.out.println("Es stehen nicht ausreichenden Elementen in Array zur Verfügung...");
         }
 
+        arrayCrazyRange(10);
+
+        int[] arrCount = new int[]{0};
+        arrCount = arrayCount30(10);
+        System.out.println(Arrays.toString(arrCount));
+
+        System.out.println("Summe zusammenzählen");
 
     }
 
@@ -101,12 +108,46 @@ public class ExercisesArraysNew {
                 System.out.print(", ");
             }
             System.out.print(arr[i]);
-            }
-            System.out.println("]");
+        }
+        System.out.println("]");
     }
 
+    public static int[] arrayCrazyRange(int size) {
+        System.out.println("Crazy Range");
+        int[] numbers = new int[size];
 
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = random.nextInt(101) - 50;
+        }
+        for (int crazyRange : numbers) {
+            System.out.print("[" + crazyRange + "]");
+        }
+
+        return numbers;
+
+    }
+
+    public static int[] arrayCount30(int arrCount) {
+        System.out.println();
+        System.out.println("Array Zählen");
+        int[] count30 = new int[arrCount];
+        for (int i = 0; i < count30.length; i++) {
+            int randomValue = random.nextInt(101);
+            count30[i] = randomValue;
+        }
+        return count30;
+    }
+
+    public static int randomSum(int[] arr) {
+       int sum = 0;
+       for (int i = 0; i < arr.length; ++i) {
+           sum += arr[i];
+       }
+       return sum;
+
+    }
 }
+
 
 
 

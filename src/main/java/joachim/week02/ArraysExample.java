@@ -1,5 +1,7 @@
 package joachim.week02;
 
+import sandro.week02.Array;
+
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
@@ -31,7 +33,15 @@ public class ArraysExample {
         avg();
         System.out.println("max/min/avg geben genau das aus was der Name verspricht.\n");
 
-//        bubbleSort(randomArray(1, 100), ARRAY_WIDTH);
+
+        System.out.println("Der Bubblsort ist einer der einfachsten aber auch einer der aufwendigsten Sotierungsalgorithmen.\nGrundsätzlich vergleicht dieser Algorithmus die zwei anliegenden Zahlen und tausch diese wenn nötig.");
+        System.out.println("Dies Funktioniert in beide Richtungen wenn man das Kriterium tauscht.'>' oder '<' \n");
+        System.out.println("Von unten nach oben sortiert. '>'");
+        bubbleSort(randomArray(20,0, 100));;
+        System.out.println("Von oben nach unten sortiert.'<'");
+        bubbleSort2(randomArray(20,0, 100));
+
+
     }
 
     static Random random = new Random();
@@ -138,17 +148,27 @@ public class ArraysExample {
         return avg;
     }
 
-    static void bubbleSort(int[] array, int n) { //the Array is defined at the Top, also int n is the Array width wich is also defined at the top.
-
-
-        for (int i = 0; i < n - 1; i++)    //iteration through unsorted elements
-        {
-            if (array[i] > array[i + 1]) {      //check if the elements are in order
-                int temp = array[i];        //if not, swap them
-                array[i] = array[i + 1];
-                array[i + 1] = temp;
+    public static void bubbleSort(int[] array) {
+        for (int i = 0; i < array.length; i++)
+            for (int j = 0; j < array.length - i - 1; j++) {
+                if (array[j] > array[j + 1]) {
+                    int temp = array[j];                //Kühlschrank auf, Elephant rein, Kühlschrank zu.
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
             }
-        }
-        System.out.println(Arrays.toString(array));
+        System.out.println(Arrays.toString(array) + "\n");
+    }
+
+    public static void bubbleSort2(int[] array) {
+        for (int i = 0; i < array.length; i++)
+            for (int j = 0; j < array.length - i - 1; j++) {
+                if (array[j] < array[j + 1]) {
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+        System.out.println(Arrays.toString(array) + "\n");
     }
 }

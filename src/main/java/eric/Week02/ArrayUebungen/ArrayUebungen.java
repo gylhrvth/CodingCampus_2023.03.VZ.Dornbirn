@@ -2,6 +2,7 @@ package eric.Week02.ArrayUebungen;
 
 import java.security.SecureRandom;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ArrayUebungen {
@@ -9,13 +10,13 @@ public class ArrayUebungen {
     static SecureRandom number = new SecureRandom();
 
     public static void main(String[] args) {
-        //numberArray();                                    //Array übung
+        int[] testArray = randomNumber(20);
+        System.out.println(Arrays.toString(testArray));
 
-        System.out.println("Copy Array");                   //Copy Array
-        int[] arr = new int[]{1, 2, 3};
-        int[] arrCopy = makeACopy(arr);
-        printArray(arr);
-        printArray(arrCopy);
+        int[] doACopy = makeACopy(testArray);
+        System.out.println(Arrays.toString(doACopy));
+
+        numberArray();                                    //Array übung
 
         System.out.println("------");
 
@@ -28,7 +29,6 @@ public class ArrayUebungen {
 
         System.out.println("------");
         System.out.println();
-
 
         System.out.println("Array Random number Zählen");   //Zählt von 1 - 100 mit Zufalls Zahlen
         int[] zufallZahlen = new int[15];
@@ -43,6 +43,7 @@ public class ArrayUebungen {
         System.out.println();
 
         int arrayCount = countBiggerThan30(zufallZahlen);         //Array zeigt nur Zahlen größer als 30 an
+
         System.out.println(Arrays.toString(zufallZahlen));
         System.out.print("Arrays Anzahl deren Werte größer als 30 sind: ");
         System.out.println(arrayCount);
@@ -53,15 +54,15 @@ public class ArrayUebungen {
         printArray(ranNum);
         System.out.println("------");
 
-        int min = minimumNumbers(ranNum);
+        int min = minNum(ranNum);
         System.out.println("Minimum: " + min);
         System.out.println("------");
 
-        int max = maximumNumbers(ranNum);
+        int max = maxNum(ranNum);
         System.out.println("Maximum: " + max);
         System.out.println("------");
 
-        double avg = averageNumbers(ranNum);
+        double avg = avgNum(ranNum);
         System.out.println("Average: " + avg);
         System.out.println("------");
 
@@ -69,18 +70,29 @@ public class ArrayUebungen {
 
     public static void numberArray() {
         System.out.println("Number Array");
+
         Scanner scan = new Scanner(System.in);
 
-        try {
-            System.out.println("Gib eine Zahl ein");
-        } catch (NumberFormatException exp){
-            System.out.println("Gib eine Zahl ein");
+        System.out.println("Gib ein Zahl an!");
+        int size = -1;
+        while (size < 0) {
+            try {
+                size = scan.nextInt();
+            } catch (InputMismatchException ime) {
+                System.out.println("Wer Lesen kann ist KLAR IM VORTEIL!");
+                scan.nextLine();
+            }
+            System.out.println("------");
+            System.out.println("Size: " + size);
+        }
+/*
+        while (!scan.hasNextInt()){
+            System.out.println("Wer Lesen kann ist KLAR IM VORTEIL!");
             scan.nextLine();
         }
-
-        int size = scan.nextInt();
-
-
+        int size2 = scan.nextInt();
+        System.out.println("Size 2: " + size2);
+*/
         int[] arr2 = new int[size];
         for (int i = 0; i < arr2.length; i++) {
             arr2[i] = 1 + i;
@@ -92,11 +104,14 @@ public class ArrayUebungen {
             arr3[i] = size - i;
         }
         System.out.println(Arrays.toString(arr3));
+        System.out.println("------");
     }
 
     public static int[] makeACopy(int[] arr) {
         int[] makeACopy = new int[arr.length];
-        System.arraycopy(arr, 0, makeACopy, 0, makeACopy.length);
+        for (int i = 0; i < makeACopy.length; i++) {
+            makeACopy[i] = arr[i];
+        }
         return makeACopy;
     }
 
@@ -119,14 +134,14 @@ public class ArrayUebungen {
 
         System.out.println("ForEach Schleife");
         for (int element : ranArr) {
-            System.out.print(element + " ");
+            System.out.print("[" + element + "]");
         }
         System.out.println();
         System.out.println("------");
 
         System.out.println("ForI Schleife");
-        for (int j : ranArr) {
-            System.out.print(j + " ");
+        for (int i = 0; i < ranArr.length; i++) {
+            System.out.print("[" + ranArr[i] + "]");
         }
         System.out.println();
         System.out.println("------");
@@ -144,6 +159,7 @@ public class ArrayUebungen {
         for (int i = 0; i < ranArr.length; i += 2) {
             System.out.print("[" + ranArr[i] + "]");
         }
+        System.out.println("------");
     }
 
     public static void crazyRangeArray() {
@@ -155,6 +171,7 @@ public class ArrayUebungen {
         for (int crazyRange : zufallZahlen) {
             System.out.print("[" + crazyRange + "]");
         }
+        System.out.println("------");
     }
 
     public static int countBiggerThan30(int[] arrCount) {
@@ -175,8 +192,8 @@ public class ArrayUebungen {
         return ranNum;
     }
 
-    public static int minimumNumbers(int[] num) {
-        int minNumbers = num[0];
+    public static int minNum(int[] num) {
+        int minNumbers = Integer.MAX_VALUE;
         for (int j : num) {
             if (j < minNumbers) {
                 minNumbers = j;
@@ -185,8 +202,8 @@ public class ArrayUebungen {
         return minNumbers;
     }
 
-    public static int maximumNumbers(int[] num) {
-        int maxNumbers = num[0];
+    public static int maxNum(int[] num) {
+        int maxNumbers = Integer.MIN_VALUE;
         for (int j : num) {
             if (j > maxNumbers) {
                 maxNumbers = j;
@@ -195,7 +212,7 @@ public class ArrayUebungen {
         return maxNumbers;
     }
 
-    public static double averageNumbers(int[] num) {
+    public static double avgNum(int[] num) {
         int avgNumbers = 0;
         for (int j : num) {
             avgNumbers += j;
