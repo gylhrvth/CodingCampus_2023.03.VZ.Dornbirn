@@ -86,9 +86,131 @@ public class Array {
         System.out.println("Das Minimum 1.2 ist : " + minValue3(inputArray));
         System.out.println("Das Minimum 2.0 ist : " + minValue2(inputArray));
         System.out.println("Der Durchschnitt ist: " + averageValue(inputArray));
+        System.out.println("---");
+
+        System.out.println("IndexMax und Min");
+        System.out.println("Maximum zahl ist Index : " + indexMaxValue(inputArray));
+        System.out.println("Minimum Zahl ist Index : " + indexMinValue(inputArray));
+        System.out.println("---");
+
+        System.out.println("BubbleSort");
+        System.out.println("Kontrolle");
+
+        int[] inputCopy = makeacopy(inputArray);
+
+        System.out.println("Descending Sort");
+        System.out.println(Arrays.toString(inputCopy));
+        bubbleSortDescending(inputCopy);
+        System.out.println(Arrays.toString(inputCopy));
+
+        inputCopy = makeacopy(inputArray);
+        System.out.println("Ascending Sort");
+        System.out.println(Arrays.toString(inputCopy));
+        bubbleSortAscending(inputCopy);
+        System.out.println(Arrays.toString(inputCopy));
+        System.out.println("---");
+
+        System.out.println("Select Sort");
+        System.out.println("kontrolle");
+        System.out.println(Arrays.toString(randomNumber));
+
+        System.out.println("SelectSortAscending");
+        selectSortAscending(randomNumber);
+        System.out.println(Arrays.toString(randomNumber));
+
 
     }
 
+public static void selectSortAscending (int [] arr) {
+    for (int i = 0; i < arr.length; i++) {
+        int min = i;
+        for (int j = i+1; j < arr.length; j++) {
+            if (arr[j] < arr[min]) {
+                min = j;
+            }
+        }
+        int temp = arr [i];
+        arr [i] = arr[min];
+        arr [min] = temp;
+        System.out.println(Arrays.toString(arr));
+    }
+}
+
+    public static void bubbleSortDescending(int[] arr) {
+//        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length - i - 1; j++) {
+                if (arr[j] < arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+//                    System.out.println("counter: " + count + Arrays.toString(arr));
+                }
+            }
+        }
+    }
+
+    public static void bubbleSortAscending(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
+    public static int maxValue(int[] arr) {
+        int max = 0;
+        if (arr.length > 0) {
+            max = arr[0];
+
+            for (int i = 0; i < arr.length; i++) {
+                if (arr[i] > max) {
+                    max = arr[i];
+                }
+            }
+        }
+        return max;
+    }
+
+    public static int minValue(int[] arr) {
+        int min = 0;
+        if (arr.length > 0) {
+            min = arr[0];
+            for (int i = 0; i < arr.length; i++) {
+                if (arr[i] < min) {
+                    min = arr[i];
+                }
+            }
+
+        }
+        return min;
+    }
+
+    public static int minValue2(int[] arr) {
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+
+    public static int minValue3(int[] arr) {
+        if (arr.length == 0) {
+            return 0;
+        }
+        int min = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+        return min;
+    }
 
     public static int[] createDecreasingArray(int arrayspace) {
         int[] countNumber2 = new int[arrayspace];
@@ -190,7 +312,6 @@ public class Array {
         }
     }
 
-
     public static void printEverySecondNumber2(int[] arr) {
         for (int i = 1; i < arr.length; i = i + 2) {
             System.out.print(arr[i] + ", ");
@@ -198,55 +319,26 @@ public class Array {
         System.out.println();
     }
 
-    public static int maxValue(int[] arr) {
-        int max = 0;
-        if (arr.length > 0) {
-            max = arr[0];
-
-            for (int i = 0; i < arr.length; i++) {
-                if (arr[i] > max) {
-                    max = arr[i];
-                }
-            }
-        }
-        return max;
-    }
-
-
-    public static int minValue(int[] arr) {
-        int min = 0;
-        if (arr.length > 0) {
-            min = arr[0];
-            for (int i = 0; i < arr.length; i++) {
-                if (arr[i] < min) {
-                    min = arr[i];
-                }
-            }
-
-        }
-        return min;
-    }
-
-    public static int minValue2(int[] arr) {
-        int min = Integer.MAX_VALUE;
+    public static int indexMaxValue(int[] arr) {
+        int index = 0;
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] < min) {
-                min = arr[i];
+            if (arr[i] > arr[index]) {
+                index = i;
             }
         }
-        return min;
+        return index;
     }
 
-    public static int minValue3(int[] arr) {
-        if (arr.length == 0) { return 0; }
-        int min = arr[0];
+    public static int indexMinValue(int[] arr) {
+        int index = 0;
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] < min) {
-                min = arr[i];
+            if (arr[i] < arr[index]) {
+                index = i;
             }
         }
-        return min;
+        return index;
     }
+
 
 
     public static float averageValue(int[] arr) {
@@ -294,8 +386,8 @@ public class Array {
             try {
                 String line = sc.nextLine();
                 value = Integer.valueOf(line);
-                if (value >0){
-                valid = true;
+                if (value > 0) {
+                    valid = true;
                 } else {
                     System.out.println("die Zahl muss positiv sein");
                 }
