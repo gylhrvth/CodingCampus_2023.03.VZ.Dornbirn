@@ -20,6 +20,7 @@ public class ExercisesArraysNew {
         System.out.println(Arrays.toString(originalCopy));
 
         int randomLength = random.nextInt(21);
+
         int[] ranArray = createNumbersRandom(randomLength);
         System.out.println("Print in 3 different kind");
         System.out.println(Arrays.toString(ranArray));
@@ -36,11 +37,14 @@ public class ExercisesArraysNew {
 
         arrayCrazyRange(10);
 
-        int[] arrCount = new int[]{0};
-        arrCount = arrayCount30(10);
-        System.out.println(Arrays.toString(arrCount));
+        System.out.println("Summe zusammenzählen > 30: " + arrayCount30(ranArray));
 
-        System.out.println("Summe zusammenzählen");
+
+        System.out.println(Arrays.toString(ranNumArray(20)));
+
+        minArray(10);
+        System.out.println(Arrays.toString(minArray(10)));
+
 
     }
 
@@ -127,15 +131,16 @@ public class ExercisesArraysNew {
 
     }
 
-    public static int[] arrayCount30(int arrCount) {
+    public static int arrayCount30(int[] arrCount) {
         System.out.println();
         System.out.println("Array Zählen");
-        int[] count30 = new int[arrCount];
-        for (int i = 0; i < count30.length; i++) {
-            int randomValue = random.nextInt(101);
-            count30[i] = randomValue;
+        int result = 0;
+        for (int i = 0; i < arrCount.length; i++) {
+            if (arrCount[i] > 30) {
+                ++result;
+            }
         }
-        return count30;
+        return result;
     }
 
     public static int randomSum(int[] arr) {
@@ -144,6 +149,29 @@ public class ExercisesArraysNew {
            sum += arr[i];
        }
        return sum;
+
+    }
+
+    public static int[] ranNumArray(int size) {
+        System.out.println();
+        System.out.println("Array Min/Max/Avg");
+        int[] numbers = new int[size];
+
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = random.nextInt(101);
+        }
+        return numbers;
+    }
+
+    public static int[] minArray(int minValue) {
+        int[] numbers = new int[minValue];
+
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = minValue;
+
+        }
+
+        return new int[0];
 
     }
 }
