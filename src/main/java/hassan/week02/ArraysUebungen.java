@@ -240,8 +240,6 @@ public class ArraysUebungen {
         }
         return array;
     }
-
-
     public static int readArrayspace(String message) {
         Scanner sc = new Scanner(System.in);
         int value = 0;
