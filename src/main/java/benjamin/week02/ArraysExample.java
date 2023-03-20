@@ -9,16 +9,14 @@ public class ArraysExample {
     static Random rand = new Random();
 
     public static void main(String[] args) {
-        System.out.println("Gib die Größe des Arrays ein!");
-        int dim = number();
 
-        int[] empty = new int[]{};
+        int dim = number("Gib die Größe des Arrays ein!");
+
         int[] asc = numberArray(dim);
         int[] desc = numberArrayDesc(dim);
         int[] copy = makeACopy(asc);
         int[] rand = numberRandom(dim);
         int[] crazy = numberRandomMinus(dim);
-
 
         System.out.println("Vorwärts");
         System.out.println(Arrays.toString(asc));
@@ -26,14 +24,13 @@ public class ArraysExample {
         System.out.println(Arrays.toString(desc));
         System.out.println("Copy");
         System.out.println(Arrays.toString(copy));
-        System.out.println("Random");
         System.out.println(Arrays.toString(rand));
 
         printForEach(rand);
-        printForI(rand);
 
+        printForI(rand);
+//       printSecFifthTen(new int[]{dim});
         printSecFifthTen(rand);
-        //printSecFifthTen(empty);
 
         printEachSecond(rand);
 
@@ -41,17 +38,30 @@ public class ArraysExample {
 
         System.out.println(countValuesOverThirty(rand) + " Zahlen über 30");
 
-        System.out.print("Summe:" + printrandCountSum(rand));
+        System.out.print("Summe: " + printrandCountSum(rand));
 
-        System.out.println("MaxValue:" + printmaxValue(rand));
-        System.out.println("MinValue:" + printminVlaue(rand));
-        System.out.println("AvgValue:" + printAvgValue(rand));
+        System.out.println("MaxValue: " + printmaxValue(rand));
+        System.out.println("MinValue: " + printminVlaue(rand));
+        System.out.println("AvgValue: " + printAvgValue(rand));
+        System.out.println("MinIndex: [" + printIndexMin(rand) + "]");
+        System.out.println("MaxIndex: [" + printIndexMax(rand) + "]");
+//        bubbleSortAscending(rand);
+//        System.out.print(Arrays.toString(rand));
+//        System.out.println();
+//        bubbleSortDescending(rand);
+//        System.out.print(Arrays.toString(rand));
+//        System.out.println();
+//        selectionSort(rand);
+//        System.out.println(Arrays.toString(rand));
+//        System.out.println();
+        cocktailShaker(rand);
+        System.out.println(Arrays.toString(rand));
     }
 
     public static int[] numberArray(int dim) {
         int[] count = new int[dim];
         for (int i = 0; i < count.length; i++) {
-            count[i] = 1 + i;
+            count[i] = i + 1;
         }
 
         return count;
@@ -96,8 +106,26 @@ public class ArraysExample {
 
 
     public static void printForI(int[] array) {
-        System.out.println("TODO !!!");
+        System.out.print("[");
+        for (int i = 0; i <= array.length - 1; i++) {
+            if (i < array.length - 1) {
+                System.out.print(array[i] + ", ");
+            } else {
+                System.out.print(array[i] + "]");
+            }
+
+        }
+        System.out.println();
     }
+
+//    public static void printIndexes(int[] array){
+//        int[] arr = new int[]{(array.length)};
+//
+//
+//
+//
+//    }
+
 
     public static void printForEach(int[] array) {
 //        System.out.println("Foreach!");
@@ -140,20 +168,17 @@ public class ArraysExample {
         return sum;
     }
 
-
-
     public static void printSecFifthTen(int[] array) {
-//        System.out.println("Zeige den 2ten, 5ten und 10ten Wert an");
+
         System.out.println("Zweiter Wert: " + array[1]);
         System.out.println("Fünfter Wert: " + array[4]);
         System.out.println("Zehnter Wert: " + array[9]);
     }
 
-
-    public static int printmaxValue(int [] array) {
+    public static int printmaxValue(int[] array) {
         int max = array[0];
         for (int i = 0; i < array.length; i++) {
-            if (array[i] > max){
+            if (array[i] > max) {
                 max = array[i];
             }
         }
@@ -161,17 +186,17 @@ public class ArraysExample {
         return max;
     }
 
-    public static int printminVlaue(int [] array){
+    public static int printminVlaue(int[] array) {
         int min = array[0];
         for (int i = 0; i < array.length; i++) {
-            if(array[i] < min ){
+            if (array[i] < min) {
                 min = array[i];
             }
         }
         return min;
     }
 
-    public static float printAvgValue(int [] array){
+    public static float printAvgValue(int[] array) {
         float sum = 0;
         for (int i = 0; i < array.length; i++) {
             sum += array[i];
@@ -183,15 +208,114 @@ public class ArraysExample {
         return sum;
     }
 
+    public static int printIndexMin(int[] dim) {
+        int index = 0;
+        for (int i = 0; i < dim.length; i++) {
+            if (dim[i] < dim[index]) {
+                index = i;
+            }
 
-    public static int number() {
+        }
+        return index;
+    }
+
+    public static int printIndexMax(int[] dim) {
+        int index = 0;
+        for (int i = 0; i < dim.length; i++) {
+            if (dim[i] > dim[index]) {
+                index = i;
+            }
+        }
+        return index;
+    }
+
+    public static void bubbleSortAscending(int[] dim) {
+        for (int i = 0; i < dim.length; i++) {
+            for (int j = 0; j < dim.length - i - 1; j++) {
+                if (dim[j] > dim[j + 1]) {
+                    int temp = dim[j];
+                    dim[j] = dim[j + 1];
+                    dim[j + 1] = temp;
+                }
+            }
+        }
+
+    }
+
+    public static void bubbleSortDescending(int[] dim) {
+        for (int i = 0; i < dim.length; i++) {
+            for (int j = 0; j < dim.length - i - 1; j++) {
+                if (dim[j] < dim[j + 1]) {
+                    int temp = dim[j];
+                    dim[j] = dim[j + 1];
+                    dim[j + 1] = temp;
+                }
+
+            }
+
+        }
+    }
+
+    public static void selectionSort(int[] dim) {
+        for (int i = 0; i < dim.length; i++) {
+            int min = i;
+            for (int j = i + 1; j < dim.length; j++) {
+                if (dim[j] < dim[min]) {
+                    min = j;
+                }
+            }
+            int temp = dim[i];
+            dim[i] = dim[min];
+            dim[min] = temp;
+        }
+    }
+
+    public static void cocktailShaker(int[] dim) {
+        int low = 1;
+        int high = dim.length ;
+        int mov = low;
+
+        while (low < high) {
+            for (int i = low ; i < high ; i++) {
+                if (dim[i] > dim[i + 1]) {
+                    mov = dim[i];
+                    dim[i] = dim[i + 1];
+                    dim[i + 1] = mov;
+                }
+            }
+
+            low = mov;
+
+            for (int i = high - 1 ; i >= low; i--) {
+                if (dim[i] < dim[i - 1]) {
+                    mov = dim[i];
+                    dim[i] = dim[i - 1];
+                    dim[i - 1] = mov;
+
+                }
+            }
+
+            high = mov;
+
+        }
+
+    }
+
+
+    public static int number(String message) {
         Scanner sc = new Scanner(System.in);
         int value = 0;
-        try {
-            String line = sc.nextLine();
-            value = Integer.parseInt(line);
-        } catch (NumberFormatException nfe) {
-            System.out.println("Keine gültige Eingabe.");
+        boolean numberIsValid = false;
+        while (!numberIsValid) {
+            System.out.println(message);
+            try {
+                String line = sc.nextLine();
+                value = Integer.parseInt(line);
+                numberIsValid = true;
+            } catch (NumberFormatException nfe) {
+                System.out.println("Keine gültige Eingabe.");
+            }
+
         }
         return value;
     }
