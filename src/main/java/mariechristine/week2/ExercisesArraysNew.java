@@ -35,8 +35,12 @@ public class ExercisesArraysNew {
         }
 
         arrayCrazyRange(10);
-        int arrCount = arrayCount30(new int[]{100});
-        System.out.println("Die Werte sind: " + arrCount);
+
+        int[] arrCount = new int[]{0};
+        arrCount = arrayCount30(10);
+        System.out.println(Arrays.toString(arrCount));
+
+        System.out.println("Summe zusammenzählen");
 
     }
 
@@ -123,17 +127,27 @@ public class ExercisesArraysNew {
 
     }
 
-    public static int arrayCount30(int[] arrCount) {
+    public static int[] arrayCount30(int arrCount) {
+        System.out.println();
         System.out.println("Array Zählen");
-        int count = 0;
-        for (int j : arrCount) {
-            if (j > 30) {
-                count++;
-            }
+        int[] count30 = new int[arrCount];
+        for (int i = 0; i < count30.length; i++) {
+            int randomValue = random.nextInt(101);
+            count30[i] = randomValue;
         }
-        return count;
+        return count30;
+    }
+
+    public static int randomSum(int[] arr) {
+       int sum = 0;
+       for (int i = 0; i < arr.length; ++i) {
+           sum += arr[i];
+       }
+       return sum;
+
     }
 }
+
 
 
 
