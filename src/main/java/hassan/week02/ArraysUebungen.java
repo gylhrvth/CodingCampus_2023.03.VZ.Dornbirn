@@ -162,8 +162,6 @@ public class ArraysUebungen {
         }
 
         return random30;
-
-
     }
 
 
