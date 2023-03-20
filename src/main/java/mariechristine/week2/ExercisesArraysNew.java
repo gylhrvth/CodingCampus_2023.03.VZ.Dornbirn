@@ -2,6 +2,7 @@ package mariechristine.week2;
 
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Random;
 
 public class ExercisesArraysNew {
@@ -51,6 +52,13 @@ public class ExercisesArraysNew {
         int[] avg = createNumbersRandom(20);
         System.out.println(Arrays.toString(avg));
         System.out.println("Average: " + average(avg));
+
+
+        System.out.println("Bubble !!!");
+        System.out.println(Arrays.toString(ranArray));
+        bubblesort(ranArray);
+        System.out.println(Arrays.toString(ranArray));
+
 
     }
 
@@ -188,6 +196,20 @@ public class ExercisesArraysNew {
         System.out.println();
         return (double)randomSum(arr) / arr.length;
     }
+
+    public static void bubblesort(int[] sort) {
+        for(int i = 0; i < sort.length; i++) {
+            for(int j = 0; j < sort.length - i - 1; j++) {
+                if (sort[j] > sort[j + 1]) {
+                    // Tausch -- swap
+                    int temp = sort[j];
+                    sort[j] = sort[j+1];
+                    sort[j + 1] = temp;
+                }
+            }
+        }
+    }
+
 }
 
 
