@@ -12,98 +12,83 @@ public class Array {
         System.out.println("args: " + Arrays.toString(args));
 
         int arrayspace = readArrayspace("Wieviel Arrayspace möchtest du?");
-        int[] countNumber = createIncreasingArray(arrayspace);
-        int[] countNumber2 = createDecreasingArray(arrayspace);
-        int[] copyNumbers = makeacopy(countNumber);
-        int[] randomNumber = randomInput(arrayspace);
-        int[] crazyRandom = crazyRandomnumbers(arrayspace);
-        int[] random100add = randomAddieren(arrayspace);
-        int[] random30iger = random30Plus(arrayspace);
-        int[] randomMinMaxAvg = randomNumberMinMaxAvg(arrayspace);
+
+        int[] increasing = createIncreasingArray(arrayspace);
+        int[] decreasing = createDecreasingArray(arrayspace);
+        int[] copyArray = makeacopy(increasing);
+
+        int[] randomNumber = createRandomArray(arrayspace);
+        int[] crazyRandomNumber = crazyRandomnumbers(arrayspace);
+        int[] inputArray = createRandomArray(arrayspace);
 
 
+        System.out.println("Array input increasing");
+        System.out.println(Arrays.toString(increasing));
+        System.out.println("---");
 
-        System.out.println(Arrays.toString(countNumber));
+        System.out.println("Array input decreasing");
+        System.out.println(Arrays.toString(decreasing));
         System.out.println("---");
-        System.out.println(Arrays.toString(countNumber2));
+
+        System.out.println("Array input Arrays.toString");
+        System.out.println(Arrays.toString(copyArray));
         System.out.println("---");
-        System.out.println(Arrays.toString(copyNumbers));
-        System.out.println("---");
+
         System.out.println("Random Output mit forEach");
-        for (int random : randomNumber) {
-            System.out.print(random + ", ");
-        }
-        System.out.println();
+        printForEach(randomNumber);
         System.out.println("---");
+
         System.out.println("Random Output mit Array.toString");
         System.out.println(Arrays.toString(randomNumber));
         System.out.println("---");
+
         System.out.println("Random Output mit fori");
-        System.out.print("[");
-        for (int i = 0; i < randomNumber.length; i++) {
-            System.out.print(randomNumber[i]);
-            if (i < randomNumber.length - 1) {
-                System.out.print(", ");
-            }
-        }
-        System.out.print("]");
-
-        System.out.println();
+        printForI(randomNumber);
         System.out.println("---");
+
         System.out.println("Random Output die 2,5 und 10 zahl");
-        System.out.println("die zweite Zahl ist :" + randomNumber[1]);
-        System.out.println("die fünfte Zahl ist :" + randomNumber[4]);
-        System.out.println("die zehnte Zahl ist :" + randomNumber[9]);
-
-        int[] indexes = new int[]{1, 4, 9};
-        for (int index : indexes) {
-            System.out.println(randomNumber[index]);
-        }
-
+        printSpecificNumber(randomNumber);
         System.out.println("---");
+
         System.out.println("Random Output jeden zweiten Wert: 1,3,5,7,9");
-        for (int i = 0; i < randomNumber.length; i = i + 2) {
-            System.out.print(randomNumber[i] + ", ");
-        }
-        System.out.println();
+        printEverySecondNumber(randomNumber);
         System.out.println("---");
+
         System.out.println("Random Output jeden zweiten Wert: 2,4,6,8,10");
-        for (int i = 1; i < randomNumber.length; i = i + 2) {
-            System.out.print(randomNumber[i] + ", ");
-        }
-        System.out.println();
+        printEverySecondNumber2(randomNumber);
         System.out.println("---");
-        System.out.println("CrazyRandom Kontrolloutput");
-        System.out.println(Arrays.toString(crazyRandom));
-        System.out.println("---");
+
         System.out.println("CrazyRandom Output mit forEach");
-        for (int crazy : crazyRandom) {
-            System.out.print(crazy + ", ");
-        }
-        System.out.println();
+        System.out.println("Kontrolloutput");
+        System.out.println(Arrays.toString(crazyRandomNumber));
         System.out.println("---");
+        printCrazyNumberForEach(crazyRandomNumber);
+        System.out.println("---");
+
         System.out.println("Array Random von 1-100 alles über 30");
-        System.out.println(Arrays.toString(random30iger));
-        int count = 0;
-        for (int i = 0; i < random30iger.length; i++) {
-            if (random30iger[i] > 30) {
-                count = count +1;
-            }
-        }
-        System.out.println(count + " Zahlen sind über 30");
+        System.out.println("Kontrolloutput");
+        System.out.println(Arrays.toString(randomNumber));
         System.out.println("---");
+        printOver30(randomNumber);
+        System.out.println("---");
+
         System.out.println("Array Random von Arrays addieren");
-        System.out.println(Arrays.toString(random100add));
-        int summe = 0;
-        for (int i = 0; i < random100add.length; i++) {
-            summe = summe + random100add[i];
-        }
-        System.out.println("Die Summer der Zahlen ist :" +summe);
+        System.out.println("Kontrolloutput");
+        System.out.println(Arrays.toString(randomNumber));
+        printAdd(randomNumber);
         System.out.println("---");
+
         System.out.println("RandomMinMaxAvg");
-        System.out.println(Arrays.toString(randomMinMaxAvg));
+        System.out.println(Arrays.toString(inputArray));
+
+        System.out.println("Der Maximus ist     : " + maxValue(inputArray));
+        System.out.println("Das Minimum ist     : " + minValue(inputArray));
+        System.out.println("Das Minimum 1.2 ist : " + minValue3(inputArray));
+        System.out.println("Das Minimum 2.0 ist : " + minValue2(inputArray));
+        System.out.println("Der Durchschnitt ist: " + averageValue(inputArray));
 
     }
+
 
     public static int[] createDecreasingArray(int arrayspace) {
         int[] countNumber2 = new int[arrayspace];
@@ -130,16 +115,6 @@ public class Array {
         return result;
     }
 
-    public static int[] randomInput(int arrayspace) {
-        int[] randomArray = new int[arrayspace];
-        for (int i = 0; i < randomArray.length; i++) {
-            int randomValue = rand.nextInt(101);
-            randomArray[i] = randomValue;
-        }
-
-        return randomArray;
-    }
-
     public static int[] crazyRandomnumbers(int arrayspace) {
         int[] crazyRandom = new int[arrayspace];
         for (int i = 0; i < crazyRandom.length; i++) {
@@ -150,53 +125,184 @@ public class Array {
         return crazyRandom;
     }
 
-    public static int[] randomAddieren(int arrayspace) {
-        int[] random100 = new int[arrayspace];
-        for (int i = 0; i < random100.length; i++) {
-            int randomValue = rand.nextInt(101);
-            random100[i] = randomValue;
+    public static int[] createRandomArray(int arrayspace) {
+        int[] result = new int[arrayspace];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = rand.nextInt(101);
         }
-        return random100;
+        return result;
     }
 
-    public static int[] random30Plus(int arrayspace) {
-        int[] random30iger = new int[arrayspace];
-        for (int i = 0; i < random30iger.length; i++) {
-            int randomValue = rand.nextInt(101);
-            random30iger[i] = randomValue;
+    public static void printCrazyNumberForEach(int[] arr) {
+        for (int crazy : arr) {
+            System.out.print(crazy + ", ");
         }
-        return random30iger;
+        System.out.println();
     }
-    public static int[] randomNumberMinMaxAvg(int arrayspace) {
-        int[] randomMinMaxAvg = new int[arrayspace];
-        for (int i = 0; i < randomMinMaxAvg.length; i++) {
-            int randomValue = rand.nextInt(101);
-            randomMinMaxAvg[i] = randomValue;
+
+    public static void printOver30(int[] arr) {
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > 30) {
+                count = count + 1;
+            }
         }
-        return randomMinMaxAvg;
+        System.out.println(count + " Zahlen sind über 30");
+    }
+
+    public static void printAdd(int[] arr) {
+        int summe = 0;
+        for (int i = 0; i < arr.length; i++) {
+            summe = summe + arr[i];
+        }
+        System.out.println("Die Summer der Zahlen ist :" + summe);
+    }
+
+    public static void printEverySecondNumber(int[] arr) {
+        for (int i = 0; i < arr.length; i = i + 2) {
+            System.out.print(arr[i] + ", ");
+        }
+        System.out.println();
+    }
+
+    public static void printSpecificNumber(int[] arr) {
+//        if (arr.length > 1) {
+//            System.out.println("die zweite Zahl ist :" + arr[1]);
+//        } else {
+//            System.out.println("die zweite Zahl ist nicht vorhanden");
+//        }
+//        try {
+//            System.out.println("die fünfte Zahl ist :" + arr[4]);
+//        } catch (IndexOutOfBoundsException ioobe) {
+//            System.out.println("Oups I did it again!");
+//        }
+//        System.out.println("die zehnte Zahl ist :" + arr[9]);
+
+        System.out.println("---");
+
+        int[] positions = new int[]{1, 4, 9, 15, 25, 90};
+        for (int currentPosition : positions) {
+            if (currentPosition < arr.length) {
+                System.out.println("Pos: " + currentPosition + " ist " + arr[currentPosition]);
+            } else {
+                System.out.println("Pos: " + currentPosition + " ist NICHT vorhanden");
+            }
+        }
+    }
+
+
+    public static void printEverySecondNumber2(int[] arr) {
+        for (int i = 1; i < arr.length; i = i + 2) {
+            System.out.print(arr[i] + ", ");
+        }
+        System.out.println();
+    }
+
+    public static int maxValue(int[] arr) {
+        int max = 0;
+        if (arr.length > 0) {
+            max = arr[0];
+
+            for (int i = 0; i < arr.length; i++) {
+                if (arr[i] > max) {
+                    max = arr[i];
+                }
+            }
+        }
+        return max;
+    }
+
+
+    public static int minValue(int[] arr) {
+        int min = 0;
+        if (arr.length > 0) {
+            min = arr[0];
+            for (int i = 0; i < arr.length; i++) {
+                if (arr[i] < min) {
+                    min = arr[i];
+                }
+            }
+
+        }
+        return min;
+    }
+
+    public static int minValue2(int[] arr) {
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+
+    public static int minValue3(int[] arr) {
+        if (arr.length == 0) { return 0; }
+        int min = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+
+
+    public static float averageValue(int[] arr) {
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+
+        return (float) sum / arr.length;
 
     }
 
-   /* public static int maxValue(int[]max){
-
+    public static void printForI(int[] arr) {
+        System.out.print("[");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]);
+            if (i < arr.length - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.print("]");
+        System.out.println();
     }
-     */
 
-
-
-
+    public static void printForEach(int[] arr) {
+        System.out.print("[");
+        boolean first = true;
+        for (int random : arr) {
+            if (!first) {
+                System.out.print(", ");
+            }
+            System.out.print(random);
+            first = false;
+        }
+        System.out.print("]");
+        System.out.println();
+    }
 
     public static int readArrayspace(String message) {
         Scanner sc = new Scanner(System.in);
         int value = 0;
-        System.out.println(message);
-        try {
-            String line = sc.nextLine();
-            value = Integer.valueOf(line);
-        } catch (NumberFormatException nfe) {
-            System.out.println("das ist keine gültige Zahl");
+        boolean valid = false;
+        while (!valid) {
+            System.out.println(message);
+            try {
+                String line = sc.nextLine();
+                value = Integer.valueOf(line);
+                if (value >0){
+                valid = true;
+                } else {
+                    System.out.println("die Zahl muss positiv sein");
+                }
+            } catch (NumberFormatException nfe) {
+                System.out.println("das ist keine gültige Zahl");
+            }
         }
-
         return value;
     }
 
