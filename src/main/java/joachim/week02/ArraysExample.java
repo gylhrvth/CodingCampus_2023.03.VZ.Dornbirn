@@ -140,7 +140,6 @@ public class ArraysExample {
         int avgb = 0;
         for (int number : numbers) {
             avgb = avgb + number;
-
         }
         double avg = (double) avgb / numbers.length;
         System.out.println(Arrays.toString(numbers));

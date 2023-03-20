@@ -12,34 +12,26 @@ public class ArraysUebungen {
     public static void main(String[] args) {
         System.out.println("Halloooo");
 
-        //Methoden Aufrufen
+
         int arrayspace = readArrayspace("Wie Groß willst du deine Array haben?");
 
-        int[] countNumber1 = decreasingArray(arrayspace);
-        int[] countNumber2 = increasingArray(arrayspace);
-        int[] countNumber3 = makeacopy(countNumber2);
-
-        int[] countNumber4 = randomArray(10);
-        int[] crazyRange = crazyRange(arrayspace);
-        int randSumme = randSumme(crazyRange);
-        int[] random30 = randomzaehlen30(arrayspace);
-
-        //Methoden Printen
-        System.out.println("Aufgabe 1, Plus");
-        System.out.println(Arrays.toString(countNumber2));
-
-        System.out.println("-----------");
 
         System.out.println("Aufgabe 1, Minus");
+        int[] countNumber1 = decreasingArray(arrayspace);
         System.out.println(Arrays.toString(countNumber1));
+        System.out.println("--------------------");
 
+        System.out.println("Aufgabe 1, Plus");
+        int[] countNumber2 = increasingArray(arrayspace);
+        System.out.println(Arrays.toString(countNumber2));
         System.out.println("--------------------");
 
         System.out.println("Aufgabe Kopie (von erste aufgabe)");
+        int[] countNumber3 = makeacopy(countNumber2);
         System.out.println(Arrays.toString(countNumber3));
-
         System.out.println("----------------------");
 
+        int[] countNumber4 = randomArray(10);
         System.out.println("Aufgabe Random fori schleife");
         System.out.println(Arrays.toString(countNumber4));
 
@@ -55,8 +47,6 @@ public class ArraysUebungen {
         System.out.println("Der 5te Wert ist : " + countNumber4[4] + " ");
         System.out.println("Der 10te Wert ist : " + countNumber4[9] + " ");
 
-        System.out.println("---------");
-
         System.out.println("Jede zweite wert anzeigen : ");
         for (int i = 0; i < countNumber4.length; i += 2) {
             System.out.print(countNumber4[i] + " ");
@@ -64,19 +54,23 @@ public class ArraysUebungen {
 
         System.out.println();
 
-        System.out.println("----------");
 
+        System.out.println("----------");
         System.out.println("Crazy Range");
+        int[] crazyRange = crazyRange(arrayspace);
         for (int crazy : crazyRange) {
             System.out.print(crazy + " ");
         }
-
         System.out.println();
+        System.out.println("--------------------");
+
+
         System.out.print("SUMME vom oberen array: ");
+        int randSumme = randSumme(crazyRange);
         System.out.println(randSumme);
 
-        System.out.println("------------");
 
+        int[] random30 = randomzaehlen30(arrayspace);
         System.out.println("Zahlen über 30 zählen");
         System.out.println(Arrays.toString(random30));
         int count = 0;
@@ -104,8 +98,16 @@ public class ArraysUebungen {
         System.out.println("Average: " + avg);
         System.out.println("----------");
 
-        System.out.println("Zwei Demonsial Array");
-        System.out.println(Arrays.toString(zweiDArray(arrayspace,arrayspace)));
+
+        System.out.println("Bubble Sort");
+        System.out.println(Arrays.toString(countNumber4));
+        bubbleSort(countNumber4);
+        System.out.println(Arrays.toString(countNumber4));
+
+
+
+       // System.out.println("Zwei Demonsial Array");
+      //  System.out.println(Arrays.toString(zweiDArray(arrayspace, arrayspace)));
 
 
     }
@@ -210,18 +212,29 @@ public class ArraysUebungen {
         return (double) avgNumbers / num.length;
     }
 
+    public static void bubbleSort(int [] arr){
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length - i - 1; j++) {
+                if (arr[j] < arr[j + 1] ){
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
 
-    public static int [][] zweiDArray(int rows, int cols){
+    public static int[][] zweiDArray(int rows, int cols) {
 
-        int [][] array = new int [rows][cols];
+        int[][] array = new int[rows][cols];
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 array[i][j] = (int) (Math.random() * 10);
             }
         }
-        for (int i = 0; i <rows ; i++) {
+        for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                System.out.print(array [i][j] + " ");
+                System.out.print(array[i][j] + " ");
             }
             System.out.println();
         }
