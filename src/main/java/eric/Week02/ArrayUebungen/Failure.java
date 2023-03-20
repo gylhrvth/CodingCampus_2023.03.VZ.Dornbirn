@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class BubbleSortAlgo {
+public class Failure {
     static SecureRandom random = new SecureRandom();
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
