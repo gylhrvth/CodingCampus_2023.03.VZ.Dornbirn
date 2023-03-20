@@ -43,6 +43,7 @@ public class ArrayUebungen {
         System.out.println();
 
         int arrayCount = countBiggerThan30(zufallZahlen);         //Array zeigt nur Zahlen größer als 30 an
+
         System.out.println(Arrays.toString(zufallZahlen));
         System.out.print("Arrays Anzahl deren Werte größer als 30 sind: ");
         System.out.println(arrayCount);
@@ -73,17 +74,25 @@ public class ArrayUebungen {
         Scanner scan = new Scanner(System.in);
 
         System.out.println("Gib ein Zahl an!");
-        try{
-            scan.hasNextInt();
+        int size = -1;
+        while (size < 0) {
+            try {
+                size = scan.nextInt();
+            } catch (InputMismatchException ime) {
+                System.out.println("Wer Lesen kann ist KLAR IM VORTEIL!");
+                scan.nextLine();
+            }
             System.out.println("------");
-        } catch (InputMismatchException ime){
+            System.out.println("Size: " + size);
+        }
+/*
+        while (!scan.hasNextInt()){
             System.out.println("Wer Lesen kann ist KLAR IM VORTEIL!");
             scan.nextLine();
         }
-
-        int size = scan.nextInt();
-
-
+        int size2 = scan.nextInt();
+        System.out.println("Size 2: " + size2);
+*/
         int[] arr2 = new int[size];
         for (int i = 0; i < arr2.length; i++) {
             arr2[i] = 1 + i;
@@ -184,7 +193,7 @@ public class ArrayUebungen {
     }
 
     public static int minNum(int[] num) {
-        int minNumbers = 0;
+        int minNumbers = Integer.MAX_VALUE;
         for (int j : num) {
             if (j < minNumbers) {
                 minNumbers = j;
@@ -194,7 +203,7 @@ public class ArrayUebungen {
     }
 
     public static int maxNum(int[] num) {
-        int maxNumbers = 0;
+        int maxNumbers = Integer.MIN_VALUE;
         for (int j : num) {
             if (j > maxNumbers) {
                 maxNumbers = j;
