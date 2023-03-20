@@ -81,7 +81,7 @@ public class ArraysExample {
 
     public static int arrayGreater30(int[] arr) {
         int count = 0;
-        for (int number : arr) {                           //rand is the Array we are reading and number is the INT inside the Array wich we are looking at.
+        for (int number : arr) {                           //arr is the Array we are reading and number is the INT inside the Array wich we are looking at.
             if (number > 30) {
                 count = count + 1;                           // count is the amount of times the if function repeated itself. wich is the same amount as numbers are above 30.
             }
