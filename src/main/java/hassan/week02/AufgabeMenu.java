@@ -50,8 +50,7 @@ public class AufgabeMenu {
         while (!numberIsValid){
             System.out.println(message);
             try {
-                String line = sc.nextLine();
-                value = Integer.valueOf(line);
+
 
                 if ((value >= minValue) && (value <= maxValue)){
                     numberIsValid = true;
