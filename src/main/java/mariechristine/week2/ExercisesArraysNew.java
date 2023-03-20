@@ -20,6 +20,7 @@ public class ExercisesArraysNew {
         System.out.println(Arrays.toString(originalCopy));
 
         int randomLength = random.nextInt(21);
+
         int[] ranArray = createNumbersRandom(randomLength);
         System.out.println("Print in 3 different kind");
         System.out.println(Arrays.toString(ranArray));
@@ -36,20 +37,23 @@ public class ExercisesArraysNew {
 
         arrayCrazyRange(10);
 
-        int[] arrCount = new int[]{0};
-        arrCount = arrayCount30(10);
-        System.out.println(Arrays.toString(arrCount));
+        System.out.println("Summe > 30: " + arrayCount30(ranArray));
+        System.out.println("Summe zählen: " + randomSum(ranArray));
 
-        System.out.println("Summe zusammenzählen");
+        System.out.println(Arrays.toString(ranNumArray(20)));
+
+        int number = minArray(ranArray);
+        System.out.println("Minimum: " + number);
+
+        int number2 = maxArray(ranArray);
+        System.out.println("Maximum: " + number2);
+
+        int[] avg = createNumbersRandom(20);
+        System.out.println(Arrays.toString(avg));
+        System.out.println("Average: " + average(avg));
 
     }
 
-    public static void printArray(int[] numbers) {
-        for (int i = 0; i < numbers.length; i++) {
-            System.out.println(numbers[i] + " ");
-        }
-        System.out.println();
-    }
 
     public static int[] createNumbersRandom(int size) {
         int[] numbers = new int[size];
@@ -127,15 +131,16 @@ public class ExercisesArraysNew {
 
     }
 
-    public static int[] arrayCount30(int arrCount) {
+    public static int arrayCount30(int[] arrCount) {
         System.out.println();
         System.out.println("Array Zählen");
-        int[] count30 = new int[arrCount];
-        for (int i = 0; i < count30.length; i++) {
-            int randomValue = random.nextInt(101);
-            count30[i] = randomValue;
+        int result = 0;
+        for (int i = 0; i < arrCount.length; i++) {
+            if (arrCount[i] > 30) {
+                ++result;
+            }
         }
-        return count30;
+        return result;
     }
 
     public static int randomSum(int[] arr) {
@@ -145,6 +150,43 @@ public class ExercisesArraysNew {
        }
        return sum;
 
+    }
+
+    public static int[] ranNumArray(int size) {
+        System.out.println();
+        System.out.println("Array Min/Max/Avg");
+        int[] numbers = new int[size];
+
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = random.nextInt(101);
+        }
+        return numbers;
+    }
+
+    public static int minArray(int[] number) {
+        System.out.println();
+        int minNumbers = Integer.MAX_VALUE;
+        for (int i : number) {
+            if (i < minNumbers) {
+                minNumbers = i;
+            }
+        } return minNumbers;
+
+    }
+
+    public static int maxArray(int[] number2) {
+        System.out.println();
+        int maxNumbers = Integer.MIN_VALUE;
+        for (int i : number2) {
+            if (i > maxNumbers) {
+                maxNumbers = i;
+            }
+        } return maxNumbers;
+    }
+
+    public static double average(int[] arr) {
+        System.out.println();
+        return (double)randomSum(arr) / arr.length;
     }
 }
 
