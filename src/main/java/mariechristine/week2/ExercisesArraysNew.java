@@ -37,23 +37,23 @@ public class ExercisesArraysNew {
 
         arrayCrazyRange(10);
 
-        System.out.println("Summe zusammenzählen > 30: " + arrayCount30(ranArray));
-
+        System.out.println("Summe > 30: " + arrayCount30(ranArray));
+        System.out.println("Summe zählen: " + randomSum(ranArray));
 
         System.out.println(Arrays.toString(ranNumArray(20)));
 
-        minArray(10);
-        System.out.println(Arrays.toString(minArray(10)));
+        int number = minArray(ranArray);
+        System.out.println("Minimum: " + number);
 
+        int number2 = maxArray(ranArray);
+        System.out.println("Maximum: " + number2);
+
+        int[] avg = createNumbersRandom(20);
+        System.out.println(Arrays.toString(avg));
+        System.out.println("Average: " + average(avg));
 
     }
 
-    public static void printArray(int[] numbers) {
-        for (int i = 0; i < numbers.length; i++) {
-            System.out.println(numbers[i] + " ");
-        }
-        System.out.println();
-    }
 
     public static int[] createNumbersRandom(int size) {
         int[] numbers = new int[size];
@@ -163,16 +163,30 @@ public class ExercisesArraysNew {
         return numbers;
     }
 
-    public static int[] minArray(int minValue) {
-        int[] numbers = new int[minValue];
+    public static int minArray(int[] number) {
+        System.out.println();
+        int minNumbers = Integer.MAX_VALUE;
+        for (int i : number) {
+            if (i < minNumbers) {
+                minNumbers = i;
+            }
+        } return minNumbers;
 
-        for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = minValue;
+    }
 
-        }
+    public static int maxArray(int[] number2) {
+        System.out.println();
+        int maxNumbers = Integer.MIN_VALUE;
+        for (int i : number2) {
+            if (i > maxNumbers) {
+                maxNumbers = i;
+            }
+        } return maxNumbers;
+    }
 
-        return new int[0];
-
+    public static double average(int[] arr) {
+        System.out.println();
+        return (double)randomSum(arr) / arr.length;
     }
 }
 
