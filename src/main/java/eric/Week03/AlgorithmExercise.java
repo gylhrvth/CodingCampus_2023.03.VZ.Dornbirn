@@ -7,7 +7,7 @@ public class AlgorithmExercise {
     public static SecureRandom rand = new SecureRandom();
 
     public static void main(String[] args) {
-        int[] outputArray = createArray(10000);
+        int[] outputArray = createArray(50);
         System.out.println(Arrays.toString(outputArray));
 
         System.out.println("------");
