@@ -5,29 +5,37 @@ import java.util.Scanner;
 public class PascalDreieck {
     public static void main(String[] args) {
         int rows = getArrayLength("Gib Größe des Dreiecks an : ");
-        printPascalTriangle(rows);
+
+
+        int[][] triangle = printPascalTriangle(rows);
+        printTriangle(triangle);
 
     }
 
 
-    public static void printPascalTriangle(int rows) {
+    public static int[][] printPascalTriangle(int rows) {
         int[][] triangle = new int[rows][rows];
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < i; j++) {
-                if (j == 0 || j == i) {
+
+        for (int i = 0; i < triangle.length; i++) {
+            for (int j = 0; j < triangle[i].length; j++) {
+                if (j == 0 || i == 0) {
                     triangle[i][j] = 1;
                 } else {
-                    triangle[i][j] = triangle[i][j-1] + triangle[i-1][j];
+                    triangle[i][j] = triangle[i][j - 1] + triangle[i - 1][j];
                 }
-                System.out.printf("%4d", triangle[i][j]);
-                System.out.print(" ");
+            }
+        }
+        return triangle;
+    }
+
+    public static void printTriangle(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.printf("- %5d ", matrix[i][j]);
             }
             System.out.println();
         }
     }
-
-
-
 
 
     public static int getArrayLength(String message) {
