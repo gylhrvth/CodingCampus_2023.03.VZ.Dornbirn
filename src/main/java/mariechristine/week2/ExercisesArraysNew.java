@@ -36,7 +36,11 @@ public class ExercisesArraysNew {
             System.out.println("Es stehen nicht ausreichenden Elementen in Array zur Verfügung...");
         }
 
-        arrayCrazyRange(10);
+        System.out.println("Crazy Range");
+        int[] cArray = arrayCrazyRange(10);
+        for (int crazyRange : cArray) {
+            System.out.print("[" + crazyRange + "]");
+        }
 
         System.out.println("Summe > 30: " + arrayCount30(ranArray));
         System.out.println("Summe zählen: " + randomSum(ranArray));
@@ -57,6 +61,12 @@ public class ExercisesArraysNew {
         System.out.println("Bubble !!!");
         System.out.println(Arrays.toString(ranArray));
         bubblesort(ranArray);
+        System.out.println(Arrays.toString(ranArray));
+
+        ranArray = createNumbersRandom(randomLength * 1000);
+        System.out.println("Selection Sort");
+        System.out.println(Arrays.toString(ranArray));
+        selectionSort(ranArray);
         System.out.println(Arrays.toString(ranArray));
 
 
@@ -125,15 +135,15 @@ public class ExercisesArraysNew {
     }
 
     public static int[] arrayCrazyRange(int size) {
-        System.out.println("Crazy Range");
+//        System.out.println("Crazy Range");
         int[] numbers = new int[size];
 
         for (int i = 0; i < numbers.length; i++) {
             numbers[i] = random.nextInt(101) - 50;
         }
-        for (int crazyRange : numbers) {
-            System.out.print("[" + crazyRange + "]");
-        }
+//        for (int crazyRange : numbers) {
+//            System.out.print("[" + crazyRange + "]");
+//        }
 
         return numbers;
 
@@ -152,11 +162,11 @@ public class ExercisesArraysNew {
     }
 
     public static int randomSum(int[] arr) {
-       int sum = 0;
-       for (int i = 0; i < arr.length; ++i) {
-           sum += arr[i];
-       }
-       return sum;
+        int sum = 0;
+        for (int i = 0; i < arr.length; ++i) {
+            sum += arr[i];
+        }
+        return sum;
 
     }
 
@@ -178,7 +188,8 @@ public class ExercisesArraysNew {
             if (i < minNumbers) {
                 minNumbers = i;
             }
-        } return minNumbers;
+        }
+        return minNumbers;
 
     }
 
@@ -189,27 +200,41 @@ public class ExercisesArraysNew {
             if (i > maxNumbers) {
                 maxNumbers = i;
             }
-        } return maxNumbers;
+        }
+        return maxNumbers;
     }
 
     public static double average(int[] arr) {
         System.out.println();
-        return (double)randomSum(arr) / arr.length;
+        return (double) randomSum(arr) / arr.length;
     }
 
     public static void bubblesort(int[] sort) {
-        for(int i = 0; i < sort.length; i++) {
-            for(int j = 0; j < sort.length - i - 1; j++) {
+        for (int i = 0; i < sort.length; i++) {
+            for (int j = 0; j < sort.length - i - 1; j++) {
                 if (sort[j] > sort[j + 1]) {
                     // Tausch -- swap
                     int temp = sort[j];
-                    sort[j] = sort[j+1];
+                    sort[j] = sort[j + 1];
                     sort[j + 1] = temp;
                 }
             }
         }
     }
 
+    public static void selectionSort(int[] sort) {
+        for (int i = 0; i < sort.length; i++) {
+            int min = i;
+            for ( int j = i + 1; j < sort.length; j++) {
+                if (sort[j] < sort[min]) {
+                    min = j;
+                }
+            }
+            int temp = sort[i];
+            sort[i] = sort[min];
+            sort[min] = temp;
+        }
+    }
 }
 
 
