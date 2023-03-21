@@ -13,57 +13,43 @@ public class Taschenrechner {
 
     public static void taschenrechner() {
         boolean repeat = true;
-        float num1 = 0.0f;
-        float num2 = 0.0f;
-        float num3;
+        float num1, num2, num3;
         float result = 0.0f;
         String operator;
-        System.out.println("Was willst du rechnen?");
-        boolean validInput = false;
-        while (!validInput) {
-            while (repeat){
 
-                System.out.println("Gib deine erste Zahl ein.");
-                if (!validInput) {
-                    num1 = readNumber();
+        num1 = readNumber("Gib deine erste Zahl ein.");
+
+        while (repeat) {
+
+            operator = operator("Gib einen Operator ein (+,-,*,^,/): ");
+
+            num2 = readNumber("Gib deine zweite Zahl ein.");
+
+            if (operator.equals("+")) {
+                result = num1 + num2;
+            } else if (operator.equals("-")) {
+                result = num1 - num2;
+            } else if (operator.equals("*")) {
+                result = num1 * num2;
+            } else if (operator.equals("/")) {
+                result = num1 / num2;
+            } else if (operator.equals("^")) {
+                num3 = 1;
+                for (int i = 0; i < num2; i++) {
+                    result = (num3 *= num1);
                 }
-
-                operator = operator("Gib einen Operator ein (+,-,*,^,/): ");
-
-                System.out.println("Gib deine zweite Zahl ein.");
-                if (!validInput) {
-                    num2 = readNumber();
-                }
-
-                if (operator.equals("+")) {
-                    result = num1 + num2;
-                } else if (operator.equals("-")) {
-                    result = num1 - num2;
-                } else if (operator.equals("*")) {
-                    result = num1 * num2;
-                } else if (operator.equals("/")) {
-                    result = num1 / num2;
-                } else if (operator.equals("^")) {
-                    num3 = 1;
-                    for (int i = 0; i < num2; i++) {
-                        result = (num3 *= num1);
-                    }
-                }
-
-                System.out.println("Dein Ergebnis = " + result + " ");
-                System.out.println();
-
-                if (repeat)
-                repeat = readJaNein("Möchtest du nochmal rechnen j/n?");
-                else{
-                    repeat = readJaNein("Möchtest du weiterrechnen?");
-                }
-
-                   System.out.println("Auf Wiedersehen!");
-
-
             }
+
+            System.out.println("Dein Ergebnis = " + result + " ");
+            System.out.println();
+
+            repeat = readJaNein("Möchtest du mit deiner Zahl weiterrechnen j/n?");
+
+            num1 = result;
+
         }
+        System.out.println("Auf Wiedersehen!");
+
     }
 
 
@@ -74,8 +60,9 @@ public class Taschenrechner {
     }
 
 
-    public static float readNumber() {
+    public static float readNumber(String message) {
         Scanner sc = new Scanner(System.in);
+        System.out.println(message);
         float value = 0.0f;
         boolean numberIsValid = false;
         while (!numberIsValid) {
@@ -94,7 +81,12 @@ public class Taschenrechner {
         Scanner sc = new Scanner(System.in);
         String operator = " ";
 
-        while (!operator.equals("+") && !operator.equals("-") && !operator.equals("*") && !operator.equals("/") && !operator.equals("^")) {
+        while (
+                !operator.equals("+") &&
+                        !operator.equals("-") &&
+                        !operator.equals("*") &&
+                        !operator.equals("/") &&
+                        !operator.equals("^")) {
             System.out.println(message);
             operator = sc.nextLine();
         }

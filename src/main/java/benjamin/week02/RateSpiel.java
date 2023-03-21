@@ -16,14 +16,14 @@ public class RateSpiel {
 
     public static int rateSpiel() {
         System.out.println("Willkommen beim super coolen Zahlen Ratespiel!");
-        System.out.println("Errate die Zahl zwischen 0 und 100!");
+        System.out.println("Errate inerhalb von 5 Versuchen die Zahl zwischen 0 und 100!");
         int randomValue = rand.nextInt(101);
       //   System.out.println(randomValue);
 
         int count = 0;
         int number = -1;  //bezieht sich auf (number != randomValue)
         while ((count < 5) && (number != randomValue)){ //nach 5x Zahleneingabe ist Spiel zuende
-            number = readNumber3("Gib die Zahl nun ein:", 1, 100);
+            number = readNumber3("Gib die Zahl nun ein:", 0, 100);
             if (number < randomValue) {
                 System.out.println("Die Zahl ist zu niedrig!");
             } else if (number > randomValue) {
@@ -35,6 +35,7 @@ public class RateSpiel {
             System.out.println("Du hast Gewonnen!!!");
         } else{
                 System.out.println("Du hast Verloren!");
+            System.out.println("Die Zahl war " + randomValue);
             }
 
             return randomValue;

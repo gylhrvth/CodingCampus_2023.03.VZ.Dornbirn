@@ -14,7 +14,7 @@ public class MergeSortExample {
     public static void mergeSort(String prefix, int[] arr, int lo, int hi){
         System.out.println(prefix + "mergeSort(..., " + lo + ", " + hi + ")");
         if (hi - lo <= 1) return;
-        int mid = (lo + hi) / 2;
+        int mid = (lo + hi) / 2 + (lo + hi) % 2;
         mergeSort(prefix + "  ", arr, lo, mid);
         mergeSort(prefix + "  ", arr, mid, hi);
 
