@@ -26,6 +26,7 @@ public class Arrays2 {
         System.out.println("gnomeSort = " + Arrays.toString(array));
 
         mergesort("", array, 0, array.length);
+        System.out.println("mertsort");
         System.out.println(Arrays.toString(array));
 
     }
@@ -124,7 +125,7 @@ public class Arrays2 {
     }
 
     public static void mergesort(String prefix, int[] arr, int lo, int hi) {
-        if (hi - lo < 1) return;
+        if (hi - lo <= 1) return;
         int mid = (lo + hi) / 2;
         mergesort(prefix + " ", arr, lo, mid);
         mergesort(prefix + " ", arr, mid, hi);
@@ -132,7 +133,7 @@ public class Arrays2 {
         int[] temp = new int[hi - lo];
         int i = lo;
         int j = mid;
-        int k = 1;
+        int k = 0;
 
         while ((i < mid) && (j < hi)) {
             if (arr[i] < arr[j]) {
@@ -160,7 +161,7 @@ public class Arrays2 {
             j++;
 
         }
-        System.out.println(Arrays.toString(arr));
+
 
     }
 

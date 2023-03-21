@@ -13,7 +13,7 @@ public class Ratespiel {
 
     public static void main(String[] args) {
         System.out.println("Herzlich Willkommen beim Ratespiel");
-        ratenSpiel(1, 100);
+        ratenSpiel(1, 30);
 
     }
 
@@ -33,6 +33,7 @@ public class Ratespiel {
         }
         return value;
     }
+
 
     public static void ratenSpiel(int minValue, int maxValue) {
         int value = 0;

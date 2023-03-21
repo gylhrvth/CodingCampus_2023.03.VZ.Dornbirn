@@ -9,7 +9,7 @@ public class Sortieren {
     public static void main(String[] args) {
         int[] array = createArray(20);      // es muss zuerst eine Array erschaffen werden um mit dieser zu arbeiten. Siehe UNTEN
         int[] array2 = createArray2(25);
-        int[] array3 = createArray3(12);
+        int[] array3 = createArray3(200000);
 
 //// Bubblesort
 //        System.out.println("Bubblesort: nach unten");
@@ -23,21 +23,21 @@ public class Sortieren {
 //        System.out.println("Shaker sorting: naher");
 //        System.out.println(Arrays.toString(array2));
 // Mergesort
-
-        System.out.println(Arrays.toString(array3));
         System.out.println("Merge sorting: vorher");
-        mergeSort(createArray3(12), 0, array3.length);
+        System.out.println(Arrays.toString(array3));
+        mergeSort("",array3, 0, array3.length);
         System.out.println("Merge sorting: nacher");
         System.out.println(Arrays.toString(array3));
 
 
     }
 
-    public static void mergeSort(int[] array3, int lo, int hi) {
+    public static void mergeSort(String prefix, int[] array3, int lo, int hi) {
+//        System.out.println(prefix + lo + " " +  hi);
         if (hi - lo <= 1) return;
         int mid = (hi + lo) / 2;
-        mergeSort(array3, lo, mid);
-        mergeSort(array3, mid, hi);
+        mergeSort(prefix + "  ",array3, lo, mid);
+        mergeSort(prefix + "  ",array3, mid, hi);
 
         int[] temp = new int[hi - lo];
         int i = lo;
@@ -67,7 +67,7 @@ public class Sortieren {
         for (int l = lo; l < hi; l++) {
             array3[l] = temp[l - lo];
         }
-        System.out.println(Arrays.toString(array3));
+//        System.out.println(prefix + Arrays.toString(array3));
         }
 
         private static void createshaker ( int[] array2){
@@ -143,7 +143,7 @@ public class Sortieren {
         {     //Hier wird die Array erschaffen und mit zufälligen Zahlen gefüllt.
             int[] testarray3 = new int[size];
             for (int i = 0; i < testarray3.length; i++) {
-                testarray3[i] = rand.nextInt(101);
+                testarray3[i] = rand.nextInt(10001);
             }
             return testarray3;
         }

@@ -56,7 +56,7 @@ public class MethodenSchleifen {
 
     public static void printTriangleBottomLeft(String text, int count) {
         for (int i = 0; i < count; i++) {
-            for (int j = 0; j < i; j++) {
+            for (int j = 0; j < i + 1; j++) {
                 System.out.print(text);
             }
             System.out.println();
@@ -66,13 +66,10 @@ public class MethodenSchleifen {
 
     public static void printTriangleTopLeft(String text, int count) {
         for (int i = 0; i < count; i++) {
-            for (int j = 5; j > i; j--) {
+            for (int j = 0; j < count - i; j++) {
                 System.out.print(text);
-
             }
             System.out.println();
-
-
         }
         System.out.println();
     }
