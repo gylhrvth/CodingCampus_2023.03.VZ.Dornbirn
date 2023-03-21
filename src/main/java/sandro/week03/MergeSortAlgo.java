@@ -3,13 +3,17 @@ package sandro.week03;
 import java.util.Arrays;
 import java.util.Random;
 
-public class MergeSort {
+public class MergeSortAlgo {
     public static Random rand = new Random();
 
     public static void main(String[] args) {
         int[] mergeArray = createArray(20);
-
+        System.out.println("--- kontroll Array ---");
         System.out.println(Arrays.toString(mergeArray));
+        System.out.println("---");
+        mergeSort(mergeArray,0, mergeArray.length);
+        System.out.println(Arrays.toString(mergeArray));
+
 //Beispiel
 //        Arrays.sort(mergeArray);
 //        System.out.println(Arrays.toString(mergeArray));
@@ -26,11 +30,33 @@ public class MergeSort {
         int[] temp = new int[hi - lo];
         int i = lo;
         int j = mid;
-        int k = 1;
+        int k = 0;
 
         while ((i < mid) && (j < hi)) {
-
+            if (arr[i] < arr[j]) {
+                temp[k] = arr[i];
+                ++i;
+                ++k;
+            } else {
+                temp[k] = arr[j];
+                j++;
+                k++;
+            }
         }
+        while (i < mid) {
+            temp[k] = arr[i];
+            ++i;
+            ++k;
+        }
+        while (j < hi) {
+            temp[k] = arr[j];
+            ++j;
+            ++k;
+        }
+        for (int l = lo; l < hi; l++) {
+            arr[l] = temp[l - lo];
+        }
+        System.out.println(Arrays.toString(arr));
     }
 
 
