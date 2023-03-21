@@ -7,33 +7,31 @@ public class PascalTriangle {
     static SecureRandom rand = new SecureRandom();
 
     public static void main(String[] args) {
-        int rows = getArrayLength("Wie hoch soll das Pascal Dreieck sein?: ");
-        int cols = getArrayLength("Wie breit soll das Pascal Dreieck sein?: ");
+        int rows = getArrayLength("Wie Groß soll das Pascal Dreieck sein?: ");
 
         System.out.println();
-        int[][] pscTriangle = pascalDreieck(rows, cols);
-        System.out.println("----===2D Array===----");
-        for (int numRows = 0; numRows < pscTriangle.length; numRows++) {
-            for (int numRows2 = 0; numRows2 <= pscTriangle[numRows].length; numRows2++) {
-                System.out.printf("%4d ", pscTriangle[numRows][numRows2]);
+
+        pascalDreieck(rows);
+
+        }
+
+
+    public static void pascalDreieck(int numRows) {
+        int[][] pscTriangle = new int[numRows][numRows];
+        for (int pscRows = 0; pscRows < numRows; pscRows++) {
+            pscTriangle[pscRows][1] = 1;
+        }
+        for (int pscNumLeft = 1; pscNumLeft < pscTriangle.length; pscNumLeft++) {
+            for (int pscNumRight = 1; pscNumRight <= pscNumLeft; pscNumRight++) {
+                pscTriangle[pscNumLeft][pscNumRight] = pscTriangle[pscNumLeft][pscNumRight - 1]
+                        + pscTriangle[pscNumLeft - 1][pscNumRight];
+                System.out.printf("| %5d", pscTriangle[pscNumLeft][pscNumRight]);
+                System.out.print(" ");
             }
             System.out.println();
         }
     }
 
-    public static int[][] pascalDreieck(int numRows, int numRows2) {
-        int[][] pascalTriangle = new int[numRows][numRows];
-        for (int pscRows = 0; pscRows < numRows; pscRows++) {
-            pascalTriangle[pscRows][0] = 1;
-        }
-        for (int pscNumLeft = 1; pscNumLeft < numRows2; pscNumLeft++) {
-            for (int pscNumRight = 1; pscNumRight < pscNumLeft; pscNumRight++) {
-                pascalTriangle[pscNumLeft][pscNumRight] = pascalTriangle[pscNumLeft - 1][pscNumRight - 1]
-                                                        + pascalTriangle[pscNumLeft - 1][pscNumRight];
-            }
-        }
-        return pascalTriangle;
-    }
     public static int getArrayLength(String message) {
         Scanner scanner = new Scanner(System.in);
         int value = 0;
