@@ -71,10 +71,6 @@ public class AlghorithmusUebungen {
                     swapped = true;
                 }
             }
-            if (!swapped) {
-                break;
-            }
-            swapped = false;
             end = end - 1;
             for (int i = end - 1; i >= start; i--) {
                 if (arr[i] > arr[i + 1]) {
