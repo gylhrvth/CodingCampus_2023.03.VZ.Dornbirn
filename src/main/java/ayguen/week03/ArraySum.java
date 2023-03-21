@@ -142,7 +142,7 @@ public class ArraySum {
             if (arr[i] < arr[j]) {
                 temp[k] = arr[i];
                 ++i;
-                ++k;
+                 ++k;
             } else {
                 temp[k] = arr[i];
                 ++j;
@@ -168,7 +168,7 @@ public class ArraySum {
             arr[l] = temp [l - lo];
 
         }
-        System.out.println(prefix + Arrays.toString(arr));
+
     }
 
 
