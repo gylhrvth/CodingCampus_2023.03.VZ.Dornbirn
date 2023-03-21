@@ -7,6 +7,7 @@ public class RehearsalArray {
         int[] numbers = new int[10];
 
         numbers[2] = 5;
+        numbers[6] = 65;
 
         printArray(numbers);
 
