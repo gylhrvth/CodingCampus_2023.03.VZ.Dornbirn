@@ -7,15 +7,15 @@ public class BonusaufgabenArrays {
     static Random random = new Random();
 
     public static void main(String[] args) {
-        createRandom2D(100);
+        int[][] array = new int[2][2];
 
-    }
-
-    public static int[][] createRandom2D(int size) {
-        int[][] numbers = new int[size][];
-
-        for (int i = 0; i < numbers.length; i++) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                array[i][j] = random.nextInt(100);
+            }
         }
-        return numbers;
+        System.out.println("Arrays: " + Arrays.deepToString(array));
     }
+
+
 }
