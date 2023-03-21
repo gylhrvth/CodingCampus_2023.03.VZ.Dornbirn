@@ -10,7 +10,15 @@ public class Summe2DArray {
         int[] summeRows = sumRows(testMatrix);
         int[] summeCols = sumCols(testMatrix);
 
-        printMatrix(testMatrix, summeRows, summeCols);
+
+        System.out.println("---- false false");
+        printMatrix(testMatrix, summeRows, false, summeCols, false);
+        System.out.println("---- false true");
+        printMatrix(testMatrix, summeRows, false, summeCols, true);
+        System.out.println("---- true false");
+        printMatrix(testMatrix, summeRows, true, summeCols, false);
+        System.out.println("---- true true");
+        printMatrix(testMatrix, summeRows, true, summeCols, true);
     }
 
     public static int[] sumCols(int[][] matrix){
@@ -39,19 +47,28 @@ public class Summe2DArray {
         return sum;
     }
 
-    public static void printMatrix(int[][] matrix, int[] sumRows, int[] sumCols){
+    public static void printMatrix(int[][] matrix, int[] sumRows, boolean printRowSum, int[] sumCols, boolean printColSum){
         for (int iRow = 0; iRow < matrix.length; iRow++) {
             for (int iCol = 0; iCol < matrix[iRow].length; iCol++) {
                 System.out.printf("| %3d ", matrix[iRow][iCol]);
             }
-            System.out.printf("|| %5d ", sumRows[iRow]);
+            if (printRowSum) {
+                System.out.printf("|| %5d ", sumRows[iRow]);
+            }
             System.out.println("|");
         }
-        System.out.println("================================");
-        for (int iCol = 0; iCol < sumCols.length; iCol++) {
-            System.out.printf("| %3d ", sumCols[iCol]);
+        if (printColSum) {
+            System.out.println("================================");
+            for (int iCol = 0; iCol < sumCols.length; iCol++) {
+                System.out.printf("| %3d ", sumCols[iCol]);
+            }
         }
-        System.out.println("||       |");
+        if (printColSum) {
+            if (printRowSum) {
+                System.out.print("||       ");
+            }
+            System.out.println("|");
+        }
     }
 
     public static int[][] create2DArray(int rows, int columns){
