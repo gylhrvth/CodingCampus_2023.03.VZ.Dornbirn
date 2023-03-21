@@ -11,7 +11,7 @@ public class Menue {
     }
 
     public static void menue() {
-        Scanner scotty = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         System.out.printf("Hallo im Druckerpalsat!\nMöchtest du etwas Drucken?\n");
         boolean repeat = true;
