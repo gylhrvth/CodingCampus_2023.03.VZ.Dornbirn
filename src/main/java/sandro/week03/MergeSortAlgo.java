@@ -1,11 +1,9 @@
 package sandro.week03;
 
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.Arrays;
 import java.util.Random;
 
-public class MergeSort {
+public class MergeSortAlgo {
     public static Random rand = new Random();
 
     public static void main(String[] args) {
