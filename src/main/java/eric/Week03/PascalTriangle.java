@@ -7,26 +7,35 @@ public class PascalTriangle {
     static SecureRandom rand = new SecureRandom();
 
     public static void main(String[] args) {
+
         int rows = getArrayLength("Wie Groß soll das Pascal Dreieck sein?: ");
 
         System.out.println();
 
-        pascalDreieck(rows);
+        int[][] pascal = pascalDreieck(rows);
+        printTriangle(pascal);
+    }
 
-        }
 
-
-    public static void pascalDreieck(int numRows) {
+    public static int[][] pascalDreieck(int numRows) {
         int[][] pscTriangle = new int[numRows][numRows];
-        for (int pscRows = 0; pscRows < numRows; pscRows++) {
-            pscTriangle[pscRows][1] = 1;
+        for (int pscNumLeft = 0; pscNumLeft < pscTriangle.length; pscNumLeft++) {
+            for (int pscNumRight = 0; pscNumRight < pscTriangle[pscNumLeft].length; pscNumRight++) {
+                if (pscNumRight == 0 || pscNumLeft == 0) {
+                    pscTriangle[pscNumLeft][pscNumRight] = 1;
+                } else {
+                    pscTriangle[pscNumLeft][pscNumRight] = pscTriangle[pscNumLeft][pscNumRight - 1] +
+                                                           pscTriangle[pscNumLeft - 1][pscNumRight];
+                }
+            }
         }
-        for (int pscNumLeft = 1; pscNumLeft < pscTriangle.length; pscNumLeft++) {
-            for (int pscNumRight = 1; pscNumRight <= pscNumLeft; pscNumRight++) {
-                pscTriangle[pscNumLeft][pscNumRight] = pscTriangle[pscNumLeft][pscNumRight - 1]
-                        + pscTriangle[pscNumLeft - 1][pscNumRight];
-                System.out.printf("| %5d", pscTriangle[pscNumLeft][pscNumRight]);
-                System.out.print(" ");
+        return pscTriangle;
+    }
+
+    public static void printTriangle(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.printf("|  %7d ", matrix[i][j]);
             }
             System.out.println();
         }
