@@ -62,11 +62,11 @@ public class TicTacToeFinal {
     // TODO: 22.03.23 Methode für Ermittlung von WIN Condition
     public static boolean hasWin(int[][] field, int currentPlayer) {
         for (int i = 0; i < field.length; i++) {
-            if (hasWinInRow(field, currentPlayer, i) ||
-                    (hasWinInCol(field, currentPlayer, i)
-//                            || (hasWinInDiagonal(field, currentPlayer))
-
-                    )) {
+            if (hasWinInRow(field, currentPlayer, i)
+                  ||  (hasWinInCol(field, currentPlayer, i)
+                    || (hasWinDiagonal(field,currentPlayer)
+                    || (hasWinDiagonal2(field,currentPlayer)))))
+            {
                 return true;
             }
         }
@@ -91,17 +91,22 @@ public class TicTacToeFinal {
         return true;
     }
 
-//    public static boolean hasWinInDiagonal(int[][] field, int currentPlayer, int row, int col) {
-//        for (int i = 0; i < field.length; i++) {
-//            for (int j = 0; j < field.length; j++) {
-//                if (i == j) {
-//                    return false;
-//                }
-//            }
-//        }
-//        return true;
-//    }
-
+public static boolean hasWinDiagonal(int [][] field, int currentPlayer){
+    for (int i = 0; i < field.length; i++) {
+        if (field[i][i] != currentPlayer){
+            return false;
+        }
+    }
+    return true;
+}
+public static boolean hasWinDiagonal2(int [][] field, int currentplayer){
+    for (int i = 0; i < field.length; i++) {
+        if (field[i][field.length -i -1] != currentplayer){
+            return false;
+        }
+    }
+    return true;
+}
     public static boolean hasAnyMoreMoves(int[][] field) {
         for (int i = 0; i < field.length; i++) {
             for (int j = 0; j < field[i].length; j++) {
