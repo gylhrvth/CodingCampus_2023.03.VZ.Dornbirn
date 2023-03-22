@@ -78,18 +78,5 @@ public class BonusaufgabenArrays {
         }
         return matrix;
     }
-/*
-    public static int[][] ticTacToe() {
-        int[][] game = new int[3][3];
 
-        for (int i = 0; i < game.length; i++) {
-            for (int j = 0; j < game.length; i++) {
-                if (game[i][j] ==
-
-            }
-        }
-        return game;
-    }
-
- */
 }
