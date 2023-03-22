@@ -1,58 +1,35 @@
 package joachim.Week03;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
 public class PascalDreieck {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        createArray(rows(),columns());
+        long[][] pascal = pascalDreieck(20);
+        printMatrix(pascal);
     }
 
-    public static int[][] pascalDreieck;{}
-
-    public static int rows(){
-        Scanner scotty = new Scanner(System.in);
-        int roworcol = 0;
-        while (true) {
-            try {
-                System.out.println("Bitte gib die Reihen Anzahl and");
-                roworcol = scotty.nextInt();
-                scotty.nextLine();
-            } catch (InputMismatchException ignore) {
-                System.out.println("Eine Nummerische Zahl bitte!");
-                scotty.nextLine();
+    public static long[][] pascalDreieck(int size) {
+        long[][] array = new long[size][size];
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (i == 0 || j == 0) {
+                    array[i][j] = 1;
+                } else {
+                    array[i][j] = array[i - 1][j] + array[i][j - 1];
+                }
             }
-            return roworcol;
         }
-    }
-    public static int columns(){
-        Scanner scotty = new Scanner(System.in);
-        int roworcol = 0;
-        while (true) {
-            try {
-                System.out.println("Bitte gib die Spalten Anzahl and");
-                roworcol = scotty.nextInt();
-                scotty.nextLine();
-            } catch (InputMismatchException ignore) {
-                System.out.println("Eine Nummerische Zahl bitte!");
-                scotty.nextLine();
-            }
-            return roworcol;
-        }
+        return array;
     }
 
-    public static int[][] createArray(int rows,int cols) {
-        int[][] values = new int[rows][cols];
-        for (int irows = 0; irows < values.length; irows++) {
-            for (int jcol = 0; jcol < values[irows].length; jcol++) {
-                values[irows][jcol] = 0;
-                System.out.printf("[  %4d]", values[0][0]);
+    public static void printMatrix(long[][] array){
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                System.out.printf(" %12d", array[i][j]);
             }
             System.out.println();
         }
-        return values;
     }
+
+
 
 }
