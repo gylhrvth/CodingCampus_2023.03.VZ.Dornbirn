@@ -81,7 +81,7 @@ public class ConsoleInputNumber {
             System.out.println(message);
             try {
                 String line = sc.nextLine();
-                value = Integer.valueOf(line);
+                value = Integer.parseInt(line);
                 if ((value >= minValue) && (value <= maxValue)) {
                     nubmerIsValid = true;
                 } else {

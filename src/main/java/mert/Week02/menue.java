@@ -16,7 +16,7 @@ public class menue {
         Scanner sc = new Scanner(System.in);
 
         boolean repeat = true;
-        while (repeat) {
+        while (repeat) ;{
             System.out.println("1. Baum");
             System.out.println("2. Quader");
             System.out.println("3. Pyramide");
