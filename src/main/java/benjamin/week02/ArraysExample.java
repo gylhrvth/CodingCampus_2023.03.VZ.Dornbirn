@@ -271,31 +271,31 @@ public class ArraysExample {
     }
 
     public static void cocktailShaker(int[] dim) {
-        int low = 1;
-        int high = dim.length ;
+        int low = 0;
+        int high = dim.length -1;
         int mov = low;
 
         while (low < high) {
-            for (int i = low ; i < high ; i++) {
+            for (int i = low; i < high; i++) {
                 if (dim[i] > dim[i + 1]) {
-                    mov = dim[i];
+                    int temp = dim[i];
                     dim[i] = dim[i + 1];
-                    dim[i + 1] = mov;
+                    dim[i + 1] = temp;
+                    mov = i;
                 }
             }
-
-            low = mov;
-
-            for (int i = high - 1 ; i >= low; i--) {
-                if (dim[i] < dim[i - 1]) {
-                    mov = dim[i];
-                    dim[i] = dim[i - 1];
-                    dim[i - 1] = mov;
-
-                }
-            }
-
             high = mov;
+
+            for (int i = high ; i > low; i--) {
+                if (dim[i] < dim[i - 1]) {
+                    int temp = dim[i];
+                    dim[i] = dim[i - 1];
+                    dim[i - 1] = temp;
+                    mov = i;
+
+                }
+            }
+            low = mov;
 
         }
 
