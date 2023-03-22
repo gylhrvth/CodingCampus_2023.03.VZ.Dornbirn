@@ -87,7 +87,7 @@ public class ConsoleInput {
     public static void highLowGame() {
 //        Joachims Orginal
         int secretNumber = randomGenerator.nextInt(11);
-        int guess = - 1;
+        int guess = -1;
         while (secretNumber != guess) {
             guess = readGuess();
             if (guess < secretNumber) {

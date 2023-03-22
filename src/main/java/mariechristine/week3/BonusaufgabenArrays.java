@@ -20,11 +20,44 @@ public class BonusaufgabenArrays {
         int[][] array = pascalTriangle(10);
         System.out.println("2D-Array");
         print2DArray(array);
+
+        for (int n = 1; n < 10; n++) {
+            System.out.print("(a+b)^" + n + " = ");
+            for (int bExp = 0; bExp <= n; bExp++) {
+                if (array[n - bExp][bExp] != 1) {
+                    System.out.print(array[n - bExp][bExp] + "*");
+                }
+                if (n - bExp > 0) {
+                    System.out.print("a");
+                    if (n - bExp > 1) {
+                        System.out.print("^" + (n - bExp));
+                    }
+                    if (bExp > 0) {
+                        System.out.print("*");
+                    }
+                }
+                if (bExp > 0) {
+                    System.out.print("b");
+                    if (bExp > 1) {
+                        System.out.print("^" + bExp);
+                    }
+                }
+                if (bExp < n) {
+                    System.out.print(" + ");
+                }
+            }
+            System.out.println();
+        }
+
     }
 
     public static void print2DArray(int[][] array) {
         for (int i = 0; i < array.length; i++) {
-            System.out.println(Arrays.toString(array[i]));
+            for (int j = 0; j < array[i].length; j++) {
+                System.out.printf(" %5d", array[i][j]);
+            }
+            System.out.println();
+            //System.out.println(Arrays.toString(array[i]));
         }
 
     }
@@ -38,15 +71,25 @@ public class BonusaufgabenArrays {
 
                 else {
                     matrix[i][j] = matrix[i - 1][j] + matrix[i][j - 1];
-                    }
-
                 }
 
             }
+
+        }
         return matrix;
     }
+/*
+    public static int[][] ticTacToe() {
+        int[][] game = new int[3][3];
 
+        for (int i = 0; i < game.length; i++) {
+            for (int j = 0; j < game.length; i++) {
+                if (game[i][j] ==
+
+            }
+        }
+        return game;
+    }
+
+ */
 }
-
-
-
