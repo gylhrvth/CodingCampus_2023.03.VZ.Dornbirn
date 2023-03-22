@@ -25,54 +25,52 @@ public class TicTacToe {
         boolean game = true;
         while (game = true) {
 
-            int player = 0;
-            if (player == 0) {
-                try {
-                    boolean answer = false;
-                    while(!answer) {
+            boolean player = false;
+            try {
+                boolean answer = false;
+                while (!player) {
+                    while (!answer) {
                         System.out.println(p1 + " Please Choose a Row (0, 1, 2), afterwards a Column");
                         int row = scanner.nextInt();
                         System.out.println("Good. Now a Column (0, 1, 2)");
                         int col = scanner.nextInt();
                         field[row][col] = 'X';
                         printfield(field);
+                        player = true;
+
                         if (row < 0 || row > 2 || col < 0 || col > 2) {
                             System.out.println("Please use the given numbers (0, 1, 2)");
                             answer = true;
                         }
                     }
-
-                } catch (InputMismatchException ime) {
-                    System.out.println("A number please " + p1);
                 }
-            } else {
-                try {
-                    boolean answer = false;
-                    while (!answer)
-                    System.out.println(p2 + " Please Choose a Row (0, 1, 2), afterwards a Column");
-                    int row = scanner.nextInt();
-                    System.out.println("Good. Now a Column... (0, 1, 2)");
-                    int col = scanner.nextInt();
-                    if (row < 0 || row > 2 || col < 0 || col > 2) {
-                        System.out.println("Please use the given numbers (0, 1, 2)");
-                        return;
-                    }
-                    field[row][col] = 'O';
-                    printfield(field);
-                    player = 0;
-                } catch (InputMismatchException ime) {
-                    System.out.println("A number please " + p2);
-                }
+            } catch (InputMismatchException ime) {
+                System.out.println("A number please " + p1);
             }
-            for (int i = 0; i < 9; i++) {
-                if (i == 9) {
-                    System.out.println("Unentschieden");
-                    boolean game = false;
-                    return game;
+            while(player = true)
+            try {
+                boolean answer = false;
+                while (!answer)
+                    System.out.println(p2 + " Please Choose a Row (0, 1, 2), afterwards a Column");
+                int row = scanner.nextInt();
+                System.out.println("Good. Now a Column... (0, 1, 2)");
+                int col = scanner.nextInt();
+                if (row < 0 || row > 2 || col < 0 || col > 2) {
+                    System.out.println("Please use the given numbers (0, 1, 2)");
                 }
+                field[row][col] = 'O';
+                printfield(field);
+                player = false;
+            } catch (InputMismatchException ime) {
+                System.out.println("A number please " + p2);
             }
         }
-
+        for (int i = 0; i < 9; i++) {
+            if (i == 9) {
+                System.out.println("Unentschieden");
+                game = false;
+            }
+        }
     }
 
     public static void printfield(char[][] array) {
