@@ -2,7 +2,7 @@ package sandro.week03;
 
 import java.util.Scanner;
 
-public class TicTacToe4 {
+public class TicTacToeFinal {
     public static void main(String[] args) {
         int[][] field = new int[3][3];
         int currentPlayer = 1;
