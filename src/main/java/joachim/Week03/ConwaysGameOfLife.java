@@ -6,8 +6,18 @@ import java.util.Arrays;
 public class ConwaysGameOfLife {
 
     public static void main(String[] args) {
-        killswitch(GLEITER);
-        clearScreen();
+        int[][] currentField = lukas.week03.day4.ConwaysGameOfLife.SEGLER;
+        while (true) {
+            int[][] newField = killswitch(currentField);
+            printMatrix(newField);
+            currentField = newField;
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException exc) {
+                //noop
+            }
+            clearScreen();
+        }
     }
 
     public static final int[][] GLEITER = {
@@ -24,48 +34,34 @@ public class ConwaysGameOfLife {
     };
 
 
-    public static void killswitch(int[][] arr) {
+    public static int[][] killswitch(int[][] arr) {
         int[][] copy = new int[arr.length][arr[0].length];
+        alive(arr, copy);
+        return copy;
+    }
 
+    public static void alive(int[][] arr, int[][] copy) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {
+                int aliveNeighbours = getCell(arr, i + 1, j) + getCell(arr, i, j + 1) + getCell(arr, i + 1, j + 1) + getCell(arr, i - 1, j) + getCell(arr, i, j - 1) + getCell(arr, i - 1, j - 1) + getCell(arr, i + 1, j - 1) + getCell(arr, i - 1, j + 1);
+
                 if (arr[i][j] == 0) {
-                    alive(arr, copy);
+                    if (aliveNeighbours == 3) {
+                        copy[i][j] = 1;
+                    }
                 } else {
-                    dead(arr, copy);
+                    if (aliveNeighbours < 2) {
+                        copy[i][j] = 0;
+                    }
+                    if (aliveNeighbours > 3) {
+                        copy[i][j] = 0;
+                    }
+                    if(aliveNeighbours == 2 || aliveNeighbours == 3) {
+                        copy[i][j] = 1;
+                    }
                 }
             }
         }
-        printMatrix(arr);
-    }
-
-    public static int[][] alive(int[][] arr, int[][] copy) {
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                if (getCell(arr, i + 1, j) + getCell(arr, i, j + 1) + getCell(arr, i + 1, j + 1) + getCell(arr, i - 1, j) + getCell(arr, i, j - 1) + getCell(arr, i - 1, j - 1) + getCell(arr, i + 1, j - 1) + getCell(arr, i - 1, j + 1) == 3) {
-                    arr[i][j] = 1;
-                } else {
-                    break;
-                }
-                arr = copy;
-            }
-        }
-        return copy;
-    }
-
-    public static int[][] dead(int[][] arr, int[][] copy) {
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                if (getCell(arr, i + 1, j) + getCell(arr, i, j + 1) + getCell(arr, i + 1, j + 1) + getCell(arr, i - 1, j) + getCell(arr, i, j - 1) + getCell(arr, i - 1, j - 1) + getCell(arr, i + 1, j - 1) + getCell(arr, i - 1, j + 1) < 2) {
-                    arr[i][j] = 0;
-                }
-                if (getCell(arr, i + 1, j) + getCell(arr, i, j + 1) + getCell(arr, i + 1, j + 1) + getCell(arr, i - 1, j) + getCell(arr, i, j - 1) + getCell(arr, i - 1, j - 1) + getCell(arr, i + 1, j - 1) + getCell(arr, i - 1, j + 1) > 3) {
-                    arr[i][j] = 0;
-                }
-                arr = copy;
-            }
-        }
-        return copy;
     }
 
     public static int getCell(int[][] field, int row, int col) {
@@ -83,10 +79,11 @@ public class ConwaysGameOfLife {
 
         return field[row][col];
     }
-    public static void printMatrix(int[][] array){
+
+    public static void printMatrix(int[][] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
-                System.out.printf(Arrays.toString(array));
+                System.out.printf(" |  %1d", array[i][j]);
             }
             System.out.println();
         }
