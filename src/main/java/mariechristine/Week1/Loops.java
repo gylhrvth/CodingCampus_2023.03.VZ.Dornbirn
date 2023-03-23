@@ -3,8 +3,6 @@ package mariechristine.Week1;
 public class Loops {
     public static void main(String[] args) {
 
-
-
         //Aufgabe: Zählen
         for (int i = 0; i <= 10; i = i + 1) {
             System.out.println("i: " + i);
@@ -35,6 +33,13 @@ public class Loops {
             if (i % 2 == 0) {
                 System.out.println("i: " + i);
             }
+        }
+
+        //Rewind
+        int i = 10;
+        while (i > -10) {
+            System.out.println("i: " + i);
+            i = i - 1;
         }
 
             }
