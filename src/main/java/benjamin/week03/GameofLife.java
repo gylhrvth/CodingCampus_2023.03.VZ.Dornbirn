@@ -50,9 +50,5 @@ public class GameofLife {
         System.out.flush();
     }
 
-//        1  cd ~/IdeaProjects/CodingCampus_2023.03.VZ.Dornbirn/build/classes/java/main
-//    2  java benjamin.week03.GameofLife
-//    3  java benjamin.week03.GameofLife
-//    4  history
 
 }
