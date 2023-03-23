@@ -2,18 +2,18 @@ package benjamin.week03;
 
 public class GameofLife {
     public static void main(String[] args) {
+        System.out.println("<<<<<GameOfLife>>>>>>");
 
-
-//        int [][] gliderboard = GLEITER;
+//        printField(GLEITER);
 
         for (int i = 0; i < 20; i++) {
             System.out.println(i);
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                //noop
-            }
-            clearScreen();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            //noop
+        }
+        clearScreen();
         }
 
     }
@@ -23,8 +23,13 @@ public class GameofLife {
     //ich brauche  eine countaliveNeighbours methode
     // print Board
 
-    public static void printField(int[][] field){
+    public static void printField(int[][] field) {
+        for (int i = 0; i < field.length; i++) {
+            for (int j = 0; j < field[i].length; j++) {
+                System.out.println(field[i][j]);
 
+            }
+        }
     }
 
     public static final int[][] GLEITER = {
