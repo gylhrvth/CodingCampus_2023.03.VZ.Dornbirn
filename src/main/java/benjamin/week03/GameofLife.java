@@ -12,14 +12,14 @@ public class GameofLife {
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
-                //noob
+                //noop
             }
             clearScreen();
         }
     }
 
     public static int[][] nextGeneration(int[][] gen) {
-        int[][] nextGen = new int[gen.length][gen.length];
+        int[][] nextGen = new int[gen.length][gen[0].length];
         for (int i = 0; i < gen.length; i++) {
             for (int j = 0; j < gen[i].length; j++) {
                 int aliveNeigh = aliveNeighbours(gen, i, j);
