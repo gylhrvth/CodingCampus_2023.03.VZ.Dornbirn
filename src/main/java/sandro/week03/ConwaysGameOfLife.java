@@ -122,9 +122,9 @@ public class ConwaysGameOfLife {
             for (int col = 0; col < arr[row].length; col++) {
                 int field = arr[row][col];
                 if (field == 0) {
-                    System.out.print(Colors.COLORS[1] + field + " " + Colors.RESET);
+                    System.out.print(Colors.COLORS[1] + Colors.BACKGROUND_COLORS[3] + field + " " + Colors.RESET);
                 } else {
-                    System.out.print(Colors.COLORS[2] + field + " " + Colors.RESET);
+                    System.out.print(Colors.COLORS[2] + Colors.BACKGROUND_COLORS[5] + field + " " + Colors.RESET);
                 }
             }
             System.out.println();
