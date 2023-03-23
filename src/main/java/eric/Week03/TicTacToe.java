@@ -29,59 +29,69 @@ public class TicTacToe {
 
     public static void printBoard(){
         System.out.println("-------------");
-        for (int i = 0; i < 3; i++) {
+        for (int boardDesign = 0; boardDesign < 3; boardDesign++) {
             System.out.print("| ");
-            for (int j = 0; j < 3; j++) {
-                System.out.print(board[i][j] + " | ");
+            for (int boardDesign2 = 0; boardDesign2 < 3; boardDesign2++) {
+                System.out.print(board[boardDesign][boardDesign2] + " | ");
+
             }
             System.out.println();
             System.out.println("-------------");
         }
     }
 
-    public static void playerTurn(){
+    public static void playerTurn() {
         System.out.println("Spieler " + currentplayer + " ist am Zug!");
-        int row = 0, col = 0;
+        int row = -1;
+        int col = -1;
         do {
+            row = -1;
+            col = -1;
 
             System.out.println("Gib die Reihe an (-|| 0, 1 oder 2 ||-)");
-            System.out.println("0 = Oben Links || 1 = Oben Mitte || 2 = Oben Rechts");
-
-
-            try {
-                row = scan.nextInt();
-            } catch (InputMismatchException nfe){
-                System.out.println("Gib eine Zahl an wie oben angegeben ist (-|| 0, 1 oder 2 ||-)");
-                scan.nextLine();
-            }
-
-            System.out.println("Gib die Spalte an (-|| 0, 1 oder 2 ||-)");
             System.out.println("0 = Oben Links || 1 = Mitte Links || 2 = Unten Links");
 
-            try {
-                col = scan.nextInt();
-            }  catch (InputMismatchException nfe){
-                System.out.println("Gib eine Zahl an wie oben angegeben ist (-|| 0, 1 oder 2 ||-)");
-                scan.nextLine();
-            }
+            //ROW und COL haben einen Negativen Wert damit jede WHILE { TRY { CATCH { }}} Schleife/Abfrage durchgescannt werden
 
-        } while (!validMove(row, col));{
+            while (row < 0 || row > 2) {
+                try {
+                    row = scan.nextInt();
+                    scan.nextLine();
+                    if (row < 0) {
+                        System.out.println("Bitte eine Nummer größer gleich 0");
+                    } else if (row > 2){
+                        System.out.println("Bitte eine Nummer kleiner gleich 2");
+                    }
+                } catch (InputMismatchException nfe) {
+                    System.out.println("Gib eine Zahl an wie oben angegeben ist (-|| 0, 1 oder 2 ||-)");
+                    scan.nextLine();
+                }
+            }
+            System.out.println("Gib die Spalte an (-|| 0, 1 oder 2 ||-)");
+            System.out.println("0 = Oben Links || 1 = Oben Mitte || 2 = Oben Rechts");
+
+            while (col < 0 || col > 2) {
+                try {
+                    col = scan.nextInt();
+                    scan.nextLine();
+                    if (col < 0) {
+                        System.out.println("Bitte eine Nummer größer gleich 0");
+                    } else if (col > 2){
+                        System.out.println("Bitte eine Nummer kleiner gleich 2");
+                    }
+                } catch (InputMismatchException nfe) {
+                    System.out.println("Gib eine Zahl an wie oben angegeben ist (-|| 0, 1 oder 2 ||-)");
+                    scan.nextLine();
+                }
+            }
+            //Move wird überprüft ob er möglich ist || Wenn JA = Nächster Spieler || Wenn NEIN = validMove = Wähle ein anderes Feld aus
+        } while (!validMove(row, col));
+        {
             board[row][col] = currentplayer;
             currentplayer = (currentplayer == 'X') ? '0' : 'X';
         }
     }
-
     public static boolean validMove(int row, int col){
-        if(row < 0 || row > 2 || col < 0 || col > 2) {
-            try {
-                scan.nextInt();
-                System.out.println("Die Zahl die du angegeben hast ist nicht nicht akzeptabel");
-            } catch (InputMismatchException ime){
-                System.out.println("Versuchs Nochmal!!!");
-                scan.nextLine();
-            }
-            return false;
-        }
         if (board[row][col] != ' '){
             System.out.println("Dieses Feld wurde bereits ausgefüllt! Wähle ein anderes aus!");
             return false;
