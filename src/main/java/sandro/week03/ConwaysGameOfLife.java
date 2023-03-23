@@ -1,16 +1,20 @@
 package sandro.week03;
 
+import lukas.week03.day4.Colors;
+
 public class ConwaysGameOfLife {
     public static void main(String[] args) {
 
-        int life = 1;
-        int dead = 0;
+//        System.out.println(Colors.COLORS[0]+"Hallo"+Colors.RESET+Colors.COLORS[1]+"Sandro"+Colors.RESET+Colors.BACKGROUND_COLORS[0]+" normaler text"+Colors.RESET+" wirklich normal");
+//
+//        if(Math.random() > 0) {
+//            return;
+//        }
 
-
-        int[][] currentgen = lukas.week03.day4.ConwaysGameOfLife.SEGLER;
+        int[][] currentgen = SEGLER;
         System.out.println(".....");
 
-        while(true) {
+        while (true) {
             int[][] newGen = new int[currentgen.length][currentgen[0].length];
 
             for (int row = 0; row < currentgen.length; row++) {
@@ -38,7 +42,6 @@ public class ConwaysGameOfLife {
             currentgen = newGen;
 
             printField(currentgen);
-            System.out.println(".....");
 
             try {
                 Thread.sleep(100);
@@ -63,7 +66,18 @@ public class ConwaysGameOfLife {
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     };
-
+    public static final int[][] SEGLER = {
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    };
 
 //    public static int[][] makeacopy(int[][] arrayToCopy) {
 //        int[][] result = new int[arrayToCopy.length][arrayToCopy.length];
@@ -106,7 +120,12 @@ public class ConwaysGameOfLife {
     public static void printField(int[][] arr) {
         for (int row = 0; row < arr.length; row++) {
             for (int col = 0; col < arr[row].length; col++) {
-                System.out.print(arr[row][col] + " ");
+                int field = arr[row][col];
+                if (field == 0) {
+                    System.out.print(Colors.COLORS[1] + field + " " + Colors.RESET);
+                } else {
+                    System.out.print(Colors.COLORS[2] + field + " " + Colors.RESET);
+                }
             }
             System.out.println();
         }
