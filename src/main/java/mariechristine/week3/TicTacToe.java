@@ -13,17 +13,23 @@ public class TicTacToe {
 
         int currentPlayer = 1;
 
+        int steps = 5;
+        boolean moves = false;
 
         while (true) {
             printGameBoard(board);
             System.out.println();
 
-            readInput("Gib eine Zahl ein!", 1, 9);
+            boolean validMove = false;
+            while (!validMove) {
+                int userInput = readInput("Gib eine Zahl ein!", 1, 9);
+                validMove = setPosition(board, currentPlayer, userInput);
+            }
+            System.out.println("Spieler " + currentPlayer);
 
-
-            int userInput = 2;
-            int[] position = getPosition(userInput);
-            System.out.println("Spieler " + currentPlayer + " klicked on row: " + position[0] + " and col: " + position[1]);
+            while(moves) {
+                System.out.println("Game over!");
+            }
 
             if (currentPlayer == 1) {
                 currentPlayer = 2;
@@ -52,7 +58,7 @@ public class TicTacToe {
         System.out.println("     |     |     ");
     }
 
-    public static void readInput(String message, int min, int max) {
+    public static int readInput(String message, int min, int max) {
         int input = Integer.MIN_VALUE;
 
         Scanner sc = new Scanner(System.in);
@@ -71,19 +77,23 @@ public class TicTacToe {
                 System.out.println("Deine Eingabe ist ungültig!");
             }
         }
-
+        return input;
     }
 
-    public static boolean validPosition(int[] position, int currentPlayer) {
-        if (position.length == 0) {
-            return true;
+    public static boolean setPosition(int[][] board, int currentPlayer, int userInput) {
+
+        int[] position = getPosition(userInput);
+        int row = position[0];
+        int col = position[1];
+
+        if (board[row][col] != 0) {
+            System.out.println("Dieses Feld ist bereits belegt!");
+            return false;
         } else {
-            System.out.println("Position ist bereits belesetzt.");
+            board[row][col] = currentPlayer;
+            return true;
         }
-        return false;
     }
-
-
 
 
 
@@ -96,6 +106,11 @@ public class TicTacToe {
 //
 //        return numberToPosition[number];
 
+        int[] result = new int[2];
+        result[0] = (number - 1) / 3;
+        result[1] = (number - 1) % 3;
+
+        /*
         if (number == 1) {
             return new int[]{0, 0};
         } else if (number == 2) {
@@ -114,12 +129,12 @@ public class TicTacToe {
         if (number == 7) {
             return new int[]{2, 0};
         } else if (number == 8) {
-                return new int[]{2, 1};
+            return new int[]{2, 1};
         }
         if (number == 9) {
             return new int[]{2, 2};
         }
-
-        return null;
+*/
+        return result;
     }
 }
