@@ -37,7 +37,7 @@ public class FourInARow {
             printBoard(board, 6, 7);
 
 
-            winner = hasWin(board);
+            winner = hasWin(board, currentplayer);
             empty = hasAnyMoreMoves(board, 6, 7);
 
             if (currentplayer == 1) {
@@ -45,6 +45,7 @@ public class FourInARow {
             } else {
                 currentplayer = 1;
             }
+        }
             if (winner) {
                 System.out.println("Winner" + currentplayer);
             } else {
@@ -52,7 +53,7 @@ public class FourInARow {
             }
         }
 
-    }
+
 
     private static int emptyColumn(int[][] board, int col) {
         for (int i = board.length - 1; i >= 0; i--) {
@@ -63,8 +64,45 @@ public class FourInARow {
         return -1;
     }
 
-    public static boolean hasWin(int[][] field) {
+    public static boolean hasWin(int[][] field, int currentplayer) {
+        for (int i = 0; i < field.length; i++) {
+            if (detectWinRow(field, i, currentplayer)
+                    || (detectWinCol(field, i, currentplayer))
+            ) {
+                return true;
+            }
+        }
+        return false;
+    }
 
+    public static boolean detectWinRow(int[][] field, int row, int currentplayer) {
+        int count = 0;
+        for (int i = 0; i < field[row].length; i++) {
+            if (field[row][i] == currentplayer) {
+                count++;
+            } else {
+                count = 0;
+            }
+            if (count >= 4) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public static boolean detectWinCol(int[][] field, int col, int currentplayer) {
+        int count = 0;
+        for (int i = 0; i < field[col].length - 1; i++) {  //why field[col].length has to be -1???
+            if (field[i][col] == currentplayer) {
+                count++;
+            } else {
+                count = 0;
+            }
+            if (count >= 4) {
+                return true;
+            }
+        }
         return false;
     }
 

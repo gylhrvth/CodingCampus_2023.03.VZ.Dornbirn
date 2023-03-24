@@ -1,5 +1,7 @@
 package benjamin.week03;
 
+import lukas.week03.day4.Colors;
+
 public class GameofLife {
     public static void main(String[] args) {
 
@@ -62,7 +64,11 @@ public class GameofLife {
     public static void printField(int[][] field) {
         for (int i = 0; i < field.length; i++) {
             for (int j = 0; j < field[i].length; j++) {
-                System.out.printf("%3d ", field[i][j]);
+                if (field[i][j] == 0) {
+                    System.out.print(Colors.COLORS[5] + Colors.BACKGROUND_COLORS[4] + field[i][j] + Colors.RESET);
+                } else {
+                    System.out.print(Colors.COLORS[2] + Colors.BACKGROUND_COLORS[2] + field[i][j] + Colors.RESET);
+                }
             }
             System.out.println();
         }
