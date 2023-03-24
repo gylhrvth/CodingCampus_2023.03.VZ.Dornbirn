@@ -29,7 +29,7 @@ public class GameOfLife {
     public static void main(String[] args) {
         int[][] printLayOut = LAYOUT;
 
-        while (true){
+        while (true) {
             int[][] newField = new int[printLayOut.length][printLayOut[0].length];
 
             for (int row = 0; row < printLayOut.length; row++) {
@@ -43,7 +43,7 @@ public class GameOfLife {
 
             try {
                 Thread.sleep(300);
-            } catch(InterruptedException exc) {
+            } catch (InterruptedException exc) {
                 //noob
             }
             lukas.week03.day4.ConwaysGameOfLife.clearScreen();
@@ -80,16 +80,33 @@ public class GameOfLife {
         neighboursAlive += fieldValue(field, row - 1, col + 1);
         neighboursAlive += fieldValue(field, row + 1, col + 1);
 
+
         if (currentField == 0) {
-            if (neighboursAlive == 0 || neighboursAlive == 2 || neighboursAlive == 4 ||
-                    neighboursAlive == 6 || neighboursAlive > 8) {
-                checkField = 0;
-            }
-        } else {
-            if (neighboursAlive == 1 || neighboursAlive == 3 || neighboursAlive == 5 || neighboursAlive == 7){
+            if (neighboursAlive == 3) {
                 checkField = 1;
             }
+        } else {
+            if (neighboursAlive == 2 || neighboursAlive == 4) {
+                checkField = 1;
+            } else if (neighboursAlive == 5) {
+                checkField = 1;
+            } else {
+                checkField = 0;
+            }
         }
+        //
+//        if (currentField == 1) {
+//            if (neighboursAlive == 3) {
+//                checkField = 1;
+//            }
+//        } else {
+//            if (neighboursAlive == 2 || neighboursAlive == 3 || neighboursAlive == 4 || neighboursAlive == 5){
+//                checkField = 1;
+//            } else if (neighboursAlive < 2 || neighboursAlive > 6) {
+//                checkField = 0;
+//            }
+//        }
+//        System.out.println("Zelle " + checkField + ", Lebendige Nachbarn: " + neighboursAlive + " -> " + checkField);
         return checkField;
     }
 
@@ -101,7 +118,7 @@ public class GameOfLife {
                 if (field == 0) {
                     System.out.print(Colors.COLORS[4] + field + " " + Colors.RESET);
                 } else {
-                    System.out.print(Colors.COLORS[5] + field + " " + Colors.RESET);
+                    System.out.print(Colors.COLORS[1] + field + " " + Colors.RESET);
                 }
             }
             System.out.println();
