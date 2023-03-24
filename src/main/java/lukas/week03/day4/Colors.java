@@ -3,6 +3,7 @@ package lukas.week03.day4;
 public class Colors {
     public static final String RESET = "\u001B[0m";
     public static final String[] COLORS = new String[]{
+            "\u001B[30m",
             "\u001B[31m",
             "\u001B[32m",
             "\u001B[33m",
@@ -19,6 +20,7 @@ public class Colors {
             "\033[43m",
             "\033[44m",
             "\033[45m",
-            "\033[46m"
+            "\033[46m",
+            "\033[47m"
     };
 }
