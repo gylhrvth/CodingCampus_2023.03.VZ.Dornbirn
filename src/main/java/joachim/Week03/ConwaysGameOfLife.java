@@ -1,15 +1,19 @@
 package joachim.Week03;
 
 
+import lukas.week03.day4.Colors;
+
 import java.util.Arrays;
+import java.util.Random;
 
 public class ConwaysGameOfLife {
+    public static Random rand = new Random();
 
     public static void main(String[] args) {
-        int[][] currentField = lukas.week03.day4.ConwaysGameOfLife.SEGLER;
+        int[][] currentField = createRandArray(100, 100);
         while (true) {
             int[][] newField = killswitch(currentField);
-            printMatrix(newField);
+            printField(newField);
             currentField = newField;
             try {
                 Thread.sleep(100);
@@ -19,20 +23,6 @@ public class ConwaysGameOfLife {
             clearScreen();
         }
     }
-
-    public static final int[][] GLEITER = {
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
-            {0, 1, 1, 1, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    };
-
 
     public static int[][] killswitch(int[][] arr) {
         int[][] copy = new int[arr.length][arr[0].length];
@@ -56,7 +46,7 @@ public class ConwaysGameOfLife {
                     if (aliveNeighbours > 3) {
                         copy[i][j] = 0;
                     }
-                    if(aliveNeighbours == 2 || aliveNeighbours == 3) {
+                    if (aliveNeighbours == 2 || aliveNeighbours == 3) {
                         copy[i][j] = 1;
                     }
                 }
@@ -89,9 +79,44 @@ public class ConwaysGameOfLife {
         }
     }
 
+    public static void printField(int[][] arr) {
+        for (int row = 0; row < arr.length; row++) {
+            for (int col = 0; col < arr[row].length; col++) {
+                int field = arr[row][col];
+                if (field == 0) {
+                    System.out.print(Colors.COLORS[4] + Colors.BACKGROUND_COLORS[4] + " " + Colors.RESET);
+                } else {
+                    System.out.print(Colors.COLORS[2] + Colors.BACKGROUND_COLORS[2] + " " + Colors.RESET);
+                }
+            }
+            System.out.println();
+        }
+    }
+
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
 
+    }
+
+    public static int[][] createRandArray(int rows, int cols) {
+        int[][] values = new int[rows][cols];
+        for (int irows = 0; irows < values.length; irows++) {
+            for (int jcol = 0; jcol < values[irows].length; jcol++) {
+                values[irows][jcol] = rand.nextInt(2);
+            }
+        }
+        return values;
+    }
+
+    public static int summeArray(int[][] arr) {
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                sum = arr[i][j] += arr[i][j];
+            }
+
+        }
+        return sum;
     }
 }

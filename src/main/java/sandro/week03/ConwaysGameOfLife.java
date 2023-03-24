@@ -2,6 +2,8 @@ package sandro.week03;
 
 import lukas.week03.day4.Colors;
 
+import java.sql.SQLOutput;
+
 public class ConwaysGameOfLife {
     public static void main(String[] args) {
 
@@ -11,7 +13,12 @@ public class ConwaysGameOfLife {
 //            return;
 //        }
 
-        int[][] currentgen = SEGLER;
+        int[][] currentgen = new int[50][100];
+        for(int[] arr : currentgen) {
+            for (int i = 0; i < arr.length; i++) {
+                arr[i] = Math.random() > 0.6 ? 1 : 0;
+            }
+        }
         System.out.println(".....");
 
         while (true) {
@@ -97,6 +104,7 @@ public class ConwaysGameOfLife {
                 if (i == 0 && j == 0) {
                     continue;
                 }
+
                 int neighbourRow = row + i;
                 int neighbourCol = col + j;
 
@@ -120,11 +128,11 @@ public class ConwaysGameOfLife {
     public static void printField(int[][] arr) {
         for (int row = 0; row < arr.length; row++) {
             for (int col = 0; col < arr[row].length; col++) {
-                int field = arr[row][col];
-                if (field == 0) {
-                    System.out.print(Colors.COLORS[1] + field + " " + Colors.RESET);
+//                int field = arr[row][col];
+                if (arr[row][col] == 0) {
+                    System.out.print(Colors.COLORS[4] + Colors.BACKGROUND_COLORS[4] + "  " + Colors.RESET);
                 } else {
-                    System.out.print(Colors.COLORS[2] + field + " " + Colors.RESET);
+                    System.out.print(Colors.COLORS[1] + Colors.BACKGROUND_COLORS[1] + "  " + Colors.RESET);
                 }
             }
             System.out.println();
