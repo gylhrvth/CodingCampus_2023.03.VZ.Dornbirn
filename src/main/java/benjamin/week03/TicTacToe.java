@@ -114,7 +114,6 @@ public class TicTacToe {
                     numberIsValid = true;
                 } else {
                     System.out.println("Die Zahl muss zwischen " + minValue + " und " + maxValue + " sein! ");
-
                 }
             } catch (NumberFormatException nfe) {
                 System.out.println("Keine gültige Zahl.");
