@@ -3,16 +3,15 @@ package joachim.Week03;
 
 import lukas.week03.day4.Colors;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class ConwaysGameOfLife {
     public static Random rand = new Random();
 
     public static void main(String[] args) {
-        int[][] currentField = createRandArray(100, 100);
+        int[][] currentField = createRandArray(50, 50);
         while (true) {
-            int[][] newField = killswitch(currentField);
+            int[][] newField = nextGen(currentField);
             printField(newField);
             currentField = newField;
             try {
@@ -24,13 +23,13 @@ public class ConwaysGameOfLife {
         }
     }
 
-    public static int[][] killswitch(int[][] arr) {
+    public static int[][] nextGen(int[][] arr) {
         int[][] copy = new int[arr.length][arr[0].length];
-        alive(arr, copy);
+        checkAndUpdateCells(arr, copy);
         return copy;
     }
 
-    public static void alive(int[][] arr, int[][] copy) {
+    public static void checkAndUpdateCells(int[][] arr, int[][] copy) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {
                 int aliveNeighbours = getCell(arr, i + 1, j) + getCell(arr, i, j + 1) + getCell(arr, i + 1, j + 1) + getCell(arr, i - 1, j) + getCell(arr, i, j - 1) + getCell(arr, i - 1, j - 1) + getCell(arr, i + 1, j - 1) + getCell(arr, i - 1, j + 1);
@@ -80,6 +79,7 @@ public class ConwaysGameOfLife {
     }
 
     public static void printField(int[][] arr) {
+        System.out.println("Alive cells " + summeArray(arr));
         for (int row = 0; row < arr.length; row++) {
             for (int col = 0; col < arr[row].length; col++) {
                 int field = arr[row][col];
@@ -113,7 +113,7 @@ public class ConwaysGameOfLife {
         int sum = 0;
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {
-                sum = arr[i][j] += arr[i][j];
+                sum += arr[i][j]; // sum = sum + arr[i][j]
             }
 
         }
