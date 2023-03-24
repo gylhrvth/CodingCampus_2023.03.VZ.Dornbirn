@@ -55,7 +55,7 @@ public class FourInARow {
     }
 
     private static int emptyColumn(int[][] board, int col) {
-        for (int i = board.length -1; i >= 0; i--) {
+        for (int i = board.length - 1; i >= 0; i--) {
             if (board[i][col] == 0) {
                 return i;
             }
@@ -97,8 +97,6 @@ public class FourInARow {
         }
         return result;
     }
-
-
 
 
     public static void printBoard(int[][] field, int row, int col) {
