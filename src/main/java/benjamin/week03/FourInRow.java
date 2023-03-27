@@ -31,12 +31,10 @@ public class FourInRow {
                 }
                 if (!occupied) {
                     System.out.println("Spalte ist schon besetzt");
-
                 }
                 if (checkWin(field, currentPlayer)) {
                     System.out.println("Spieler " + currentPlayer + " hat gewonnen!");
                     gameEnd = true;
-//                    break;
                 }
             }
             if (!gameEnd)
@@ -48,7 +46,6 @@ public class FourInRow {
         }
         return field;
     }
-
 
     public static boolean checkWin(int[][] field, int currentPlayer) {
         return (checkRow(field, currentPlayer)) || (checkCol(field, currentPlayer) || (checkDiagonal(field, currentPlayer)));
@@ -117,7 +114,7 @@ public class FourInRow {
 
 
     public static void print2DArray(int[][] dim) {
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i <= 6; i++) {
             System.out.print("  " + i + "  |");
         }
         System.out.println();
