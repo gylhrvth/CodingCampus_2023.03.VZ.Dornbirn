@@ -19,8 +19,8 @@ public class Array2D {
 
         int[] srows = sumRows(rand);
         int[] scols = sumCols(rand);
-        System.out.print(Arrays.toString(srows));
-        System.out.print(Arrays.toString(scols));
+        System.out.println(Arrays.toString(srows));
+        System.out.println(Arrays.toString(scols));
 
     }
 
@@ -60,9 +60,7 @@ public class Array2D {
     public static int[] sumCols(int[][] cols) {
         if (cols.length < 1) return new int[]{};
         int[] sum = new int[cols[0].length];
-
         sum[0] = 0;
-
         for (int i = 0; i < cols.length; i++) {
             for (int j = 0; j < cols[i].length; j++) {
                 sum[j] += cols[i][j];

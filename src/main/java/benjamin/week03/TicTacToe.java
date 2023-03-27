@@ -15,9 +15,6 @@ public class TicTacToe {
         int[][] field = new int[3][3];
         int currentPlayer = 1;
         boolean gameEnd = false;
-
-
-        //Züge des Spielers eingeben und vergleichen ob das Feld schon befüllt ist
         while (!gameEnd) {
             print2DArray(field);
             boolean occupied = false;
@@ -25,7 +22,6 @@ public class TicTacToe {
                 System.out.println("Spieler " + currentPlayer + " du bist dran!");
                 int row = consoleInput("Gib die Reihe ein (0-2)", 0, 2);
                 int col = consoleInput("Gib die Spalte ein (0-2)", 0, 2);
-
                 if (field[row][col] != 0) {
                     System.out.println("Schon besetzt!");
                 } else {
@@ -37,10 +33,6 @@ public class TicTacToe {
                     gameEnd = true;
                 }
             }
-
-            // das wird ein großer Block!!!!!!!! :)
-
-            //Sieger ermitteln (Unten sind noch Infos für Verbesserungspotenzial)
             if ((field[0][0] == currentPlayer && field[0][1] == currentPlayer && field[0][2] == currentPlayer
                     || field[1][0] == currentPlayer && field[1][1] == currentPlayer && field[1][2] == currentPlayer
                     || field[2][0] == currentPlayer && field[2][1] == currentPlayer && field[2][2] == currentPlayer
@@ -49,11 +41,9 @@ public class TicTacToe {
                     || field[0][2] == currentPlayer && field[1][2] == currentPlayer && field[2][2] == currentPlayer
                     || field[0][0] == currentPlayer && field[1][1] == currentPlayer && field[2][2] == currentPlayer)
                     || field[0][2] == currentPlayer && field[1][1] == currentPlayer && field[2][0] == currentPlayer) {
-
                 gameEnd = true;
                 System.out.println("Spieler " + currentPlayer + " hat gewonnen!!");
             }
-
             //player switchen
             //currentPlayer = 3 - currentPlayer;
             if (!gameEnd)
@@ -63,29 +53,20 @@ public class TicTacToe {
                     currentPlayer = 1;
                 }
         }
-
         return field;
-
-        //Infos:
-        //GUTE ÜBUNG Sieger ermitteln mit Methoden  2x Diagonal, 1x Vertikal, 1x Horizontal
-        //Premium Unentschieden nach 9 Spielzügen momentan Unentschieden wenn das Board voll ist
-
     }
 
     public static boolean hasDraw(int[][] field) {
-        boolean boardFull = true;
         for (int i = 0; i < field.length; i++) {
             for (int j = 0; j < field[i].length; j++)
                 if (field[i][j] == 0) {
-                    boardFull = false;
+                    return false;
                 }
         }
-        return boardFull;
+        return true;
     }
-
-
     public static void print2DArray(int[][] dim) {
-        System.out.println("<<<<Matchfield>>>>>");
+
         System.out.println("-------------------");
         for (int i = 0; i < dim.length; i++) {
             System.out.print("|");
@@ -93,14 +74,11 @@ public class TicTacToe {
                 System.out.printf("%3d ", dim[i][j]);
                 System.out.print(" |");
             }
-
             System.out.println();
             System.out.println("-------------------");
         }
-
     }
 
-    //    public static int consoleInput(String message) {
     public static int consoleInput(String message, int minValue, int maxValue) {
         Scanner sc = new Scanner(System.in);
         int value = 0;
