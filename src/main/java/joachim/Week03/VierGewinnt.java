@@ -1,5 +1,7 @@
 package joachim.Week03;
 
+import lukas.week03.day4.Colors;
+
 import java.util.Scanner;
 
 public class VierGewinnt {
@@ -26,7 +28,6 @@ public class VierGewinnt {
             if (player) {
                 System.out.println(p1 + "'s turn");
                 ask(field, scanner, 1);
-                prtint(field);
                 if (winConditionReached(field, p1, 1)) {
                     game = false;
                 }
@@ -34,7 +35,7 @@ public class VierGewinnt {
             } else {
                 System.out.println(p2 + "'s turn");
                 ask(field, scanner, 2);
-                prtint(field);
+                print(field);
                 if (winConditionReached(field, p2, 2)) {
                     game = false;
                 }
@@ -51,8 +52,9 @@ public class VierGewinnt {
             try {
                 System.out.println("where do you want to place your bet");
                 System.out.println("choose a Column (0 - 6)");
+                print(arr);
                 col = scanner.nextInt();
-                row = checkLegal(arr,col);
+                row = checkLegal(arr, col);
                 if (row >= 0) {
                     break;
                 }
@@ -73,11 +75,18 @@ public class VierGewinnt {
         return -1;
     }
 
-    public static void prtint(int[][] arr) {
-        System.out.println(" |  0 |  1 |  2 |  3 |  4 |  5 |  6");
+    public static void print(int[][] arr) {
+        System.out.println("  0  |  1  |   2 |  3  |  4  |  5  |  6  |");
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {
-                System.out.printf(" |  %1d", arr[i][j]);
+                int board = arr[i][j];
+                if (board == 1) {
+                    System.out.print("  " + Colors.COLORS[1] + board + Colors.RESET + "  |");
+                } else if (board == 2) {
+                    System.out.print("  " + Colors.COLORS[2] + board + Colors.RESET + "  |");
+                } else {
+                    System.out.print("  " + Colors.COLORS[5] + board + Colors.RESET + "  |");
+                }
             }
             System.out.println();
         }
@@ -89,7 +98,7 @@ public class VierGewinnt {
         for (int i = 0; i < field.length - 3; i++) {
             for (int j = 0; j < field[i].length; j++) {
                 if (field[i][j] == playernumber && field[i + 1][j] == playernumber && field[i + 2][j] == playernumber && (field[i + 3][j] == playernumber)) {
-                    System.out.println(p1 + " has won!");
+                    System.out.println(Colors.COLORS[1] + p1 + " has won!");
                     return true;
                 }
             }
@@ -98,7 +107,7 @@ public class VierGewinnt {
         for (int i = 0; i < field.length; i++) {
             for (int j = 0; j < field[i].length - 3; j++) {
                 if (field[i][j] == playernumber && field[i][j + 1] == playernumber && field[i][j + 2] == playernumber && (field[i][j + 3] == playernumber)) {
-                    System.out.println(p1 + " has won!");
+                    System.out.println(Colors.COLORS[1] + p1 + " has won!");
                     return true;
                 }
             }
@@ -107,7 +116,7 @@ public class VierGewinnt {
         for (int i = 0; i < field.length - 3; i++) {
             for (int j = 0; j < field[i].length - 3; j++) {
                 if (field[i][j] == playernumber && field[i + 1][j + 1] == playernumber && field[i + 2][j + 2] == playernumber && (field[i + 3][j + 3] == playernumber)) {
-                    System.out.println(p1 + " has won!");
+                    System.out.println(Colors.COLORS[1] + p1 + " has won!");
                     return true;
                 }
             }
@@ -115,7 +124,7 @@ public class VierGewinnt {
         for (int i = 0; i < field.length - 3; i++) {
             for (int j = 0; j < field[i].length - 3; j++) {
                 if (field[i][j] == playernumber && field[i + 1][j - 1] == playernumber && field[i + 2][j - 2] == playernumber && (field[i + 3][j - 3] == playernumber)) {
-                    System.out.println(p1 + " has won!");
+                    System.out.println(Colors.COLORS[1] + p1 + " has won!");
                     return true;
                 }
             }
