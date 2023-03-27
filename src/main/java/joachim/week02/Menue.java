@@ -1,6 +1,6 @@
 package joachim.week02;
 
-import joachim.Week01.Strukturiertes_Prog;
+import joachim.week01.Strukturiertes_Prog;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
