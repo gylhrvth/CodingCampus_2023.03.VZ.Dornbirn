@@ -1,4 +1,4 @@
-package eric;
+package eric.week04;
 
 public class ExerciseForString {
     public static void main(String[] args) {
