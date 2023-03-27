@@ -27,7 +27,8 @@ public class TicTacToe {
             }
             System.out.println("Spieler " + currentPlayer);
 
-            while(moves) {
+            if (steps > 5){
+
                 System.out.println("Game over!");
             }
 
@@ -93,6 +94,16 @@ public class TicTacToe {
             board[row][col] = currentPlayer;
             return true;
         }
+    }
+
+    public static boolean winnerRow(int[][] board, int currentPlayer, int row) {
+        for (int i = 0; i < board[row].length; i++) {
+            if (board[row][i] != currentPlayer) {
+                return false;
+            }
+
+        }
+        return true;
     }
 
 
