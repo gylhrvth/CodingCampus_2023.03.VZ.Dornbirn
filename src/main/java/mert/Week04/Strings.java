@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class Strings {
     public static void main(String[] args) {
         String[] namesMembers = new String[]{"Joachim", "Mert", "Eric", "Marie Christine", "Benjamin", "Sandro", "Aygün", "Hassan", "Svitlana", "Lukas", "Gyula"};
+        char[] arr = namesMembers.charAt()[2];
 
 
         bubblesort(namesMembers);
@@ -18,6 +19,17 @@ public class Strings {
 
         bubblesort4(namesMembers);
         printName(namesMembers);
+
+        bubblesortboo(namesMembers, true);
+        printName(namesMembers);
+
+        bubblesortboo(namesMembers, false);
+        printName(namesMembers);
+
+    }
+
+    public static void Index(String[] ar) {
+    String[] members = new String[]
     }
 
 
@@ -80,4 +92,15 @@ public class Strings {
             }
         }
     }
+
+    public static void bubblesortboo(String[] arr, boolean ascending) {
+        if (ascending) {
+            bubblesort(arr);
+        } else {
+            bubblesort2(arr);
+        }
+    }
+
+
 }
+
