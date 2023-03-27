@@ -4,7 +4,7 @@ import lukas.week03.day4.Colors;
 
 public class ConwaysGameOfLife {
     public static void main(String[] args) {
-        int[][] printConwaysOfLife = lukas.week03.day4.ConwaysGameOfLife.GLEITER;
+        int[][] printConwaysOfLife = lukas.week03.day4.ConwaysGameOfLife.SEGLER;
 
 
         while(true) {
@@ -22,15 +22,14 @@ public class ConwaysGameOfLife {
             printField(printConwaysOfLife);
 
             try {
-                Thread.sleep(150);
+                Thread.sleep(400);
             } catch(InterruptedException exc) {
                 //noob
             }
             lukas.week03.day4.ConwaysGameOfLife.clearScreen();
         }
     }
-
-
+    
     public static int fieldValue(int[][] field, int row, int col) {
         if (row < 0) {
             row = field.length - 1;
@@ -85,9 +84,9 @@ public class ConwaysGameOfLife {
             for (int col = 0; col < arr[row].length; col++) {
                 int field = arr[row][col];
                 if (field == 0) {
-                    System.out.print(Colors.COLORS[4] + field + " " + Colors.RESET);
+                    System.out.print(Colors.COLORS[1] + field + " " + Colors.RESET);
                 } else {
-                    System.out.print(Colors.COLORS[5] + field + " " + Colors.RESET);
+                    System.out.print(Colors.COLORS[4] + field + " " + Colors.RESET);
                 }
             }
             System.out.println();

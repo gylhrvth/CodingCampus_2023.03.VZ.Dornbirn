@@ -16,6 +16,7 @@ public class ExercisesMethodsLoops1 {
 //        printTriangle("X ", 3);
 //        printSlashDown("X ", 10, true);
 //        printSlashDown("X ", 5, false);
+        printChristmasTree(" X ", 5);
     }
 
     public static void printChars(String text, int count) {
