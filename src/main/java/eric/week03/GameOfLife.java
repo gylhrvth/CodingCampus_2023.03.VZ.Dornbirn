@@ -1,4 +1,4 @@
-package eric.week03;
+package eric.Week03;
 
 import lukas.week03.day4.Colors;
 import lukas.week03.day4.ConwaysGameOfLife;
@@ -94,18 +94,6 @@ public class GameOfLife {
                 checkField = 0;
             }
         }
-        //
-//        if (currentField == 1) {
-//            if (neighboursAlive == 3) {
-//                checkField = 1;
-//            }
-//        } else {
-//            if (neighboursAlive == 2 || neighboursAlive == 3 || neighboursAlive == 4 || neighboursAlive == 5){
-//                checkField = 1;
-//            } else if (neighboursAlive < 2 || neighboursAlive > 6) {
-//                checkField = 0;
-//            }
-//        }
 //        System.out.println("Zelle " + checkField + ", Lebendige Nachbarn: " + neighboursAlive + " -> " + checkField);
         return checkField;
     }
