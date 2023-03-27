@@ -1,5 +1,7 @@
 package benjamin.week03;
 
+import lukas.week03.day4.Colors;
+
 import java.util.Scanner;
 
 public class FourInRow {
@@ -10,30 +12,31 @@ public class FourInRow {
 
     }
 
-    //Wincondition
-    //wann unentschieden
-
-
     public static int[][] createFourInRow() {
         int[][] field = new int[6][7];
         int currentPlayer = 1;
         boolean gameEnd = false;
-
         while (!gameEnd) {
             print2DArray(field);
             boolean occupied = false;
             while (!occupied) {
                 System.out.println("Spieler " + currentPlayer + " du bist dran");
                 int col = consoleInput("Gib die Spalte ein (0-6)", 0, 6);
-                int row = hasEmpty(field, col);
-                if (row == - 1){
-                } else{
-                    field[row][col] = currentPlayer;
+                for (int row = field.length - 1; row >= 0; row--) {
+                    if (field[row][col] == 0) {
+                        field[row][col] = currentPlayer;
+                        occupied = true;
+                        break;
+                    }
                 }
-                occupied = true;
+                if (!occupied) {
+                    System.out.println("Spalte ist schon besetzt");
+                }
+                if (checkWin(field, currentPlayer)) {
+                    System.out.println("Spieler " + currentPlayer + " hat gewonnen!");
+                    gameEnd = true;
+                }
             }
-
-
             if (!gameEnd)
                 if (currentPlayer == 1) {
                     currentPlayer = 2;
@@ -44,36 +47,89 @@ public class FourInRow {
         return field;
     }
 
-
-    public static boolean hasWinRow(int[][] field, int currentplayer,int row) {
-        int count = 0;
-        for (int i = 0; i < field[row].length; i++) {
-            if (field[row][i] == currentplayer) {
-                count++;
-            } else {
-                count = 0;
-            }
-            if (count == 4) {
-                return true;
-            }
-        }
-        return true;
+    public static boolean checkWin(int[][] field, int currentPlayer) {
+        return (checkRow(field, currentPlayer)) || (checkCol(field, currentPlayer) || (checkDiagonal(field, currentPlayer)));
     }
 
-    public static int hasEmpty(int[][] field, int col) {
-        for (int i = 0; i <= field.length - 1; i++) {
-            if (field[i][col] == 0) {
-                return i;
+    public static boolean checkRow(int[][] field, int currentplayer) {
+        int count = 0;
+        for (int i = 0; i < field.length; i++) {
+            for (int j = 0; j < field[i].length; j++) {
+                if (field[i][j] == currentplayer) {
+                    count++;
+                } else {
+                    count = 0;
+                }
+                if (count == 4) {
+                    return true;
+                }
             }
         }
-        return -1;
+        return false;
+    }
+
+    public static boolean checkCol(int[][] field, int currentplayer) {
+        for (int j = 0; j < field[0].length; j++) {
+            int count = 0;
+            for (int i = 0; i < field.length; i++) {
+                if (field[i][j] == currentplayer) {
+                    count++;
+                } else {
+                    count = 0;
+                }
+                if (count == 4) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean checkDiagonal(int[][] field, int currentPlayer) {
+
+        for (int i = 3; i < field.length; i++) {
+            for (int j = 0; j < field[0].length - 3; j++) {
+
+                if (field[i][j] == currentPlayer &&
+                        field[i - 1][j + 1] == currentPlayer &&
+                        field[i - 2][j + 2] == currentPlayer &&
+                        field[i - 3][j + 3] == currentPlayer) {
+                    return true;
+                }
+            }
+        }
+
+        for (int i = 3; i < field.length; i++) {
+            for (int j = 3; j < field[0].length; j++) {
+                if (field[i][j] == currentPlayer &&
+                        field[i - 1][j - 1] == currentPlayer &&
+                        field[i - 2][j - 2] == currentPlayer &&
+                        field[i - 3][j - 3] == currentPlayer) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
 
     public static void print2DArray(int[][] dim) {
+        for (int i = 0; i <= 6; i++) {
+            System.out.print("  " + i + "  |");
+        }
+        System.out.println();
+        System.out.println("-----|-----|-----|-----|-----|-----|-----|");
+
         for (int i = 0; i < dim.length; i++) {
             for (int j = 0; j < dim[i].length; j++) {
-                System.out.printf("%3d ", dim[i][j]);
+
+                if (dim[i][j] == 1) {
+                    System.out.print("  " + Colors.COLORS[1] + dim[i][j]  + Colors.RESET + "  |");
+                } else if (dim[i][j] == 2) {
+                    System.out.print("  " + Colors.COLORS[2] + dim[i][j]  + Colors.RESET+ "  |");
+                } else {
+                    System.out.print("  " + dim[i][j] + "  |");
+                }
             }
             System.out.println();
         }

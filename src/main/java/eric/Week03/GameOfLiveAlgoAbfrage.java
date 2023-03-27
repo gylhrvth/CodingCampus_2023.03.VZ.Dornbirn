@@ -1,12 +1,8 @@
 package eric.Week03;
 
 import lukas.week03.day4.Colors;
-import lukas.week03.day4.ConwaysGameOfLife;
 
-import java.security.SecureRandom;
-
-public class GameOfLife {
-
+public class GameOfLiveAlgoAbfrage {
     public static final int[][] LAYOUT = {
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -28,7 +24,6 @@ public class GameOfLife {
 
     public static void main(String[] args) {
         int[][] printLayOut = LAYOUT;
-
         while (true) {
             int[][] newField = new int[printLayOut.length][printLayOut[0].length];
 
@@ -42,7 +37,7 @@ public class GameOfLife {
             printField(printLayOut);
 
             try {
-                Thread.sleep(300);
+                Thread.sleep(3000);
             } catch (InterruptedException exc) {
                 //noob
             }
@@ -84,21 +79,34 @@ public class GameOfLife {
         if (currentField == 0) {
             if (neighboursAlive == 3) {
                 checkField = 1;
+                System.out.println("Eine Tote Zelle mit 3 Nachbarn wird in der Nächsten Generation wiederbelebt.");
             }
         } else {
             if (neighboursAlive == 2 || neighboursAlive == 4) {
                 checkField = 1;
+                System.out.println("Eine Zelle mit 2 oder 3 Nachbarn lebt weiter");
             } else if (neighboursAlive == 5) {
                 checkField = 1;
             } else {
                 checkField = 0;
+                System.out.println("Eine Zelle mit weniger als 2 Nachbarn stirbt in der nächste Gen.");
             }
         }
+
 //        System.out.println("Zelle " + checkField + ", Lebendige Nachbarn: " + neighboursAlive + " -> " + checkField);
         return checkField;
     }
-
-
+    public static void insertionSort(int[] arr){
+        for (int i = 2; i < arr.length; i++) {
+            int j = i;
+            while(j > 0 && arr[j - 1] > arr[j]){
+                int temp = arr[j];
+                arr[j] = arr[i];
+                arr[i] = temp;
+                j = j - 1;
+            }
+        }
+    }
     public static void printField(int[][] arr) {
         for (int row = 0; row < arr.length; row++) {
             for (int col = 0; col < arr[row].length; col++) {
