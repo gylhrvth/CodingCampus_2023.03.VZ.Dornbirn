@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Strings {
     public static void main(String[] args) {
         String[] namesMembers = new String[]{"Joachim", "Mert", "Eric", "Marie Christine", "Benjamin", "Sandro", "Aygün", "Hassan", "Svitlana", "Lukas", "Gyula"};
-        char[] arr = namesMembers.charAt()[2];
+//        char[] arr = namesMembers.charAt()[2];
 
 
         bubblesort(namesMembers);
@@ -29,7 +29,7 @@ public class Strings {
     }
 
     public static void Index(String[] ar) {
-    String[] members = new String[]
+//    String[] members = new String[]
     }
 
 
