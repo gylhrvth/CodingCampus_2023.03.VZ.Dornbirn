@@ -39,11 +39,11 @@ public class TicTacToe3 {
     }
 
     public static boolean playerHasWon(int[][] field, int currentPlayer) {
-        if(winRow(field, currentPlayer)) {
+        if (winRow(field, currentPlayer)) {
             return true;
         }
 
-        if(winCol(field, currentPlayer)) {
+        if (winCol(field, currentPlayer)) {
             return true;
         }
 
@@ -133,9 +133,9 @@ public class TicTacToe3 {
             return true;
         }
 
-        int h = field[0][1];
-        int i = field[1][1];
-        int j = field[2][1];
+        int h = field[0][2];
+        int i = field[1][2];
+        int j = field[2][2];
 
         if (h == i && i == j && j == player) {
             return true;
@@ -168,6 +168,6 @@ public class TicTacToe3 {
         }
         return false;
 
-
     }
+
 }
