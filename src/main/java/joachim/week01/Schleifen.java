@@ -1,4 +1,4 @@
-package joachim.Week01;
+package joachim.week01;
 
 public class Schleifen {
     public static void main(String[] args) {
