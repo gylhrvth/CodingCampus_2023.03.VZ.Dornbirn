@@ -1,4 +1,4 @@
-package joachim.week01;
+package joachim.Week01;
 
 public class Aufgabe1 {
     public static void main(String[] args) {

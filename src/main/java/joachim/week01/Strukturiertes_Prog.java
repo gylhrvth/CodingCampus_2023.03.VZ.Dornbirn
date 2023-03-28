@@ -1,6 +1,5 @@
-package joachim.week01;
+package joachim.Week01;
 
-// Rename directory
 public class Strukturiertes_Prog {
     public static void main(String[] args) {
 //        printChars("x", 10);
@@ -17,7 +16,6 @@ public class Strukturiertes_Prog {
 //        printRhombus("x ", 8);
 //        printBigX("x ", 6);
 //        Kreis(20);
-
 
     }
 
