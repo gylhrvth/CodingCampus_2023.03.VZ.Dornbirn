@@ -1,6 +1,9 @@
 package joachim.week04;
 
 import java.util.Arrays;
+import java.util.Scanner;
+
+import static java.lang.String.*;
 
 public class useofString {
     public static void main(String[] args) {
@@ -12,9 +15,9 @@ public class useofString {
         bubbleSortNum(names);
         bubbleSortNumAsc(names);
         bubbleSortBoolean(names, false);
-        */
         bubbleSortAlphChar(names, 2);
         System.out.println(Arrays.toString(names));
+            */
     }
 
     public static void bubbleSortAlph(String[] array) {
@@ -77,7 +80,7 @@ public class useofString {
         for (int i = 0; i < array.length; i++)
             for (int j = 0; j < array.length - i - 1; j++) {
                 char cj = Character.MAX_VALUE;
-                if (index < array[j].length()){
+                if (index < array[j].length()) {
                     cj = array[j].charAt(index);
                 }
                 char cjp = Character.MAX_VALUE;
