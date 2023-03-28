@@ -18,9 +18,9 @@ public class Riddle {
         while (goal != guess){ //Das Ziel ist ungleich der erratenen Zahl
             guess = myReadNumber("Was ist deine Zahl?", 0, 100);
             if (guess < goal){ // Ist die erratene Zahl kleiner als das Ziel, dann "zu klein"
-                System.out.println("Es ist zu klein");
+                System.out.println("Deine Zahl ist zu niedrig.");
             } else if (guess > goal) { //Ist die erratene Zahl größer als das Ziel, dann "zu groß"
-                System.out.println("Es ist zu groß");
+                System.out.println("Deine Zahl ist zu groß.");
             }
         }
         System.out.println("Gratuliere! Du hast korrekt erraten.");
