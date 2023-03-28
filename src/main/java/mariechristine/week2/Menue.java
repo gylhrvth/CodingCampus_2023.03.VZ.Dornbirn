@@ -10,17 +10,19 @@ public class Menue {
 
         System.out.println("Willkommen bei meinen Aufgaben! Was möchten Sie zeichnen?");
         choiceTask("Bitte wählen Sie eine Figur!\n1) Christbaum\n2) Quader\n3) Rhombus", 1, 3);
-       int choice = choiceTask("Wie groß soll die Figur werden?", 1, 30);
 
-
+        int choice = 2;
         if (choice == 1) {
-            printXMasTree();}
-        else if (choice == 2) {
+            printXMasTree();
+        } else if (choice == 2) {
             int size = choiceTask("Wie groß möchtest du den Quader zeichnen?", 1, 20);
-            ExercisesMethodsLoops1.printEmptySquare(" X ", 4);
+            ExercisesMethodsLoops1.printEmptySquare(" X ", 20);
+        } else if (choice == 3) {
+            int size = choiceTask("Wie groß möchtest du den Rhombus zeichnen?", 1, 20);
+            ExercisesMethodsLoops1.printTriangleBottomLeft(" X ", 20);
         }
 
-    }
+   }
 
     public static int choiceTask(String text, int min, int max) {
         Scanner sc = new Scanner(System.in);
@@ -46,7 +48,7 @@ public class Menue {
     }
 
     public static void printXMasTree() {
-        int size = choiceTask("Wie groß möchtest du den Weihnachtsbaum haben?", 1, 10);
-        ExercisesMethodsLoops1.printChristmasTree(" X ", 5);
+        int size = choiceTask("Wie groß möchtest du den Weihnachtsbaum haben?", 1, 20);
+        ExercisesMethodsLoops1.printChristmasTree(" X ", 20);
     }
 }
