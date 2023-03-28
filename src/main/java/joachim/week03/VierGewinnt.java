@@ -1,4 +1,4 @@
-package joachim.week03;
+package joachim.Week03;
 
 import lukas.week03.day4.Colors;
 
