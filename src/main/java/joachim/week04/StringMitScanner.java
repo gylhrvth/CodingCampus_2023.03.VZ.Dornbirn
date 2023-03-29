@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 
-public class StringMitScanner2 {
+public class StringMitScanner {
     public static Random rand = new Random();
 
     public static void main(String[] args) {

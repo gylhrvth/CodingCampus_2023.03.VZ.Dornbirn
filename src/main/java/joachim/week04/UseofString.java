@@ -2,7 +2,7 @@ package joachim.week04;
 
 import java.util.Arrays;
 
-public class UseofString2 {
+public class UseofString {
     public static void main(String[] args) {
         String[] names = new String[]{"Joachim", "Mert", "Mo", "Eric", "Marie Christine", "Benjamin", "Sandro", "Aygün", "Hassan", "Svitlana", "Lukas", "Gyula"};
         System.out.println(Arrays.toString(names));
