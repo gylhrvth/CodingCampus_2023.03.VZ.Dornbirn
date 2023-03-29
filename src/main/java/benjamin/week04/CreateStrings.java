@@ -1,5 +1,7 @@
 package benjamin.week04;
 
+import javax.swing.*;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -7,6 +9,7 @@ public class CreateStrings {
     public static void main(String[] args) {
 
         String[] name = createNames();
+        printnames(name);
 
 //        bubbleSortAscending(name);
 //        printnames(name);
@@ -25,8 +28,8 @@ public class CreateStrings {
 //        printBubbleSortTrueOrFalse(name, false);
 //        printnames(name);
 
-//        printChracterIndex(name, 4);
-//        printnames(name);
+        printChracterIndex(name, 4);
+        printnames(name);
 
     }
 
@@ -88,14 +91,14 @@ public class CreateStrings {
     public static void printChracterIndex(String[] dim, int index) {
         for (int i = 0; i < dim.length; i++) {
             for (int j = 0; j < dim.length - i - 1; j++) {
-                //OutOfBoundExeption raus bekommen!!!
-                if (dim[j].charAt(index) > (dim[j + 1]).charAt(index)) {
+                //mit chars wäre es evtl. übersichtlicher ausprobieren
+                if ((index >= dim[j].length()) ||
+                    (index < dim[j + 1].length() && dim[j].charAt(index) > dim[j + 1].charAt(index))) {
                     String temp = dim[j];
                     dim[j] = dim[j + 1];
                     dim[j + 1] = temp;
                 }
             }
-
         }
     }
 
