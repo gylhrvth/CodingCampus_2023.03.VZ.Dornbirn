@@ -20,8 +20,12 @@ public class EmailRegex {
         System.out.println("Test auf alles außer '!?@': " + test3.matches(regex3));
 
         String test4 = "!n";
-        String regex4 = "[!a-z]";
+        String regex4 = "!+[a-z]";
         System.out.println("Test auf Sonderz. und kleing. Wort: " + test4.matches(regex4));
+
+        String test5 = "!n8";
+        String regex5 = "[!][a-z][0-9]";
+        System.out.println("Test auf Sonderz. und kleing. Wort und Zahl: " + test5.matches(regex5));
 
 
 
