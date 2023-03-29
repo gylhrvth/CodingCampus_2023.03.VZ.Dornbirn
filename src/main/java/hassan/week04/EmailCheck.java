@@ -3,7 +3,8 @@ package hassan.week04;
 public class EmailCheck {
     public static void main(String[] args) {
 
-        String regex = "^[a-zA-Z0-9_]+(\\.[a-zA-Z0-9_]+)*@[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*(\\.[a-zA-Z]{2,})$";
+        String regex = "^[a-zA-Z][a-zA-Z0-9_]*(\\.[a-zA-Z0-9_]+)*@[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*(\\.[a-zA-Z]{2,})$";
+
 
         System.out.println("alfons@drlue.at".matches(regex));          // true
         System.out.println("rambina.alfons@drlue.at".matches(regex));   // true
