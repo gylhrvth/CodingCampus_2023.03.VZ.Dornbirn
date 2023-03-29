@@ -63,7 +63,7 @@ public class ExercisesArraysNew {
         bubblesort(ranArray);
         System.out.println(Arrays.toString(ranArray));
 
-        ranArray = createNumbersRandom(randomLength * 1000);
+        ranArray = createNumbersRandom(randomLength * 10);
         System.out.println("Selection Sort");
         System.out.println(Arrays.toString(ranArray));
         selectionSort(ranArray);

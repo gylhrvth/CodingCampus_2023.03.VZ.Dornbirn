@@ -1,11 +1,15 @@
 package sandro.week04;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Strings {
     public static void main(String[] args) {
         String[] names = createArray();
 
+        System.out.println("Willkommen zum ReversProgramm!!!111");
+
+/*
         for (String name : names) {
             System.out.println(name + "(" + name.length() + ")");
         }
@@ -14,7 +18,7 @@ public class Strings {
         System.out.println("orginal");
         System.out.println(Arrays.toString(names));
         System.out.println();
-/*        bubbleSortAscendingNameLength(names);
+        bubbleSortAscendingNameLength(names);
         System.out.println(Arrays.toString(names));
         System.out.println();
         bubbleSortDescendingNameLength(names);
@@ -36,7 +40,7 @@ public class Strings {
         lengthUpOrDown(names, true);
         System.out.println(Arrays.toString(names));
         System.out.println();
- */
+
         bubbleSortChar2(names, 4);
         System.out.println(Arrays.toString(names));
 
@@ -45,8 +49,31 @@ public class Strings {
             System.out.print(c);
         }
         System.out.println();
+*/
+        String s = readString("Bitte das gewünschte Wort eingeben");
+        String revString = reverseMyString(s);
+
+        System.out.println(revString);
+
 
     }
+
+    public static String reverseMyString(String input){
+        char[] revString = input.toCharArray();
+        for (int i = 0; i < revString.length / 2; i++) {
+            char temp = revString[i];
+            revString[i] = revString[revString.length - 1 - i];
+            revString[revString.length - 1 - i] = temp;
+        }
+        return new String(revString);
+    }
+
+    public static String readString(String message) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println(message);
+        return sc.nextLine();
+    }
+
 
     public static void bubbleSortChar2(String[] arr, int index) {
 
@@ -60,7 +87,7 @@ public class Strings {
                 if (index < arr[j + 1].length()) {
                     cjp = arr[j + 1].charAt(index);
                 }
-                System.out.println("cj: "  + (int)cj  + " " + cj + " cjp:" + (int)cjp + " " + cjp);
+                System.out.println("cj: " + (int) cj + " " + cj + " cjp:" + (int) cjp + " " + cjp);
                 if (cj > cjp) {
                     String temp = arr[j];
                     arr[j] = arr[j + 1];
