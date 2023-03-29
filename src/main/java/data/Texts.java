@@ -98,4 +98,28 @@ public class Texts {
             }
         }
     }
+
+    public static String getMobyDick() {
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new InputStreamReader(Objects.requireNonNull(Texts.class.getClassLoader().getResourceAsStream("txt/Moby Dick.txt"))));
+            StringBuilder builder = new StringBuilder();
+            String input;
+            while ((input = reader.readLine()) != null) {
+                builder.append(input);
+                builder.append(System.lineSeparator());
+            }
+            return builder.toString();
+        } catch (IOException exc) {
+            throw new RuntimeException(exc);
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }
