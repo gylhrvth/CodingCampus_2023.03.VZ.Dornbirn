@@ -16,12 +16,17 @@ public class Tabellarisch {
         int headerAge = maxInt("Alter", age);
         int headerDistanceFromCap = maxFloat("Distanz von der Bundes-Hauptstadt", distanceFromCapital);
 
-        System.out.printf("|| %-" + headerFirstName + "s || %-" + headerLastName + "s || %-"+headerAge+"s || %-" + headerPlace + "s || %-"+headerDistanceFromCap+"s || %n", "Vorname", "Nachname", "Alter", "Wohnort", " Distanz (in KM)");
-        System.out.println("=============================================================================================");
+
+        String input = "=";
+        System.out.printf("|| %-" + headerFirstName + "s || %-" + headerLastName + "s || %-" + headerAge + "s || %-" + headerPlace + "s || %-" + headerDistanceFromCap + "s || %n", "Vorname", "Nachname", "Alter", "Wohnort", " Distanz (in KM)");
+        System.out.println("||" + input.repeat(headerAge + headerAge + headerLastName + headerDistanceFromCap + headerPlace * 3) + "||");
 
         for (int i = 0; i < firstName.length; i++) {
-            System.out.printf("|| %-" + headerFirstName + "s || %-" + headerLastName + "s || %"+headerAge+"s || %-" + headerPlace + "s || %"+headerDistanceFromCap+".4f || %n", firstName[i], lastName[i], age[i], place[i], distanceFromCapital[i]);
+            System.out.printf("|| %-" + headerFirstName + "s || %-" + headerLastName + "s || %" + headerAge + "s || %-" + headerPlace + "s || %" + headerDistanceFromCap + ".4f || %n", firstName[i], lastName[i], age[i], place[i], distanceFromCapital[i]);
         }
+
+        System.out.println("||" + input.repeat(headerAge + headerAge + headerLastName + headerDistanceFromCap + headerPlace * 3) + "||");
+
     }
 
     public static int maxLength(String header, String[] arr) {
