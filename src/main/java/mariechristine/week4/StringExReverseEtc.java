@@ -45,19 +45,23 @@ public class StringExReverseEtc {
     public static String randomize(String text1) {
         char[] charArray = text1.toCharArray();
 
-        // TODO: 29.03.2023 Zufällige 2 Buchstaben tauschen
-        // TODO: 29.03.2023 Wiederholen ausreichend viel mal
+        for (int round = 0; round < 3 * text1.length() + 10; round++) {
 
-        int i = 0;
-        int j = charArray.length - 1;
+            int i = ranWord.nextInt(charArray.length);
+            int j = ranWord.nextInt(charArray.length);
 
-        char temp = charArray[i];
-        charArray[i] = charArray[j];
-        charArray[j] = temp;
+            char temp = charArray[i];
+            charArray[i] = charArray[j];
+            charArray[j] = temp;
+
+        }
 
         return new String(charArray);
 
     }
+
+
+
 }
 
 
