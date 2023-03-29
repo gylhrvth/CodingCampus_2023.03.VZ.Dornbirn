@@ -2,9 +2,7 @@ package ayguen.week04;
 
 import ayguen.week02.ConsoleInputText;
 
-import java.util.Arrays;
-
-public class AufgabeReverse {
+public class AufgabeReverseRandomize {
 
     public static void main(String[] args) {
         System.out.println("Willkommen in Reverseprogramm!!!");
