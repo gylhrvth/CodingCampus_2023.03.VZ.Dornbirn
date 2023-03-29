@@ -9,26 +9,26 @@ public class StringExReverseEtc {
 
     public static void main(String[] args) {
 
-        System.out.println("Willkommen zum Reverseprogramm!");
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Gib ein beliebiges Wort ein: ");
-        String inputText = sc.nextLine();
-
-        String text = reverseString(inputText);
-        System.out.println("Das umgedrehte Word lautet: " + text);
-
-        System.out.println("\n========================================================\n");
-
-
-/*        System.out.println("Willkommen zum Zufallsshuffle-Programm!");
-        Scanner sc1 = new Scanner(System.in);
-        System.out.println("Gib ein beliebiges Wort ein: ");
-        String inputText1 = sc1.nextLine();
+//        System.out.println("Willkommen zum Reverseprogramm!");
+//        Scanner sc = new Scanner(System.in);
+//        System.out.println("Gib ein beliebiges Wort ein: ");
+//        String inputText = sc.nextLine();
+//
+//        String text = reverseString(inputText);
+//        System.out.println("Das umgedrehte Word lautet: " + text);
+//
+//        System.out.println("\n========================================================\n");
+//
+//
+//        System.out.println("Willkommen zum Zufallsshuffle-Programm!");
+//        Scanner sc1 = new Scanner(System.in);
+//        System.out.println("Gib ein beliebiges Wort ein: ");
+//        String inputText1 = sc1.nextLine();
 
         String inputText1 = "ABCDEFGHIJKLMOPQRSTUVWXYZ";
         String text1 = randomize(inputText1);
         System.out.println("Das Shuffle-Wort lautet nun: " + text1);
-*/
+
     }
 
     public static String reverseString(String text) {
@@ -45,19 +45,23 @@ public class StringExReverseEtc {
     public static String randomize(String text1) {
         char[] charArray = text1.toCharArray();
 
-        // TODO: 29.03.2023 Zufällige 2 Buchstaben tauschen
-        // TODO: 29.03.2023 Wiederholen ausreichend viel mal
+        for (int round = 0; round < 3 * text1.length() + 10; round++) {
 
-        int i = 0;
-        int j = charArray.length - 1;
+            int i = ranWord.nextInt(charArray.length);
+            int j = ranWord.nextInt(charArray.length);
 
-        char temp = charArray[i];
-        charArray[i] = charArray[j];
-        charArray[j] = temp;
+            char temp = charArray[i];
+            charArray[i] = charArray[j];
+            charArray[j] = temp;
+
+        }
 
         return new String(charArray);
 
     }
+
+
+
 }
 
 
