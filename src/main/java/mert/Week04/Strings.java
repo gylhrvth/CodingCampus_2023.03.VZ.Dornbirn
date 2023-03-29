@@ -1,7 +1,5 @@
 package mert.Week04;
 
-import java.util.Arrays;
-
 public class Strings {
     public static void main(String[] args) {
         String[] namesMembers = new String[]{"Joachim", "Mert", "Eric", "Marie Christine", "Benjamin", "Sandro", "Aygün", "Hassan", "Svitlana", "Lukas", "Gyula"};
@@ -17,10 +15,10 @@ public class Strings {
         bubbleSort2(namesMembers);
         printName(namesMembers);
 
-        bubblesort3(namesMembers);
+        bubbleSort3(namesMembers);
         printName(namesMembers);
 
-        bubblesort4(namesMembers);
+        bubbleSort4(namesMembers);
         printName(namesMembers);
 
         bubblesortboo(namesMembers, true);
@@ -89,7 +87,7 @@ public class Strings {
         }
     }
 
-    public static void bubblesort3(String[] arr) {
+    public static void bubbleSort3(String[] arr) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr.length - i - 1; j++) {
                 if (arr[j].length() < arr[j + 1].length()) {
@@ -101,7 +99,7 @@ public class Strings {
         }
     }
 
-    public static void bubblesort4(String[] arr) {
+    public static void bubbleSort4(String[] arr) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr.length - i - 1; j++) {
                 if (arr[j].length() > arr[j + 1].length()) {
