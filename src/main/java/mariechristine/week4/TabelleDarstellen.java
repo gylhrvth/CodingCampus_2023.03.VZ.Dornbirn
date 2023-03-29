@@ -4,16 +4,16 @@ public class TabelleDarstellen {
 
     public static void main(String[] args) {
 
-        int[][] chart = new int[6][6];
+        int[][] chart = new int[7][7];
         printChart(chart);
     }
 
     public static void printChart(int[][] chart) {
-        for (int i = 0; i < chart.length ; i++) {
-            for (int j = 0; j < chart.length; j++) {
-
+        for (int col = 0; col < chart.length; col++) {
+            if (col > 0) {
+                System.out.println("  |             |               |               |               |               |");
+                System.out.println("__|_____________|_______________|_______________|_______________|_______________|");
             }
-
+            }
         }
     }
-}
