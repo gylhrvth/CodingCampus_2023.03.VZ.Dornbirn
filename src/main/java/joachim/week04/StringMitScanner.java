@@ -1,11 +1,10 @@
 package joachim.week04;
 
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
 
-public class stringMitScanner {
+public class StringMitScanner {
     public static Random rand = new Random();
 
     public static void main(String[] args) {
