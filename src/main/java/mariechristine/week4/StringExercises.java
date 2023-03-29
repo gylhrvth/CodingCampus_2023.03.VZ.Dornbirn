@@ -3,8 +3,10 @@ package mariechristine.week4;
 import java.text.Collator;
 import java.util.Arrays;
 import java.util.Locale;
+import java.util.Random;
 
 public class StringExercises {
+
     public static void main(String[] args) {
 
         String[] names = new String[]{"Joachim", "Mert", "Eric", "Ömer", "Marie-Christine", "Benjamin", "Sandro", "Aygün", "Hassan", "Svitlana", "Lukas", "Gyula"};
