@@ -1,6 +1,6 @@
 package joachim.week04;
 
-public class Tabelle2 {
+public class Tabelle {
     public static void main(String[] args) {
         String[] firstName = {"Alfonso", "Beatrix-Eleonor", "Cecil", "Daniel", "Elmar"};
         String[] lastName = {"Klein", "Kinderdorfer", "Al Elmenar", "Schmidt", "Simma"};
