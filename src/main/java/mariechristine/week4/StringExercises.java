@@ -23,6 +23,7 @@ public class StringExercises {
 
         bubblesortExtended(names, true);
         System.out.println("Bubblesort String Extended (ascending) with Collator:\n" + Arrays.toString(names) + "\n");
+
         bubblesortExtended(names, false);
         System.out.println("Bubblesort String Extended (descending) with Collator:\n" + Arrays.toString(names) + "\n");
 

@@ -6,17 +6,17 @@ public class StringAufgaben {
 
 
     public static void main(String[] args) {
-        String[] names = new String[]{"Joachim","Mert", "Mo","Eric", "Marie Christine", "Benjamin", "Sandro", "Aygün", "Hassan", "Svitlana", "Lukas", "Gyula"};
+        String[] names = new String[]{"Joachim","Mert","Eric", "Marie Christine", "Benjamin", "Sandro", "Aygün", "Hassan", "Svitlana", "Lukas", "Gyula"};
 
 
 
 
-        sortByThirdLetter(names, 5);
+        sortByThirdLetter(names, 2);
         System.out.println("======3te Char======");
         for (String i:names) {
             System.out.println(i);
         }
-/*
+
 
         bubbleSortByLength(names);
         System.out.println("======Länge======");
@@ -41,9 +41,10 @@ public class StringAufgaben {
         }
 
 
- */
 
     }
+
+
 
     public static void bubbleSort(String[] array, boolean choose) {
         if (choose) {
