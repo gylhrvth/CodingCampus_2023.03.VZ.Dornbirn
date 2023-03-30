@@ -63,11 +63,11 @@ public class EmailRegex {
         System.out.println("---");
 
 
-        regex = "[^.0-9][a-z0-9]*.?[a-z0-9]*@[a-z0-9]*\\.[a-z]{2,3}";
+        regex = "[^.0-9][a-z0-9]*(.[a-z0-9]+)*@[a-z0-9]+\\.[a-z]{2,3}";
 
         System.out.println("alfons@drlue.at".matches(regex)); //Wahr
 
-        System.out.println("ramb1ina.alfo3ns@drl2ue.com".matches(regex)); //Wahr
+        System.out.println("ramb1ina.a.b.c@drl2ue.com".matches(regex)); //Wahr
 
         System.out.println("rambina1.2alfons@drlue.at".matches(regex)); //Wahr
 
