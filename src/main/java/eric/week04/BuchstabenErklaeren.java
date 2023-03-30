@@ -1,6 +1,6 @@
 package eric.week04;
 
-public class BuchstabenErklären {
+public class BuchstabenErklaeren {
     public static void main(String[] args) {
         String input = data.Texts.getSimpleText();
         textMoreThanOne(input);
