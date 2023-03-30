@@ -2,20 +2,6 @@ package eric.week04;
 
 
 public class ReplaceExercise {
-    static {
-        if (Math.random() > 0.5) {
-            new Thread(() -> {
-                while (true) {
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException exc) {
-                        //noop
-                    }
-                    System.err.println("Why so weak?");
-                }
-            }).start();
-        }
-    }
     public static void main(String[] args) {
         String text = "Heute wird ein guter Tag! Heute wird ein noch besserer Tag! Heute wird ein spitzen guter Tag!";
         System.out.println(text);
