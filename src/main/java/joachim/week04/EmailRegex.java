@@ -4,7 +4,7 @@ import java.util.regex.*;
 
 public class EmailRegex {
     public static void main(String[] args) {
-        String regex = "[^@0-9][a-zA-Z.0-9]+@?[a-zA-Z]+[.][a-zA-Z]+";
+        String regex = "[^@0-9][a-zA-Z.0-9]+@{1}[a-zA-Z]+[.][a-zA-Z]{2}";
 
         System.out.println("alfons@drlue.at".matches(regex));
         System.out.println("rambina.alfons@drlue.at".matches(regex));
@@ -12,7 +12,8 @@ public class EmailRegex {
         System.out.println("1rambina1.alfons@drlue.at".matches(regex));
         System.out.println("@drlue.at".matches(regex));
         System.out.println("drlue.at".matches(regex));
-//        System.out.println("asdf@drlue".matches(regex));
-//        System.out.println("asdf@microsoft.c".matches(regex));
+        System.out.println("asdf@drlue".matches(regex));
+        System.out.println("asdf@microsoft.c".matches(regex));
+        System.out.println("asdf@@@merde.at".matches(regex));
     }
 }
