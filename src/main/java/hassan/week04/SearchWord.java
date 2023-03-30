@@ -9,16 +9,22 @@ public class SearchWord {
 
         String searchString = "Hesse";
 
+        // count nur in eine zeile!!!!
+        // int count = text.split(searchString ).length ;
+        //System.out.println(count);
+
+
         int count = 0;
         int index = text.indexOf(searchString);
-        while (index!= -1){
+        while (index != -1) {
             count++;
-            System.out.println("Das Wort Hesse gefunden an Stelle" + index);
-            index = text.indexOf(searchString,index + 1);
+            System.out.println("Das Wort Hesse gefunden an Stelle " + index);
+            index = text.indexOf(searchString, index + 1);
         }
-        System.out.println("Das Wort Hesse kommt "+ count + "Mal im text vor");
-    }
+        System.out.println("Das Wort Hesse kommt " + count + " Mal im text vor");
 
+
+    }
 
 
 }
