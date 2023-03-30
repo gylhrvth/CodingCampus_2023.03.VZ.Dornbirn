@@ -1,6 +1,7 @@
 package eric.week04;
 
 public class EMailRegbert {
+
     public static void main(String[] args) {
         String regex = "[^0-9][a-zA-Z0-9]+(\\.)?[0-9a-zA-Z0-9]+@{1}+[a-zA-Z0-9]+\\.{1}[a-zA-Z]{2}";
 
