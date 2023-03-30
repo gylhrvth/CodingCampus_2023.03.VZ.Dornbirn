@@ -14,7 +14,7 @@ public class Tabellarisch {
         int headerLastName = maxLength("Nachname", lastName);
         int headerPlace = maxLength("Wohnort", place);
         int headerAge = maxInt("Alter", age);
-        int headerDistanceFromCap = maxFloat("Distanz von der Bundes-Hauptstadt", distanceFromCapital);
+        int headerDistanceFromCap = maxFloat("Distanz (in KM)", distanceFromCapital);
 
 
         String input = "=";

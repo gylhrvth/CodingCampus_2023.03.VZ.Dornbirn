@@ -43,7 +43,7 @@ public class Rehearsal {
             System.out.println("Hallo");
             try {
                 Thread.sleep(1000);
-            } catch(InterruptedException exc) {
+            } catch (InterruptedException exc) {
                 //noop
             }
         }
