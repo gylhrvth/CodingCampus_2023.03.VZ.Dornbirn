@@ -7,24 +7,18 @@ public class StringSucheHesse {
         String text = Texts.HESSE;
         System.out.println(text);
 
-        int[] count = counthesse(text);
-        for (int i = 0; i < count.length; i++) {
-            if (count[i] > 0){
-                System.out.println(count[i]);
-            }
+        String search = "Hesse";
+
+        int count = 0;
+        int indexHesse = text.indexOf(search);
+        while (indexHesse != -1) {
+
+            count++;
+            System.out.println("Hesse kommt beim Index " + indexHesse + " vor");
+            indexHesse = text.indexOf(search, indexHesse + 1);
         }
+        System.out.println("Hesse kommt insgesamt" + count + "vor");
 
 
     }
-
-    public static int[] counthesse(String input){
-        int[] count = new int[Character.MAX_VALUE];
-        for (int i = 0; i < input.length(); i++) {
-            ++count[input.charAt(i)];
-        }
-        return count;
-    }
-
-
-
 }
