@@ -12,9 +12,18 @@ public class BuchstabenZaehlen {
 
     }
 
-    public static void textLength(String simpleText) { //Zerlegt den gesamten Text in einzelne Charakter
-        char [] charArray = simpleText.toCharArray();
+    public static void textLength(String simpleText) {
+        char[] charArray = simpleText.toCharArray(); //Zerlegt den gesamten Text in einzelne Charakter
+        int[] charToCount = new int[10240]; //Initialisiert die Buchstaben, die zu zählen sind; Festlegen von ungefährer Zeichenanzahl des Textes
 
+        for (int i = 0; i < simpleText.length(); i++) {
+            System.out.println(simpleText.charAt(i));
+            char index = simpleText.charAt(i);
+            ++charToCount[index];
 
+        }
+        System.out.println("Ausgabe in Zahlen: " );
+        
     }
+
 }

@@ -9,23 +9,23 @@ public class StringExReverseEtc {
 
     public static void main(String[] args) {
 
-//        System.out.println("Willkommen zum Reverseprogramm!");
-//        Scanner sc = new Scanner(System.in);
-//        System.out.println("Gib ein beliebiges Wort ein: ");
-//        String inputText = sc.nextLine();
-//
-//        String text = reverseString(inputText);
-//        System.out.println("Das umgedrehte Word lautet: " + text);
-//
-//        System.out.println("\n========================================================\n");
-//
-//
-//        System.out.println("Willkommen zum Zufallsshuffle-Programm!");
-//        Scanner sc1 = new Scanner(System.in);
-//        System.out.println("Gib ein beliebiges Wort ein: ");
-//        String inputText1 = sc1.nextLine();
+        System.out.println("Willkommen zum Reverseprogramm!");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Gib ein beliebiges Wort ein: ");
+        String inputText = sc.nextLine();
 
-        String inputText1 = "ABCDEFGHIJKLMOPQRSTUVWXYZ";
+        String text = reverseString(inputText);
+        System.out.println("Das umgedrehte Word lautet: " + text);
+
+        System.out.println("\n========================================================\n");
+
+
+        System.out.println("Willkommen zum Zufallsshuffle-Programm!");
+        Scanner sc1 = new Scanner(System.in);
+        System.out.println("Gib ein beliebiges Wort ein: ");
+        String inputText1 = sc1.nextLine();
+
+//        String inputText1 = "ABCDEFGHIJKLMOPQRSTUVWXYZ";
         String text1 = randomize(inputText1);
         System.out.println("Das Shuffle-Wort lautet nun: " + text1);
 
