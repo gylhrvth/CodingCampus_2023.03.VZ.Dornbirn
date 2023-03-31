@@ -11,26 +11,19 @@ public class Substring {
         System.out.println("Bitte gib Wort 2 ein:");
         System.out.print(">>>> ");
         String word2 = sc.nextLine();
-
-        String[] result1 = word1.split("\\s");
-        String[] result2 = word2.split("\\s");
-
-
-        for (int i = 0; i <= result1.length; i++) {
-            for (int j = 0; j <= result2.length; j++) {
-
-
-
-
-
-//        String result1 = word1.substring(0,10);
-//        String result2 = word2.substring(0,10);
-
-//        System.out.println(result1 + result2);
-
-
+        String longestString = "";
+        for (int i = 0; i < word1.length(); i++) {
+            for (int j = i; j < word1.length(); j++) {
+                String sub = "";
+                for (int k = i; k <= j; k++) {
+                    sub += word1.charAt(k);
+                }
+                if (word2.contains(sub) && longestString.length() < sub.length()) {
+                    longestString = sub;
+                }
             }
         }
+        System.out.println(">>>" + longestString);
     }
 }
 
