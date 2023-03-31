@@ -13,17 +13,20 @@ public class BuchstabenZaehlen {
     }
 
     public static void textLength(String simpleText) {
-        char[] charArray = simpleText.toCharArray(); //Zerlegt den gesamten Text in einzelne Charakter
-        int[] charToCount = new int[10240]; //Initialisiert die Buchstaben, die zu zählen sind; Festlegen von ungefährer Zeichenanzahl des Textes
+        char[] charArray = simpleText.toCharArray(); //Zerlegt den gesamten Text(String) in Einzelzeichen und gibt diese in einem Char Array zurück
+        int[] charToCount = new int[10240]; //Initialisiert die Buchstaben/Ziffern, die zu zählen sind; Festlegen von ungefährer Zeichenanzahl des Textes
 
         for (int i = 0; i < simpleText.length(); i++) {
-            System.out.println(simpleText.charAt(i));
+//            System.out.println(simpleText.charAt(i)); diesen Ausdruck braucht es nicht.
             char index = simpleText.charAt(i);
             ++charToCount[index];
 
         }
-        System.out.println("Ausgabe in Zahlen: " );
-        
-    }
+        for (char index = 0; index < charToCount.length; index++) {
+            if (charToCount[index] > 0) {
+                System.out.println(index + ": " + charToCount[index]);
+            }
 
+        }
+    }
 }
