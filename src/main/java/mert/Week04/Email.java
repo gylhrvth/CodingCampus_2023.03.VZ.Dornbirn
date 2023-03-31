@@ -3,7 +3,7 @@ package mert.Week04;
 public class Email {
     public static void main(String[] args) {
 
-        String regex = "[a-z]+\\d*.*[a-z]*@{1}[a-z]+.{1}[a-z]+";
+        String regex = "[a-zA-Z]+\\d*.*[a-zA-Z]*@{1}[a-zA-Z]+\\.[a-zA-Z]{2,}";
 
 
         System.out.println("alfons@drlue.at".matches(regex));
@@ -18,5 +18,5 @@ public class Email {
 
     }
 
-//    haha fehler
+
 }
