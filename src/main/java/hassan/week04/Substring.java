@@ -12,6 +12,7 @@ public class Substring {
         System.out.println("Bitte gin Wort 2 ein : ");
         String word2 = scanner.nextLine();
 
+
         String longestSubString = findLongestSubstring(word1, word2);
 
         System.out.println("längster gemeinsamer Substring: ");
@@ -20,7 +21,7 @@ public class Substring {
 
     }
 
-
+        //BONUS AUFGABE, GEMEINSAME ZEICHENKKETTE!!!!!!!!!!!!!!!!!!!!
     public static String findLongestSubstring(String str1, String str2) {
         //längere und kurze Strings finden
         String longerStr;
@@ -31,15 +32,14 @@ public class Substring {
         if (str1.length() > str2.length()) shorterStr = str2;
         else shorterStr = str1;
 
-        //laängsten Substring
-        int maxLength = 0;
+        int maxlength = 0;
         String longestSub = "";
 
         for (int i = 0; i < shorterStr.length(); i++) {
             for (int j = i + 1; j <= shorterStr.length(); j++) {
                 String subString = shorterStr.substring(i, j);
-                if (longerStr.contains(subString) && subString.length() > maxLength) {
-                    maxLength = subString.length();
+                if (longerStr.contains(subString) && subString.length() > maxlength) {
+                    maxlength = subString.length();
                     longestSub = subString;
                 }
             }
