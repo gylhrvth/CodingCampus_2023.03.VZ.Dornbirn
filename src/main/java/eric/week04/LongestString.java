@@ -1,46 +1,47 @@
 package eric.week04;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class LongestString {
     public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        System.out.println("Bitte gib ein Satz ein!");
-        String userInput = sc.nextLine();
+//        System.out.println("Bitte gib ein Satz ein!");
+//        String scInput = sc.nextLine();
+//
+//        System.out.println("Bitte gib einen Zweiten Satz ein!");
+//        String scInput2 = sc.nextLine();
 
-        System.out.println("Bitte gib einen Zweiten Satz ein!");
-        String userInput2 = sc.nextLine();
+        String scInput = "Wie gehts dir Heute?";
+        String scInput2 = "Mir gehts heute gut und dir?";
 
-
+        greatestInputLength(scInput, scInput2);
     }
 
+    public static String greatestInputLength(String scInput, String scInput2) {
+        String longestStr;
+        if (scInput.length() > scInput2.length())
+            longestStr = scInput;
+        else longestStr = scInput2;
 
-//    public static int longestsubString(String userInput, String userInput2) {
-//        int[][] inputLength = new int[userInput.length()][userInput2.length()];
-//        char maxlength = userInput.length() + userInput2.length();
-//        char maxlength = new char (userInput.length()+userInput2.length());
-//        for (int i = 0; i < inputLength.length; i++) {
-//            for (int j = 0; j < inputLength.length - i; j++) {
-//                if (userInput.charAt(i) != userInput2.charAt(i)) {
-//                    inputLength[i][j] = maxlength;
-//                }
-//                else if (inputLength[i][j] > maxlength) {
-//                    maxlength = inputLength[i][j];
-//                }
-//            }
-//        }
-//        System.out.println("der längste SubString ist: " + maxlength);
-//        return maxlength;
-//    }
+        String shortestStr;
+        if (scInput.length() > scInput2.length())
+            shortestStr = scInput;
+        else shortestStr = scInput2;
 
-//    public static int greatestLengthInputString(String userInput, String userInput2) {
-//        String[] arr = new String[userInput.length() + userInput2.length()];
-//        int maxLength = userInput.length() + userInput2.length();
-//        for (int i = 0; i < arr.length; i++) {
-//            if (arr.length =  ){
-//
-//            }
-//        }
-//    }
+        int maxLength = 0;
+        String longScInput = "";
+
+        for (int i = 0; i < longestStr.length(); i++) {
+            for (int j = 0; j < longestStr.length(); j++) {
+                String subString = longestStr.substring(i, j);
+                if (longestStr.contains(subString) && subString.length() > maxLength){
+                    maxLength = subString.length();
+                    longScInput = subString;
+                }
+            }
+        }
+        return longestStr;
+    }
 }
