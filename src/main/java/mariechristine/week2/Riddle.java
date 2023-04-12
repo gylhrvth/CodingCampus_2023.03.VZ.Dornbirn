@@ -15,20 +15,19 @@ public class Riddle {
         int goal = ran.nextInt(101); //Die Zielzahl entspricht der random number; diese ist kleiner als 101
         int guess = -1; //Die erratene Zahl soll im Plusbereich sein, Minus wird ausgeschlossen
 
-        while (goal != guess){ //Das Ziel ist ungleich der erratenen Zahl
+        while (goal != guess) { //Das Ziel ist ungleich der erratenen Zahl
             guess = myReadNumber("Was ist deine Zahl?", 0, 100);
-            if (guess < goal){ // Ist die erratene Zahl kleiner als das Ziel, dann "zu klein"
+            if (guess < goal) { // Ist die erratene Zahl kleiner als das Ziel, dann "zu klein"
                 System.out.println("Deine Zahl ist zu niedrig.");
             } else if (guess > goal) { //Ist die erratene Zahl größer als das Ziel, dann "zu groß"
                 System.out.println("Deine Zahl ist zu groß.");
             }
         }
         System.out.println("Gratuliere! Du hast korrekt erraten.");
-
     }
 
 
-    public static int myReadNumber(String message, int min, int max){
+    public static int myReadNumber(String message, int min, int max) {
         int value = min - 1;
 
         Scanner sc = new Scanner(System.in);
@@ -45,9 +44,6 @@ public class Riddle {
         }
 
 
-        return  value;
+        return value;
     }
 }
-
-
-
