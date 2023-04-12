@@ -8,7 +8,7 @@ public class InputZahl {
     public static void main(String[] args) {
 
 //        frage1("Wie alt bist du?");
-//        mitLoop("Wie alt bist du?");
+        mitLoop("Wie alt bist du?");
 
     }
 
