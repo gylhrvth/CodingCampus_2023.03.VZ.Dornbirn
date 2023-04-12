@@ -17,19 +17,19 @@ public class CreateStrings {
 //        bubbleSortDescending(name);
 //        printnames(name);
 //
-//        printNamesLengthAsc(name);
-//        printnames(name);
-//
-//        printNamesLengthDsc(name);
-//        printnames(name);
+        printNamesLengthAsc(name);
+        printnames(name);
+
+        printNamesLengthDsc(name);
+        printnames(name);
 //
 //        printBubbleSortTrueOrFalse(name, true);
 //        printnames(name);
 //        printBubbleSortTrueOrFalse(name, false);
 //        printnames(name);
 
-        printChracterIndex(name, 4);
-        printnames(name);
+//        printChracterIndex(name, 4);
+//        printnames(name);
 
     }
 

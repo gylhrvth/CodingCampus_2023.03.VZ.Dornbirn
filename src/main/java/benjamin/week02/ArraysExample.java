@@ -87,7 +87,7 @@ public class ArraysExample {
     public static int[] numberRandom(int dim) {
         int[] randArray = new int[dim];
         for (int i = 0; i < randArray.length; i++) {
-            int randNumber = rand.nextInt(100);
+            int randNumber = rand.nextInt(101);
             randArray[i] = randNumber;
 
         }

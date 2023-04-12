@@ -3,7 +3,6 @@ package benjamin.week04;
 public class EmailRegex {
     public static void main(String[] args) {
 
-
         myMagicFunction("alfons@drlue.at");
         myMagicFunction("rambina.alfons@drlue.at");
         myMagicFunction("rambina1.1alfons@drlue.at");
@@ -12,8 +11,6 @@ public class EmailRegex {
         myMagicFunction("drlue.at");
         myMagicFunction("asdf@drlue");
         myMagicFunction("asdf@microsoft.c");
-
-
 
     }
 
