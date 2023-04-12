@@ -35,7 +35,8 @@ public class TicTacToeAI {
                 System.out.println("Unentschieden!");
                 gameOver = true;
             } else {
-                currentPlayer = currentPlayer == 1 ? 2 : 1;
+                if (currentPlayer == 1) currentPlayer = 2;
+                else currentPlayer = 1;
             }
         }
     }
@@ -80,7 +81,8 @@ public class TicTacToeAI {
         if (checkWin(board)) {
             result[0] = -1;
             result[1] = -1;
-            result[2] = isMaximizingPlayer ? 10 - depth : depth - 10;
+            if (isMaximizingPlayer) result[2] = 10 - depth;
+            else result[2] = depth - 10;
             return result;
         } else if (isBoardFull(board)) {
             result[0] = -1;
