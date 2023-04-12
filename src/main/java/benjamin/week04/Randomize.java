@@ -1,6 +1,5 @@
 package benjamin.week04;
 
-import javax.print.attribute.standard.PrinterMakeAndModel;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -21,8 +20,8 @@ public class Randomize {
             arr[i] = arr[i + ra];
             arr[i + ra] = temp;
         }
-        String reverse = new String(arr);
-        System.out.println(reverse);
+        String randomize = new String(arr);
+        System.out.println(randomize);
     }
 }
 

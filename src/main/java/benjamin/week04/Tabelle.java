@@ -2,6 +2,7 @@ package benjamin.week04;
 
 public class Tabelle {
     public static void main(String[] args) {
+
         String headfirstNamen = "First Name";
         String headLastNamen = "Last Name";
         String headPlace = "Place";
@@ -19,6 +20,7 @@ public class Tabelle {
         int place1 = formatStrings(headPlace, place);
         int age1 = formatAge(headAge, age);
         int dist = formatDistance(headDistance, distanceFromCapital);
+
         System.out.printf("|%-" + first + "s", headfirstNamen);
         System.out.printf("|%-" + last + "s", headLastNamen);
         System.out.printf("|%" + age1 + "s", headAge);
@@ -38,7 +40,6 @@ public class Tabelle {
             System.out.printf("|%" + age1 + "d", age[i]);
             System.out.printf("|%-" + place1 + "s", place[i]);
             System.out.printf("|%" + dist + ".2f|", distanceFromCapital[i]);
-
             System.out.println();
         }
     }
