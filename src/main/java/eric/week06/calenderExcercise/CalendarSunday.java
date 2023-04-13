@@ -1,15 +1,13 @@
 package eric.week06.calenderExcercise;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
-public class KalenderSonntag {
+public class CalendarSunday {
     public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
