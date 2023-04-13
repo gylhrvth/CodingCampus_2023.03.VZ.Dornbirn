@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
-public class KalenderGeburtstag {
+public class CalendarBirthday {
     public static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");

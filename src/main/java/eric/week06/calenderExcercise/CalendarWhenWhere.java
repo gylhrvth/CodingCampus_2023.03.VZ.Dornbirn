@@ -3,10 +3,10 @@ package eric.week06.calenderExcercise;
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
-public class KalenderWhenWhere {
+public class CalendarWhenWhere {
     public static void main(String[] args) {
         GregorianCalendar now = new GregorianCalendar();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.MMMMMMMM.yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MMMMMMMM013.yyyy");
         SimpleDateFormat tf = new SimpleDateFormat("HH:mm:ss");
 
         System.out.println("--===--");
