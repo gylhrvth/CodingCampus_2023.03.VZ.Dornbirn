@@ -10,12 +10,12 @@ public class Sunday {
     }
 
     public static String sunday() {
-        GregorianCalendar calendar = new GregorianCalendar();
+        GregorianCalendar cal = new GregorianCalendar();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
 
-        calendar.set(Calendar.DAY_OF_WEEK, 1);
+        cal.set(Calendar.DAY_OF_WEEK, 1);
 
 
-        return sdf.format(calendar.getTime());
+        return sdf.format(cal.getTime());
     }
 }
