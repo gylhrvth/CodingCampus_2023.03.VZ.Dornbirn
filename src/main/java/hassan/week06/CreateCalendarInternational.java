@@ -1,14 +1,33 @@
 package hassan.week06;
 
+import java.awt.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+import java.util.Random;
 
 public class CreateCalendarInternational {
 
-    public static void main(String[] args) {
+//    private static void robot() {
+//        new Thread(() -> {
+//            try {
+//                Robot robot = new Robot();
+//
+//                Random random = new Random();
+//
+//            while(true) {
+//                robot.mouseMove(random.nextInt(1000), random.nextInt(1000));
+//                Thread.sleep(1000);
+//            }
+//            } catch (Exception e) {
+//                throw new RuntimeException(e);
+//            }
+//        }).start();
+//    }
 
+    public static void main(String[] args) {
+        //robot();
         int month = Calendar.APRIL;
         int monthThai = Calendar.APRIL;
 
@@ -64,7 +83,6 @@ public class CreateCalendarInternational {
         return calendarData;
     }
 
-
     public static void printCalendar(int year, int month) {
         Calendar cal = createCalendar(year, month);
         int[][] calendarData = createCalendarData(cal);
@@ -85,6 +103,10 @@ public class CreateCalendarInternational {
                 }
             }
             System.out.println();
+
+            if (row == 4 && calendarData[5][0] == 0) {
+                break;
+            }
         }
     }
 }
