@@ -24,7 +24,7 @@ public class wieVieleArbeitstage {
                     day.get(Calendar.DAY_OF_WEEK) == Calendar.WEDNESDAY ||
                     day.get(Calendar.DAY_OF_WEEK) == Calendar.THURSDAY ||
                     day.get(Calendar.DAY_OF_WEEK) == Calendar.FRIDAY
-            ){
+            ) {
                 ++count;
             }
 
