@@ -5,7 +5,7 @@ import java.util.GregorianCalendar;
 
 public class Kalender {
     public static void main(String[] args) {
-
+        System.out.println("| Mo|| Di|| Mi|| Do|| Fr|| Sa|| So|");
         createCalender(2023, Calendar.APRIL);
     }
 
