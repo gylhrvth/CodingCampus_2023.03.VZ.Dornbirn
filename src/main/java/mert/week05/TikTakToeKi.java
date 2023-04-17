@@ -1,35 +1,46 @@
-package mert.Week03;
+package mert.week05;
 
 import gyula.week02.ConsoleInputNumber;
 
-import java.util.Scanner;
-
-public class TicTacToe2 {
+public class TikTakToeKi {
     public static void main(String[] args) {
-        int[][] field = new int[3][3];
+        int[][] board = new int[3][3];
         int player = 1;
+        int playerKi = 2;
 
         boolean win = false;
-        printField(field);
+        printBoard(board);
         int steps = 0;
         while (!win && steps < 9) {
-            playerChoosse(field, player);
-            printField(field);
-            win = winner(field, 1);
-            player = 3 - player;
+            playerMove(board, 1);
+            printBoard(board);
+            win = winner(board, player);
+
+            kiMove(board, playerKi);
+            printBoard(board);
+            win = winner(board, playerKi);
             ++steps;
 
-
-
         }
-        if (win) {
+
+        if (winner(board, player)) {
             System.out.println("Gewonnen");
-        } else {
+
+        } else if (winner(board, playerKi)) {
+            System.out.println("Verloren");
+
+        } else if (isBoardFull(board)){
             System.out.println("Unentschieden");
         }
+
     }
 
-    public static void printField(int[][] values) {
+
+
+
+
+
+    public static void printBoard(int[][] values) {
         System.out.println("---------");
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -48,7 +59,7 @@ public class TicTacToe2 {
 
     }
 
-    public static void playerChoosse(int[][] field, int player) {
+    public static void playerMove(int[][] field, int player) {
         System.out.println("Player " + player + " ist drann");
 
         int row = -1;
@@ -65,6 +76,7 @@ public class TicTacToe2 {
                 System.out.println("Dies ist nicht gültg");
             }
         }
+
         field[row][col] = player;
     }
 
@@ -157,7 +169,80 @@ public class TicTacToe2 {
         return false;
 
     }
+
+
+    public static void kiMove(int[][] board, int playerKi) {
+        int bestScore = Integer.MIN_VALUE;
+        int bestRow = -1;
+        int bestCol = -1;
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (board[i][j] == 0) {
+                    board[i][j] = playerKi;
+                    int score = minimax(board, 0, false, playerKi);
+                    board[i][j] = 0;
+
+                    if (score > bestScore) {
+                        bestScore = score;
+                        bestRow = i;
+                        bestCol = j;
+                    }
+                }
+            }
+        }
+
+        board[bestRow][bestCol] = playerKi;
+    }
+
+    public static int minimax(int[][] board, int depth, boolean isMaximizingPlayer, int playerKi) {
+        if (winner(board, 1)) {
+            return -1;
+        }
+        if (winner(board, 2)) {
+            return 1;
+        }
+        if (isBoardFull(board)) {
+            return 0;
+        }
+
+        if (isMaximizingPlayer) {
+            int maxScore = Integer.MIN_VALUE;
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    if (board[i][j] == 0) {
+                        board[i][j] = playerKi;
+                        int score = minimax(board, depth + 1, false, playerKi);
+                        board[i][j] = 0;
+                        maxScore = Math.max(maxScore, score);
+                    }
+                }
+            }
+            return maxScore;
+        } else {
+            int minScore = Integer.MAX_VALUE;
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    if (board[i][j] == 0) {
+                        board[i][j] = 3 - playerKi;
+                        int score = minimax(board, depth + 1, true, playerKi);
+                        board[i][j] = 0;
+                        minScore = Math.min(minScore, score);
+                    }
+                }
+            }
+            return minScore;
+        }
+    }
+
+    public static boolean isBoardFull(int[][] board) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (board[i][j] == 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
-
-
-
