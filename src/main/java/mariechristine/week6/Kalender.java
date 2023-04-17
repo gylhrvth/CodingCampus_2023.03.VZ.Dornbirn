@@ -1,5 +1,7 @@
 package mariechristine.week6;
 
+import joachim.week06.Workdays;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -37,30 +39,75 @@ public class Kalender {
         }
 
 
- */
-        getSundays(2023, 1);
-
-    }
-
-/*    public static String yourBirthday(String text) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println(text);
-        return sc.nextLine();
-
-    }
 */
+        getSundays(2023, Calendar.APRIL);
+
+        int workDays = getWorkDays(2023, Calendar.JANUARY);
+        System.out.println(workDays);
+
+    }
+
+    /*    public static String yourBirthday(String text) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println(text);
+            return sc.nextLine();
+
+        }
+  */
+
+
     public static int getSundays(int year, int month) {
         GregorianCalendar now = new GregorianCalendar();
-        System.out.println("Der Monat hat: " + now.getActualMaximum(Calendar.DAY_OF_MONTH) + " Tage.");
+        now.set(Calendar.YEAR, year);
+        now.set(Calendar.MONTH, month);
+        now.set(Calendar.DAY_OF_MONTH, 1);
 
-        for (int i = 0; i <= now.getActualMaximum(Calendar.DAY_OF_MONTH); i++) {
+        int sun = Calendar.DAY_OF_MONTH;
+        int lastDayOfMonth = now.getActualMaximum(Calendar.DAY_OF_MONTH);
+        for (int i = 1; i <= lastDayOfMonth; i++) {
+            int currentDayOfWeek = now.get(Calendar.DAY_OF_WEEK);
+            if (currentDayOfWeek == 1) {
+                System.out.println("Sunday");
+            }
+            System.out.println(now.getTime());
+            now.add(Calendar.DAY_OF_MONTH, 1);
+        }
+
+
+        return sun;
+    }
+
+
+
+    public static int getWorkDays(int year, int month) {
+        GregorianCalendar now = new GregorianCalendar();
+        now.set(Calendar.YEAR, year);
+        now.set(Calendar.MONTH, month);
+        now.set(Calendar.DAY_OF_MONTH, 1);
+
+        int workDays = 0;
+        int workDay = Calendar.DAY_OF_MONTH;
+        int lastDayOfMonth = now.getActualMaximum(Calendar.DAY_OF_MONTH);
+        for (int i = 0; i < lastDayOfMonth; i++) {
+            int currWeekDay = now.get(Calendar.DAY_OF_WEEK);
+            if (currWeekDay == Calendar.SATURDAY || currWeekDay == Calendar.SUNDAY) {
+                System.out.println("Wochenende");
+            } else {
+                System.out.println("Arbeitstag");
+                workDays++;
+            }
+//            System.out.println(now.getTime());
+            now.add(Calendar.DAY_OF_WEEK, 1);
 
 
 
         }
 
-        return year;
+
+        return workDays;
     }
 
+
 }
+
 
