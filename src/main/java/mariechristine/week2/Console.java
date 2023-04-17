@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Console {
     public static void main(String[] args) {
 
-      String input = consoleInputText("Was ist dein Name?");
+        String input = consoleInputText("Was ist dein Name?");
         System.out.println("Dein Name ist also " + input + ".");
         String age = consoleInputText("Wie alt bist du?");
         System.out.println("Du bist " + age + " Jahre alt.");
@@ -16,7 +16,7 @@ public class Console {
         System.out.println("Dein Job ist " + job + " .");
 
         consoleInputLoop("Was ist deine Zahl?");
-        consoleInput2("Nenne eine beliebe Zahl!");
+        consoleInput2("Nenne eine beliebige Zahl!");
 
     }
 
