@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class FilesCountSum {
     public static void main(String[] args) {
-        File startDirectory = new File("C:\\Users\\DCV\\IdeaProjects\\CodingCampus_2023.03.VZ.Dornbirn\\src\\main\\java\\mariechristine\\week7");
+        File startDirectory = new File("C:\\Users\\DCV\\IdeaProjects\\CodingCampus_2023.03.VZ.Dornbirn\\");
         System.out.println("Verzeichnis: " + startDirectory.getAbsolutePath() + "\n");
 
         System.out.println("Count files in directory: " + countFilesInDirectory(startDirectory));
@@ -37,7 +37,6 @@ public class FilesCountSum {
             if (directoryContent[i].isFile()) {
                 sum = sum + directoryContent[i].length();
             }
-            //System.out.println(sum);
 
         }
         return sum;
@@ -45,10 +44,15 @@ public class FilesCountSum {
 
 
     public static long countFilesRecursive(File startDirectory) {
+        if (startDirectory.isFile()){
+            return 1;
+        }
+
         File[] directoryContent = startDirectory.listFiles();
+
         long countFiles = 0;
         for (int i = 0; i < directoryContent.length; i++) {
-            countFiles += countFilesInDirectory(startDirectory);
+            countFiles += countFilesRecursive(directoryContent[i]);
         }
         return countFiles;
     }
@@ -61,7 +65,7 @@ public class FilesCountSum {
         File[] directoryContent = startDirectory.listFiles();
         long sum = 0;
         for (int i = 0; i < directoryContent.length; i++) {
-            sum += sumSizeInDirectory(startDirectory);
+            sum += sumSizeRecursive(directoryContent[i]);
         }
         return sum;
     }
