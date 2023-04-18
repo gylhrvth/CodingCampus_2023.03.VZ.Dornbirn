@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class FilesExercises {
     public static void main(String[] args) {
 
-/*        File[] fileList = {
+        File[] fileList = {
                 new File("/Users/DCV/IdeaProjects/CodingCampus_2023.03.VZ.Dornbirn/src/main/java/mariechristine/week2/Riddle.java"),
                 new File("/Users/DCV/IdeaProjects/CodingCampus_2023.03.VZ.Dornbirn/src/main/java/mariechristine"),
                 new File("/Users/DCV/IdeaProjects/CodingCampus_2023.03.VZ.Dornbirn/src/main/java/mariechristine/week2/NotExisting.java")
@@ -24,9 +24,9 @@ public class FilesExercises {
             System.out.println("\n");
 
         }
-*/
 
-/*        File startVerzeichnis = new File("C:\\Users\\DCV\\IdeaProjects\\CodingCampus_2023.03.VZ.Dornbirn\\");
+
+        File startVerzeichnis = new File("C:\\Users\\DCV\\IdeaProjects\\CodingCampus_2023.03.VZ.Dornbirn\\");
         System.out.println("Verzeichnis: " + startVerzeichnis.getAbsolutePath());
         System.out.println("Aufgabe: Verzeichnis auflisten");
         File[] inhalt = startVerzeichnis.listFiles();
@@ -38,19 +38,15 @@ public class FilesExercises {
             }
             System.out.println(f.getName() + " " + f.length());
         }
-*/
+
         System.out.println("\nBonusaufgabe: Verzeichnis auflisten in Reihenfolge");
         File file2 = new File("C:\\Users\\DCV\\IdeaProjects\\CodingCampus_2023.03.VZ.Dornbirn\\");
         System.out.println("Verzeichnis " + file2.getAbsolutePath());
 
         File[] inhalt2 = file2.listFiles();
-        // TODO: 17.04.2023 sort array
-
-        int[] sortFile = new int[inhalt2.length];
-        for (int i = 0; i < sortFile.length; i++) {
-            sortFile[i] = sortFile.length - i; {
-                System.out.println("Sort file length: " + file2.length());
-            }
+        if (inhalt2 != null) {
+            myMagicSort(inhalt2);
+            for (File f : inhalt2);
 
         }
 
@@ -65,6 +61,22 @@ public class FilesExercises {
 
         }
 
+    }
+
+    public static void myMagicSort(File[] files) {
+        for (int i = 0; i < files.length; i++) {
+            for (int j = 0; j < files.length - i - 1; j++) {
+                if (
+
+                        (files[j].isFile() && !files[j + 1].isFile())
+                                || ((files[j].isFile() == files[j + 1].isFile()) && files[j].compareTo(files[j + 1]) > 0)
+                ) {
+                    File temp = files[j];
+                    files[j] = files[j + 1];
+                    files[j + 1] = temp;
+                }
+            }
+        }
     }
 
 }
