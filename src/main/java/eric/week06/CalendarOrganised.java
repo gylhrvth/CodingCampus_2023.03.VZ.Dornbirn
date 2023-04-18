@@ -1,4 +1,4 @@
-package eric.week06.calenderExcercise;
+package eric.week06;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

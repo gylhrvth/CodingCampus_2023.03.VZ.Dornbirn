@@ -5,7 +5,7 @@ import java.io.File;
 public class AufgabeDateienZaehlen {
     public static void main(String[] args) {
 
-        String directoryPath = "C:\\Users\\syn7e\\IdeaProjects\\CodingCampus_2023.03.VZ.Dornbirn\\src\\main\\java\\eric\\";
+        String directoryPath = "C:\\Users\\syn7e\\IdeaProjects\\CodingCampus_2023.03.VZ.Dornbirn\\src\\main\\java\\mert";
         File directory = new File(directoryPath);
 
         int[] result = searchTree(directory);
