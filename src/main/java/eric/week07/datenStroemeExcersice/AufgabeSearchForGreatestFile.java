@@ -2,6 +2,8 @@ package eric.week07.datenStroemeExcersice;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.InvalidPathException;
+import java.nio.file.Paths;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -13,7 +15,8 @@ public class AufgabeSearchForGreatestFile {
         File directory = null;
         boolean validInput = false;
 
-        while (!validInput){
+
+        while (!validInput) {
             System.out.println("Bitte gib ein Verzeichnungspfad an.");
             directoryPath = sc.nextLine();
             directory = new File(directoryPath);
@@ -21,10 +24,12 @@ public class AufgabeSearchForGreatestFile {
             if (directory.exists() && directory.isDirectory()) {
                 validInput = true;
             } else {
-                System.out.println("Ungültiger Verzeichnispfad. Bitte versuchen Sie es erneut.");
+                System.out.println("Ungültiger Verzeichnispfad" + directoryPath);
             }
         }
-        File largestFile = findLargestFile(directory.listFiles());
+
+
+        File largestFile = findLargestFile(directory);
         if (largestFile != null) {
             System.out.println("Größte Datei: " + largestFile.getPath());
             System.out.println("Größe:        " + largestFile.length() + " Bytes");
@@ -33,22 +38,19 @@ public class AufgabeSearchForGreatestFile {
         }
     }
 
-
-
-    public static File findLargestFile(File[] file) {
+    public static File findLargestFile(File file) {
         File largestFile = null;
-        long size = 0;
-        for (File f : file) {
-            System.out.println("findLargestFile" + f.getAbsolutePath());
-            if (f.isFile() && f.length() > size) {
-                size = f.length();
-                largestFile = f;
-            } else if (f.isDirectory()) {
-                File[] subFiles = f.listFiles();
-                File largestSubFile = findLargestFile(subFiles);
-                if (largestSubFile != null && largestSubFile.length() > size) {
-                    size = largestSubFile.length();
-                    largestFile = largestSubFile;
+        File[] dir = file.listFiles();
+
+        if (dir != null) {
+            for (File f : dir) {
+                if (f.isDirectory()) {
+                    File subDirLargestFile = findLargestFile(f);
+                    if (subDirLargestFile != null && (largestFile == null || subDirLargestFile.length() > largestFile.length())) {
+                        largestFile = subDirLargestFile;
+                    }
+                } else if (largestFile == null || f.length() > largestFile.length()) {
+                    largestFile = f;
                 }
             }
         }

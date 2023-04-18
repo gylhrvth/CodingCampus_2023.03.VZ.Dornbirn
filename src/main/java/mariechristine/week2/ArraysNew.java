@@ -32,8 +32,8 @@ public class ArraysNew {
         ranNumForI(ranArray);
         crazyRange(size);
 
-        int[] arr = new int[]{5, 17, 49, 22, 56, 99};
-        getFirstAndLast(arr);
+        System.out.println("Over 30: " + countOver30(ranArray));
+
 
 
     }
@@ -123,12 +123,13 @@ public class ArraysNew {
         System.out.println("]");
     }
 
-    public static void getFirstAndLast(int[] arr) {
+    public static int countOver30(int[] arr) {
+        int result = 0;
         for (int i = 0; i < arr.length; i++) {
-            if (i == 0 || i >= arr.length) {
-                System.out.println("First: " + i + ", " + " last: " + arr.length);
+            if (arr[i] > 30) {
+                ++result;//result = result + 1
             }
-
         }
+        return result;
     }
 }

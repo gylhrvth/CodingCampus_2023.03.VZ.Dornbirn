@@ -1,4 +1,4 @@
-package hassan;
+package hassan.week01;
 
 public class HelloWorld {
     public static void main(String[] args) {
