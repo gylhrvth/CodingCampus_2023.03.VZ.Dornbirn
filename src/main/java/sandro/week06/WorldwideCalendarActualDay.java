@@ -2,12 +2,10 @@ package sandro.week06;
 
 import lukas.week03.day4.Colors;
 
-import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Calendar;
+import java.util.Locale;
 
-public class CalendarActualDay {
+public class WorldwideCalendarActualDay {
     public static void main(String[] args) {
 //        new Thread(() -> {
 //            try {
@@ -27,8 +25,8 @@ public class CalendarActualDay {
 //            }
 //        }).start();
 
-      //   Locale.setDefault(new Locale.Builder().setRegion("TH").setLanguage("th").build());
-//            printDays(2565,4);
+        //       Locale.setDefault(new Locale.Builder().setRegion("TH").setLanguage("th").build());
+        //       printDays(2565,4);
 
         String[] month = {"Jänner", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"};
         for (int i = 0; i <= 11; i++) {
@@ -40,9 +38,6 @@ public class CalendarActualDay {
     }
 
     public static void printDays(int year, int month) {
-        System.out.println(" |  Mo |  Di |  Mi |  Do |  Fr |  Sa |  So |");
-        System.out.println("--------------------------------------------");
-
         Calendar todayCalendar = Calendar.getInstance();
         //   todayCalendar.set(Calendar.DAY_OF_MONTH, 1);
 
@@ -50,13 +45,53 @@ public class CalendarActualDay {
         Calendar cal = Calendar.getInstance();
         cal.set(year, month - 1, 1);
 
+        int startweek;
+        startweek = cal.getFirstDayOfWeek();
 
+        String[] weekdays = {"So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"};
+
+        for (int i = 0; i < 7; i++) {
+            int weekDayIndex = (i + startweek - 1) % 7;
+            System.out.print(" |  " + weekdays[weekDayIndex]);
+        }
+        System.out.println(" |");
+
+//        if (startweek == 2) {
+//            String[] weekday = {" |  Mo", " |  Di", " |  Mi", " |  Do", " |  Fr", " |  Sa", " |  So"};
+//            for (int i = 0; i <= 6; i++) {
+//                System.out.print(weekday[i]);
+//            }
+//            System.out.println();
+//            System.out.println("--------------------------------------------");
+//        }
+//        if (startweek == 1) {
+//            String[] weekday = {" |  So"," |  Mo", " |  Di", " |  Mi", " |  Do", " |  Fr", " |  Sa"};
+//            for (int i = 0; i <= 6; i++) {
+//                System.out.print(weekday[i]);
+//            }
+//            System.out.println();
+//            System.out.println("--------------------------------------------");
+//        }
+
+
+        int breakDay;
+        breakDay = cal.getFirstDayOfWeek() - 1;
+        if (breakDay == 0) {
+            breakDay = Calendar.SATURDAY;
+        }
+
+
+        int emptyDays = cal.get(Calendar.DAY_OF_WEEK) - 2;
         if (cal.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
-            System.out.print(" |     |     |     |     |     |    ");
-        } else {
-            for (int i = cal.getFirstDayOfWeek(); i < cal.get(Calendar.DAY_OF_WEEK); i++) {
-                System.out.print(" |    ");
-            }
+            emptyDays = 6;
+        }
+
+        if (breakDay == Calendar.SATURDAY) {
+            emptyDays = cal.get(Calendar.DAY_OF_WEEK) - 1;
+        }
+
+        for (int i = 0; i < emptyDays; i++) {
+            System.out.print(" |    ");
         }
         for (int i = 1; i <= cal.getActualMaximum(Calendar.DAY_OF_MONTH); i++) {
 
@@ -72,17 +107,21 @@ public class CalendarActualDay {
             } else {
                 System.out.printf(" | " + "%3d", i);
             }
-            if (cal.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
+            if (cal.get(Calendar.DAY_OF_WEEK) == breakDay) {
                 System.out.print(" |" + " Week " + cal.get(Calendar.WEEK_OF_YEAR) + "\n");
             }
         }
-        for (int i = cal.get(Calendar.DAY_OF_WEEK); i < 8; i++) {
-            if (cal.get(Calendar.DAY_OF_WEEK) == 1) {
-
-            } else
-                System.out.print(" |    ");
+        int countUpTo = 8;
+        if (breakDay == Calendar.SATURDAY) {
+            countUpTo = 7;
         }
-        if (cal.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
+        int currentDayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+        if (currentDayOfWeek != breakDay) {
+            for (int i = currentDayOfWeek; i < countUpTo; i++) {
+                System.out.print(" |    ");
+            }
+        }
+        if (currentDayOfWeek == breakDay) {
             System.out.println("--------------------------------------------");
         } else {
             System.out.println(" |" + " Week " + cal.get(Calendar.WEEK_OF_YEAR));

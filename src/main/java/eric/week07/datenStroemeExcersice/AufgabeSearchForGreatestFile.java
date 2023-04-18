@@ -21,6 +21,7 @@ public class AufgabeSearchForGreatestFile {
             directoryPath = sc.nextLine();
             directory = new File(directoryPath);
 
+
             if (directory.exists() && directory.isDirectory()) {
                 validInput = true;
             } else {
@@ -56,4 +57,32 @@ public class AufgabeSearchForGreatestFile {
         }
         return largestFile;
     }
+
+//    public static File findLargestFile(File file) {
+//        File largestFile = null;
+//        File[] dir = file.listFiles();
+//        long size = 0;
+//
+//        if (dir != null) {
+//            for (File f : dir) {
+//                if (f.isDirectory()) {
+//                    File subDirLargestFile = findLargestFile(f);
+//                    if (subDirLargestFile != null && subDirLargestFile.length() > size) {
+//                        size = subDirLargestFile.length();
+//                    }
+//                    largestFile = subDirLargestFile;
+//                } else if (largestFile == null || f.length() > largestFile.length()) {
+//                    largestFile = f;
+//                }
+//            }
+//            File[] temp = new File[dir.length];
+//            int count = 0;
+//            for (File files : dir) {
+//                if (!files.isDirectory() && files.length() == size){
+//                    temp[count++] == files;
+//                }
+//            }
+//        }
+//        return largestFile;
+//    }
 }
