@@ -12,7 +12,7 @@ public class ListFile {
         System.out.println("My File information:");
         for (File file : fileList) {
             if (file.isDirectory()) {
-                System.out.println("Files:   " + "*" + file.getName());
+                System.out.println("Direc:   " + "*" + file.getName());
             } else {
                 System.out.println("Files:   " + file.getName());
             }

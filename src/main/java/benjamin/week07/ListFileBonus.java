@@ -12,6 +12,9 @@ public class ListFileBonus {
         printFile("", directory);
     }
 
+
+    //noch nicht fertig bis jetzt nur schöner ausdruck mit alphabetischer Ordnung
+
     public static void descendingFile(File[] file) {
         for (int i = 0; i < file.length; i++) {
             for (int j = 0; j < file.length - i - 1; j++) {
