@@ -12,7 +12,6 @@ public class CountFilesRek {
 
     public static void printCountandSum(File directory) {
 
-        if (directory.isDirectory()) {
             int numFiles = 0;
             long fileSumAll = 0;
 
@@ -24,7 +23,6 @@ public class CountFilesRek {
 
             System.out.println("Anzahl der Dateien im Verzeichnis: " + numFiles);
             System.out.println("Summe der Größe der Dateien:       " + fileSumAll + " bytes");
-        }
     }
 
     public static int fileCount(File directory) {
