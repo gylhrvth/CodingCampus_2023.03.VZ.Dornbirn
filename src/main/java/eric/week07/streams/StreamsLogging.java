@@ -36,18 +36,18 @@ public class StreamsLogging {
             PrintStream ps = new PrintStream(fos);
 
             if (severity == 1) {
-                ps.println(message + "--> ERROR: Couldn´t find todays date.");
-
+                ps.println(message + " -->ERROR: Couldn´t find todays date.");
             }
+
             if (severity == 2) {
                 date.add(Calendar.DAY_OF_YEAR, 1);
-                ps.println(message + "--> WARNING: Tomorrow is " + sdf.format(date.getTime()) + "!");
-
+                ps.println(message + " -->WARNING: Tomorrow is " + sdf.format(date.getTime()) + "!");
             }
+
             if (severity == 3) {
-                ps.println(message + "--> INFO: Today is " + sdf.format(date.getTime()) + "!");
-
+                ps.println(message + " -->INFO: Today is " + sdf.format(date.getTime()) + "!");
             }
+
         } catch (FileNotFoundException e){
             System.out.println("Ein Fehler ist aufgetreten " + e.getMessage());
         }
