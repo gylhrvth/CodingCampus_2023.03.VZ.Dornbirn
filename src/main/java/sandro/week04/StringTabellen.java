@@ -107,7 +107,6 @@ public class StringTabellen {
         return maxLen;
     }
 
-
     public static int tabspaceINT(String header, int[] arr) {
         int maxLen = header.length();
         for (int nameFromArr : arr) {
