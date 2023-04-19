@@ -9,6 +9,8 @@ public class SearchFile {
         File startPath = new File("C:\\Users\\DCV\\IdeaProjects\\CodingCampus_2023.03.VZ.Dornbirn\\src\\main\\java\\mariechristine");
         String text = lookUpPath("Gib einen Dateipfad ein!");
 
+        long biggestFile = lookUpBiggestFile(startPath);
+
 
     }
 
@@ -19,6 +21,15 @@ public class SearchFile {
 
     }
 
-//   public static long lookUpBiggestFile() {}
+   public static long lookUpBiggestFile(File startPath) {
+        if (startPath.isFile()){
+            return startPath.length();
+        }
+
+        File[] content = startPath.listFiles();
+        if (content == null);
+
+       return 0;
+   }
 
 }

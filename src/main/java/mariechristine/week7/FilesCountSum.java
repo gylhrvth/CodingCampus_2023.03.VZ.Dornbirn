@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class FilesCountSum {
     public static void main(String[] args) {
-        File startDirectory = new File("C:\\Users\\DCV\\IdeaProjects\\CodingCampus_2023.03.VZ.Dornbirn\\");
+        File startDirectory = new File("C:\\Users\\DCV\\IdeaProjects\\CodingCampus_2023.03.VZ.Dornbirn\\src\\main\\java\\mariechristine");
         System.out.println("Verzeichnis: " + startDirectory.getAbsolutePath() + "\n");
 
         System.out.println("Count files in directory: " + countFilesInDirectory(startDirectory));
