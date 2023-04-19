@@ -4,7 +4,7 @@ import java.io.File;
 
 public class CountFiles {
     public static void main(String[] args) {
-        File directory = new File("/Users/zein/IdeaProjects/CodingCampus_2023.03.VZ.Dornbirn/src/main/java/hassan/");
+        File directory = new File("/Users/zein/IdeaProjects/CodingCampus_2023.03.VZ.Dornbirn");
 
         long[] result = searchTree(directory);
         long totalFiles = result[0];
