@@ -36,14 +36,12 @@ public class FileSearch {
                     if (file.isDirectory()) {
 
                         count += searchDirectory(file.getPath(), searchCriteria);
-                    } else if (file.getName().contains(searchCriteria)) {
+                    } else if (file.getName().toLowerCase().contains(searchCriteria.toLowerCase())) {
 
                         System.out.println(file.getPath());
                         count++;
                     }
                 }
-            } else {
-                System.out.println("Keine Dateien gefunden.");
             }
         } else {
             System.out.println("Das Verzeichnis existiert nicht oder ist kein Verzeichnis.");

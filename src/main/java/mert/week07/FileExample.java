@@ -4,7 +4,7 @@ import java.io.File;
 
 public class FileExample {
     public static void main(String[] args) {
-        File f1 = new File("C:\\Users\\duelg\\IdeaProjects\\CodingCampus_2023.03.VZ.Dornbirn\\src\\main\\java\\mert\\Week02");
+        File f1 = new File("C:\\Users\\duelg\\IdeaProjects\\CodingCampus_2023.03.VZ.Dornbirn\\src\\main\\java\\mert\\");
         long filesize = 0;
         int anzahlDatei = 0;
 
