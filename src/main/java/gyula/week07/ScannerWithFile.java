@@ -15,7 +15,7 @@ public class ScannerWithFile {
             }
             sc.close();
         } catch (FileNotFoundException fnfe){
-            System.out.println("Datei wurde nicht gefunden.");
+            System.err.println("Datei wurde nicht gefunden.");
         }
     }
 }
