@@ -38,7 +38,7 @@ public class SearchEingine {
     public static String searchCrit(){
         System.out.println("What are we looking for?");
         Scanner scanner = new Scanner(System.in);
-        String crit = scanner.next();
-        return crit;
+        return scanner.next();
+
     }
 }

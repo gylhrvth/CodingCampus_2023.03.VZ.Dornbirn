@@ -19,15 +19,15 @@ public class BiggestUnit {
         if (fileInput.isFile()) {
             return fileInput.length();
         }
-
         long maxsize = 0;
         File[] file = fileInput.listFiles();
-        if (file != null) {
-            for (File fi : file) {
-                long maxSizeOfChild = rekursiveMaxFileSize(fi);
-                if (maxSizeOfChild > maxsize) {
-                    maxsize = maxSizeOfChild;
-                }
+        if (file == null) {
+            return 0;
+        }
+        for (File fi : file) {
+            long maxSizeOfChild = rekursiveMaxFileSize(fi);
+            if (maxSizeOfChild > maxsize) {
+                maxsize = maxSizeOfChild;
             }
         }
         return maxsize;
