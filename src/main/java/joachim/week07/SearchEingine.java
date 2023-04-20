@@ -1,7 +1,6 @@
 package joachim.week07;
 
 import java.io.File;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class SearchEingine {
@@ -38,7 +37,7 @@ public class SearchEingine {
     public static String searchCrit(){
         System.out.println("What are we looking for?");
         Scanner scanner = new Scanner(System.in);
-        String crit = scanner.next();
-        return crit;
+        return scanner.next();
+
     }
 }
