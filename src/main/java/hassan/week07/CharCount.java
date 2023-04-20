@@ -46,7 +46,6 @@ public class CharCount {
     public static int countChars(String text) {
         return text.length();
     }
-
     public static int countChar(String text, char c) {
         int count = 0;
         for (int i = 0; i < text.length(); i++) {
@@ -56,7 +55,6 @@ public class CharCount {
         }
         return count;
     }
-
     public static int countCharArr(String text, char[] chars) {
         int count = 0;
         for (int i = 0; i < text.length(); i++) {
@@ -69,6 +67,4 @@ public class CharCount {
         }
         return count;
     }
-
-
 }
