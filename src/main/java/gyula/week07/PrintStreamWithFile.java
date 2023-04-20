@@ -15,7 +15,7 @@ public class PrintStreamWithFile {
             ps.close();
             System.out.println("File schreiben war erfolgreich");
         } catch (FileNotFoundException fnfe){
-            System.out.println(f.getAbsolutePath() + " ist nicht erreichbar.");
+            System.err.println(f.getAbsolutePath() + " ist nicht erreichbar.");
         }
     }
 }

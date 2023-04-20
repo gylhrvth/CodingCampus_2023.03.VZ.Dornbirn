@@ -5,7 +5,7 @@ import java.nio.file.Path;
 
 public class BigDataExample {
     public static void main(String[] args) {
-        File startPath = new File("/Users/gyula.horvath/IdeaProjects/CodingCampus_2023.03.VZ.Dornbirn/src/");
+        File startPath = new File("IdeaProjects\\CodingCampus_2023.03.VZ.Dornbirn\\src");
 
         long bigestFileSize = getBigestFileSize(startPath);
         System.out.println("big: " + bigestFileSize);
