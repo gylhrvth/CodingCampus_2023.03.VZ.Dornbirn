@@ -8,35 +8,41 @@ import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
 public class Logging {
-    public static void main(String[] args) {
+    private static final File file = new File("assets/tmp/logfile.txt");
+    private static final File oldFile = new File("assets/tmp/logfile.old");
+    private static final SimpleDateFormat dateAndTime = new SimpleDateFormat("yyy.MM.dd. HH:mm:ss ");
 
-    }
-
-    public static void log(int severity, String message){
+    public static void log(int severity, String message) {
         GregorianCalendar now = new GregorianCalendar();
-        File f = new File("assets/tmp/logging.txt");
-        f.getParentFile().mkdirs();
+        File logFile = file;
+        logFile.getParentFile().mkdirs();
 
-        SimpleDateFormat dateAndTime = new SimpleDateFormat("yyy.MM.dd. HH:mm:ss ");
+        if (logFile.length() > 10000) {
+            File oldLogFile = oldFile;
+            if (oldLogFile.exists()) {
+                oldLogFile.delete();
+            }
+            logFile.renameTo(oldLogFile);
+        }
+
         String time = dateAndTime.format(now.getTime());
 
         try {
-            FileOutputStream fos = new FileOutputStream(f, true);
+            FileOutputStream fos = new FileOutputStream(logFile, true);
             PrintStream ps = new PrintStream(fos);
 
-            if(severity == 1){
+            if (severity == 1) {
                 ps.println(time + "ERROR " + message);
-            }else if (severity == 2){
+            } else if (severity == 2) {
                 ps.println(time + "WARNING: " + message);
-            }else if (severity == 3){
+            } else if (severity == 3) {
                 ps.println(time + "INFO: " + message);
             }
+
             ps.close();
-            System.out.println("Log successful!");
 
-        }catch (FileNotFoundException fnfe) {
-            System.err.println(f.getAbsolutePath() + " not available.");
-
+        } catch (FileNotFoundException fnfe) {
+            System.err.println(logFile.getAbsolutePath() + " not available.");
         }
     }
 }
