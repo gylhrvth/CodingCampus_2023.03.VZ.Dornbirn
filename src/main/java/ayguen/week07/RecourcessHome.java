@@ -92,7 +92,15 @@ public class RecourcessHome {
                 //Ich wollte die Farbe des codes weiss und nur die erste Reihe des codes Rot machen doch es wird nur umgekehrt angezeigt.
                 //Gyula kann mir sicher helfen
 
+                /*Meine Idee wäre
 
+                for(i = 0; i <= data[i].lenght; i++){
+                    System.out.println();
+                    System.out.print("_");
+
+                damit es nach jeder Spalte einen "_" macht.
+
+                 */
 
 
 
