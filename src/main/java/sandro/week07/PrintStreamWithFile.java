@@ -11,7 +11,7 @@ public class PrintStreamWithFile {
         Scanner sc = new Scanner(System.in);
         String text = sc.nextLine();
 
-        File f = new File("C:\\Users\\ossdr\\IdeaProjects\\CodingCampus_2023.03.VZ.Dornbirn\\src\\main\\java\\sandro\\week07\\MyMessage.txt");
+        File f = new File("assets/temp/MyMessage.txt");
         try {
             FileOutputStream fos = new FileOutputStream(f, false);
             PrintStream ps = new PrintStream(fos);
