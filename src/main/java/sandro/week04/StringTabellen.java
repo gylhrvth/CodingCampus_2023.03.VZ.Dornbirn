@@ -34,8 +34,6 @@ public class StringTabellen {
             int Farbe5 = rand.nextInt(8);
             int Farbe6 = rand.nextInt(8);
 
-//todo ermittle die Spalte mit den meistens inputs fristName = Maxlength, then use firstName
-//todo ermittle den großten wert in einer Array um die breite festzulegen.
 
             int maxLen = tabspaceS(headerFirstName, firstName);
             int maxLen2 = tabspaceS(headerLastName, lastName);
@@ -106,7 +104,6 @@ public class StringTabellen {
         }
         return maxLen;
     }
-
 
     public static int tabspaceINT(String header, int[] arr) {
         int maxLen = header.length();
