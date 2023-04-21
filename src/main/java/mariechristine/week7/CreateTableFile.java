@@ -1,24 +1,22 @@
-package sandro.week07;
+package mariechristine.week7;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
-import java.util.Scanner;
 
-public class PrintStreamWithFile {
+public class CreateTableFile {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String text = sc.nextLine();
+        File f = new File("assets/tmp/output.txt");
 
-        File f = new File("assets/temp/MyMessage.txt");
+        String grid = StreamsTable.printTable();
         try {
             FileOutputStream fos = new FileOutputStream(f, false);
             PrintStream ps = new PrintStream(fos);
-            ps.println(text);
+            ps.println(grid);
             ps.close();
-            System.out.println("File schreiben war erfolgreich");
-        } catch (FileNotFoundException fnfe){
+            System.out.println("Tabelle erstellt.");
+        } catch (FileNotFoundException fnfe) {
             System.out.println(f.getAbsolutePath() + " ist nicht erreichbar.");
         }
     }
