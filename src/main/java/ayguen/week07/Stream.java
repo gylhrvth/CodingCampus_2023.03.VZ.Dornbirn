@@ -7,7 +7,7 @@ public class Stream {
 
     public static void main(String[] args) {
 
-        File f = new File("C:\\Users\\DCV\\IdeaProjects\\CodingCampus_2023.03.VZ.Dornbirn\\src\\main\\java\\ayguen\\week07\\MyMessage.txt");
+        File f = new File("C:\\Users\\DCV\\IdeaProjects\\CodingCampus_2023.03.VZ.Dornbirn\\src\\main\\java\\ayguen\\week07\\");
         try {
             FileOutputStream fos = new FileOutputStream(f, true);
             PrintStream ps = new PrintStream(fos);
