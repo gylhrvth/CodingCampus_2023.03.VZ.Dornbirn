@@ -1,4 +1,5 @@
 package joachim.week07;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -13,6 +14,7 @@ public class ErrorLogging {
     private static final int LOG_LEVEL_ERROR = 1;
     private static final int LOG_LEVEL_WARNING = 2;
     private static final int LOG_LEVEL_INFO = 3;
+    private static final Calendar CAL = Calendar.getInstance();
 
     public static void main(String[] args) {
         questioning();
@@ -20,8 +22,7 @@ public class ErrorLogging {
 
     public static String getTime() {
         SimpleDateFormat sdf = new SimpleDateFormat("EEEE " + "dd.MM.yyyy" + " hh.mm.ss");
-        Calendar calendar = Calendar.getInstance();
-        return sdf.format(calendar.getTime());
+        return sdf.format(CAL.getTime());
     }
 
     public static void questioning() {
@@ -36,12 +37,7 @@ public class ErrorLogging {
             }
             if (answer.equals("yes") || answer.equals("y")) {
                 try {
-                    System.out.println("What would you like to log?\n1.)ERROR\n2.)WARNING\n3.)INFO");
-                    int choosing = scanner.nextInt();
-                    scanner.nextLine();
-                    if (choosing != LOG_LEVEL_ERROR && choosing != LOG_LEVEL_WARNING && choosing != LOG_LEVEL_INFO) {
-                        System.out.println("Please choose one of the Options 1.)/2.)/3.)");
-                    }
+                    int choosing = messageQuery();
                     if (choosing == LOG_LEVEL_ERROR) {
                         System.out.println("You have chosen an ERROR.\nWhat kind of ERROR occured?");
                         String text = scanner.nextLine();
@@ -61,8 +57,7 @@ public class ErrorLogging {
                         asking = false;
 
                     }
-                } catch (InputMismatchException ime) {
-                    System.out.println("Please choose a given number 1.)/2.)/3.)");
+
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -74,9 +69,9 @@ public class ErrorLogging {
 
     public static void log(int severity, String message) throws IOException {
         BufferedWriter writer = null;
-        String errorMassage = " [Error] at ";
-        String warningMassage = " [Warning] at ";
-        String info = " [Info] at ";
+        String errorMassage = "[Error] at";
+        String warningMassage = "[Warning] at";
+        String info = "[Info] at";
         try {
             File errorLog = new File("C:/Users/Joach/IdeaProjects/CodingCampus_2023.03.VZ.Dornbirn/assets/tmp/errorlog.txt");
             if (errorLog.exists() && errorLog.length() >= 1024 * 1024) {
@@ -87,18 +82,35 @@ public class ErrorLogging {
             }
             writer = new BufferedWriter(new FileWriter(errorLog, true));
             if (severity == LOG_LEVEL_ERROR) {
-                writer.write("%s%s%s".formatted(message, errorMassage, getTime() + "\n"));
+                writer.write("%s %s %s".formatted(getTime(), errorMassage, message + "\n"));
             }
             if (severity == LOG_LEVEL_WARNING) {
-                writer.write("%s%s%s".formatted(message, warningMassage, getTime() + "\n"));
+                writer.write("%s %s %s".formatted(getTime(), warningMassage, message + "\n"));
             }
             if (severity == LOG_LEVEL_INFO) {
-                writer.write("%s%s%s".formatted(message, info, getTime() + "\n"));
+                writer.write("%s %s %s".formatted(getTime(), info, message + "\n"));
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
         } finally {
             writer.close();
+        }
+    }
+
+    public static int messageQuery() {
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            try {
+                System.out.println("What would you like to log?\n1.)ERROR\n2.)WARNING\n3.)INFO");
+                int choosing = scanner.nextInt();
+                scanner.nextLine();
+                if (choosing == LOG_LEVEL_ERROR || choosing == LOG_LEVEL_WARNING || choosing == LOG_LEVEL_INFO) {
+                    return choosing;
+                }
+            } catch (InputMismatchException ime) {
+                scanner.nextLine();
+            }
+            System.err.println("Please choose a given number 1.)/2.)/3.)");
         }
     }
 }
