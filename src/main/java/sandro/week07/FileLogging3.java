@@ -39,10 +39,11 @@ public class FileLogging3 {
             }
             String codetext = codetextList[severity];
 
-            String outputMessage = String.format("%s %s: %s\n",
-                    sdf.format(new Date()),
-                    codetext,
-                    message);
+//            String outputMessage = String.format("%s %s: %s\n",
+//                    sdf.format(new Date()),
+//                    codetext,
+//                    message);
+            String outputMessage = sdf.format(new Date()) + " " + codetext + ": " + message + "\n";
             currentLogSize += outputMessage.length();
             bufferedWriter.write(outputMessage);
             return outputMessage.length();
