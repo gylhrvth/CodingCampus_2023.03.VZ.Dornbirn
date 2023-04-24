@@ -39,7 +39,7 @@ public class TestClassForLogging {
 
         long bytes = 0;
 
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < 1000000; i++) {
             int code = rand.nextInt(1, 4);
             //System.out.println(code);
             bytes += FileLogging3.log(FileLogging.INFO, "test ".repeat(code * 3) + "  -- >" + i);
