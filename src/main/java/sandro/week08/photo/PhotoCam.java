@@ -1,4 +1,4 @@
-package sandro.week08.DatenKlasse;
+package sandro.week08.photo;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,7 +20,6 @@ public class PhotoCam {
         this.datum = new Date(); // new SimpleDateFormat("yyyy.MM.dd hh:mm:ss");
         this.size = size;
     }
-
 
     @Override
     public String toString() {
