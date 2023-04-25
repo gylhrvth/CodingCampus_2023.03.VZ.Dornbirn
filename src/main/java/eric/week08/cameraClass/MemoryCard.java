@@ -5,11 +5,13 @@ public class MemoryCard {
     private int storageAvailable;
     private int usedStorage;
     private String manufacturer;
+    private int capacity;
 
     public MemoryCard(String manufacturer, int capacity, int usedMB, int usedFiles){
         this.manufacturer = manufacturer;
         this.photosSaved = usedFiles;
         this.storageAvailable = capacity - usedMB;
+        this.capacity = capacity;
     }
 
     public boolean savePhoto(int dataVolume){
@@ -24,6 +26,6 @@ public class MemoryCard {
     }
     public String toString(){
         return "\nManufactured by: " + manufacturer + "\nPhotos saved: " + photosSaved +
-                "\nStorage used: " + usedStorage + "Mb/1000Mb";
+                "\nStorage available: " + storageAvailable + "Mb/" + capacity + "Mb";
     }
 }
