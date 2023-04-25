@@ -15,7 +15,7 @@ public class NextSunday {
 //            pe.printStackTrace();
 //        }
 //        cal.add(Calendar.DAY_OF_MONTH, (8 - cal.get(Calendar.DAY_OF_WEEK)) % 7);
-        cal.set(Calendar.DAY_OF_WEEK, 1);
+        cal.set(Calendar.DAY_OF_WEEK, Calendar.TUESDAY);
         System.out.println("Nächster Sonntag am: " + sdf.format(cal.getTime()));
     }
 }
