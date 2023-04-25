@@ -3,40 +3,56 @@ package mariechristine.week4;
 import data.Texts;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Hesse {
     public static void main(String[] args) {
-
         String text = Texts.HESSE;
-        System.out.println(text);
 
-        String wantedWord = "Hesse";
-        System.out.println(text.indexOf(wantedWord));
-        int index = text.indexOf(wantedWord, text.indexOf(wantedWord) + 1);
-        System.out.println(index);
+        countString();
+        withoutArraySplit();
+        upperCase();
 
     }
 
-//        characterNumber(text);
 
-
-    public static void characterNumber(String text) {
-        char[] charArray = text.toCharArray();
-        int[] charToCount = new int[7000];
-
-        for (int i = 0; i < text.length(); i++) {
-            char index = text.charAt(i);
-            ++charToCount[index];
-
+    public static void countString() {
+        String text = data.Texts.HESSE;
+        String[] word = text.split("\\s");
+        int count = 0;
+        for (int i = 0; i < word.length; i++) {
+            if (word[i].contains("Hesse")) {
+                count++;
+                System.out.println("Hesse " + count + " auf Index: " + i);
+            }
         }
     }
 
-    public static void countStrings(String text, String wantedWord, int index) {
-        for (int i = 0; i < text.length(); i++) {
-
-
+    public static void withoutArraySplit() {
+        String text = data.Texts.HESSE;
+        int count = 0;
+        int index = text.indexOf("Hesse");
+        while (index != -1) {
+            count++;
+            System.out.println("At position: " + index);
+            index = text.indexOf("Hesse", index + 1);
         }
+        System.out.println("Numbers of Hesse " + count);
+    }
+
+    public static void upperCase() {
+        String text = Texts.HESSE;
+        String uppercase = text.replace("Hesse", "HESSE");
+        System.out.println(uppercase);
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Welches Wort möchest du größer machen?");
+        String word = sc.nextLine();
+        String upperWord = text.replace(word, word.toUpperCase());
+        System.out.println(upperWord);
     }
 }
+
 
 
