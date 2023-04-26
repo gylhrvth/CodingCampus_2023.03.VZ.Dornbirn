@@ -12,6 +12,14 @@ public class NewMemory {
         this.usedMB = usedMB;
     }
 
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
     public void saveData(int size) {
         usedMB += size;
     }

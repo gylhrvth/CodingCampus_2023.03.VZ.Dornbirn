@@ -3,15 +3,15 @@ package hassan.week08.PhotoNew;
 public class TestFunktionCam {
     public static void main(String[] args) {
 
-        Camera sony = new Camera("EOS","Sony",20,1.0);
+        Camera sony = new Camera("EOS", "Sony", 20, 1.0);
 
         sony.setBrennweite(50);
 
-        NewMemory memory = new NewMemory("Disk",128,100);
-        //sony.insertMemoryCard(memory);
+        NewMemory memory = new NewMemory("Disk", 128, 100);
+        sony.insertMemoryCard(memory);
 
-        Lens lens = new Lens("Sony 30mm",50);
-       sony.mountObjective(lens);
+        Lens lens = new Lens("Sony 30mm", 50);
+        sony.mountObjective(lens);
 
         System.out.println("====");
         sony.takePhoto();
