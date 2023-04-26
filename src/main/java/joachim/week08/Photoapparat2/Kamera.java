@@ -5,12 +5,14 @@ public class Kamera {
     private String hersteller;
     private float megaPixel;
     private Memory memory;
+    private Objectiv objectiv;
 
     public Kamera(String hersteller, String model, int megaPixel) {
         this.model = model;
         this.hersteller = hersteller;
         this.megaPixel = megaPixel;
         this.memory = null; //Memory socket
+        this.objectiv = null; //Objectiv socket
 
     }
 
@@ -20,7 +22,19 @@ public class Kamera {
         } else if (mc == null) {
             System.out.println("Wo ist die Karte?");
         } else {
+            System.out.println(mc + " wurde eingefügt");
             memory = mc;
+        }
+    }
+
+    public void objectivEinfuegen(Objectiv ob) {
+        if (objectiv != null) {
+            System.out.println("Es ist bereits ein Objectiv montiert");
+        } else if (ob == null) {
+            System.out.println("Bitte ein Objectiv in die Hand nehmen");
+        } else {
+            System.out.println(ob + " wurde montiert.");
+            objectiv = ob;
         }
     }
 
@@ -30,6 +44,7 @@ public class Kamera {
             return null;
         }
 
+        System.out.println(this.memory + " wurde entfernt.");
         Memory mc = this.memory;
         this.memory = null;
         return mc;
@@ -48,8 +63,11 @@ public class Kamera {
             System.out.println("Bitte eine Memorycard einfügen");
             return;
         }
-        System.out.println("Click");
+
+        memory.saveAPhoto((int) (megaPixel * 0.3));
+        System.out.println("Click!!! Rest: " + memory.getFreeMemory());
     }
+
 
     @Override
     public String toString() {
