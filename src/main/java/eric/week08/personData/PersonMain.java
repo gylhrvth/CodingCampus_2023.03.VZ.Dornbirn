@@ -1,4 +1,4 @@
-package eric.week08;
+package eric.week08.personData;
 
 public class PersonMain {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package eric.week08;
+package eric.week08.calculateNumbers;
 
 import java.util.Arrays;
 

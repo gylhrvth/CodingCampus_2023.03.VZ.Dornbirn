@@ -2,7 +2,7 @@ package benjamin.week07;
 
 import java.io.File;
 
-public class CountFiles {
+public class CountAndSum {
     public static void main(String[] args) {
 
         File directory = new File("C:\\Users\\Beni\\IdeaProjects\\CodingCampus_2023.03.VZ.Dornbirn\\src\\main\\java\\benjamin\\week07");

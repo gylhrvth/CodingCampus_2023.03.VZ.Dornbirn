@@ -1,4 +1,4 @@
-package eric.week08;
+package eric.week08.calculateNumbers;
 
 public class CalcMinMaxAvgNumbers {
     private int smallestNum;
@@ -12,7 +12,6 @@ public class CalcMinMaxAvgNumbers {
     }
     public static CalcMinMaxAvgNumbers calculate(int[] values){
         CalcMinMaxAvgNumbers result = new CalcMinMaxAvgNumbers();
-        // TODO: 24.04.2023 Calcuulate actual values and set in attributes,,,
 
         for (int i : values) {
             if (i > result.biggestNum) {
