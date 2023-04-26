@@ -14,16 +14,26 @@ public class MemoryCard {
         this.capacity = capacity;
     }
 
-    public boolean savePhoto(int dataVolume){
+    public boolean saveData(int dataVolume){
        if (dataVolume <= storageAvailable){
             photosSaved++;
             storageAvailable -= dataVolume;
             return true;
         } else {
-            System.out.println("Not enough storage available");
+            System.out.println("Not enough storage available\n");
             return false;
         }
     }
+    public int showFreeMemory(){
+        System.out.println(capacity - storageAvailable + "Mb/" + capacity + "Mb are currently being used");
+        return capacity - storageAvailable;
+    }
+    public void clearMemory(){
+        System.out.println("Memory has been cleared!\n");
+        storageAvailable = this.capacity;
+        photosSaved = 0;
+    }
+
     public String toString(){
         return "\nManufactured by: " + manufacturer + "\nPhotos saved: " + photosSaved +
                 "\nStorage available: " + storageAvailable + "Mb/" + capacity + "Mb";
