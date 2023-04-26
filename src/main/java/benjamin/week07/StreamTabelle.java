@@ -33,7 +33,7 @@ public class StreamTabelle {
 
             //Information + Kopfzeile
 
-            ps.printf("|%-"+first+"s|%-"+last+"s|%" + age1 + "s|%-"+place1+"s|%" + dist + "s|",
+            ps.printf("|%-" + first + "s|%-" + last + "s|%" + age1 + "s|%-" + place1 + "s|%" + dist + "s|",
                     headfirstNamen, headLastNamen, headAge, headPlace, headDistance);
             ps.println();
 
@@ -45,14 +45,14 @@ public class StreamTabelle {
 
             for (int i = 0; i < firstName.length; i++) {
 
-                ps.printf("|%-"+first+"s|%-"+last+"s|%" + age1 + "d|%-"+place1+"s|%" + dist + ".2f|",
+                ps.printf("|%-" + first + "s|%-" + last + "s|%" + age1 + "d|%-" + place1 + "s|%" + dist + ".2f|",
                         firstName[i], lastName[i], age[i], place[i], distanceFromCapital[i]);
                 ps.println();
             }
 
             ps.close();
 
-        }catch (FileNotFoundException fnfe) {
+        } catch (FileNotFoundException fnfe) {
             System.err.println(f.getAbsolutePath() + " not available.");
         }
     }
@@ -66,22 +66,23 @@ public class StreamTabelle {
         }
         return name;
     }
-    public static int formatAge(String head, int[] arr){
+
+    public static int formatAge(String head, int[] arr) {
         int length = head.length();
-        for (int max: arr) {
-            String text = String.format("%d",max);
-            if(text.length() > length){
+        for (int max : arr) {
+            String text = String.format("%d", max);
+            if (text.length() > length) {
                 length = max;
             }
         }
         return length;
     }
 
-    public static int formatDistance(String head, float[] arr){
+    public static int formatDistance(String head, float[] arr) {
         int length = head.length();
-        for (float max: arr) {
+        for (float max : arr) {
             String text = String.format("%.2f", max);
-            if(text.length() > length){
+            if (text.length() > length) {
                 length = (int) max;
             }
         }

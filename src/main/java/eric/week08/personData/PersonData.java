@@ -1,4 +1,4 @@
-package eric.week08;
+package eric.week08.personData;
 
 import java.io.File;
 import java.io.FileNotFoundException;

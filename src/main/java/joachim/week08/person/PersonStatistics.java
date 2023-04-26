@@ -6,11 +6,11 @@ public class PersonStatistics {
     private String name;
     private int weight;
 
-    public PersonStatistics(int heights, int ages, String names, int weights) {
-        height = heights;
-        age = ages;
-        name = names;
-        weight = weights;
+    public PersonStatistics(int height, int age, String name, int weight) {
+        this.height = height;
+        this.age = age;
+        this.name = name;
+        this.weight = weight;
 
     }
     @Override
