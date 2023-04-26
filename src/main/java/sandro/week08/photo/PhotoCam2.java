@@ -3,39 +3,30 @@ package sandro.week08.photo;
 import java.util.Date;
 
 public class PhotoCam2 {
-    private int objektive;
+
     private String model;
     private String hersteller;
     private int megapixel;
-    private Date datum;
-    private double size;
-    private int memory;
-    private int pics;
+    private int size;
     private MemoryCard memoryCard;
     private Objective objective;
 
 
-    public PhotoCam2(String hersteller, String model, int megapixel, double size) {
+    public PhotoCam2(String hersteller, String model, int megapixel, int size) {
         this.model = model;
         this.hersteller = hersteller;
         this.megapixel = megapixel;
-        //    this.datum = new Date(); // new SimpleDateFormat("yyyy.MM.dd hh:mm:ss");
-        this.size = size * megapixel;
-        //   this.memory = 0;
-        //   this.pics = 0;
+        this.size = (int) ((size * 0.01) * megapixel);
         this.memoryCard = null;
         this.objective = null;
     }
 
-    //    public int getPics (int pics){
-//        return this.pics = pics;
-//    }
     public boolean mountObjective(Objective obj) {
         if (this.objective != null) {
             System.out.println("there is already an Objective mounted");
         }
         this.objective = obj;
-        System.out.println("objective " +this.objective + " is mounted");
+        System.out.println("objective " + this.objective + " is mounted");
         return true;
     }
 
@@ -63,8 +54,12 @@ public class PhotoCam2 {
         return mc;
     }
 
+    public void deleteMem(){
+        memoryCard.deleteMemory();
+    }
 
     public void takePhoto() {
+
         if (memoryCard == null) {
             System.out.println("Take photo without memory card is not allowed.");
             return;
@@ -72,8 +67,14 @@ public class PhotoCam2 {
             System.out.println("Please mount an Objectiv before you take a picture.");
             return;
         }
+
         System.out.println("Klick!!!");
-        memoryCard.saveData((int)this.size);
+        boolean saved = memoryCard.saveData(this.size);
+        if (saved) {
+            System.out.println("   ()_()   ");
+            System.out.println("   (0.o)   ");
+            System.out.println(" '(\") (\")' ");
+        }
     }
 
 
