@@ -1,51 +1,63 @@
 package mariechristine.week7;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.Scanner;
 
 public class CountChar {
     public static void main(String[] args) {
-        String text = data.Texts.getSimpleText();
-        printText(text);
+        String text1 = data.Texts.getSimpleText();
 
-        String regex = "";
+        BufferedReader reader = null;
 
-        int count = 0;
-        for (int i = 0; i < text.length(); i++) {
-            char c = text.charAt(i);
+        try {
+            reader = new BufferedReader(new FileReader("C:\\Users\\Beni\\IdeaProjects\\CodingCampus_2023.03.VZ.Dornbirn\\src\\main\\resources\\txt\\simpleText.txt"));
+            String completeText = "";
+            String text = reader.readLine();
+            while (text != null) {
+                completeText += text;
+                text = reader.readLine();
+            }
+            int totalChars = completeText.length();
+            char[] charsToCount = new char[]{'a', 'z', 'e'};
+            int totalCount = countAllChar(completeText, charsToCount);
 
-            if(c == 'a') {
-               count++;
+            System.out.println("Gesamtanzahl der Buchstaben: " + totalChars);
+            System.out.println("Buchstabe kommt : " + countChar(completeText, 'a') + " mal vor");
+            System.out.println("Buchstaben kommen: " + totalCount + " mal vor");
+
+        } catch (IOException e) {
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    //noop
+                }
             }
         }
 
-
     }
 
-    public static String printText(String text) {
-        try {
-            FileInputStream fis = new FileInputStream("C:\\Users\\DCV\\IdeaProjects\\CodingCampus_2023.03.VZ.Dornbirn\\src\\main\\resources\\txt\\simpleText.txt");
-            Scanner sc = new Scanner(fis);
-            sc.close();
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+    public static int countChar(String text, char abc) {
+        int count = 0;
+        for (int i = 0; i < text.length(); i++) {
+            if (text.charAt(i) == abc) {
+                count++;
+            }
         }
-
-        return text;
+        return count;
     }
 
-    public static void countChar(String text, char letter) {
-
-        try {
-            FileInputStream fis = new FileInputStream("C:\\Users\\DCV\\IdeaProjects\\CodingCampus_2023.03.VZ.Dornbirn\\src\\main\\resources\\txt\\simpleText.txt");
-            Scanner sc = new Scanner(fis);
-
-
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+    public static int countAllChar(String text, char[] abc) {
+        int count = 0;
+        for (int i = 0; i < text.length(); i++) {
+            char currentChar = text.charAt(i);
+            for (char c : abc) {
+                if (currentChar == c) {
+                    count++;
+                }
+            }
         }
+        return count;
     }
 }
