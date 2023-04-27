@@ -10,7 +10,7 @@ import java.util.Vector;
 
 public class Merge {
     private static Random rand = new Random();
-    private static Comparator comp = new Comparator<Integer>() {
+    private static final Comparator comp = new Comparator<Integer>() {
         @Override
         public int compare(Integer o1, Integer o2) {
             return o1 - o2;
