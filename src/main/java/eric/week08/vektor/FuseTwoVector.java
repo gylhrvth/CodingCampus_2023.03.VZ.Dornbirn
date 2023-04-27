@@ -4,104 +4,55 @@ import java.util.Random;
 import java.util.Vector;
 
 public class FuseTwoVector {
-    public static void main(String[] args) {
-        Vector<Integer> vOne = new Vector<>();
-        Vector<Integer> vTwo = new Vector<>();
-        Random randomOne = new Random();
-        Random randomTwo = new Random();
+    private static Random rand = new Random();
 
-        for (int i = 0; i < 20000; i++) {
-            int randomNumber = randomOne.nextInt(100);
-            int randomNumber2 = randomTwo.nextInt(100);
-            vOne.add(randomNumber);
-            vTwo.add(randomNumber2);
-        }
+    public static void main(String[] args) {
+        Vector<Integer> vOne = generateRandomVector(20);
+        Vector<Integer> vTwo = generateRandomVector(20);
 
         bubbleSort(vOne);
         bubbleSort(vTwo);
 
-        System.out.print(vOne);
-        System.out.println();
+        System.out.println(vOne);
+        System.out.println(vTwo);
 
-        System.out.print(vTwo);
-        System.out.println();
+        System.out.println("---");
 
-        Vector<Integer> result = mergeSort(vOne, vTwo);
-        System.out.print(result);
+        Vector<Integer> vThree = merge(vOne, vTwo);
+        System.out.println(vThree);
 
-        
     }
 
-    public static Vector<Integer> mergeSort(Vector<Integer> v1, Vector<Integer> v2) {
-        Vector<Integer> result = new Vector<>(v1.size() + v2.size());
-        int i = 0;
-        int j = 0;
-
-        while (i < v1.size() && j < v2.size()) {
-            if (v1.get(i) <= v2.get(j)) {
-                result.add(v1.get(i));
-                i++;
-            } else {
-                result.add(v2.get(j));
-                j++;
-            }
-        }
-        while (i < v1.size()) {
-            result.add(v1.get(i));
-            i++;
-        }
-        while (j < v2.size()) {
-            result.add(v2.get(j));
-            j++;
+    public static Vector<Integer> generateRandomVector(int size) {
+        Vector<Integer> result = new Vector<>();
+        for (int i = 0; i < size; i++) {
+            result.add(rand.nextInt(100));
         }
         return result;
     }
 
-
-    public static Vector<Integer> merge(Vector<Integer> left, Vector<Integer> vTwo) {
+    public static Vector<Integer> merge(Vector<Integer> vOne, Vector<Integer> vTwo) {
         Vector<Integer> result = new Vector<>();
 
-        int i = 0;
-        int j = 0;
-
-        while (i < left.size() && j < vTwo.size()) {
-            if (left.get(i) <= vTwo.get(j)) {
-                result.add(left.get(i));
-                i++;
+        while (!vOne.isEmpty() && !vTwo.isEmpty()) {
+            if (vOne.firstElement() < vTwo.firstElement()) {
+                result.add(vOne.firstElement());
+                vOne.remove(0);
             } else {
-                result.add(vTwo.get(j));
-                j++;
+                result.add(vTwo.firstElement());
+                vTwo.remove(0);
             }
         }
-        while (i < left.size()) {
-            result.add(left.get(i));
-            i++;
+        while (!vOne.isEmpty()) {
+            result.add(vOne.firstElement());
+            vOne.remove(0);
         }
-        while (j < vTwo.size()) {
-            result.add(vTwo.get(j));
-            j++;
+        while (!vTwo.isEmpty()) {
+            result.add(vTwo.firstElement());
+            vTwo.remove(0);
         }
         return result;
     }
-
-//    public static Vector<Integer> mergeSort(Vector<Integer> vec, Vector<Integer> low, Vector<Integer> high){
-//        if (vec.size() == 0){
-//            return vec;
-//        }
-//        int mid = vec.size() / 2;
-//
-//        for (int i = 0; i < mid; i++) {
-//            low.add(vec.get(i));
-//        }
-//        for (int i = mid; i < vec.size(); i++) {
-//            high.add(vec.get(i));
-//        }
-//
-////        mergeSort(low);
-////        mergeSort(high);
-//
-//        return merge(low, high);
-//    }
 
     public static void bubbleSort(Vector<Integer> randomNumber) {
         for (int i = 0; i < randomNumber.size(); i++) {
