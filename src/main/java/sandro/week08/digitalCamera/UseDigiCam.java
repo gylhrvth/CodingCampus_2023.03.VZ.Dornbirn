@@ -4,10 +4,10 @@ import java.util.Scanner;
 
 public class UseDigiCam {
     public static void main(String[] args) {
-//        System.out.println("how many pictures do you have already taken?....\nplease dont write any Bullshit in like Charaters etc.\nThank you very much!");
-//        Scanner sc = new Scanner(System.in);
-//        int pics = sc.nextInt();
-        int pics = 30;
+        System.out.println("how many pictures do you have already taken?....\nplease dont write any Bullshit in like Charaters etc.\nThank you very much!");
+        Scanner sc = new Scanner(System.in);
+        int pics = sc.nextInt();
+     //   int pics = 30;
         int usedMB = pics *15;
 
         MemoryCard card1 = new MemoryCard("Kingston 1GB", 1000,pics, usedMB);

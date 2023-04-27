@@ -32,6 +32,14 @@ public class DigiCam {
         return true;
     }
 
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
     public boolean insertMemory(MemoryCard memoryCard) {
         if (this.memoryCard != null) {
             System.out.println("there is already a Memory Card in your Cam");
