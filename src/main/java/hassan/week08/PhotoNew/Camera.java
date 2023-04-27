@@ -23,6 +23,8 @@ public class Camera {
         this.lens = null;
 
     }
+
+
     public boolean mountObjective(Lens lens) {
         if (this.lens != null) {
             System.out.println("Eine Linse ist bereits montiert");
@@ -38,6 +40,7 @@ public class Camera {
         this.lens = null;
         return lens1;
     }
+
     public boolean insertMemoryCard(NewMemory mc) {
         if (this.memory != null) {
             System.out.println("es befindet sich schon eine memory card drinnen");
@@ -47,13 +50,13 @@ public class Camera {
         System.out.println(this.memory);
         return true;
     }
+
     public NewMemory removeMemoryCard() {
         NewMemory mc = this.memory;
-        System.out.println(this.memory + " WURDE ENTFERNT" );
+        System.out.println(this.memory + " WURDE ENTFERNT");
         this.memory = null;
         return mc;
     }
-
 
 
     public void setBrennweite(int brennweite) {
@@ -73,8 +76,9 @@ public class Camera {
             return;
         }
         System.out.println("Klick!!!");
-        memory.saveData((int)this.size);
+        memory.saveData((int) this.size);
     }
+
     @Override
     public String toString() {
         return "FOTOAPPARAT \n" +

@@ -7,10 +7,15 @@ public class Objectiv {
     private int brennweitemin;
     private Objectiv objectiv;
 
-    public Objectiv(String hersteller,String model, int brennweitemax, int brennweitemin){
+    public Objectiv(String hersteller, String model, int brennweitemax, int brennweitemin) {
         this.hersteller = hersteller;
         this.model = model;
         this.brennweitemax = brennweitemax;
         this.brennweitemin = brennweitemin;
+    }
+
+    @Override
+    public String toString() {
+        return hersteller + "  " + model + " with " + brennweitemax + " to " + brennweitemin  +"Brennweite";
     }
 }
