@@ -250,9 +250,7 @@ public class ArraysExample {
                     dim[j] = dim[j + 1];
                     dim[j + 1] = temp;
                 }
-
             }
-
         }
     }
 
@@ -300,7 +298,6 @@ public class ArraysExample {
         }
 
     }
-
 
     public static int number(String message) {
         Scanner sc = new Scanner(System.in);
