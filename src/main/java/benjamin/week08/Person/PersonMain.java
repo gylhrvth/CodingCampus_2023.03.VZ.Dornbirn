@@ -14,7 +14,7 @@ public class PersonMain {
 
         List<Person> list = new ArrayList<>();
 
-        Person person = new Person("Beni", 34, 184, 90);
+        Person person = new Person("Jürgen", 34, 184, 90);
         Person person2 = new Person("Oliver", 50, 175, 80);
         Person person3 = new Person("Manfred", 20, 160, 60);
         Person person4 = new Person("Josef", 36, 184, 85);
@@ -30,21 +30,22 @@ public class PersonMain {
 
         PersonStats stats = PersonStats.calculateStats(list);
 
-        System.out.println("Get MinHeight:" + stats.getMinHeight());
-        System.out.println("Get MaxHeight:" + stats.getMaxHeight());
-        System.out.println("Get MinWeight:" + stats.getMinWeight());
-        System.out.println("Get MaxWeight:" + stats.getMaxWeight());
-        System.out.println("Get Average Age:" + stats.getAverageAge());
-        System.out.println("Get Average Weight:" + stats.getAverageWeight());
-        System.out.println("Get Average Height:" + stats.getAverageHeight());
+        System.out.printf("%s%12.2f\n","MinHeight:",stats.getMinHeight());
+        System.out.printf("%s%12.2f\n","MaxHeight:", stats.getMaxHeight());
+        System.out.printf("%s%12.2f\n","MinWeight:", stats.getMinWeight());
+        System.out.printf("%s%12.2f\n","MaxWeight:",stats.getMaxWeight());
+        System.out.printf("%s%10.2f\n","Average Age:", stats.getAverageAge());
+        System.out.printf("%s%7.2f\n","Average Weight:",stats.getAverageWeight());
+        System.out.printf("%s%7.2f\n","Average Height:",stats.getAverageHeight());
         System.out.println();
-        sortList(list, Sortby.Height);
+        sortList(list, Sortby.Name);
+        System.out.printf("|%10s|%10s|%10s|%10s|\n","Name","Age","Height","Weight");
         for (Person p : list) {
-            System.out.println(p.getName() + " " + p.getAge() + " " + p.getHeight() + " " + p.getWeight());
+            System.out.printf("|%10s|%10d|%10.2f|%10.2f|\n",p.getName(),p.getAge(),p.getHeight(),p.getWeight());
         }
     }
 
-    //mit Comperator :)
+    //mit Comperator
 
 //    public static void sortListComperator(List<Person> people, Sortby sort) {
 //
