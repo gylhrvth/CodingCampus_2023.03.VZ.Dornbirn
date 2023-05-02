@@ -33,6 +33,7 @@ public class PersonV2Main {
             for (PersonV2 person : persons) {
                 System.out.printf("%2s%n", person.getName() + "-->" + person.getAge() + "-" + person.getHeight() + "-" + person.getWeight());
             }
+            System.out.println("===================");
         }
     }
 
