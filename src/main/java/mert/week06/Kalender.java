@@ -1,16 +1,16 @@
 package mert.week06;
 
+import java.awt.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
+import java.util.*;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.Scanner;
 
 public class Kalender {
     public static void main(String[] args) {
+
         GregorianCalendar now = new GregorianCalendar();
 
         SimpleDateFormat date = new SimpleDateFormat("dd.MM.yyyy");
@@ -34,11 +34,9 @@ public class Kalender {
             System.out.println(calenderGeb.get(Calendar.DAY_OF_WEEK));
 
 
-        }catch (ParseException pe){
+        } catch (ParseException pe) {
             pe.printStackTrace();
         }
-
-
 
 
     }

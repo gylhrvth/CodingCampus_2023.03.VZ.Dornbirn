@@ -1,7 +1,4 @@
-package mert.week08;
-
-import java.util.Arrays;
-import java.util.Random;
+package mert.week08.Daten;
 
 public class Datenklasse {
     private int min;

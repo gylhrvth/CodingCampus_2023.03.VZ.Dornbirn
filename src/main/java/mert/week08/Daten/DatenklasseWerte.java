@@ -1,4 +1,6 @@
-package mert.week08;
+package mert.week08.Daten;
+
+import mert.week08.Daten.Datenklasse;
 
 import java.util.Arrays;
 import java.util.Random;
