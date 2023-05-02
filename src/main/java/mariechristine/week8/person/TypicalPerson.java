@@ -6,11 +6,11 @@ import java.util.Vector;
 
 public class TypicalPerson {
     private String fullName;
-    private Date age;
+    private int age;
     private int height;
     private double weight;
 
-    public TypicalPerson(String fullName, Date age, int height, double weight) {
+    public TypicalPerson(String fullName, int age, int height, double weight) {
         this.fullName = fullName;
         this.age = age;
         this.height = height;
@@ -21,7 +21,7 @@ public class TypicalPerson {
         return fullName;
     }
 
-    public Date getAge() {
+    public int getAge() {
         return age;
     }
 
