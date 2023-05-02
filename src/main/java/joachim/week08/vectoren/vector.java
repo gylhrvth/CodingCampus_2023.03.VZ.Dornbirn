@@ -13,9 +13,10 @@ public class vector {
         int big = biggestNumber(vector);
         System.out.println("B.I.G.: " + big);
 
-        bubbleVector(vector);
+//        bubbleVector(vector);
 //        deleteOdd(vector);
-        thirdParty(vector, vex);
+//        mergeVector(vector, vex);
+        System.out.println(betterMergeVector(vector, vex));
     }
 
     public static Vector<Integer> fillRandom() {
@@ -37,7 +38,6 @@ public class vector {
                 count++;
             }
         }
-        System.out.println("Even numbers: " + count);
     }
 
     public static int smallestNumber(Vector<Integer> vector) {
@@ -107,7 +107,7 @@ public class vector {
         System.out.println(vector);
     }
 
-    public static void thirdParty(Vector<Integer> vector, Vector<Integer> vex) {
+    public static void mergeVector(Vector<Integer> vector, Vector<Integer> vex) {
         if (vector == null) {
             return;
         }
@@ -132,6 +132,42 @@ public class vector {
                 vex.removeElement(biggestNumber(vex));
             }
         }
-        System.out.println(vextor);
+    }
+
+    public static Vector betterMergeVector(Vector<Integer> lhsData, Vector<Integer> rhsData) {
+        if (lhsData == null) {
+            return lhsData;
+        }
+        if (rhsData == null) {
+            return rhsData;
+        }
+        bubbleVector(lhsData);
+        bubbleVector(rhsData);
+        System.out.println("Vector");
+        System.out.println(lhsData);
+        System.out.println("Vex");
+        System.out.println(rhsData);
+        System.out.println("Vextor");
+        Vector<Integer> merged = new Vector<>();
+
+        while (!lhsData.isEmpty() || !rhsData.isEmpty()) {
+            if (rhsData.isEmpty()) {
+                merged.add(lhsData.firstElement());
+                lhsData.removeElementAt(0);
+            } else if (lhsData.isEmpty()) {
+                merged.add(rhsData.firstElement());
+                rhsData.removeElementAt(0);
+            } else {
+                if (lhsData.firstElement() >= rhsData.firstElement()) {
+                    merged.add(lhsData.firstElement());
+                    lhsData.removeElementAt(0);
+                }
+                if (rhsData.firstElement() > lhsData.firstElement()) {
+                    merged.add(rhsData.firstElement());
+                    rhsData.removeElementAt(0);
+                }
+            }
+        }
+        return merged;
     }
 }
