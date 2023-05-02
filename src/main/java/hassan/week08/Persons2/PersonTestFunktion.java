@@ -29,10 +29,12 @@ public class PersonTestFunktion {
 
         for (Data data : Data.values()) {
             System.out.println("Sorting by: " + data);
-            sorter(personLists, data);
+            sorter(personLists, Data.NAME);
+
             for (PersonList p : personLists) {
                 System.out.println(p.getName() + " -- " + p.getAge() + " -- " + p.getHeight() + " -- " + p.getWeight());
             }
+            System.out.println("=====================================");
         }
     }
 
