@@ -15,12 +15,13 @@ public class TikTakToeKi {
             playerMove(board, 1);
             printBoard(board);
             win = winner(board, player);
+            isBoardFull(board);
 
             kiMove(board, playerKi);
             printBoard(board);
             win = winner(board, playerKi);
             ++steps;
-
+            isBoardFull(board);
         }
 
         if (winner(board, player)) {
@@ -29,15 +30,11 @@ public class TikTakToeKi {
         } else if (winner(board, playerKi)) {
             System.out.println("Verloren");
 
-        } else if (isBoardFull(board)){
+        } else if (isBoardFull(board)) {
             System.out.println("Unentschieden");
         }
 
     }
-
-
-
-
 
 
     public static void printBoard(int[][] values) {

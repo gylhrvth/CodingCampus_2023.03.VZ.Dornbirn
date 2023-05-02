@@ -5,7 +5,7 @@ import data.Texts;
 public class Hesse {
     public static void main(String[] args) {
         String text = Texts.HESSE;
-        String word = "Hesse";
+        String word = "HESSE";
         System.out.println(text);
 
         int count = 0;

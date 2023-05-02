@@ -9,27 +9,43 @@ import java.util.GregorianCalendar;
 import java.util.Scanner;
 
 public class FileLogin {
+    public static final int LOG_LEVEL_INFO = 1;
+    public static final int LOG_LEVEL_WARNING = 3;
+    public static final int LOG_LEVEL_ERROR = 2;
     public static void main(String[] args) {
+
+        log(LOG_LEVEL_ERROR, "");
+        log(LOG_LEVEL_INFO, "");
+        log(LOG_LEVEL_WARNING, "");
+        log(LOG_LEVEL_ERROR, "");
+        log(LOG_LEVEL_INFO, "");
+        log(LOG_LEVEL_WARNING, "");
+        log(LOG_LEVEL_ERROR, "");
+        log(LOG_LEVEL_INFO, "");
+        log(LOG_LEVEL_WARNING, "");
+
+    }
+
+    public static void log(int severity, String message) {
         GregorianCalendar now = new GregorianCalendar();
         SimpleDateFormat date = new SimpleDateFormat("yyyy.MM.dd  HH:mm:ss");
-
         File f = new File("assets/tmp/test.txt");
-
-
 
         try {
 
             System.out.println("1-3");
             FileOutputStream fos = new FileOutputStream(f, true);
-            PrintStream ps = new PrintStream(f);
+            PrintStream ps = new PrintStream(fos);
 
-            Scanner sc = new Scanner(System.in);
-            String line = sc.nextLine();
-
-            ps.print(date.format(now.getTime()) + "    ");
-            ps.println(line);
-
-//TODO String mit severity verknüpfen
+            if (severity == LOG_LEVEL_INFO) {
+                ps.println(message +date.format(now.getTime()) + " ----> "+ "INFO" );
+            }
+            if (severity == LOG_LEVEL_ERROR) {
+                ps.println(message + date.format(now.getTime()) + " ----> " + "ERROR " );
+            }
+            if (severity == LOG_LEVEL_WARNING) {
+                ps.println(message + date.format(now.getTime()) + " ----> " + "WARNING");
+            }
 
 
             ps.close();
@@ -38,17 +54,6 @@ public class FileLogin {
             System.out.println(f.getAbsolutePath() + "ist nicht erreichbar");
         }
 
-    }
 
-    public static void log(int severity, String message) {
-        if (severity == 1) {
-            System.out.println(message + "ERROR");
-        }
-        if (severity == 2) {
-            System.out.println(message + "WARNING");
-        }
-        if (severity == 3) {
-            System.out.println(message + "INFO");
-        }
     }
 }
