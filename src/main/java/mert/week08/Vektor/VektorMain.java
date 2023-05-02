@@ -31,7 +31,11 @@ public class VektorMain {
         System.out.println("Vector 1: " + vector1);
 
         Vector<Integer> sortedVector = merge(vector1,vector);
-        System.out.println(sortedVector);
+        System.out.println("asdf" + sortedVector);
+
+
+
+
     }
 
 
