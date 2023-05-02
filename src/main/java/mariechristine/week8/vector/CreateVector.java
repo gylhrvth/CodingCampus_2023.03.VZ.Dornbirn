@@ -17,7 +17,8 @@ public class CreateVector {
         System.out.println("\nDie größte Zahl lautet: " + lookUpBiggestNumber(myData));
         System.out.println("\nElemente absteigend sortiert:");
         sortElementsDecreasing(myData);
-
+        System.out.println("\nUngerade Elemente gelöscht: ");
+        deleteUnevenNumber(myData);
 
 
     }
@@ -71,10 +72,6 @@ public class CreateVector {
                     int temp = data.elementAt(j);
                     data.set(j, data.elementAt(j + 1));
                     data.set(j + 1, temp);
-                    /*
-                    vector.removeElementAt(j);
-                    vector.add(j+1,temp);
-                     */
                 }
 
             }
@@ -84,10 +81,17 @@ public class CreateVector {
     }
 
     public static void deleteUnevenNumber(Vector<Integer> data) {
+        for (int i = 0; i < data.size(); i++) {
+            if (data.elementAt(i) % 2 == 1) {
+                data.remove(data.elementAt(i));
+                i--;
+            }
+        }
+        System.out.println(data);
 
     }
 
-
 }
+
 
 

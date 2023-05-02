@@ -81,9 +81,6 @@ public class Camera2 {
         return photosTaken;
     }
 
-    public int getFreeMemory(){
-        return memoryCard2 != null ? memoryCard2.getFreeMemory() : 0;
-    }
 
     @Override
     public String toString() {

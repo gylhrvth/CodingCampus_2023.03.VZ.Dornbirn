@@ -6,8 +6,6 @@ public class MemoryCard2 {
     private String producer;
     private int capacity;
     private int usedMemory;
-//    private int pics;
-
 
     public MemoryCard2(String producer, int capacity){
         this.producer = producer;
@@ -22,7 +20,6 @@ public class MemoryCard2 {
         }
         usedMemory += dataSize;
         return true;
-
     }
 
     public int getFreeMemory() {
@@ -34,7 +31,6 @@ public class MemoryCard2 {
         System.out.println(Colors.COLORS[1] + "Memory deleted." + Colors.RESET);
         usedMemory = 0;
     }
-
 
     @Override
     public String toString() {
