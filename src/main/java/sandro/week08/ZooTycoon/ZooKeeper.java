@@ -12,6 +12,14 @@ public class ZooKeeper {
         this.tasklist = new Vector<>();
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public Vector<Enclosure> getTasklist() {
+        return tasklist;
+    }
+
     public void addTask(Zoo zoo, Enclosure task) {
         zoo.addZooKeeper(this);
         tasklist.add(task);
@@ -20,6 +28,15 @@ public class ZooKeeper {
     public void removeTask(Enclosure task) {
         tasklist.remove(task);
     }
+    public void taskdesciption (){
+        for (Enclosure task: tasklist) {
+            System.out.println(name + " walks over to " + task.getName());
+
+        }
+
+    }
+
+
 
     public void printTask() {
         System.out.print("├── " + name + " works at: ");
