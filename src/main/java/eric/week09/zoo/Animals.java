@@ -10,7 +10,7 @@ public class Animals {
     private int amount;
     private int cost;
 
-    public Animals(String name) {
+    public Animals(String name,int amount) {
         this.name = name;
         this.foodReq = new HashMap<>();
         this.amount = 0;
