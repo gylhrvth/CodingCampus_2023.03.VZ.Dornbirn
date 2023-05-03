@@ -1,9 +1,8 @@
 package joachim.week09.zoo;
 
-import org.ietf.jgss.ChannelBinding;
 
-import java.io.File;
-import java.io.InputStream;
+import lukas.week03.day4.Colors;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Vector;
@@ -33,8 +32,9 @@ public class Zoo {
         habitatsList.add(h);
     }
 
+
     public void printLayout() {
-        System.out.println("├── Zoo: " + name + ", found: " + foundingyear);
+        System.out.println(Colors.COLORS[1] + "├── Zoo: " + Colors.RESET + name + ", found: " + foundingyear);
         if (habitatsList.isEmpty()) {
             System.out.println("      without any habitat");
         } else {
@@ -44,26 +44,35 @@ public class Zoo {
         }
     }
 
+    public void printSupervisors() {
+
+    }
+
+
     @Override
     public String toString() {
         return habitatsList.toString();
     }
 
 
-    public void printDailyCost(){
+    public void printDailyCost() {
         HashMap<Food, Integer> foodRequest = new HashMap<>();
 
-        for (Habitat h: habitatsList) {
+        for (Habitat h : habitatsList) {
             h.collectFoodRequest(foodRequest);
         }
 
-        System.out.println(foodRequest);
         double cost = 0.0;
-        for (Food f: foodRequest.keySet()) {
-            System.out.println(f.getName() + " " + foodRequest.get(f) + " " + f.getUnit());
+        for (Food f : foodRequest.keySet()) {
+            System.out.println(Colors.COLORS[5] + f.getName() + " " + foodRequest.get(f) + " " + f.getUnit() + Colors.RESET);
             cost += foodRequest.get(f) * f.getCost();
         }
-        System.out.printf("Kostenpunkt: %.2f€.\n", cost);
+        System.out.printf(Colors.COLORS[5] + "Kostenpunkt: %.2f€.\n" + Colors.RESET, cost);
+    }
+
+
+    public Supervisor searchAndCreateSupervisor(String name, String... nameOfHabitats){
+        return null;
     }
 
 }
