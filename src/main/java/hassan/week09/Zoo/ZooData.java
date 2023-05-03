@@ -9,7 +9,7 @@ public class ZooData {
     private int bauJahr;
     private List<Gehege> gehegeList;
     private HashMap<String, Futter> futter;
-    private List<Pfleger> pflegerList;
+    private static List<Pfleger> pflegerList;
 
 
     public ZooData(String name, int bauJahr) {
@@ -27,7 +27,7 @@ public class ZooData {
         gehegeList.add(gehege);
     }
 
-    public List<Pfleger> getPflegerList() {
+    public static List<Pfleger> getPflegerList() {
         return pflegerList;
     }
 
@@ -63,6 +63,11 @@ public class ZooData {
 
     public void removePfleger(Pfleger pfleger) {
         pflegerList.remove(pfleger);
+        for (Gehege gehege : gehegeList) {
+            if (gehege.getPflegerList().contains(pfleger)) {
+                gehege.removePflegerFromGehege(pfleger);
+            }
+        }
     }
     public void printPflegerListe() {
         System.out.println("Liste der Pfleger:");
