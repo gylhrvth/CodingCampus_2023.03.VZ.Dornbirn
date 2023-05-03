@@ -5,6 +5,8 @@ import java.util.Vector;
 public class Zoo {
     private int baujahr;
     private String name;
+
+
     Vector<Gehege> gehegeList;
     Vector<Pfleger> pflegerList;
 
@@ -14,10 +16,30 @@ public class Zoo {
         this.gehegeList = new Vector<>();
         this.pflegerList = new Vector<>();
 
+
     }
-    public void addPfleger(Pfleger pfleger){
-       pflegerList.add(pfleger);
+
+    public void simulateTage(int tage) {
+        System.out.println("Tagesanfang.... " + tage);
+        for (Gehege g : gehegeList) {
+            g.resetSauber();
+
+        }
+
+        for (Pfleger p : pflegerList) {
+            p.simulateTage();
+        }
+        System.out.println("Tagesende...... " + tage);
+        System.out.println();
+
     }
+
+
+    public void addPfleger(Pfleger pfleger) {
+        pflegerList.add(pfleger);
+
+    }
+
 
     public void addGehege(Gehege gehege) {
         if (!gehegeList.contains(gehege)) {
@@ -39,7 +61,7 @@ public class Zoo {
         for (Gehege g : gehegeList) {
             g.printZoo();
         }
-        for (Pfleger p: pflegerList) {
+        for (Pfleger p : pflegerList) {
             p.printzoo();
         }
     }

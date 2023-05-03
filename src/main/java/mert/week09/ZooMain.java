@@ -1,7 +1,5 @@
 package mert.week09;
 
-import java.util.Arrays;
-
 public class ZooMain {
     public static void main(String[] args) {
         Zoo zoo = new Zoo("Tiergarten Dornbirn", 2023);
@@ -20,7 +18,6 @@ public class ZooMain {
 
 
 
-
         zoo.addGehege(alpenwiese);
         zoo.addGehege(ried);
         zoo.addGehege(terrarium);
@@ -34,17 +31,20 @@ public class ZooMain {
         zoo.addPfleger(pfleger);
         zoo.addPfleger(pfleger1);
 
+
         pfleger.addGehegeList(ried);
+
+        pfleger.addGehegeList(terrarium);
         pfleger1.addGehegeList(alpenwiese);
 
 
 
-
-
-
-
-
         zoo.printZoo();
+        System.out.println("----------------");
 
+        for (int tage = 1; tage <=5 ; tage++) {
+            zoo.simulateTage(tage);
+
+        }
     }
 }
