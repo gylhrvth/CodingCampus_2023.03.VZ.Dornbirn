@@ -8,7 +8,7 @@ public class MainDataClass {
     public static void main(String[] args) {
         int[] testValues = ayguen.week02.ArrayWerte.createCrazyRange(13,-100, 100);
 
-        MinMaxAvgResult result = MinMaxAvgResult.calculate(testValues);
+        MinMaxAvg result = MinMaxAvg.calculate(testValues);
 
         System.out.println(Arrays.toString(testValues));
         System.out.println("---------");

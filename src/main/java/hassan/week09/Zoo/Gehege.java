@@ -7,6 +7,7 @@ public class Gehege {
     private String name;
     private List<Tier> tierList;
     private List<Pfleger> pflegerList;
+    private boolean bearbeitet;
 
     public Gehege(String name) {
         this.name = name;
@@ -30,20 +31,34 @@ public class Gehege {
         return tierList;
     }
 
-    public void addPfleger(Pfleger pfleger) {
-        if (!pflegerList.contains(pfleger)) {
-            pflegerList.add(pfleger);
+    //    public void addPfleger(Pfleger pfleger) {
+//        if (!pflegerList.contains(pfleger)) {
+//            pflegerList.add(pfleger);
+//            pfleger.addGehege(this);
+//        }
+//    }
+    public void addPflegerToGehege(Pfleger pfleger) {
+        if (ZooData.getPflegerList().contains(pfleger)) {
             pfleger.addGehege(this);
+            pflegerList.add(pfleger);
+        } else {
+            System.out.println("Pfleger ist nicht im Zoo registriert und kann daher diesem Gehege nicht zugeordnet werden.");
         }
     }
 
-    public void removePfleger(Pfleger pfleger) {
-        pflegerList.remove(pfleger);
+
+    public void removePflegerFromGehege(Pfleger pfleger) {
         pfleger.removeGehege(this);
+        pflegerList.remove(pfleger);
     }
+
 
     public List<Pfleger> getPflegerList() {
         return pflegerList;
+    }
+
+    public boolean isBearbeitet() {
+        return this.bearbeitet;
     }
 
     public void printStruktur() {

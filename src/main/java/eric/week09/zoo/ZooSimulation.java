@@ -4,50 +4,44 @@ public class ZooSimulation {
     public static void main(String[] args) {
         Zoo zoo = new Zoo("Tiergarten XYZ", 2023);
 
-        //Pfleger werden aufgerufen
-        Zookeeper ingo = new Zookeeper("Ingo Laberknecht");
-        Zookeeper taub = new Zookeeper("Tauber Hund");
+//        Enclosure savannaOutback = new Enclosure("Savanna Outback");
+//        Enclosure savanna = new Enclosure("Savanna");
+//        Enclosure saltWater = new Enclosure("Salt Water Aquarium");
+//        Enclosure northPole = new Enclosure("North Pole Aquarium");
+//        Enclosure antarctica = new Enclosure("Antarctica");
+//        Enclosure amazonas = new Enclosure("Amazonas");
+//        Enclosure nile = new Enclosure("Nile");
 
-        //Gehege werden aufgerufen
-        Enclosure enclosureField = new Enclosure("Field");
-        Enclosure enclosureFieldWithPond = new Enclosure("Field with Sea");
-        Enclosure enclosureTerra = new Enclosure("Terrarium");
-        Enclosure enclosureAqua = new Enclosure("Aquarium");
-        Enclosure enclosureArctic = new Enclosure("Antarctica");
+        //Food aufrufen
+        Food hay = new Food("Hay", "kg", 35);
+        Food leaves = new Food("Leaves", "g", 12);
+        Food meat = new Food("Meat", "kg", 900);
+        Food shrimp = new Food("Shrimp", "kg", 400);
+        Food insects = new Food("Insects", "g", 120);
 
-        //Tiere werden aufgerufen
-        Animals elephant = new Animals("Elephant",15);
-        Animals giraffe = new Animals("Giraffe",3);
-        Animals rhino = new Animals("Rhino",2);
-        Animals spiders = new Animals("Black Widow",1);
-        Animals butterfly = new Animals("Butterfly",4200);
-        Animals flamingo = new Animals("Flamingo",69);
-        Animals whale = new Animals("White Whale",2);
-        Animals thuna = new Animals("Thunfish",20);
-        Animals salmon = new Animals("Salmon",120);
-        Animals iceBear = new Animals("Ice Bear",3);
-        Animals polarFox = new Animals("Polar Fox",5);
+        zoo.findOrCreateAnimal("Lion", meat, "Savanna Outback", 50);
+        zoo.findOrCreateAnimal("Elephant", leaves, "Savanna", 150);
+        zoo.findOrCreateAnimal("Giraffe", leaves, "Savanna", 70);
+        zoo.findOrCreateAnimal("Shark", meat, "Salt Water Aquarium", 50);
+        zoo.findOrCreateAnimal("Blue Fin Tuna", shrimp, "Salt Water Aquarium", 200);
+        zoo.findOrCreateAnimal("Ice Bear", meat, "North Polar Zone", 60);
+        zoo.findOrCreateAnimal("Penguins", meat, "Antarctica", 40);
+        zoo.findOrCreateAnimal("Black Widow", insects, "Amazonas", 5);
+        zoo.findOrCreateAnimal("Black Mamba", insects,"Nile",50);
 
-        //Tiere werden zum Gehege aufgerufen
-        enclosureField.addAnimal(giraffe);
-        enclosureField.addAnimal(rhino);
-        enclosureField.addAnimal(elephant);
-        enclosureTerra.addAnimal(spiders);
-        enclosureTerra.addAnimal(butterfly);
-        enclosureFieldWithPond.addAnimal(flamingo);
-        enclosureAqua.addAnimal(whale);
-        enclosureAqua.addAnimal(thuna);
-        enclosureAqua.addAnimal(salmon);
-        enclosureArctic.addAnimal(iceBear);
-        enclosureArctic.addAnimal(polarFox);
-
-        //Gehege werden zum Zoo hinzugefügt
-        zoo.addEnclosure(enclosureField);
-        zoo.addEnclosure(enclosureFieldWithPond);
-        zoo.addEnclosure(enclosureTerra);
-        zoo.addEnclosure(enclosureAqua);
-        zoo.addEnclosure(enclosureArctic);
+//        zoo.findOrCreateEnclosure("Savanna", "Mihawk");
+//        zoo.findOrCreateEnclosure("Savanna Outback", "Crocodile");
+//        zoo.findOrCreateEnclosure("Salt Water Aquarium", "Doflamingo");
+//        zoo.findOrCreateEnclosure("North Polar Zone");
+//        zoo.findOrCreateEnclosure("Antarctica");
+//        zoo.findOrCreateEnclosure("Amazonas");
+//        zoo.findOrCreateEnclosure("Nile");
+//
+//        zoo.findOrCreateZookeeper("Mihawk", "Savanna");
+//        zoo.findOrCreateZookeeper("Crocodile", "Savanna Outback");
+//        zoo.findOrCreateZookeeper("Doflamingo", "Salt Water Aquarium");
 
         zoo.printZooStructure();
+        zoo.printDailyFoodCost();
     }
 }
