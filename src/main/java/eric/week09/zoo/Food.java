@@ -2,12 +2,12 @@ package eric.week09.zoo;
 
 public class Food {
     private String name;
-    private int amount;
-    private double price;
+    private String unit;
+    private int price;
 
-    public Food(String name, int amount, double price) {
+    public Food(String name, String amount, int price) {
         this.name = name;
-        this.amount = amount;
+        this.unit = amount;
         this.price = price;
     }
 
@@ -15,11 +15,16 @@ public class Food {
         return name;
     }
 
-    public int getAmount() {
-        return amount;
+    public String getUnit() {
+        return unit;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }
