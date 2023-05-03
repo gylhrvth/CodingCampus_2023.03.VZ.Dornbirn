@@ -6,26 +6,30 @@ import java.util.ArrayList;
 
 public class Zookeeper {
     private String name;
-    private ArrayList<Enclosure> enclosure;
-    public Zookeeper(String name){
+    private ArrayList<Enclosure> enclosureList;
+
+    public Zookeeper(String name) {
         this.name = name;
-        this.enclosure = new ArrayList<>();
+        this.enclosureList = new ArrayList<>();
     }
+
+    public Enclosure findOrCreateEnclosure(String enclosureName) {
+        for (Enclosure enclosure : enclosureList) {
+            if (enclosure.getEnclosureName().equals(enclosureName)){
+                return enclosure;
+            }
+        }
+        Enclosure newEnclosure = new Enclosure(enclosureName);
+        enclosureList.add(newEnclosure);
+        return newEnclosure;
+    }
+
 
     public String getName() {
         return name;
     }
-    public void addEnclosure(Enclosure enc){
-        enclosure.add(enc);
-    }
-    public ArrayList<Enclosure> getEnclosure() {
-        return enclosure;
-    }
-    public void removeEnclosure(Enclosure enc){
-        enclosure.remove(enc);
-    }
 
-    public void printZookeeper(){
+    public void printZookeeper() {
         System.out.println("│  │  ├── " + Colors.COLORS[4] + "Zookeeper: " + getName() + Colors.RESET);
     }
 }
