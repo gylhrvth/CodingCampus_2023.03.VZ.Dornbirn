@@ -25,6 +25,13 @@ public class Zoo {
     }
 
 
+    public void addZookeeper(Zookeeper keeper){
+        if (!zookeeperList.contains(keeper)) {
+            zookeeperList.add(keeper);
+        }
+    }
+
+
     public void addEnclosure(Gehege gehege) {
         if (!enclosureList.contains(gehege)) {
             enclosureList.add(gehege);
@@ -35,22 +42,25 @@ public class Zoo {
         enclosureList.remove(gehege);
     }
 
-    public void addZookeeper(Zookeeper zookeeper) {
-        if (!zookeeperList.contains(zookeeper)) {
-            zookeeperList.add(zookeeper);
-        }
-    }
-
     public void printStructure(){
         System.out.println("├── Zoo: " + zooName + ", gegründet " + yearEstablished);
-        if (!enclosureList.isEmpty()){
+        if (enclosureList.isEmpty()){
             System.out.println("   no enclosure");
         } else {
-            for (Gehege gehege: enclosureList) {
+            for (Gehege gehege : enclosureList) {
                 gehege.printStructure();
-
             }
         }
+        System.out.println();
+        if (zookeeperList.isEmpty()) {
+            System.out.println("****ATTENTION: NO ZOOKEEPER AVAILABLE TODAY!****");
+        } else {
+            for (Zookeeper zookeeper : zookeeperList) {
+                //System.out.println("\n⇒ Zookeeper: " + zookeeper + ", responsible enclosure: " + enclosureList.get(0));
+                zookeeper.printStructure();
+            }
+        }
+
     }
 
     @Override

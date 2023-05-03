@@ -1,7 +1,5 @@
 package mariechristine.week8.person;
 
-import mariechristine.week8.MinMaxAvg;
-
 import java.util.List;
 
 public class TypicalPersonStatistics {
