@@ -1,8 +1,6 @@
 package ayguen.week08.dataClass;
 
-import java.util.Random;
-
-public class MinMaxAvgResult {
+public class MinMaxAvg {
 
     private int minValue;
     private int maxValue;
@@ -10,14 +8,14 @@ public class MinMaxAvgResult {
 
     //Attributen
 
-    private MinMaxAvgResult() {
+    private MinMaxAvg() {
         this.minValue = 0;
         this.maxValue = 0;
         this.average = 0.0;
     }
 
-    public static MinMaxAvgResult calculate(int[] data) {
-        MinMaxAvgResult result = new MinMaxAvgResult();
+    public static MinMaxAvg calculate(int[] data) {
+        MinMaxAvg result = new MinMaxAvg();
 
         result.minValue = Integer.MAX_VALUE;
         result.maxValue = Integer.MIN_VALUE;
