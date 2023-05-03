@@ -4,15 +4,18 @@ public class ZooSimulation {
     public static void main(String[] args) {
         Zoo zoo = new Zoo("Tiergarten XYZ", 2023);
 
+        //Pfleger werden aufgerufen
         Zookeeper ingo = new Zookeeper("Ingo Laberknecht");
         Zookeeper taub = new Zookeeper("Tauber Hund");
 
+        //Gehege werden aufgerufen
         Enclosure enclosureField = new Enclosure("Field");
         Enclosure enclosureFieldWithSea = new Enclosure("Field with Sea");
         Enclosure enclosureTerra = new Enclosure("Terrarium");
         Enclosure enclosureAqua = new Enclosure("Aquarium");
         Enclosure enclosureArctic = new Enclosure("Antarctica");
 
+        //Tiere werden aufgerufen
         Animals elephant = new Animals("Elephant");
         Animals giraffe = new Animals("Giraffe");
         Animals rhino = new Animals("Rhinozeros");
@@ -25,6 +28,7 @@ public class ZooSimulation {
         Animals iceBear = new Animals("Ice Bear");
         Animals polarFox = new Animals("Polar Fox");
 
+        //Tiere werden zum Gehege aufgerufen
         enclosureField.addAnimal(giraffe);
         enclosureField.addAnimal(rhino);
         enclosureField.addAnimal(elephant);
@@ -37,6 +41,7 @@ public class ZooSimulation {
         enclosureArctic.addAnimal(iceBear);
         enclosureArctic.addAnimal(polarFox);
 
+        //Gehege werden zum Zoo hinzugefügt
         zoo.addEnclosure(enclosureField);
         zoo.addEnclosure(enclosureFieldWithSea);
         zoo.addEnclosure(enclosureTerra);
