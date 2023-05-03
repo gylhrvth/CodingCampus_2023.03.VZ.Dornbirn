@@ -38,7 +38,9 @@ public class NewHabitat {
             System.out.println(Colors.COLORS[1] + "│   │   ├──" + Colors.COLORS[7] + "without any Supervisor" + Colors.RESET);
         } else {
             for (NewSupervisor s : supervisorList) {
-                System.out.println(Colors.COLORS[1] + "│   │   ├── " + Colors.COLORS[7] + s + Colors.RESET);
+                if (s.isSupervisorResponsibleForHabitat(this)) {
+                    System.out.println(Colors.COLORS[1] + "│   │   ├── " + Colors.COLORS[7] + s + Colors.RESET);
+                }
             }
         }
         if (animalList.isEmpty()) {

@@ -24,4 +24,9 @@ public class NewSupervisor {
     public String toString() {
         return name;
     }
+
+    public boolean isSupervisorResponsibleForHabitat(NewHabitat hab){
+        return habitatList.contains(hab);
+    }
+
 }
