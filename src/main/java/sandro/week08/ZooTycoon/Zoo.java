@@ -25,6 +25,10 @@ public class Zoo {
         zooKeeperList.add(zooKeeper);
     }
 
+    public Vector<ZooKeeper> getZooKeeperList() {
+        return zooKeeperList;
+    }
+
     public void addenc(Enclosure enclosure) {
         if (!enclosureList.contains(enclosure)) {
             enclosureList.add(enclosure);
@@ -84,6 +88,4 @@ public class Zoo {
         }
         System.out.println("Total costs for all Food requiered: " + cost +" $");
     }
-
-
 }
