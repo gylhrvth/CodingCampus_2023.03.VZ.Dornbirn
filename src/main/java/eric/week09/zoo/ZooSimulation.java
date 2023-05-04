@@ -52,8 +52,10 @@ public class ZooSimulation {
 
         stero.addZookeeperToEnclosure(savanna);
         stero.addZookeeperToEnclosure(savannaOutback);
+        stero.addZookeeperToEnclosure(saltWaterAquarium);
         trenbo.addZookeeperToEnclosure(northPoleEnclosure);
         trenbo.addZookeeperToEnclosure(northPoleAquarium);
+        trenbo.addZookeeperToEnclosure(terrarium);
 
         zoo.printZooStructure();
         zoo.printDailyFoodCost();

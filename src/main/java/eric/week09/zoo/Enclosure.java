@@ -11,6 +11,7 @@ public class Enclosure {
     private String enclosureName;
     private List<Animal> animalList;
     private List<Zookeeper> keeperList;
+    private boolean process;
 
     public Enclosure(String name) {
         this.enclosureName = name;
@@ -38,6 +39,14 @@ public class Enclosure {
         return keeperList;
     }
 
+    public void setProcess(boolean process) {
+        this.process = process;
+    }
+
+    public boolean isCleaned(){
+        return false;
+    }
+
     public void printEnclosure() {
         System.out.println("│  ├──" + Colors.COLORS[2] + " Enclosure: " + getEnclosureName() + Colors.RESET);
         for (Zookeeper zookeeper : keeperList) {
@@ -54,10 +63,7 @@ public class Enclosure {
     }
 
     public void simulationEnclosure() {
-        while (true) {
-            System.out.println("Zookeeper " + getKeeperList() + " has finished cleaning " + enclosureName + " right now");
-            return;
-        }
+
     }
 
     public void calcDailyNeed(HashMap<Food, Integer> dailyNeed) {

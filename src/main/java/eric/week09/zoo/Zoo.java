@@ -66,9 +66,11 @@ public class Zoo {
 
     public void simulation(){
         System.out.println();
-        beforeSimulation();
         for (Zookeeper keeper : keeperList) {
             keeper.simulationKeeper();
+        }
+        for (Enclosure enc : enclosureList) {
+            enc.simulationEnclosure();
         }
     }
     public boolean beforeSimulation(){

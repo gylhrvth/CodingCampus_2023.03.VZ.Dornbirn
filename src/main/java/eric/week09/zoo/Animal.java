@@ -10,6 +10,7 @@ public class Animal {
     private Food food;
     private int dailyNeed;
     private List<Zookeeper> keeper;
+    private boolean isHungry;
 
 
 
@@ -17,6 +18,7 @@ public class Animal {
         this.name = name;
         this.dailyNeed = dailyNeed;
         this.food = food;
+        this.isHungry = true;
     }
 
     public List<Zookeeper> getKeeper() {
@@ -32,6 +34,15 @@ public class Animal {
 
     public void printAnimals() {
         System.out.println("│  │  │  ├── " + Colors.COLORS[3] + "Animal: " + name + Colors.RESET);
+    }
+
+    public void feeding(){
+        if (isHungry){
+            System.out.println(name + " is currently eating");
+            isHungry = false;
+        } else {
+            System.out.println(name + " is currently not hungry");
+        }
     }
 
 
