@@ -1,7 +1,6 @@
-package mariechristine.week8;
+package mariechristine.week8.datenklasse;
 
 import mariechristine.week2.ExercisesArraysNew;
-import mariechristine.week8.camera.Camera;
 import mariechristine.week8.camera.CameraExtended;
 import mariechristine.week8.camera.MemoryCard;
 import mariechristine.week8.camera.ObjectiveLens;

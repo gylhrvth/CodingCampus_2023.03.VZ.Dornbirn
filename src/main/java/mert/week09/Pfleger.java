@@ -11,13 +11,14 @@ public class Pfleger {
         this.name = name;
         gehegeList = new Vector<>();
     }
-
-    public void addBearbeiten(Simulation01 bearbeiten, Gehege gehege) {
-        if (!gehegeList.contains(bearbeiten)){
-
-
-
+    public void simulateTage(){
+        for (Gehege g : gehegeList) {
+            g.simulateTage(this);
         }
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void addGehegeList(Gehege gehege) {
@@ -25,11 +26,20 @@ public class Pfleger {
     }
 
     public void printzoo() {
-        System.out.println("├── " + "Pfleger: " + name);
+        System.out.print(name + " ist verantwortlich für ");
         for (Gehege g : gehegeList) {
-            g.printZoo();
+            if (!g.equals(gehegeList.firstElement())){
+                if (!g.equals(gehegeList.lastElement())){
+                    System.out.print(", ");
+                } else  {
+                    System.out.print(" und ");
+                }
+            }
+            System.out.print(g.getName());
         }
-
+        System.out.println();
     }
+
 }
+
 
