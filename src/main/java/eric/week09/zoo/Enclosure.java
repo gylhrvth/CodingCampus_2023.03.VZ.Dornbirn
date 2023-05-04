@@ -1,14 +1,17 @@
 package eric.week09.zoo;
 
+import hassan.week09.Zoo.Tier;
 import lukas.week03.day4.Colors;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Enclosure {
     private String enclosureName;
-    private ArrayList<Animal> animalList;
-    private ArrayList<Zookeeper> keeperList;
+    private List<Animal> animalList;
+    private List<Zookeeper> keeperList;
+    private boolean process;
 
     public Enclosure(String name) {
         this.enclosureName = name;
@@ -20,52 +23,47 @@ public class Enclosure {
         return enclosureName;
     }
 
-    public Zookeeper findOrCreateZookeeper(String name) {
-        for (Zookeeper keeper : keeperList) {
-            if (keeper.getName().equals(name)) {
-                return keeper;
-            }
-        }
-        Zookeeper newZookeeper = new Zookeeper(name);
-        keeperList.add(newZookeeper);
-        return newZookeeper;
-    }
-
-    public Animal findOrCreateAnimal(String name, Food food, int dailyNeed) {
-        for (Animal animal : animalList) {
-            if (animal.getName().equals(name)) {
-                return animal;
-            }
-        }
-        Animal newAnimal = new Animal(name, food, dailyNeed);
-        animalList.add(newAnimal);
-        return newAnimal;
+    public void addAnimalToEnclosure(Animal animal) {
+        animalList.add(animal);
     }
 
     public void removeAnimals(Animal animal) {
         animalList.remove(animal);
     }
 
-    public void removeKeeper(Zookeeper keeper) {
-        this.keeperList.remove(keeper);
-    }
-
-    public ArrayList<Animal> getAnimalList() {
+    public List<Animal> getAnimalList() {
         return animalList;
     }
 
-    public ArrayList<Zookeeper> getKeeperList() {
+    public List<Zookeeper> getKeeperList() {
         return keeperList;
     }
 
+    public void setProcess(boolean process) {
+        this.process = process;
+    }
+
+    public boolean isCleaned(){
+        return false;
+    }
+
     public void printEnclosure() {
-        System.out.println("│  ├── " + Colors.COLORS[2] + "Enclosure: " + getEnclosureName() + Colors.RESET);
-        for (Zookeeper keeper : getKeeperList()) {
-            keeper.printZookeeper();
+        System.out.println("│  ├──" + Colors.COLORS[2] + " Enclosure: " + getEnclosureName() + Colors.RESET);
+        for (Zookeeper zookeeper : keeperList) {
+            zookeeper.printZookeeper();
         }
-        for (Animal animal : getAnimalList()) {
-            animal.printAnimals();
+        if (!animalList.isEmpty()) {
+            for (Animal animal : animalList) {
+                animal.printAnimals();
+            }
+        } else {
+            System.out.println("│  │  ├── " + Colors.COLORS[3] + "(this enclosure is currently empty)" + Colors.RESET);
+
         }
+    }
+
+    public void simulationEnclosure() {
+
     }
 
     public void calcDailyNeed(HashMap<Food, Integer> dailyNeed) {

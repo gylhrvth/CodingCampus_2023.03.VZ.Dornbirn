@@ -9,7 +9,7 @@ public class ZooData {
     private int bauJahr;
     private List<Gehege> gehegeList;
     private HashMap<String, Futter> futter;
-    private static List<Pfleger> pflegerList;
+    private List<Pfleger> pflegerList;
 
 
     public ZooData(String name, int bauJahr) {
@@ -27,9 +27,10 @@ public class ZooData {
         gehegeList.add(gehege);
     }
 
-    public static List<Pfleger> getPflegerList() {
-        return pflegerList;
+    public  List<Pfleger> getPflegerList() {
+        return this.pflegerList;
     }
+
 
     public void removeGehege(Gehege gehege) {
         gehegeList.remove(gehege);
@@ -75,7 +76,29 @@ public class ZooData {
             System.out.println(pfleger.getName());
         }
     }
+    public void resetBearbeitet() {
+        for (Gehege gehege : this.gehegeList) {
+            gehege.setBearbeitet(false);
+        }
+    }
 
+    public void simulate() {
+        for (Pfleger pfleger : pflegerList) {
+            pfleger.doesWork();
+
+        }
+
+        for (Gehege gehege : gehegeList) {
+            //gehege.simulate();
+            Tier.simulate(gehege.getTiere());
+        }
+
+        resetBearbeitet();
+    }
+
+    public List<Gehege> getGehegeList() {
+        return this.gehegeList;
+    }
 
     public void printStruktur() {
         System.out.println("├── Zoo: " + name + ", gegründet " + bauJahr);
@@ -92,10 +115,13 @@ public class ZooData {
         if (!pflegerList.isEmpty()) {
             System.out.print("│   ├── Pfleger:");
             for (Pfleger pfleger : pflegerList) {
-                System.out.print(" " + pfleger.getName());
+                System.out.print("--" + pfleger.getName());
             }
             System.out.println();
         }
     }
 
 }
+
+
+

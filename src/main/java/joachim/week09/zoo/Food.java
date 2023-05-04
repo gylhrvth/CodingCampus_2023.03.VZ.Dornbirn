@@ -11,11 +11,6 @@ public class Food {
         this.unit = unit;
     }
 
-    public static float calculate(float cost, int amount) {
-        cost = cost * amount;
-        return cost;
-    }
-
     public String getName() {
         return name;
     }
