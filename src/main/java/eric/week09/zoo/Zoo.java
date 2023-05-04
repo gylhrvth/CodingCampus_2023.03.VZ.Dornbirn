@@ -1,13 +1,18 @@
 package eric.week09.zoo;
 
+import hassan.week09.Zoo.Gehege;
+import hassan.week09.Zoo.Pfleger;
+import lukas.week03.day4.Colors;
+
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Zoo {
-    private String name;
-    private int foundingYear;
-    private ArrayList<Enclosure> enclosureList;
-    private ArrayList<Zookeeper> keeperList;
+    private final String name;
+    private final int foundingYear;
+    private final List<Enclosure> enclosureList;
+    private final List<Zookeeper> keeperList;
 
     public Zoo(String name, int foundingYear) {
         this.name = name;
@@ -16,19 +21,12 @@ public class Zoo {
         this.keeperList = new ArrayList<>();
     }
 
-    public Enclosure findOrCreateEnclosure(String enclosureName) {
-        Zookeeper zookeeper = findOrCreateZookeeper(enclosureName, " ");
-        return  zookeeper.findOrCreateEnclosure(enclosureName);
+    public void addEnclosure(Enclosure enclosure){
+        enclosureList.add(enclosure);
     }
 
-    public Zookeeper findOrCreateZookeeper(String name, String enclosureName) {
-        Enclosure enclosure = findOrCreateEnclosure(enclosureName);
-        return enclosure.findOrCreateZookeeper(name);
-    }
-
-    public Animal findOrCreateAnimal(String name, Food food, String enclosureName, int dailyNeed) {
-        Enclosure enclosure = findOrCreateEnclosure(enclosureName);
-        return enclosure.findOrCreateAnimal(name, food, dailyNeed);
+    public void addZookeeper(Zookeeper keeper) {
+        keeperList.add(keeper);
     }
 
     public void removeEnclosure(Enclosure enclosure) {
@@ -39,10 +37,12 @@ public class Zoo {
         this.keeperList.remove(keeper);
     }
 
+
+
     public void printZooStructure() {
         System.out.println("├── Zoo: " + name + ", founded in " + foundingYear);
-        for (Enclosure enclosure : enclosureList) {
-            enclosure.printEnclosure();
+        for(Enclosure enc : enclosureList) {
+            enc.printEnclosure();
         }
     }
 
@@ -55,12 +55,23 @@ public class Zoo {
         for (Food f : dailyNeed.keySet()) {
             costTotal += f.getPrice() * dailyNeed.get(f);
 
-            System.out.printf("│  ├── Daily Need: %5d %-10s %-20s: %8.2f €\n",
+            System.out.printf("│  ├── Daily Need: %6d %-11s %-21s: %9.2f €\n",
                     dailyNeed.get(f),
                     f.getUnit(),
                     f.getName(),
                     (f.getPrice() * dailyNeed.get(f) / 100.0));
         }
-        System.out.printf("├── Total daily cost: %44.2f €\n", costTotal / 100.0);
+        System.out.printf("├── Total daily cost: %48.2f €\n", costTotal / 100.0);
+    }
+
+    public void simulation(){
+        System.out.println();
+        beforeSimulation();
+        for (Zookeeper keeper : keeperList) {
+            keeper.simulationKeeper();
+        }
+    }
+    public boolean beforeSimulation(){
+        return false;
     }
 }

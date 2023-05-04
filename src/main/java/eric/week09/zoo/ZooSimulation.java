@@ -4,44 +4,59 @@ public class ZooSimulation {
     public static void main(String[] args) {
         Zoo zoo = new Zoo("Tiergarten XYZ", 2023);
 
-//        Enclosure savannaOutback = new Enclosure("Savanna Outback");
-//        Enclosure savanna = new Enclosure("Savanna");
-//        Enclosure saltWater = new Enclosure("Salt Water Aquarium");
-//        Enclosure northPole = new Enclosure("North Pole Aquarium");
-//        Enclosure antarctica = new Enclosure("Antarctica");
-//        Enclosure amazonas = new Enclosure("Amazonas");
-//        Enclosure nile = new Enclosure("Nile");
+        Zookeeper stero = new Zookeeper("Steroide");
+        Zookeeper trenbo = new Zookeeper("Trenbolon");
 
-        //Food aufrufen
-        Food hay = new Food("Hay", "kg", 35);
+        Food fish = new Food("Fisch", "kg", 600);
         Food leaves = new Food("Leaves", "g", 12);
-        Food meat = new Food("Meat", "kg", 900);
-        Food shrimp = new Food("Shrimp", "kg", 400);
+        Food meat = new Food("Meat", "kg", 1200);
+        Food shrimp = new Food("Shrimp", "kg", 320);
         Food insects = new Food("Insects", "g", 120);
 
-        zoo.findOrCreateAnimal("Lion", meat, "Savanna Outback", 50);
-        zoo.findOrCreateAnimal("Elephant", leaves, "Savanna", 150);
-        zoo.findOrCreateAnimal("Giraffe", leaves, "Savanna", 70);
-        zoo.findOrCreateAnimal("Shark", meat, "Salt Water Aquarium", 50);
-        zoo.findOrCreateAnimal("Blue Fin Tuna", shrimp, "Salt Water Aquarium", 200);
-        zoo.findOrCreateAnimal("Ice Bear", meat, "North Polar Zone", 60);
-        zoo.findOrCreateAnimal("Penguins", meat, "Antarctica", 40);
-        zoo.findOrCreateAnimal("Black Widow", insects, "Amazonas", 5);
-        zoo.findOrCreateAnimal("Black Mamba", insects,"Nile",50);
+        Enclosure savanna = new Enclosure("Savanna");
+        Enclosure savannaOutback = new Enclosure("Savanna Outback");
+        Enclosure saltWaterAquarium = new Enclosure("Salt Water Aquarium");
+        Enclosure northPoleAquarium = new Enclosure("North Polar Aquarium");
+        Enclosure northPoleEnclosure = new Enclosure("North Polar Enclosure");
+        Enclosure terrarium = new Enclosure("Terrarium");
 
-//        zoo.findOrCreateEnclosure("Savanna", "Mihawk");
-//        zoo.findOrCreateEnclosure("Savanna Outback", "Crocodile");
-//        zoo.findOrCreateEnclosure("Salt Water Aquarium", "Doflamingo");
-//        zoo.findOrCreateEnclosure("North Polar Zone");
-//        zoo.findOrCreateEnclosure("Antarctica");
-//        zoo.findOrCreateEnclosure("Amazonas");
-//        zoo.findOrCreateEnclosure("Nile");
-//
-//        zoo.findOrCreateZookeeper("Mihawk", "Savanna");
-//        zoo.findOrCreateZookeeper("Crocodile", "Savanna Outback");
-//        zoo.findOrCreateZookeeper("Doflamingo", "Salt Water Aquarium");
+        Animal lion = new Animal("Lion", meat, 65);
+        Animal elephant = new Animal("Elephant", leaves, 150000);
+        Animal giraffe =  new Animal("Giraffe", leaves, 90000);
+        Animal shark = new Animal("Shark", meat, 30);
+        Animal tuna = new Animal("Blue Fin Tuna", shrimp, 20);
+        Animal iceBear = new Animal("Ice Bear", meat, 40);
+        Animal penguins = new Animal("Penguins", fish, 20);
+        Animal spider = new Animal("Black Widow", insects, 5);
+        Animal snake = new Animal("Black Mamba", meat, 40);
+
+        zoo.addEnclosure(savanna);
+        zoo.addEnclosure(savannaOutback);
+        zoo.addEnclosure(saltWaterAquarium);
+        zoo.addEnclosure(northPoleAquarium);
+        zoo.addEnclosure(northPoleEnclosure);
+        zoo.addEnclosure(terrarium);
+
+        savanna.addAnimalToEnclosure(elephant);
+        savanna.addAnimalToEnclosure(giraffe);
+        savannaOutback.addAnimalToEnclosure(lion);
+        saltWaterAquarium.addAnimalToEnclosure(shark);
+        saltWaterAquarium.addAnimalToEnclosure(tuna);
+        northPoleAquarium.addAnimalToEnclosure(penguins);
+        northPoleEnclosure.addAnimalToEnclosure(iceBear);
+        terrarium.addAnimalToEnclosure(spider);
+        terrarium.addAnimalToEnclosure(snake);
+
+        zoo.addZookeeper(stero);
+        zoo.addZookeeper(trenbo);
+
+        stero.addZookeeperToEnclosure(savanna);
+        stero.addZookeeperToEnclosure(savannaOutback);
+        trenbo.addZookeeperToEnclosure(northPoleEnclosure);
+        trenbo.addZookeeperToEnclosure(northPoleAquarium);
 
         zoo.printZooStructure();
         zoo.printDailyFoodCost();
+        zoo.simulation();
     }
 }
