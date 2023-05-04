@@ -10,18 +10,19 @@ public class TikTakToeKi {
 
         boolean win = false;
         printBoard(board);
-        int steps = 0;
-        while (!win && steps < 9) {
+        while (!win && !isBoardFull(board)) {
+            //kiMove(board, player);
             playerMove(board, 1);
             printBoard(board);
             win = winner(board, player);
-            isBoardFull(board);
+
+            if (win || isBoardFull(board)) {
+                break;
+            }
 
             kiMove(board, playerKi);
             printBoard(board);
             win = winner(board, playerKi);
-            ++steps;
-            isBoardFull(board);
         }
 
         if (winner(board, player)) {
@@ -188,8 +189,9 @@ public class TikTakToeKi {
                 }
             }
         }
-
-        board[bestRow][bestCol] = playerKi;
+        if (bestRow != -1 && bestCol != -1) {
+            board[bestRow][bestCol] = playerKi;
+        }
     }
 
     public static int minimax(int[][] board, int depth, boolean isMaximizingPlayer, int playerKi) {

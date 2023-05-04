@@ -1,8 +1,10 @@
 package mert.week09;
 
+import java.util.Random;
 import java.util.Vector;
 
 public class Pfleger {
+    Random rand = new Random();
     private String name;
 
     Vector<Gehege> gehegeList;
@@ -11,10 +13,36 @@ public class Pfleger {
         this.name = name;
         gehegeList = new Vector<>();
     }
-    public void simulateTage(){
+
+
+    public void simulateTage() {
+        //Reinigen
         for (Gehege g : gehegeList) {
-            g.simulateTage(this);
+            if (!g.isSauber()) {
+                g.cleanUp(this);
+            }
         }
+        //Füttern
+        for (Gehege g : gehegeList) {
+            for (Tier t : g.getTierList()) {
+                if (!t.isFeed()) {
+                    t.feedAnimal(this);
+                }
+            }
+        }
+        //Beobachten
+        Gehege gehege = gehegeList.get(rand.nextInt(gehegeList.size()));
+        Tier tier = gehege.getTierList().get(rand.nextInt(gehege.getTierList().size()));
+
+        if (!tier.isBeobachten()) {
+            tier.beobachtenAnimal(this);
+        }
+
+
+    }
+
+    public Vector<Gehege> getGehegeList() {
+        return gehegeList;
     }
 
     public String getName() {
@@ -28,10 +56,10 @@ public class Pfleger {
     public void printzoo() {
         System.out.print(name + " ist verantwortlich für ");
         for (Gehege g : gehegeList) {
-            if (!g.equals(gehegeList.firstElement())){
-                if (!g.equals(gehegeList.lastElement())){
+            if (!g.equals(gehegeList.firstElement())) {
+                if (!g.equals(gehegeList.lastElement())) {
                     System.out.print(", ");
-                } else  {
+                } else {
                     System.out.print(" und ");
                 }
             }

@@ -19,16 +19,19 @@ public class Zoo {
 
     }
 
+
     public void simulateTage(int tage) {
         System.out.println("Tagesanfang.... " + tage);
+        System.out.println("------------------------------------");
         for (Gehege g : gehegeList) {
-            g.resetSauber();
-
+            g.reset();
         }
+
 
         for (Pfleger p : pflegerList) {
             p.simulateTage();
         }
+        System.out.println("------------------------------------");
         System.out.println("Tagesende...... " + tage);
         System.out.println();
 

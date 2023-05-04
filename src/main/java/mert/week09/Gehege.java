@@ -6,7 +6,7 @@ import java.util.Vector;
 public class Gehege {
     private String name;
     Vector<Tier> tierList;
-    boolean sauber = false;
+    private boolean sauber = false;
 
 
     public Gehege(String name) {
@@ -15,20 +15,32 @@ public class Gehege {
 
     }
 
-    public void resetSauber() {
-        sauber = false;
-    }
 
-    public void simulateTage(Pfleger p) {
-        if (!sauber) {
-            System.out.println(p.getName() + " füttert die Tiere in " + name);
-            sauber = true;
+
+    public void reset() {
+        sauber = false;
+        for (Tier t : tierList) {
+            t.resetFeed();
+            t.resetBeobachten();
         }
     }
 
+    public void cleanUp(Pfleger p) {
+        System.out.println(p.getName() + " putzt die Gehege in: " + name);
+        sauber = true;
+    }
+
+    public Vector<Tier> getTierList() {
+        return tierList;
+    }
 
     public void addTiere(Tier tier) {
         tierList.add(tier);
+    }
+
+
+    public boolean isSauber() {
+        return sauber;
     }
 
 
@@ -43,6 +55,7 @@ public class Gehege {
     public String getName() {
         return name;
     }
+
 
     @Override
     public String toString() {
