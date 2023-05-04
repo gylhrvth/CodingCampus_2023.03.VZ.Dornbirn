@@ -22,10 +22,13 @@ public class ZooMain {
         alpenwiese.addTier(rijska);
         Tier garmond = new Tier("Garmond", "Stroh");
         ried.addTier(garmond);
+        alpenwiese.addTier(garmond);
         Tier hugo = new Tier("Hugo", "Stroh");
         ried.addTier(hugo);
         Tier idaxis = new Tier("Idaxis", "Stroh");
         ried.addTier(idaxis);
+        Tier fisch = new Tier("Goldfisch","fisch");
+        terrarium.addTier(fisch);
 
 
         //Futter
@@ -55,7 +58,6 @@ public class ZooMain {
         zoo.addPfleger(pfleger3);
 
         alpenwiese.addPflegerToGehege(pfleger1);
-        alpenwiese.addPflegerToGehege(pfleger1);
         ried.addPflegerToGehege(pfleger3);
         terrarium.addPflegerToGehege(pfleger2);
 
@@ -64,11 +66,17 @@ public class ZooMain {
 
 
         zoo.printStruktur();
+
+
         System.out.println();
-        System.out.println("FUTTERBEDARF");
+        //System.out.println("FUTTERBEDARF");
+       // gras.futterbedarf(tiere);
 
 
-        gras.futterbedarf(tiere);
+        System.out.println("+++++++++++");
+        System.out.println("Simulation");
+
+        zoo.simulate();
 
     }
 
