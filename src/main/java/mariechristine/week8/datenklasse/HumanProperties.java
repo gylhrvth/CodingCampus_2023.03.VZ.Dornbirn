@@ -1,4 +1,4 @@
-package mariechristine.week8;
+package mariechristine.week8.datenklasse;
 
 public class HumanProperties {
     private String fullName;

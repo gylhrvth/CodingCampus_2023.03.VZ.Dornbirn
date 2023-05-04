@@ -27,9 +27,10 @@ public class ZooData {
         gehegeList.add(gehege);
     }
 
-    public List<Pfleger> getPflegerList() {
-        return pflegerList;
+    public  List<Pfleger> getPflegerList() {
+        return this.pflegerList;
     }
+
 
     public void removeGehege(Gehege gehege) {
         gehegeList.remove(gehege);
@@ -63,6 +64,11 @@ public class ZooData {
 
     public void removePfleger(Pfleger pfleger) {
         pflegerList.remove(pfleger);
+        for (Gehege gehege : gehegeList) {
+            if (gehege.getPflegerList().contains(pfleger)) {
+                gehege.removePflegerFromGehege(pfleger);
+            }
+        }
     }
     public void printPflegerListe() {
         System.out.println("Liste der Pfleger:");
@@ -70,7 +76,29 @@ public class ZooData {
             System.out.println(pfleger.getName());
         }
     }
+    public void resetBearbeitet() {
+        for (Gehege gehege : this.gehegeList) {
+            gehege.setBearbeitet(false);
+        }
+    }
 
+    public void simulate() {
+        for (Pfleger pfleger : pflegerList) {
+            pfleger.doesWork();
+
+        }
+
+        for (Gehege gehege : gehegeList) {
+            //gehege.simulate();
+            Tier.simulate(gehege.getTiere());
+        }
+
+        resetBearbeitet();
+    }
+
+    public List<Gehege> getGehegeList() {
+        return this.gehegeList;
+    }
 
     public void printStruktur() {
         System.out.println("├── Zoo: " + name + ", gegründet " + bauJahr);
@@ -87,10 +115,13 @@ public class ZooData {
         if (!pflegerList.isEmpty()) {
             System.out.print("│   ├── Pfleger:");
             for (Pfleger pfleger : pflegerList) {
-                System.out.print(" " + pfleger.getName());
+                System.out.print("--" + pfleger.getName());
             }
             System.out.println();
         }
     }
 
 }
+
+
+

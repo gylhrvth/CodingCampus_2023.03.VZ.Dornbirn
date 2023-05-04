@@ -17,15 +17,18 @@ public class ZooMain {
 
 
         //Tiere
-        Tier rijska = new Tier("Rijska", "Kuh");
+        Tier rijska = new Tier("Rijska", "Kuh",100,20);
         //zoo.addTierToGehege(rijska, alpenwiese);
         alpenwiese.addTier(rijska);
-        Tier garmond = new Tier("Garmond", "Stroh");
+        Tier garmond = new Tier("Garmond", "Stroh",100,25);
         ried.addTier(garmond);
-        Tier hugo = new Tier("Hugo", "Stroh");
+        alpenwiese.addTier(garmond);
+        Tier hugo = new Tier("Hugo", "Stroh",100,10);
         ried.addTier(hugo);
-        Tier idaxis = new Tier("Idaxis", "Stroh");
+        Tier idaxis = new Tier("Idaxis", "Stroh",150,50);
         ried.addTier(idaxis);
+        Tier fisch = new Tier("Goldfisch","fisch",20,1);
+        terrarium.addTier(fisch);
 
 
         //Futter
@@ -48,26 +51,32 @@ public class ZooMain {
         //pfleger
         Pfleger pfleger1 = new Pfleger("Eric");
         Pfleger pfleger2 = new Pfleger("Boso");
-        Pfleger pfleger3 = new Pfleger("Hasni");
+        Pfleger pfleger3 = new Pfleger("Hassan");
 
         zoo.addPfleger(pfleger1);
         zoo.addPfleger(pfleger2);
         zoo.addPfleger(pfleger3);
 
-        alpenwiese.addPfleger(pfleger1);
-        ried.addPfleger(pfleger1);
-        terrarium.addPfleger(pfleger3);
+        alpenwiese.addPflegerToGehege(pfleger1);
+        ried.addPflegerToGehege(pfleger3);
+        terrarium.addPflegerToGehege(pfleger2);
 
         zoo.printPflegerListe();
         System.out.println();
 
 
         zoo.printStruktur();
+
+
         System.out.println();
-        System.out.println("FUTTERBEDARF");
+        //System.out.println("FUTTERBEDARF");
+       // gras.futterbedarf(tiere);
 
 
-        gras.futterbedarf(tiere);
+        System.out.println("+++++++++++");
+        System.out.println("Simulation");
+
+        zoo.simulate();
 
     }
 

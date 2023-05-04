@@ -7,6 +7,7 @@ public class Gehege {
     private String name;
     private List<Tier> tierList;
     private List<Pfleger> pflegerList;
+    private boolean bearbeitet;
 
     public Gehege(String name) {
         this.name = name;
@@ -30,21 +31,44 @@ public class Gehege {
         return tierList;
     }
 
-    public void addPfleger(Pfleger pfleger) {
+    public void addPflegerToGehege(Pfleger pfleger) {
         if (!pflegerList.contains(pfleger)) {
-            pflegerList.add(pfleger);
             pfleger.addGehege(this);
+            pflegerList.add(pfleger);
+        } else {
+            System.out.println("Pfleger ist nicht im Zoo registriert und kann daher diesem Gehege nicht zugeordnet werden.");
         }
     }
 
-    public void removePfleger(Pfleger pfleger) {
-        pflegerList.remove(pfleger);
-        pfleger.removeGehege(this);
+
+    public void removePflegerFromGehege(Pfleger pfleger) {
+        if (pflegerList.contains(pfleger)) {
+            pfleger.removeGehege(this);
+        } else {
+            System.out.println("Der Pfleger ist nicht zuständig für dieses Gehege.");
+        }
+    }
+
+    public void setBearbeitet(boolean bearbeitet) {
+        this.bearbeitet = bearbeitet;
     }
 
     public List<Pfleger> getPflegerList() {
         return pflegerList;
     }
+
+    public boolean isBearbeitet() {
+        return this.bearbeitet;
+    }
+
+    public void simulate() {
+        System.out.println();
+        System.out.println("Ich bin Gehege " + name + " meine Pfleger sind:");
+        for (Pfleger pfleger : pflegerList) {
+            System.out.println("\t" + pfleger.getName());
+        }
+    }
+ 
 
     public void printStruktur() {
         System.out.println("│   ├── Gehege: " + name);

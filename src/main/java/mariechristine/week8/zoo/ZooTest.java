@@ -5,6 +5,7 @@ public class ZooTest {
         //Initialisierung vom Zoo und all seinen Bestandteilen:
 
         Zoo z = new Zoo("Tiergarten Dornbirn", 2022);
+
         Gehege alp = new Gehege("Alpenwiese");
         Gehege ried = new Gehege("Ried");
         Gehege terra = new Gehege("Terrarium (warm)");
@@ -23,17 +24,21 @@ public class ZooTest {
         ried.addAnimal(stork2);
         ried.addAnimal(stork3);
         z.printStructure();
-        System.out.println("**************************************");
+        System.out.println("___________________________________________________________\n");
 
-        Zookeeper zk = new Zookeeper("Mario");
-        z.addZookeeper(zk);
+        Zookeeper mario = new Zookeeper("Mario");
+        Zookeeper sabine = new Zookeeper("Sabine");
+        Zookeeper louise = new Zookeeper("Lazy Louise");
+        z.addZookeeper(sabine);
+        z.addZookeeper(mario);
+        z.addZookeeper(louise);
+
+        mario.addTask(alp);
+        mario.addTask(terra);
+        sabine.addTask(ried);
         z.printStructure();
-
-
-
-
-
-
+        System.out.println("___________________________________________________________\n");
 
     }
 }
+
