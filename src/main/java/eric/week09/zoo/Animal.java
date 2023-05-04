@@ -3,11 +3,15 @@ package eric.week09.zoo;
 import lukas.week03.day4.Colors;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class Animal {
     private String name;
     private Food food;
     private int dailyNeed;
+    private List<Zookeeper> keeper;
+
+
 
     public Animal(String name, Food food, int dailyNeed) {
         this.name = name;
@@ -15,6 +19,9 @@ public class Animal {
         this.food = food;
     }
 
+    public List<Zookeeper> getKeeper() {
+        return keeper;
+    }
     public double getCost() {
         return dailyNeed;
     }
@@ -24,10 +31,16 @@ public class Animal {
     }
 
     public void printAnimals() {
-        if (getName().isEmpty()) {
-            System.out.println("│  │  │  ├── Enclosure ist Empty");
-        } else {
-            System.out.println("│  │  │  ├── " + Colors.COLORS[3] + "Animal: " + getName() + Colors.RESET);
+        System.out.println("│  │  │  ├── " + Colors.COLORS[3] + "Animal: " + name + Colors.RESET);
+    }
+
+
+    public void simulationAnimal(){
+        boolean alreadyAte;
+        System.out.println("This Animal " + name + " eats " + food);
+        if (alreadyAte = false){
+            System.out.println("Zookeeper " + getKeeper() + " is feeding " + name + " with " + food);
+            alreadyAte = true;
         }
     }
 
