@@ -1,5 +1,7 @@
 package joachim.week09.zoo;
 
+import lukas.week03.day4.Colors;
+
 import java.util.HashMap;
 
 public class Animal {
@@ -39,7 +41,7 @@ public class Animal {
 
     @Override
     public String toString() {
-        return "Name: " + name + " ,Species: " + species + ",Age: " + age + " ,Food: " + food.getName() + " " + amount + food.getUnit() + "\n│   │   ├── " + food.getCost()*amount + " € per day";
+        return Colors.COLORS[3] +"Name: " + name + " ,Species: " + species + ",Age: " + age + " ,Food: " + food.getName() + " " + amount + food.getUnit() + Colors.COLORS[1] + "\n│   │   ├── " + Colors.COLORS[4] + food.getCost()*amount + " € per day" + Colors.RESET;
     }
 
     public void collectFoodRequest(HashMap<Food, Integer> foodRequest){
