@@ -1,6 +1,10 @@
 package sandro.week08.ZooTycoon;
 
+import lukas.week03.day4.Colors;
+
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Random;
 import java.util.Vector;
 
 public class Enclosure {
@@ -9,36 +13,159 @@ public class Enclosure {
     private String climate;
     private Vector<Animal> animalList;
 
+    private boolean allreadyVisit;
+    Random rand = new Random();
 
-    public Enclosure (String name, String description, String climate){
-        this.name = name;
+    public Enclosure(String name, String description, String climate) {
+        this.name = Colors.COLORS[3] + name + Colors.RESET;
         this.description = description;
         this.climate = climate;
         this.animalList = new Vector<>();
+        this.allreadyVisit = false;
 
+    }
+
+    public void setAllreadyVisit(boolean allreadyVisit) {
+        this.allreadyVisit = allreadyVisit;
+    }
+
+    public boolean isAllreadyVisit() {
+        return allreadyVisit;
     }
 
     public String getName() {
         return name;
     }
 
-    public void addAnimal (Animal animal){
+    public void addAnimal(Animal animal) {
         animalList.add(animal);
     }
-    public void removeAnimal (Animal animal){
+
+    public void removeAnimal(Animal animal) {
         animalList.remove(animal);
     }
+public void potentialFight(Animal vic, Animal agr){
+    int trigger = rand.nextInt(0, 100);
+    if (trigger < 50){
+        System.out.println("#############################################################");
+        System.out.println("A fight starts between: " +vic.getName() + " and " +agr.getName());
+        vic.animalfight(vic, agr);
+        System.out.println("#############################################################");
+    }
+}
+    public void potentialBite() {
+
+        for (int i = 0; i < animalList.size(); i++) {
+            int trigger = rand.nextInt(0, 100);
+            if (trigger < 40) {
+                int target = rand.nextInt(animalList.size());
+                Animal animalAgg = animalList.get(i);
+                Animal animalVic = animalList.get(target);
+
+                if (animalVic == animalAgg) {
+                    //noop
+                } else {
+                    //  System.out.println(Colors.COLORS[1] + "WARNING!!! " + animalAgg.getName() + " bites " + animalVic.getName() + Colors.RESET);
+                    animalAgg.animalgetsBit(animalVic, animalAgg);
+                    potentialFight(animalVic,animalAgg);
+                }
+
+//                if (animalList.get(i) == animalList.lastElement()) {
+//                    animalVic = animalList.get(i - 1);
+//                } else {
+//                    animalVic = animalList.get(i + 1);
+//                }
 
 
-    public void collectFoodRequirement(HashMap<Food,Double> foodRequiert){
-        for (Animal a: animalList) {
+            }
+        }
+    }
+
+    public void collectFoodRequirement(HashMap<Food, Double> foodRequiert) {
+        for (Animal a : animalList) {
             a.collectFoodRequirement(foodRequiert);
         }
     }
 
+//    public void isAnimalDead(Animal ani) {
+//        if (ani.getCurrentHealth() < 1) {
+//            System.out.println(ani.getName() + " died");
+//            ani.setAlive(false);
+//        }
+//    }
+
+    public void simulate() {
+        potentialBite();
+        for (Animal a : animalList) {
+            if (!a.isAlive()) {
+                System.out.println(a.getName() + " died from fatal injuries");
+            }
+//            if (!a.isAlive()) {
+//                it.remove();
+//            }
+        }
+    }
+    public Animal findLowestLifeAnimal() {
+        if(animalList.isEmpty()) {
+            return null;
+        }
+        Animal enclowest = animalList.get(0);   //null or ?
+        for (Animal a:animalList) {
+            if (a.getHealthprecent() < enclowest.getHealthprecent()){
+                enclowest = a;
+            }
+        }
+        return enclowest;
+    }
+
+    public void vetTask (){
+
+//        int lowlife = Integer.MAX_VALUE;
+//        Animal toheal = null;
+//        for (Animal a:animalList) {
+//            if (a.getHealthprecent() < lowlife){
+//                lowlife = a.getHealthprecent();
+//                toheal = a;
+//            }
+//        }
+//        toheal.animalGetsHeal(toheal);
+//        System.out.println(toheal.getName() +" gets patched up and heals complete");
+   }
+
+    public void processedBy(ZooKeeper keeper) {
+
+        Random rand = new Random();
+
+        if (!animalList.isEmpty()) {
+
+            Iterator<Animal> it = animalList.iterator();
+            while (it.hasNext()) {
+                Animal a = it.next();
+                if (!a.isAlive()) {
+                    System.out.println("takes " + a.getName() + " out of " + name);
+                    it.remove();
+                } else {
+                    System.out.println("feeds " + a.getName() + " (Health: " + a.getCurrentHealth() + "\\" + a.getMaxHealth() +") " + " with " + a.getAmount() + " " + a.getFood().getUnit() + " of " + a.getFood().getName());
+                    a.feedAnimal(a);
+                }
+            }
+
+//            if(Math.random() > 0.5) {
+//                Animal a = animalList.get(0);
+//                a.bites(keeper);
+//            }
+
+            int animalIndex = rand.nextInt(animalList.size());
+            System.out.println("looks at " + animalList.get(animalIndex).getName());
+        } else {
+            System.out.println("Constructs the new " + name);
+        }
+    }
+
+
     public void printZoo() {
-        System.out.println("│   ├── " + "Enclosure: " + name +", "+ description +" ("+ climate+")");
-        if (animalList.isEmpty()){
+        System.out.println("│   ├── " + "Enclosure: " + name + ", " + description + " (" + climate + ")");
+        if (animalList.isEmpty()) {
             System.out.println("│   │   ├── (is Empty)");
         } else {
             for (Animal ani : animalList) {

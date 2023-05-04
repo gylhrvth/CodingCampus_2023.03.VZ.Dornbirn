@@ -1,5 +1,6 @@
 package sandro.week08.ZooTycoon;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -9,19 +10,29 @@ public class Zoo {
     private Vector<Enclosure> enclosureList;
     private Vector<ZooKeeper> zooKeeperList;
 
+    private Vector<Vet> vetList;
+
 
     public Zoo(String name, int year) {
         this.name = name;
         this.year = year;
         this.enclosureList = new Vector<>();
         this.zooKeeperList = new Vector<>();
+        this.vetList = new Vector<>();
     }
-    public void addZooKeeper (ZooKeeper zooKeeper){
+
+    public void addVet (Vet vet){
+        if (!vetList.contains(vet)){
+            vetList.add(vet);
+        }
+    }
+    public void addZooKeeper(ZooKeeper zooKeeper) {
         if (!zooKeeperList.contains(zooKeeper)) {
             zooKeeperList.add(zooKeeper);
         }
     }
-    public void removeZooKeeper (ZooKeeper zooKeeper){
+
+    public void removeZooKeeper(ZooKeeper zooKeeper) {
         zooKeeperList.add(zooKeeper);
     }
 
@@ -56,6 +67,102 @@ public class Zoo {
         this.year = year;
     }
 
+    public void printTaskprogression(int daysToSimulate) {
+//        int count = 0;
+//        for (int i = 0; i < zooKeeperList.size(); i++) {
+//            zooKeeperList.get(i).printTaskprogression(count);
+//            count ++;
+//        }
+//        for (int i = 0; i < zooKeeperList.size(); i++) {
+//            zooKeeperList.get(i).printTaskprogression();
+//        }
+
+
+        for (int day = 1; day <= daysToSimulate; day++) {
+            System.out.println("Start Tag " + day);
+            System.out.println("*******************************************************************************");
+            System.out.println("They fight and bite, and fight and bite, ... bite bite bite, fight fight fight! ");
+            for (Enclosure enc:enclosureList) {
+                enc.simulate();
+            }
+            System.out.println("*******************************************************************************");
+            System.out.println("Start Vet-Tasks ...");
+
+
+            for(Vet vet : vetList) {
+                Animal animal = findOverallLowestAnimal();
+                if(animal == null) {
+                    break;
+                }
+                if (animal.getCurrentHealth() == 0 || animal.getCurrentHealth() < 0){
+                    vet.reviveAnimal(animal);
+                } else {
+                    vet.healAnimal(animal);
+                }
+            }
+//            for (Enclosure enc:enclosureList) {
+//                enc.vetTask();
+//            }
+
+            System.out.println("*******************************************************************************");
+            System.out.println("Start Zookeeper-Task...");
+
+            Vector<Enclosure> tasksForToday = new Vector<>();
+            tasksForToday.addAll(enclosureList);
+            Collections.shuffle(tasksForToday);
+
+            Vector<ZooKeeper> zookeeperHasToWork = new Vector<>();
+            zookeeperHasToWork.addAll(zooKeeperList);
+            Collections.shuffle(zookeeperHasToWork);
+
+            while (!tasksForToday.isEmpty() && !zookeeperHasToWork.isEmpty()) {
+                for (int i = 0; i < zookeeperHasToWork.size(); i++) {
+                    ZooKeeper zk = zookeeperHasToWork.get(i);
+
+                    if (!zk.simulateDay(tasksForToday)) {
+                        // zk is ready, remove from the list
+                        System.out.println(zk.getName() + " goes Home");
+                        zookeeperHasToWork.remove(i);
+                        --i;
+                    }
+                }
+            }
+            if (!tasksForToday.isEmpty()){
+                System.out.println("ALARM !!! Tiere werden vernachlässigt.");
+                System.out.println(tasksForToday);
+            }
+            System.out.println("All daily Tasks are done");
+            int deathcount = 0;
+
+            System.out.println("Tag " + day + " FINISH...\n\n");
+        }
+
+
+
+    }
+
+    private Animal findOverallLowestAnimal() {
+        Animal overallLowest = null;
+        for(Enclosure enc : enclosureList) {
+            Animal encLowest = enc.findLowestLifeAnimal();
+            if(encLowest == null) {
+                continue;
+            }
+            if(encLowest.getCurrentHealth() == encLowest.getMaxHealth()) {
+                continue;
+            }
+            if(overallLowest == null) {
+                overallLowest = encLowest;
+            } else if(encLowest.getHealthprecent() < overallLowest.getHealthprecent()) {
+                overallLowest = encLowest;
+            }
+//
+//            if(encLowest != null && (overallLowest == null || encLowest.getHealthprecent() < overallLowest.getHealthprecent())){
+//                overallLowest = encLowest;
+//            }
+        }
+        return overallLowest;
+    }
 
     public void printZoo() {
         System.out.println("├── " + "Zoo: " + name + " " + "Since: " + year);
@@ -63,7 +170,7 @@ public class Zoo {
             enc.printZoo();
         }
         System.out.println("├──────────────────────────────────────────────────────────────────────");
-        for (ZooKeeper keeper : zooKeeperList){
+        for (ZooKeeper keeper : zooKeeperList) {
             keeper.printTask();
         }
 
@@ -80,12 +187,12 @@ public class Zoo {
         System.out.println("Food requierment stats");
         double cost = 0;
         for (Food food : foodRequiert.keySet()) {
-            System.out.println(food.getName() + " ==> " + foodRequiert.get(food) + " " + food.getUnit()+ " / $ per Unit: " +food.getUnitprice()) ;
+            System.out.println(food.getName() + " ==> " + foodRequiert.get(food) + " " + food.getUnit() + " / $ per Unit: " + food.getUnitprice());
             double amount = foodRequiert.get(food);
             double price = food.getUnitprice() * amount;
 
             cost += price;
         }
-        System.out.println("Total costs for all Food requiered: " + cost +" $");
+        System.out.println("Total costs for all Food requiered: " + cost + " $");
     }
 }
