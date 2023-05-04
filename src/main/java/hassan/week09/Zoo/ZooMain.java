@@ -17,17 +17,17 @@ public class ZooMain {
 
 
         //Tiere
-        Tier rijska = new Tier("Rijska", "Kuh");
+        Tier rijska = new Tier("Rijska", "Kuh",100,20);
         //zoo.addTierToGehege(rijska, alpenwiese);
         alpenwiese.addTier(rijska);
-        Tier garmond = new Tier("Garmond", "Stroh");
+        Tier garmond = new Tier("Garmond", "Stroh",100,25);
         ried.addTier(garmond);
         alpenwiese.addTier(garmond);
-        Tier hugo = new Tier("Hugo", "Stroh");
+        Tier hugo = new Tier("Hugo", "Stroh",100,10);
         ried.addTier(hugo);
-        Tier idaxis = new Tier("Idaxis", "Stroh");
+        Tier idaxis = new Tier("Idaxis", "Stroh",150,50);
         ried.addTier(idaxis);
-        Tier fisch = new Tier("Goldfisch","fisch");
+        Tier fisch = new Tier("Goldfisch","fisch",20,1);
         terrarium.addTier(fisch);
 
 

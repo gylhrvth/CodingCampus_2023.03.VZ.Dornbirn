@@ -89,7 +89,8 @@ public class ZooData {
         }
 
         for (Gehege gehege : gehegeList) {
-            gehege.simulate();
+            //gehege.simulate();
+            Tier.simulate(gehege.getTiere());
         }
 
         resetBearbeitet();
