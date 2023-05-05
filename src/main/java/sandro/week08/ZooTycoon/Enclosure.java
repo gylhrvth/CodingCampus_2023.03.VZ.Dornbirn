@@ -132,30 +132,53 @@ public void potentialFight(Animal vic, Animal agr){
 //        System.out.println(toheal.getName() +" gets patched up and heals complete");
    }
 
+   private void removeDeadAnimals(ZooKeeper keeper){
+       for (int i = 0; i < animalList.size(); i++) {
+           Animal a = animalList.get(i);
+           if (!a.isAlive()){
+               animalList.remove(i);
+               --i;
+               System.out.println(keeper.getName() + " takes " + a.getName() + " out of " + name);
+           }
+       }
+   }
+
+   private void feedAnimals(ZooKeeper keeper){
+       for (Animal a :animalList) {
+            System.out.println(keeper.getName() + " feeds " + a.getName() + " (Health: " + a.getCurrentHealth() + "\\" + a.getMaxHealth() +") " + " with " + a.getAmount() + " " + a.getFood().getUnit() + " of " + a.getFood().getName());
+            a.feedAnimal(a);
+       }
+   }
+
     public void processedBy(ZooKeeper keeper) {
 
         Random rand = new Random();
 
+//        if (!animalList.isEmpty()) {
+//
+//            Iterator<Animal> it = animalList.iterator();
+//            while (it.hasNext()) {
+//                Animal a = it.next();
+//                if (!a.isAlive()) {
+//                    System.out.println("takes " + a.getName() + " out of " + name);
+//                    it.remove();
+//                } else {
+//                    System.out.println("feeds " + a.getName() + " (Health: " + a.getCurrentHealth() + "\\" + a.getMaxHealth() +") " + " with " + a.getAmount() + " " + a.getFood().getUnit() + " of " + a.getFood().getName());
+//                    a.feedAnimal(a);
+//                }
+//            }
+//        }
+
+        removeDeadAnimals(keeper);
+        feedAnimals(keeper);
+
         if (!animalList.isEmpty()) {
-
-            Iterator<Animal> it = animalList.iterator();
-            while (it.hasNext()) {
-                Animal a = it.next();
-                if (!a.isAlive()) {
-                    System.out.println("takes " + a.getName() + " out of " + name);
-                    it.remove();
-                } else {
-                    System.out.println("feeds " + a.getName() + " (Health: " + a.getCurrentHealth() + "\\" + a.getMaxHealth() +") " + " with " + a.getAmount() + " " + a.getFood().getUnit() + " of " + a.getFood().getName());
-                    a.feedAnimal(a);
-                }
-            }
-
 //            if(Math.random() > 0.5) {
 //                Animal a = animalList.get(0);
 //                a.bites(keeper);
 //            }
 
-            int animalIndex = rand.nextInt(animalList.size());
+        int animalIndex = rand.nextInt(animalList.size());
             System.out.println("looks at " + animalList.get(animalIndex).getName());
         } else {
             System.out.println("Constructs the new " + name);

@@ -8,7 +8,7 @@ public class ZooSimulation {
         Zookeeper trenbo = new Zookeeper("Trenbolon");
 
         Food fish = new Food("Fisch", "kg", 600);
-        Food leaves = new Food("Leaves", "g", 12);
+        Food leaves = new Food("Leaves", "g", 3);
         Food meat = new Food("Meat", "kg", 1200);
         Food shrimp = new Food("Shrimp", "kg", 320);
         Food insects = new Food("Insects", "g", 120);

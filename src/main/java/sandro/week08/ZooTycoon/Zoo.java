@@ -21,11 +21,12 @@ public class Zoo {
         this.vetList = new Vector<>();
     }
 
-    public void addVet (Vet vet){
-        if (!vetList.contains(vet)){
+    public void addVet(Vet vet) {
+        if (!vetList.contains(vet)) {
             vetList.add(vet);
         }
     }
+
     public void addZooKeeper(ZooKeeper zooKeeper) {
         if (!zooKeeperList.contains(zooKeeper)) {
             zooKeeperList.add(zooKeeper);
@@ -82,24 +83,10 @@ public class Zoo {
             System.out.println("Start Tag " + day);
             System.out.println("*******************************************************************************");
             System.out.println("They fight and bite, and fight and bite, ... bite bite bite, fight fight fight! ");
-            for (Enclosure enc:enclosureList) {
+            for (Enclosure enc : enclosureList) {
                 enc.simulate();
             }
-            System.out.println("*******************************************************************************");
-            System.out.println("Start Vet-Tasks ...");
 
-
-            for(Vet vet : vetList) {
-                Animal animal = findOverallLowestAnimal();
-                if(animal == null) {
-                    break;
-                }
-                if (animal.getCurrentHealth() == 0 || animal.getCurrentHealth() < 0){
-                    vet.reviveAnimal(animal);
-                } else {
-                    vet.healAnimal(animal);
-                }
-            }
 //            for (Enclosure enc:enclosureList) {
 //                enc.vetTask();
 //            }
@@ -127,10 +114,18 @@ public class Zoo {
                     }
                 }
             }
-            if (!tasksForToday.isEmpty()){
-                System.out.println("ALARM !!! Tiere werden vernachlässigt.");
+            if (!tasksForToday.isEmpty()) {
+                System.out.println("ALARM !!! Animals didnt get fed");
                 System.out.println(tasksForToday);
             }
+            System.out.println("*******************************************************************************");
+            System.out.println("Start Vet-Tasks ...");
+
+
+            for (Vet vet : vetList) {
+                vet.dailyRoutine(this);
+            }
+
             System.out.println("All daily Tasks are done");
             int deathcount = 0;
 
@@ -138,22 +133,21 @@ public class Zoo {
         }
 
 
-
     }
 
-    private Animal findOverallLowestAnimal() {
+    Animal findOverallLowestAnimal() {
         Animal overallLowest = null;
-        for(Enclosure enc : enclosureList) {
+        for (Enclosure enc : enclosureList) {
             Animal encLowest = enc.findLowestLifeAnimal();
-            if(encLowest == null) {
+            if (encLowest == null) {
                 continue;
             }
-            if(encLowest.getCurrentHealth() == encLowest.getMaxHealth()) {
+            if (encLowest.getCurrentHealth() == encLowest.getMaxHealth()) {
                 continue;
             }
-            if(overallLowest == null) {
+            if (overallLowest == null) {
                 overallLowest = encLowest;
-            } else if(encLowest.getHealthprecent() < overallLowest.getHealthprecent()) {
+            } else if (encLowest.getHealthprecent() < overallLowest.getHealthprecent()) {
                 overallLowest = encLowest;
             }
 //

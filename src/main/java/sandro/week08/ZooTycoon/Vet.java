@@ -7,23 +7,20 @@ import java.util.Vector;
 
 public class Vet {
     private String name;
-    private Vector<Enclosure> vetTaskList;
+
     Random rand = new Random();
 
 
     public Vet(String name) {
         this.name = Colors.COLORS[6] + name + Colors.RESET;
-        this.vetTaskList = new Vector<>();
+
     }
 
     public String getName() {
         return name;
     }
 
-    public void addTask(Zoo zoo, Enclosure task) {
-        zoo.addVet(this);
-        vetTaskList.add(task);
-    }
+
 
     public void reviveAnimal(Animal animal) {
         int reviveTrigger = rand.nextInt(0, 100);
@@ -40,6 +37,16 @@ public class Vet {
         animal.setCurrentHealth(animal.getMaxHealth());
         System.out.println(animal.getName() + " (Health: " + animal.getCurrentHealth() + "\\" + animal.getMaxHealth() + ")");
     }
+
+    public void dailyRoutine(Zoo zoo){
+        Animal animal = zoo.findOverallLowestAnimal();
+        if(animal != null) {
+//            if (animal.getCurrentHealth() == 0 || animal.getCurrentHealth() < 0){
+//                reviveAnimal(animal);
+//            } else {
+                healAnimal(animal);
+            }
+        }
 
 
 }
