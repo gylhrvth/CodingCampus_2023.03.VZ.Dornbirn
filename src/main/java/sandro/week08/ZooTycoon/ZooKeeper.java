@@ -6,7 +6,6 @@ import java.util.Vector;
 
 public class ZooKeeper {
     private String name;
-
     private Vector<Enclosure> tasklist;
 
     public ZooKeeper(String name) {

@@ -58,8 +58,8 @@ public class Animal {
 
     public void feedAnimal(Animal animal) {
         Animal ani = animal;
-        int healFromFood = (ani.maxHealth / 10);
-        int critHealFromFood = (ani.maxHealth / 5);
+        int healFromFood = (ani.maxHealth / 50);
+        int critHealFromFood = (ani.maxHealth / 25);
         int critTrigger = rand.nextInt(0, 100);
 
 

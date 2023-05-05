@@ -125,7 +125,7 @@ public class Zoo {
             for (Vet vet : vetList) {
                 vet.dailyRoutine(this);
             }
-
+            System.out.println("*******************************************************************************");
             System.out.println("All daily Tasks are done");
             int deathcount = 0;
 
