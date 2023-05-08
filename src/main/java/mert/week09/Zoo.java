@@ -26,6 +26,11 @@ public class Zoo {
         for (Gehege g : gehegeList) {
             g.reset();
         }
+        //Angriff
+        for (Gehege g : gehegeList) {
+            g.angriff2();
+            g.entferneToteTiere();
+        }
 
 
         for (Pfleger p : pflegerList) {
