@@ -14,6 +14,8 @@ public class TheZoo {
         newZoo.findOrCreateSupervisor("Gerlinde",false,"Orangutan", newZoo, true, "Pool", "Lion Cage", "Monkey Cage", "Birdhouse");
 
         newZoo.findOrCreateDoctor("The Doctor");
+        newZoo.findOrCreateDoctor("The good Doctor");
+
 
 
         newZoo.findOrCreateAnimal("Abe", "Zebra", "Lion Cage", 15*365,100);
@@ -65,7 +67,7 @@ public class TheZoo {
 
 
         newZoo.printLayout();
-        for (int i = 0; i < 8*365; i++) {
+        for (int i = 0; i < 8*185; i++) {
             System.out.println(Colors.COLORS[1] +"A new Day has begun\n----------------------------------------------------" + Colors.RESET);
             newZoo.beforeDailyRoutine();
             newZoo.dailyRoutine();

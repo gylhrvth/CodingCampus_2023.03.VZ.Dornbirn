@@ -4,9 +4,11 @@ import lukas.week03.day4.Colors;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 import java.util.Vector;
 
 public class NewZoo {
+    static Random rand = new Random();
     private int foundingyear;
     private String name;
     private List<NewHabitat> habitatList;
@@ -27,18 +29,18 @@ public class NewZoo {
                 return habitat;
             }
         }
-        NewHabitat newHabitat = new NewHabitat(description, false,false);
+        NewHabitat newHabitat = new NewHabitat(description, false, false);
         habitatList.add(newHabitat);
         return newHabitat;
     }
 
-    public NewSupervisor findOrCreateSupervisor(String description,Boolean done,String favorite, NewZoo zoo, boolean isManager, String... tasks) {
+    public NewSupervisor findOrCreateSupervisor(String description, Boolean done, String favorite, NewZoo zoo, boolean isManager, String... tasks) {
         for (NewSupervisor supervisor : supervisorList) {
             if (supervisor.getName().equals(description)) {
                 return supervisor;
             }
         }
-        NewSupervisor newSupervisor = new NewSupervisor(description,done,favorite,zoo, isManager, tasks);
+        NewSupervisor newSupervisor = new NewSupervisor(description, done, favorite, zoo, isManager, tasks);
         supervisorList.add(newSupervisor);
         return newSupervisor;
     }
@@ -49,14 +51,14 @@ public class NewZoo {
                 return doctor;
             }
         }
-        NewDoctor newDoctor = new NewDoctor(description,false);
+        NewDoctor newDoctor = new NewDoctor(description);
         doctorList.add(newDoctor);
         return newDoctor;
     }
 
-    public NewAnimal findOrCreateAnimal(String name, String species, String habitatName, int age,int health) {
+    public NewAnimal findOrCreateAnimal(String name, String species, String habitatName, int age, int health) {
         NewHabitat newHabitat = findOrCreateHabitat(habitatName);
-        return newHabitat.findOrCreateAnimal(name, species, age,health);
+        return newHabitat.findOrCreateAnimal(name, species, age, health);
     }
 
     public void printLayout() {
@@ -76,9 +78,19 @@ public class NewZoo {
             habitat.setFed(false);
             habitat.setClean(false);
         }
-        for (NewSupervisor supervisor : supervisorList){
+        for (NewSupervisor supervisor : supervisorList) {
             supervisor.setDone(false);
         }
+    }
+
+    private NewAnimal getWeekestAnimal() {
+        NewAnimal lowestHealth = null;
+        for (NewHabitat habitat : habitatList) {
+
+            lowestHealth = habitat.getWeekestAnimal(lowestHealth);
+        }
+        return lowestHealth;
+
     }
 
     public void dailyRoutine() {
@@ -86,11 +98,20 @@ public class NewZoo {
         for (NewSupervisor supervisor : supervisorList) {
             supervisor.dailyRoutine();
         }
-        for(NewHabitat habitat : habitatList) {
+        for (NewDoctor doctor : doctorList) {
+            NewAnimal animalToHeal = getWeekestAnimal();
+            if (animalToHeal != null) {
+                System.out.println(Colors.COLORS[1] + doctor + " heals " + animalToHeal.getName() +Colors.RESET);
+                doctor.heal(animalToHeal);
+            } else {
+                System.out.println("Nothing to heal");
+            }
+        }
+
+        for (
+                NewHabitat habitat : habitatList) {
             habitat.dailyFightOrBreed();
         }
-        for (NewHabitat habitat : habitatList){
-            habitat.doctorVisit();
-        }
+
     }
 }
