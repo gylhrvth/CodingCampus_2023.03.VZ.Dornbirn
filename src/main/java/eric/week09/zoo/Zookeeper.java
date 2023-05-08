@@ -46,50 +46,49 @@ public class Zookeeper {
 
     public void printZookeeper() {
         System.out.println("│  │  ├── " + Colors.COLORS[4] + "ZOOKEEPER: " + name + Colors.RESET);
-        if (name.isEmpty()){
+        if (name.isEmpty()) {
             System.out.println("│  │  ├── " + Colors.COLORS[4] + "(zookeeper has no name)" + Colors.RESET);
         }
     }
 
-    public void simulationKeeper(){
-        if (this.enclosureList.isEmpty()){
-            System.out.println(this.getName() + " didnt get an enclosure to clean");
+    public void simulationKeeper() {
+        if (enclosureList.isEmpty()) {
+            System.out.println(Colors.COLORS[2] + name + Colors.RESET + " didn't get an enclosure to clean");
             return;
         }
+//        for (Enclosure enc : enclosureList) {
+//            if (!enc.isCleaned()){
+//                System.out.println(this.getName() + " is currently cleaning " + enc.getEnclosureName());
+//                for (Animal animal : enc.getAnimalList()){
+//                    animal.feeding();
+//                    animal.setHungry(true);
+//                }
+//                enc.setProcess(true);
+//                System.out.println(this.getName() + " is done cleaning " + enc.getEnclosureName() + "\n");
+//            }
+//        }
 
-        for (Enclosure enc : enclosureList) {
-            if (!enc.isCleaned()){
-                System.out.println(this.getName() + " is currently cleaning " + enc.getEnclosureName());
-                for (Animal animal : enc.getAnimalList()){
-                    animal.feeding();
-                }
-                enc.setProcess(true);
-                System.out.println(this.getName() + " is done cleaning " + enc.getEnclosureName() + "\n");
-            }
-        }
         Random rand = new Random();
         int index = rand.nextInt(enclosureList.size());
         Enclosure enclosure = enclosureList.get(index);
-        if (!enclosure.isCleaned()){
-            System.out.println(this.getName() + " is currently working on " + enclosure.getEnclosureName() +"\n");
-            for (Animal animal : enclosure.getAnimalList()){
+        if (!enclosure.isCleaned()) {
+            System.out.println(Colors.COLORS[4] + name + Colors.RESET + " is currently working on " + Colors.COLORS[2] + enclosure.getEnclosureName() + Colors.RESET);
+            for (Animal animal : enclosure.getAnimalList()) {
                 animal.feeding();
+                animal.setHungry(true);
             }
-            enclosure.setProcess(true);
+            enclosure.setProcess(false);
         }
         List<Animal> animalGetEnclosureList = enclosure.getAnimalList();
-        if (!animalGetEnclosureList.isEmpty()){
+        if (!animalGetEnclosureList.isEmpty()) {
             int animalIndex = rand.nextInt(animalGetEnclosureList.size());
             Animal animals = animalGetEnclosureList.get(animalIndex);
-            System.out.println(name + " is currently watching " + animals.getName());
+            System.out.println("\n" + Colors.COLORS[4] + name + Colors.RESET + " is currently watching " + Colors.COLORS[3] + animals.getName() + Colors.RESET);
 
-            if (animals.getName().equals(favouriteAnimal)){
-                System.out.println(name + " is currently admiring " + animals.getName());
+            if (animals.getName().equals(favouriteAnimal)) {
+                System.out.println("\n" + Colors.COLORS[4] + name + Colors.RESET + " is currently admiring " + Colors.COLORS[3] + animals.getName() + Colors.RESET);
             }
         }
-        while (true) {
-            System.out.println("Zookeeper " + name + " has finished cleaning " + enclosure.getEnclosureName() + " right now\n");
-            return;
-        }
+        System.out.println("Zookeeper " + Colors.COLORS[4] + name + Colors.RESET + " has finished cleaning " + Colors.COLORS[2] + enclosure.getEnclosureName() + Colors.RESET + " right now\n");
     }
 }

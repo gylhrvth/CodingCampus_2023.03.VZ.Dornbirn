@@ -21,6 +21,10 @@ public class Animal {
         this.isHungry = true;
     }
 
+    public void setHungry(boolean hungry) {
+        isHungry = hungry;
+    }
+
     public List<Zookeeper> getKeeper() {
         return keeper;
     }
@@ -36,23 +40,14 @@ public class Animal {
         System.out.println("│  │  │  ├── " + Colors.COLORS[3] + "Animal: " + name + Colors.RESET);
     }
 
-    public void feeding(){
+    public boolean feeding(){
         if (isHungry){
-            System.out.println(name + " is currently eating");
+            System.out.println(Colors.COLORS[3] + name + Colors.RESET + " is currently eating");
             isHungry = false;
         } else {
-            System.out.println(name + " is currently not hungry");
+            System.out.println(Colors.COLORS[3] + name + Colors.RESET + " is currently not hungry");
         }
-    }
-
-
-    public void simulationAnimal(){
-        boolean alreadyAte;
-        System.out.println("This Animal " + name + " eats " + food);
-        if (alreadyAte = false){
-            System.out.println("Zookeeper " + getKeeper() + " is feeding " + name + " with " + food);
-            alreadyAte = true;
-        }
+        return true;
     }
 
     public void calcDailyCost(HashMap<Food, Integer> dailyCost) {
