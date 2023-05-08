@@ -1,27 +1,28 @@
 package joachim.week09.newZoo;
 
-import java.util.List;
-import java.util.Vector;
+import lukas.week03.day4.Colors;
 
 public class NewDoctor {
     private String name;
-    private boolean done;
-    private List<NewHabitat> habitatList;
-    public NewDoctor(String name, boolean done){
+
+
+    public NewDoctor(String name) {
         this.name = name;
-        this.done = false;
-        habitatList = new Vector<>();
     }
 
     public String getName() {
         return name;
     }
 
-    public boolean isDone() {
-        return done;
+
+    public void heal(NewAnimal animal){
+        int heal = NewZoo.rand.nextInt(5,25);
+        animal.setHealth(animal.getHealth() + heal);
+        System.out.println(Colors.COLORS[2] + animal  + " gets healed by "+ heal);
     }
 
-    public void setDone(boolean done) {
-        this.done = done;
+    @Override
+    public String toString() {
+        return name;
     }
 }

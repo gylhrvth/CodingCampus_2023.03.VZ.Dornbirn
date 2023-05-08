@@ -151,22 +151,21 @@ public class NewHabitat {
             clean = true;
         }
         NewAnimal randomAnimal = animalList.get(rand.nextInt(animalList.size()));
-        System.out.print(supervisor.getName() + " watches " + randomAnimal.getName());
+        System.out.print(Colors.COLORS[6] + supervisor.getName() + " watches " + randomAnimal.getName() + Colors.RESET);
         if (!randomAnimal.getSpecies().equals(supervisor.getFavorite())) {
             System.out.println(".");
         } else {
-            System.out.println(" and plays with it.");
+            System.out.println(Colors.COLORS[6] + " and plays with it." + Colors.RESET);
         }
     }
 
-    public void doctorVisit() {
-        int health = 0;
+    public NewAnimal getWeekestAnimal(NewAnimal bestchoice) {
         for (NewAnimal animal : animalList) {
-            if (animal.getHealth() > 0 && animal.getHealth() < health) {
-                health = animal.getHealth();
-            }
+            bestchoice = animal.getWeekestAnimal(bestchoice);
         }
+        return bestchoice;
     }
+
 
     @Override
     public String toString() {
