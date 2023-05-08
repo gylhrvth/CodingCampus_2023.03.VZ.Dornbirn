@@ -23,4 +23,9 @@ public class Colors {
             "\033[46m",
             "\033[47m"
     };
+
+    public static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
 }
