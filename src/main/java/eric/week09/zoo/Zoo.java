@@ -1,7 +1,6 @@
 package eric.week09.zoo;
 
-import hassan.week09.Zoo.Gehege;
-import hassan.week09.Zoo.Pfleger;
+
 import lukas.week03.day4.Colors;
 
 import java.util.ArrayList;
