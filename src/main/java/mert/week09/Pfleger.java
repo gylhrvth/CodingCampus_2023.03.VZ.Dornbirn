@@ -4,14 +4,17 @@ import java.util.Random;
 import java.util.Vector;
 
 public class Pfleger {
-    Random rand = new Random();
+    private static Random rand = new Random();
+
     private String name;
 
     Vector<Gehege> gehegeList;
 
+
     public Pfleger(String name) {
         this.name = name;
         gehegeList = new Vector<>();
+
     }
 
 
@@ -32,12 +35,14 @@ public class Pfleger {
         }
         //Beobachten
         Gehege gehege = gehegeList.get(rand.nextInt(gehegeList.size()));
-        Tier tier = gehege.getTierList().get(rand.nextInt(gehege.getTierList().size()));
-
-        if (!tier.isBeobachten()) {
-            tier.beobachtenAnimal(this);
+        Tier tier = gehege.getZufalligesTier();
+        if (tier != null) {
+            if (!tier.isBeobachten()) {
+                tier.beobachtenAnimal(this);
+            }
+        } else {
+            System.out.println("Es ist traurig eine leere Gehege, wie " + gehege.getName() + " zu sehen.");
         }
-
 
     }
 

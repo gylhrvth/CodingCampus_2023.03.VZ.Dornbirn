@@ -41,6 +41,17 @@ public class NewAnimal {
         this.age = age;
     }
 
+    public NewAnimal getWeekestAnimal(NewAnimal bestChoice) {
+        if (bestChoice == null) {
+            bestChoice = this;
+        } else {
+            if (health < bestChoice.getHealth()) {
+                bestChoice = this;
+            }
+        }
+        return bestChoice;
+    }
+
     @Override
     public String toString() {
         return Colors.COLORS[3] + "Name: " + name + " ,Species: " + species +
