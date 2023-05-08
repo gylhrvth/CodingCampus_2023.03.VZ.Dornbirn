@@ -2,10 +2,10 @@ package benjamin.week09.zooSimulation;
 
 public class Food {
     private String name;
-    private double unit;
+    private String unit;
     private double unitPrice;
 
-    public Food(String name, double unit, double unitPrice){
+    public Food(String name, String unit, double unitPrice){
         this.name = name;
         this.unit = unit;
         this.unitPrice = unitPrice;
@@ -15,7 +15,7 @@ public class Food {
         return name;
     }
 
-    public double getUnit() {
+    public String getUnit() {
         return unit;
     }
 
