@@ -1,5 +1,7 @@
 package eric.week09.zoo;
 
+import lukas.week03.day4.Colors;
+
 public class ZooSimulation {
     public static void main(String[] args) {
         Zoo zoo = new Zoo("Tiergarten XYZ", 2023);
@@ -8,7 +10,7 @@ public class ZooSimulation {
         Zookeeper trenbo = new Zookeeper("Trenbolon");
 
         Food fish = new Food("Fisch", "kg", 600);
-        Food leaves = new Food("Leaves", "g", 12);
+        Food leaves = new Food("Leaves", "g", 3);
         Food meat = new Food("Meat", "kg", 1200);
         Food shrimp = new Food("Shrimp", "kg", 320);
         Food insects = new Food("Insects", "g", 120);
@@ -59,6 +61,9 @@ public class ZooSimulation {
 
         zoo.printZooStructure();
         zoo.printDailyFoodCost();
-        zoo.simulation();
+        for (int i = 1; i <= 5; i++) {
+            System.out.println(Colors.COLORS[1] + "\nDay [" + i + "]" + Colors.RESET);
+            zoo.simulation();
+        }
     }
 }

@@ -1,5 +1,7 @@
 package mariechristine.week8.zoo;
 
+import lukas.week03.day4.Colors;
+
 import java.util.Vector;
 
 public class Zoo {
@@ -8,12 +10,17 @@ public class Zoo {
     private Vector<Gehege> enclosureList;
     private Vector<Zookeeper> zookeeperList;
 
-
     public Zoo(String zooName, int yearEstablished) {
         this.zooName = zooName;
         this.yearEstablished = yearEstablished;
         this.enclosureList = new Vector<>();
         this.zookeeperList = new Vector<>();
+    }
+
+    public void setNewDay() {
+        for(Gehege gehege : enclosureList) {
+            gehege.setDirty(true);
+        }
     }
 
     public String getZooName() {
@@ -25,7 +32,7 @@ public class Zoo {
     }
 
 
-    public void addZookeeper(Zookeeper keeper){
+    public void addZookeeper(Zookeeper keeper) {
         if (!zookeeperList.contains(keeper)) {
             zookeeperList.add(keeper);
         }
@@ -42,9 +49,9 @@ public class Zoo {
         enclosureList.remove(gehege);
     }
 
-    public void printStructure(){
+    public void printStructure() {
         System.out.println("├── Zoo: " + zooName + ", gegründet " + yearEstablished);
-        if (enclosureList.isEmpty()){
+        if (enclosureList.isEmpty()) {
             System.out.println("   no enclosure");
         } else {
             for (Gehege gehege : enclosureList) {
@@ -66,5 +73,15 @@ public class Zoo {
     @Override
     public String toString() {
         return zooName + ", gegründet " + yearEstablished;
+    }
+
+    public void simulate() {
+        System.out.println(Colors.COLORS[4] + "WELCOME TO A BEAUTIFUL NEW DAY IN '" + zooName + "'" + Colors.RESET);
+        for (Zookeeper keeper : zookeeperList) {
+            keeper.simulate();
+        }
+        for (Gehege gehege : enclosureList) {
+            gehege.simulate();
+        }
     }
 }

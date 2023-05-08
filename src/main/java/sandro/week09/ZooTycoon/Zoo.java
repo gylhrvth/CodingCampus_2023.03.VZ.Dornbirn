@@ -1,4 +1,6 @@
-package sandro.week08.ZooTycoon;
+package sandro.week09.ZooTycoon;
+
+import lukas.week03.day4.Colors;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -9,9 +11,8 @@ public class Zoo {
     private int year;
     private Vector<Enclosure> enclosureList;
     private Vector<ZooKeeper> zooKeeperList;
-
     private Vector<Vet> vetList;
-
+    private int deathcount;
 
     public Zoo(String name, int year) {
         this.name = name;
@@ -19,13 +20,15 @@ public class Zoo {
         this.enclosureList = new Vector<>();
         this.zooKeeperList = new Vector<>();
         this.vetList = new Vector<>();
+        this.deathcount = 0;
     }
 
-    public void addVet (Vet vet){
-        if (!vetList.contains(vet)){
+    public void addVet(Vet vet) {
+        if (!vetList.contains(vet)) {
             vetList.add(vet);
         }
     }
+
     public void addZooKeeper(ZooKeeper zooKeeper) {
         if (!zooKeeperList.contains(zooKeeper)) {
             zooKeeperList.add(zooKeeper);
@@ -50,7 +53,6 @@ public class Zoo {
         enclosureList.remove((enclosure));
     }
 
-
     public String getName() {
         return name;
     }
@@ -67,6 +69,9 @@ public class Zoo {
         this.year = year;
     }
 
+    public void incremnetDeadAnimals (){
+        ++deathcount;
+    }
     public void printTaskprogression(int daysToSimulate) {
 //        int count = 0;
 //        for (int i = 0; i < zooKeeperList.size(); i++) {
@@ -79,27 +84,14 @@ public class Zoo {
 
 
         for (int day = 1; day <= daysToSimulate; day++) {
+            Colors.clearScreen();
             System.out.println("Start Tag " + day);
             System.out.println("*******************************************************************************");
             System.out.println("They fight and bite, and fight and bite, ... bite bite bite, fight fight fight! ");
-            for (Enclosure enc:enclosureList) {
+            for (Enclosure enc : enclosureList) {
                 enc.simulate();
             }
-            System.out.println("*******************************************************************************");
-            System.out.println("Start Vet-Tasks ...");
 
-
-            for(Vet vet : vetList) {
-                Animal animal = findOverallLowestAnimal();
-                if(animal == null) {
-                    break;
-                }
-                if (animal.getCurrentHealth() == 0 || animal.getCurrentHealth() < 0){
-                    vet.reviveAnimal(animal);
-                } else {
-                    vet.healAnimal(animal);
-                }
-            }
 //            for (Enclosure enc:enclosureList) {
 //                enc.vetTask();
 //            }
@@ -127,33 +119,44 @@ public class Zoo {
                     }
                 }
             }
-            if (!tasksForToday.isEmpty()){
-                System.out.println("ALARM !!! Tiere werden vernachlässigt.");
+            if (!tasksForToday.isEmpty()) {
+                System.out.println("ALARM !!! Animals didnt get fed");
                 System.out.println(tasksForToday);
             }
-            System.out.println("All daily Tasks are done");
+            System.out.println("*******************************************************************************");
+            System.out.println("Start Vet-Tasks ...");
+
+
+            for (Vet vet : vetList) {
+                vet.dailyRoutine(this);
+            }
+            System.out.println("*******************************************************************************");
+            System.out.println("All daily Tasks are done TEST TEST TEST");
             int deathcount = 0;
 
             System.out.println("Tag " + day + " FINISH...\n\n");
-        }
 
+            try {
+                Thread.sleep(5000);
+            }catch (InterruptedException ie) {}
+        }
 
 
     }
 
-    private Animal findOverallLowestAnimal() {
+    Animal findOverallLowestAnimal() {
         Animal overallLowest = null;
-        for(Enclosure enc : enclosureList) {
+        for (Enclosure enc : enclosureList) {
             Animal encLowest = enc.findLowestLifeAnimal();
-            if(encLowest == null) {
+            if (encLowest == null) {
                 continue;
             }
-            if(encLowest.getCurrentHealth() == encLowest.getMaxHealth()) {
+            if (encLowest.getCurrentHealth() == encLowest.getMaxHealth()) {
                 continue;
             }
-            if(overallLowest == null) {
+            if (overallLowest == null) {
                 overallLowest = encLowest;
-            } else if(encLowest.getHealthprecent() < overallLowest.getHealthprecent()) {
+            } else if (encLowest.getHealthprecent() < overallLowest.getHealthprecent()) {
                 overallLowest = encLowest;
             }
 //

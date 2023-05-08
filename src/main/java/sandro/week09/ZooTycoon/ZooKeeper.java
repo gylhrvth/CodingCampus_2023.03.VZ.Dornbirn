@@ -1,4 +1,4 @@
-package sandro.week08.ZooTycoon;
+package sandro.week09.ZooTycoon;
 
 import lukas.week03.day4.Colors;
 
@@ -6,7 +6,6 @@ import java.util.Vector;
 
 public class ZooKeeper {
     private String name;
-
     private Vector<Enclosure> tasklist;
 
     public ZooKeeper(String name) {
@@ -52,7 +51,6 @@ public class ZooKeeper {
         }
         return workHasDone;
     }
-
 
     public void printTaskprogression() {
 //        int start = count;

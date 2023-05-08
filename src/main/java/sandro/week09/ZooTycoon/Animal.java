@@ -1,4 +1,4 @@
-package sandro.week08.ZooTycoon;
+package sandro.week09.ZooTycoon;
 
 import lukas.week03.day4.Colors;
 
@@ -58,8 +58,8 @@ public class Animal {
 
     public void feedAnimal(Animal animal) {
         Animal ani = animal;
-        int healFromFood = (ani.maxHealth / 10);
-        int critHealFromFood = (ani.maxHealth / 5);
+        int healFromFood = (ani.maxHealth / 50);
+        int critHealFromFood = (ani.maxHealth / 25);
         int critTrigger = rand.nextInt(0, 100);
 
 
@@ -82,14 +82,29 @@ public class Animal {
         }
     }
 
+    //todo print current life till fight
     public void animalfight(Animal vict, Animal aggro) {
-        int fighttime = rand.nextInt(0, 3);
-        for (int i = 0; i < fighttime; i++) {
-            animalgetsBit(vict, aggro);
-            System.out.println(vict.name + " bites" + aggro.name);
-            animalgetsBit(aggro, vict);
-            System.out.println(aggro.name + " bites " + vict.name);
+        int fighttime = rand.nextInt(1, 5);
 
+        for (int i = 0; i < fighttime; i++) {
+            System.out.println("Round: " + (i + 1));
+            animalgetsBit(aggro, vict);
+            System.out.println(vict.name + "(" + vict.getHealthprecent() + "%)" + " bites" + aggro.name + "(" + aggro.getHealthprecent() + ")%");
+            if (!vict.isAlive() || !aggro.isAlive()) {
+                return;
+            }
+            animalgetsBit(vict, aggro);
+            System.out.println(aggro.name + "(" + aggro.getHealthprecent() + "%)" + " bites " + vict.name + " (" + vict.getHealthprecent() + "%)");
+
+            if (!vict.isAlive() && aggro.isAlive()) {
+                System.out.println(vict.name + " died in the Fight!");
+                System.out.println(aggro.name + " wins the Fight and is the Boss in the Enclosure");
+            }
+
+            if (vict.isAlive() && !aggro.isAlive()) {
+                System.out.println(aggro.name + " died in the Fight!");
+                System.out.println(vict.name + " wins the Fight and is the Boss in the Enclosure");
+            }
         }
     }
 

@@ -1,4 +1,4 @@
-package sandro.week08.ZooTycoon;
+package sandro.week09.ZooTycoon;
 
 import lukas.week03.day4.Colors;
 
