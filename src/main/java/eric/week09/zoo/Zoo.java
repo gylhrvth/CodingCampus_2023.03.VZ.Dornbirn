@@ -5,6 +5,7 @@ import lukas.week03.day4.Colors;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 public class Zoo {
     private final String name;
@@ -19,7 +20,7 @@ public class Zoo {
         this.keeperList = new ArrayList<>();
     }
 
-    public void addEnclosure(Enclosure enclosure){
+    public void addEnclosure(Enclosure enclosure) {
         enclosureList.add(enclosure);
     }
 
@@ -35,11 +36,14 @@ public class Zoo {
         this.keeperList.remove(keeper);
     }
 
+    public List<Zookeeper> getKeeperList() {
+        return keeperList;
+    }
 
 
     public void printZooStructure() {
         System.out.println("├── Zoo: " + name + ", founded in " + foundingYear);
-        for(Enclosure enc : enclosureList) {
+        for (Enclosure enc : enclosureList) {
             enc.printEnclosure();
         }
     }
@@ -62,13 +66,26 @@ public class Zoo {
         System.out.printf("├── Total daily cost: %48.2f €\n", costTotal / 100.0);
     }
 
-    public void simulation(){
-        System.out.println();
+    public void simulation() {
+        for (Enclosure enc: enclosureList) {
+            enc.initDay();
+        }
+
         for (Zookeeper keeper : keeperList) {
             keeper.simulationKeeper();
+//            Random rand = new Random();
+//            if (!enclosureList.isEmpty()) {
+//
+//                int index = rand.nextInt(enclosureList.size());
+//                Enclosure enclosure = enclosureList.get(index);
+//                List<Animal> animalGetEnclosureList = enclosure.getAnimalList();
+//
+//                int animalIndex = rand.nextInt(animalGetEnclosureList.size());
+//                if (animalIndex <= animalGetEnclosureList.size()) {
+//                    Animal animals = animalGetEnclosureList.get(animalIndex);
+//                    System.out.println(Colors.COLORS[4] + keeper.getName() + Colors.RESET + " is done with his work for the day and is currently watching " + animals.getName());
+//                }
+//            }
         }
-    }
-    public boolean beforeSimulation(){
-        return false;
     }
 }
