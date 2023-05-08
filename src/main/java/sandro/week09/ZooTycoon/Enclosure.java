@@ -11,25 +11,27 @@ public class Enclosure {
     private String description;
     private String climate;
     private Vector<Animal> animalList;
+    private Zoo zoo;
 
-    private boolean allreadyVisit;
-    Random rand = new Random();
+    private boolean alreadyVisit;
+    static Random rand = new Random();
 
-    public Enclosure(String name, String description, String climate) {
+    public Enclosure(Zoo zoo, String name, String description, String climate) {
+        this.zoo = zoo;
         this.name = Colors.COLORS[3] + name + Colors.RESET;
         this.description = description;
         this.climate = climate;
         this.animalList = new Vector<>();
-        this.allreadyVisit = false;
+        this.alreadyVisit = false;
 
     }
 
-    public void setAllreadyVisit(boolean allreadyVisit) {
-        this.allreadyVisit = allreadyVisit;
+    public void setAlreadyVisit(boolean alreadyVisit) {
+        this.alreadyVisit = alreadyVisit;
     }
 
-    public boolean isAllreadyVisit() {
-        return allreadyVisit;
+    public boolean isAlreadyVisit() {
+        return alreadyVisit;
     }
 
     public String getName() {
@@ -135,6 +137,7 @@ public void potentialFight(Animal vic, Animal agr){
        for (int i = 0; i < animalList.size(); i++) {
            Animal a = animalList.get(i);
            if (!a.isAlive()){
+               zoo.incremnetDeadAnimals();
                animalList.remove(i);
                --i;
                System.out.println(keeper.getName() + " takes " + a.getName() + " out of " + name);

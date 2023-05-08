@@ -19,13 +19,15 @@ public class Zookeeper {
     }
 
     public void addZookeeperToEnclosure(Enclosure enclosure) {
-        enclosureList.add(enclosure);
-        enclosure.getKeeperList().add(this);
+        if (!enclosureList.contains(enclosure)) {
+            enclosureList.add(enclosure);
+        }
+        //enclosure.getKeeperList().add(this);
     }
 
     public void removeEnclosure(Enclosure enclosure) {
         enclosureList.remove(enclosure);
-        enclosure.getKeeperList().remove(this);
+        //enclosure.getKeeperList().remove(this);
     }
 
     public String getName() {
@@ -56,39 +58,8 @@ public class Zookeeper {
             System.out.println(Colors.COLORS[2] + name + Colors.RESET + " didn't get an enclosure to clean");
             return;
         }
-//        for (Enclosure enc : enclosureList) {
-//            if (!enc.isCleaned()){
-//                System.out.println(this.getName() + " is currently cleaning " + enc.getEnclosureName());
-//                for (Animal animal : enc.getAnimalList()){
-//                    animal.feeding();
-//                    animal.setHungry(true);
-//                }
-//                enc.setProcess(true);
-//                System.out.println(this.getName() + " is done cleaning " + enc.getEnclosureName() + "\n");
-//            }
-//        }
-
-        Random rand = new Random();
-        int index = rand.nextInt(enclosureList.size());
-        Enclosure enclosure = enclosureList.get(index);
-        if (!enclosure.isCleaned()) {
-            System.out.println(Colors.COLORS[4] + name + Colors.RESET + " is currently working on " + Colors.COLORS[2] + enclosure.getEnclosureName() + Colors.RESET);
-            for (Animal animal : enclosure.getAnimalList()) {
-                animal.feeding();
-                animal.setHungry(true);
-            }
-            enclosure.setProcess(false);
+        for (Enclosure enclosure : enclosureList) {
+            enclosure.enclosureSimulation(this);
         }
-        List<Animal> animalGetEnclosureList = enclosure.getAnimalList();
-        if (!animalGetEnclosureList.isEmpty()) {
-            int animalIndex = rand.nextInt(animalGetEnclosureList.size());
-            Animal animals = animalGetEnclosureList.get(animalIndex);
-            System.out.println("\n" + Colors.COLORS[4] + name + Colors.RESET + " is currently watching " + Colors.COLORS[3] + animals.getName() + Colors.RESET);
-
-            if (animals.getName().equals(favouriteAnimal)) {
-                System.out.println("\n" + Colors.COLORS[4] + name + Colors.RESET + " is currently admiring " + Colors.COLORS[3] + animals.getName() + Colors.RESET);
-            }
-        }
-        System.out.println("Zookeeper " + Colors.COLORS[4] + name + Colors.RESET + " has finished cleaning " + Colors.COLORS[2] + enclosure.getEnclosureName() + Colors.RESET + " right now\n");
     }
 }

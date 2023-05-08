@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.Scanner;
 import java.nio.file.Path;
 
-public class GrößteFile {
+public class GroessteFile {
     public static void main(String[] args) {
 
 
