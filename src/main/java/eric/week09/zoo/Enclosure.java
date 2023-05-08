@@ -44,7 +44,7 @@ public class Enclosure {
     }
 
     public boolean isCleaned(){
-        return false;
+        return true;
     }
 
     public void printEnclosure() {
@@ -60,10 +60,6 @@ public class Enclosure {
             System.out.println("│  │  ├── " + Colors.COLORS[3] + "(this enclosure is currently empty)" + Colors.RESET);
 
         }
-    }
-
-    public void simulationEnclosure() {
-
     }
 
     public void calcDailyNeed(HashMap<Food, Integer> dailyNeed) {
