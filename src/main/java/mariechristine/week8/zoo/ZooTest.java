@@ -1,5 +1,7 @@
 package mariechristine.week8.zoo;
 
+import java.util.Vector;
+
 public class ZooTest {
     public static void main(String[] args) {
         //Initialisierung vom Zoo und all seinen Bestandteilen:
@@ -65,6 +67,9 @@ public class ZooTest {
         louise.addEnclosureToKeeper(alp);
         z.printStructure();
         System.out.println("___________________________________________________________\n");
+
+        Vet vet = new Vet("Dr. Help");
+        z.addVet(vet);
 
         z.printStructure();
 
