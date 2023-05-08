@@ -106,6 +106,15 @@ public void potentialFight(Animal vic, Animal agr){
 //            }
         }
     }
+
+
+    Animal findLowestLifeAnimalByGyula(Animal bestChoise) {
+        for (Animal animal: animalList){
+            bestChoise = animal.findLowestLifeAnimalByGyula(bestChoise);
+        }
+        return bestChoise;
+    }
+
     public Animal findLowestLifeAnimal() {
         if(animalList.isEmpty()) {
             return null;

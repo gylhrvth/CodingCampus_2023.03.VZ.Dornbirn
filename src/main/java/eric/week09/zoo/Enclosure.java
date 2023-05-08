@@ -1,26 +1,21 @@
 package eric.week09.zoo;
 
-import hassan.week09.Zoo.Tier;
 import lukas.week03.day4.Colors;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
 
 public class Enclosure {
-    private static Random rand = new Random();
     private String enclosureName;
     private List<Animal> animalList;
-
-    private boolean hasToClean;
-
+    private List<Zookeeper> keeperList;
+    private boolean process;
 
     public Enclosure(String name) {
         this.enclosureName = name;
         this.animalList = new ArrayList<>();
-
-        hasToClean = true;
+        this.keeperList = new ArrayList<>();
     }
 
     public String getEnclosureName() {
@@ -35,9 +30,27 @@ public class Enclosure {
         animalList.remove(animal);
     }
 
+    public List<Animal> getAnimalList() {
+        return animalList;
+    }
+
+    public List<Zookeeper> getKeeperList() {
+        return keeperList;
+    }
+
+    public void setProcess(boolean process) {
+        this.process = process;
+    }
+
+    public boolean isCleaned(){
+        return false;
+    }
 
     public void printEnclosure() {
-        System.out.println("│  ├──" + Colors.COLORS[2] + " Enclosure: " + getEnclosureName() + Colors.RESET);
+        System.out.println("│  ├──" + Colors.COLORS[7] + " Enclosure: " + getEnclosureName() + Colors.RESET);
+        for (Zookeeper zookeeper : keeperList) {
+            zookeeper.printZookeeper();
+        }
         if (!animalList.isEmpty()) {
             for (Animal animal : animalList) {
                 animal.printAnimals();
@@ -48,29 +61,13 @@ public class Enclosure {
         }
     }
 
+    public void simulationEnclosure() {
+
+    }
+
     public void calcDailyNeed(HashMap<Food, Integer> dailyNeed) {
         for (Animal a : animalList) {
             a.calcDailyCost(dailyNeed);
-        }
-    }
-
-
-    public void initDay(){
-        hasToClean = true;
-    }
-
-    public void enclosureSimulation(Zookeeper worker) {
-        if (hasToClean) {
-            hasToClean = false;
-            System.out.println("\n" + Colors.COLORS[4] + worker.getName() + Colors.RESET + " is currently working on " + Colors.COLORS[2] + enclosureName + Colors.RESET);
-            if (!animalList.isEmpty()) {
-                for (Animal animal : animalList) {
-                    animal.feeding();
-                }
-                Animal animals = animalList.get(rand.nextInt(animalList.size()));
-                System.out.println(Colors.COLORS[4] + worker.getName() + Colors.RESET + " is done with his work in enclosure " + Colors.COLORS[2] + enclosureName + Colors.RESET + " and is currently watching " + animals.getName());
-            }
-            System.out.println(Colors.COLORS[4] + worker.getName() + Colors.RESET + " is done working on " + Colors.COLORS[2] + enclosureName + Colors.RESET + "\n");
         }
     }
 }
