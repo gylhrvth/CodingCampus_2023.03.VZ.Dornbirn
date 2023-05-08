@@ -19,10 +19,10 @@ public class ZooTycoon {
         Food food2 = new Food("Meat", "kg", 10);
         Food food3 = new Food("Mouse", "Piece", 5);
 
-        Enclosure enc1 = new Enclosure("Meadow", "Outdoor", "Outside Temperature");
-        Enclosure enc2 = new Enclosure("Woods", "Outdoor", "Outside Temperature");
-        Enclosure enc3 = new Enclosure("Reptile Terrarium", "Indoor", "Hot");
-        Enclosure enc4 = new Enclosure("Fish Tank", "Indoor", "Saltwater");
+        Enclosure enc1 = new Enclosure(zoo, "Meadow", "Outdoor", "Outside Temperature");
+        Enclosure enc2 = new Enclosure(zoo, "Woods", "Outdoor", "Outside Temperature");
+        Enclosure enc3 = new Enclosure(zoo, "Reptile Terrarium", "Indoor", "Hot");
+        Enclosure enc4 = new Enclosure(zoo, "Fish Tank", "Indoor", "Saltwater");
 
         Animal animal1 = new Animal("Berta", "Cow", food1, 2, 100, 300, 20);
         Animal animal2 = new Animal("El Torro", "Bull", food1, 4, 200, 500, 40);
