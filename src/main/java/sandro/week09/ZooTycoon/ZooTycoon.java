@@ -1,7 +1,4 @@
-package sandro.week08.ZooTycoon;
-
-import java.sql.Date;
-import java.time.Instant;
+package sandro.week09.ZooTycoon;
 
 public class ZooTycoon {
     public static void main(String[] args) {
