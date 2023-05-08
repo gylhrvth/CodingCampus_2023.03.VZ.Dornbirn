@@ -67,10 +67,6 @@ public class Animal {
         return animalName + ", " + species;
     }
 
-    public void simulate(
-
-    ) {
-
-
+    public void simulate() {
     }
 }
