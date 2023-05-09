@@ -1,125 +1,94 @@
 package hassan.week09.Zoo;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import eric.week09.zoo.Zookeeper;
+import lukas.week03.day4.Colors;
+
+import java.util.*;
 
 public class ZooData {
-    private String name;
-    private int bauJahr;
-    private List<Gehege> gehegeList;
-    private HashMap<String, Futter> futter;
-    private List<Pfleger> pflegerList;
+
+    static Random random = new Random();
+    private final String name;
+    private final int foundingYear;
+    private final List<Enclosure> enclosureList;
+    private final List<ZooKeeper> keeperList;
 
 
-    public ZooData(String name, int bauJahr) {
+    public ZooData(String name, int foundingYear) {
         this.name = name;
-        this.bauJahr = bauJahr;
-        this.gehegeList = new ArrayList<>();
-        this.futter = new HashMap<>();
-        this.pflegerList = new ArrayList<>();
+        this.foundingYear = foundingYear;
+        this.enclosureList = new ArrayList<>();
+        this.keeperList = new ArrayList<>();
     }
 
-    public void addGehege(Gehege gehege) {
-        if (gehegeList.contains(gehege)) {
-            return;
-        }
-        gehegeList.add(gehege);
+    public void addEnclosure(Enclosure enclosure) {
+        enclosureList.add(enclosure);
     }
 
-    public  List<Pfleger> getPflegerList() {
-        return this.pflegerList;
+    public void addZookeeper(ZooKeeper keeper) {
+        keeperList.add(keeper);
     }
 
-
-    public void removeGehege(Gehege gehege) {
-        gehegeList.remove(gehege);
+    public void removeEnclosure(Enclosure enclosure) {
+        enclosureList.remove(enclosure);
     }
 
-    public void addFutter(Futter futter) {
-        if (!this.futter.containsKey(futter.getName())) {
-            this.futter.put(futter.getName(), futter);
-        }
+    public void removeKeeper(Zookeeper keeper) {
+        this.keeperList.remove(keeper);
     }
 
-    public void removeFutter(Futter futter) {
-        this.futter.remove(futter.getName());
-    }
-
-
-    public void addTierToGehege(Tier tier, Gehege gehege) {
-        gehege.addTier(tier);
-        for (Futter futter : tier.getFutterbedarf().keySet()) {
-            addFutter(futter);
+    public void printZooStructure() {
+        System.out.println("├── Zoo: " + name + ", founded in " + foundingYear);
+        for (Enclosure enc : enclosureList) {
+            enc.printEnclosure();
         }
     }
 
-    public void removeTierFromGehege(Tier tier, Gehege gehege) {
-        gehege.removeTier(tier);
+    public void printDailyFoodCost() {
+        HashMap<hassan.week09.Zoo.Food, Integer> dailyNeed = new HashMap<>();
+        for (Enclosure e : enclosureList) {
+            e.calcDailyNeed(dailyNeed);
+        }
+        int costTotal = 0;
+        for (Food f : dailyNeed.keySet()) {
+            costTotal += f.getPrice() * dailyNeed.get(f);
+
+            System.out.printf("│  ├── Daily Need: %6d %-11s %-21s: %9.2f €\n",
+                    dailyNeed.get(f),
+                    f.getUnit(),
+                    f.getName(),
+                    (f.getPrice() * dailyNeed.get(f) / 100.0));
+        }
+        System.out.printf("├── Total daily cost: %48.2f €\n", costTotal / 100.0);
     }
 
-    public void addPfleger(Pfleger pfleger) {
-        pflegerList.add(pfleger);
-    }
+    public void simulation() {
+        for (Enclosure enclosure : enclosureList){
+            enclosure.initDay();
+            enclosure.dayAttack();
+        }
+        for (ZooKeeper keeper : keeperList) {
+            keeper.initDay();
+        }
 
-    public void removePfleger(Pfleger pfleger) {
-        pflegerList.remove(pfleger);
-        for (Gehege gehege : gehegeList) {
-            if (gehege.getPflegerList().contains(pfleger)) {
-                gehege.removePflegerFromGehege(pfleger);
+        ArrayList<ZooKeeper> keeperOrder = new ArrayList<>();
+        keeperOrder.addAll(keeperList);
+        Collections.shuffle(keeperOrder);
+
+        boolean hasSomethingDone = true;
+        while (hasSomethingDone) {
+            hasSomethingDone = false;
+            for (ZooKeeper keeper : keeperOrder) {
+                hasSomethingDone |= keeper.simulationKeeper();
             }
         }
-    }
-    public void printPflegerListe() {
-        System.out.println("Liste der Pfleger:");
-        for (Pfleger pfleger : pflegerList) {
-            System.out.println(pfleger.getName());
-        }
-    }
-    public void resetBearbeitet() {
-        for (Gehege gehege : this.gehegeList) {
-            gehege.setBearbeitet(false);
-        }
+
     }
 
-    public void simulate() {
-        for (Pfleger pfleger : pflegerList) {
-            pfleger.doesWork();
-
-        }
-
-        for (Gehege gehege : gehegeList) {
-            //gehege.simulate();
-            Tier.simulate(gehege.getTiere());
-        }
-
-        resetBearbeitet();
+    public boolean beforeSimulation() {
+        return false;
     }
 
-    public List<Gehege> getGehegeList() {
-        return this.gehegeList;
-    }
-
-    public void printStruktur() {
-        System.out.println("├── Zoo: " + name + ", gegründet " + bauJahr);
-        for (Gehege gehege : gehegeList) {
-            gehege.printStruktur();
-            if (!gehege.getPflegerList().isEmpty()) {
-                System.out.print("│   │   ├── PFLEGER: ");
-                for (Pfleger pfleger : gehege.getPflegerList()) {
-                    System.out.print(" " + pfleger.getName());
-                }
-                System.out.println();
-            }
-        }
-        if (!pflegerList.isEmpty()) {
-            System.out.print("│   ├── Pfleger:");
-            for (Pfleger pfleger : pflegerList) {
-                System.out.print("--" + pfleger.getName());
-            }
-            System.out.println();
-        }
-    }
 
 }
 

@@ -1,5 +1,6 @@
 package eric.week09.zoo;
 
+
 import lukas.week03.day4.Colors;
 
 import java.util.ArrayList;
@@ -66,6 +67,9 @@ public class Zoo {
         System.out.println();
         for (Zookeeper keeper : keeperList) {
             keeper.simulationKeeper();
+        }
+        for (Enclosure enc : enclosureList) {
+            enc.simulationEnclosure();
         }
     }
     public boolean beforeSimulation(){

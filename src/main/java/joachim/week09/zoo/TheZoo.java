@@ -71,8 +71,6 @@ public class TheZoo {
 //____________Zoo.add.Habitat_________________________________
         Zoo zoo = new Zoo("Hermann's Garden", 1840);
 
-        zoo.searchAndCreateSupervisor("Joachim", "Pool", "LionCage");
-
 
 
         zoo.addHabitat(pool);

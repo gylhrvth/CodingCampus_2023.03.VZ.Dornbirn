@@ -8,14 +8,16 @@ public class ZooMain {
         Gehege ried = new Gehege("Ried");
         Gehege terrarium = new Gehege("Terrarium (warm)");
 
-        Tier kuh = new Tier("Rijska", "Kuh");
-        Tier kuh1 = new Tier("Muh", "Kuh");
-        Tier storh = new Tier("Garmond", "Storh");
-        Tier storh2 = new Tier("Hugo", "Storh");
-        Tier storh3 = new Tier("Idaxis", "Storh");
+        Tier kuh = new Tier("Rijska", "Kuh", 100, 110);
+        Tier kuh1 = new Tier("Muh", "Kuh", 100, 110);
+        Tier storh = new Tier("Garmond", "Storh", 100, 40);
+        Tier storh2 = new Tier("Hugo", "Storh", 100, 40);
+        Tier storh3 = new Tier("Idaxis", "Storh", 100,40);
+        Tier fisch = new Tier("Fufu", "Fisch", 100,40);
 
         Pfleger pfleger = new Pfleger("Mert");
         Pfleger pfleger1 = new Pfleger("Ayguen");
+
 
 
         zoo.addGehege(alpenwiese);
@@ -28,6 +30,7 @@ public class ZooMain {
         ried.addTiere(storh);
         ried.addTiere(storh2);
         ried.addTiere(storh3);
+        terrarium.addTiere(fisch);
 
         zoo.addPfleger(pfleger);
         zoo.addPfleger(pfleger1);
@@ -41,6 +44,7 @@ public class ZooMain {
 
         zoo.printZoo();
         System.out.println();
+
 
         for (int tage = 1; tage <= 5; tage++) {
             zoo.simulateTage(tage);

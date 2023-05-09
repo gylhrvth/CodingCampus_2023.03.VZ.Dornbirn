@@ -1,5 +1,7 @@
 package sandro.week09.ZooTycoon;
 
+import lukas.week03.day4.Colors;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Vector;
@@ -9,9 +11,8 @@ public class Zoo {
     private int year;
     private Vector<Enclosure> enclosureList;
     private Vector<ZooKeeper> zooKeeperList;
-
     private Vector<Vet> vetList;
-
+    private int deathcount;
 
     public Zoo(String name, int year) {
         this.name = name;
@@ -19,6 +20,7 @@ public class Zoo {
         this.enclosureList = new Vector<>();
         this.zooKeeperList = new Vector<>();
         this.vetList = new Vector<>();
+        this.deathcount = 0;
     }
 
     public void addVet(Vet vet) {
@@ -51,7 +53,6 @@ public class Zoo {
         enclosureList.remove((enclosure));
     }
 
-
     public String getName() {
         return name;
     }
@@ -68,6 +69,9 @@ public class Zoo {
         this.year = year;
     }
 
+    public void incremnetDeadAnimals (){
+        ++deathcount;
+    }
     public void printTaskprogression(int daysToSimulate) {
 //        int count = 0;
 //        for (int i = 0; i < zooKeeperList.size(); i++) {
@@ -80,6 +84,7 @@ public class Zoo {
 
 
         for (int day = 1; day <= daysToSimulate; day++) {
+            Colors.clearScreen();
             System.out.println("Start Tag " + day);
             System.out.println("*******************************************************************************");
             System.out.println("They fight and bite, and fight and bite, ... bite bite bite, fight fight fight! ");
@@ -126,13 +131,26 @@ public class Zoo {
                 vet.dailyRoutine(this);
             }
             System.out.println("*******************************************************************************");
-            System.out.println("All daily Tasks are done");
+            System.out.println("All daily Tasks are done TEST TEST TEST");
             int deathcount = 0;
 
             System.out.println("Tag " + day + " FINISH...\n\n");
+
+            try {
+                Thread.sleep(5000);
+            }catch (InterruptedException ie) {}
         }
 
 
+    }
+
+
+    Animal findOverallLowestAnimalByGyula() {
+        Animal overallLowest = null;
+        for (Enclosure enc : enclosureList) {
+            overallLowest = enc.findLowestLifeAnimalByGyula(overallLowest);
+        }
+        return overallLowest;
     }
 
     Animal findOverallLowestAnimal() {

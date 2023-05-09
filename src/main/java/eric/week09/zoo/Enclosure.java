@@ -1,6 +1,5 @@
 package eric.week09.zoo;
 
-import hassan.week09.Zoo.Tier;
 import lukas.week03.day4.Colors;
 
 import java.util.ArrayList;
@@ -44,11 +43,11 @@ public class Enclosure {
     }
 
     public boolean isCleaned(){
-        return true;
+        return false;
     }
 
     public void printEnclosure() {
-        System.out.println("│  ├──" + Colors.COLORS[2] + " Enclosure: " + getEnclosureName() + Colors.RESET);
+        System.out.println("│  ├──" + Colors.COLORS[7] + " Enclosure: " + getEnclosureName() + Colors.RESET);
         for (Zookeeper zookeeper : keeperList) {
             zookeeper.printZookeeper();
         }
@@ -60,6 +59,10 @@ public class Enclosure {
             System.out.println("│  │  ├── " + Colors.COLORS[3] + "(this enclosure is currently empty)" + Colors.RESET);
 
         }
+    }
+
+    public void simulationEnclosure() {
+
     }
 
     public void calcDailyNeed(HashMap<Food, Integer> dailyNeed) {

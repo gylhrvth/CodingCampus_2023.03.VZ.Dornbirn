@@ -52,7 +52,6 @@ public class ZooKeeper {
         return workHasDone;
     }
 
-
     public void printTaskprogression() {
 //        int start = count;
 //
