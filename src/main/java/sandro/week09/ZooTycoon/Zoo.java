@@ -144,6 +144,15 @@ public class Zoo {
 
     }
 
+
+    Animal findOverallLowestAnimalByGyula() {
+        Animal overallLowest = null;
+        for (Enclosure enc : enclosureList) {
+            overallLowest = enc.findLowestLifeAnimalByGyula(overallLowest);
+        }
+        return overallLowest;
+    }
+
     Animal findOverallLowestAnimal() {
         Animal overallLowest = null;
         for (Enclosure enc : enclosureList) {

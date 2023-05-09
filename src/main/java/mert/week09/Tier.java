@@ -1,7 +1,10 @@
 package mert.week09;
 
 
+import lukas.week03.day4.Colors;
+
 import java.util.Random;
+import java.util.Vector;
 
 public class Tier {
     Random rand = new Random();
@@ -9,16 +12,37 @@ public class Tier {
     private String gattung;
     boolean feed = false;
     boolean beobachten = false;
+    private int maxGesundheit;
+    private int bissKraft;
+    private Vector<Tier> tierList;
 
-    public Tier(String name, String gattung){
+
+    public Tier(String name, String gattung, int maxGesundheit, int bissKraft) {
         this.name = name;
         this.gattung = gattung;
+        this.maxGesundheit = maxGesundheit;
+        this.bissKraft = bissKraft;
     }
 
+    public void angriff(Tier opfer) {
+        int i = opfer.maxGesundheit - bissKraft;
+        System.out.println(Colors.COLORS[1] + name + " greift  -> " + opfer.name + " an. Leben: " + i + Colors.RESET);
 
-    public void beobachtenAnimal(Pfleger pfleger){
-         if (!beobachten){
-            System.out.println(pfleger.getName() + " beobachtet: "  +name);
+
+    }
+
+    public int getMaxGesundheit() {
+        return maxGesundheit;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void beobachtenAnimal(Pfleger pfleger) {
+        if (!beobachten) {
+            System.out.println(pfleger.getName() + " beobachtet: " + name);
+
             beobachten = true;
         }
     }
@@ -31,12 +55,13 @@ public class Tier {
         }
     }
 
+
     public boolean isBeobachten() {
         return beobachten;
     }
 
 
-    public void resetBeobachten(){
+    public void resetBeobachten() {
         beobachten = false;
     }
 
@@ -49,12 +74,12 @@ public class Tier {
     }
 
 
-    public void printzoo(){
-        System.out.println("│       ├── " + name + ", " + gattung);
+    public void printzoo() {
+        System.out.println("│       ├── " + name + ", " + gattung + ", Gesundheit: " + maxGesundheit);
     }
 
 
-    public void resetFeed(){
+    public void resetFeed() {
         feed = false;
     }
 }

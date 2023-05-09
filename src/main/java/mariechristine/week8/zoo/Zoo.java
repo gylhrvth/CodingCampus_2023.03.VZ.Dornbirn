@@ -1,7 +1,9 @@
 package mariechristine.week8.zoo;
 
+import eric.week09.zoo.Enclosure;
 import lukas.week03.day4.Colors;
 
+import java.awt.*;
 import java.util.Vector;
 
 public class Zoo {
@@ -9,16 +11,18 @@ public class Zoo {
     private int yearEstablished;
     private Vector<Gehege> enclosureList;
     private Vector<Zookeeper> zookeeperList;
+    private Vector<Vet> vetList;
 
     public Zoo(String zooName, int yearEstablished) {
         this.zooName = zooName;
         this.yearEstablished = yearEstablished;
         this.enclosureList = new Vector<>();
         this.zookeeperList = new Vector<>();
+        this.vetList = new Vector<>();
     }
 
     public void setNewDay() {
-        for(Gehege gehege : enclosureList) {
+        for (Gehege gehege : enclosureList) {
             gehege.setDirty(true);
         }
     }
@@ -47,6 +51,12 @@ public class Zoo {
 
     public void removeEnclosure(Gehege gehege) {
         enclosureList.remove(gehege);
+    }
+
+    public void addVet(Vet vet) {
+        if (!vetList.contains(vet)) {
+            vetList.add(vet);
+        }
     }
 
     public void printStructure() {
@@ -83,5 +93,21 @@ public class Zoo {
         for (Gehege gehege : enclosureList) {
             gehege.simulate();
         }
+
+        for (Vet vet : vetList) {
+            Animal animalToHeal = getAnimalToHeal();
+            System.out.println(Colors.COLORS[2] + vet.name + Colors.RESET + " cured " + animalToHeal.getAnimalName() + "[" + animalToHeal.getActualHealth() + "/" + animalToHeal.getMaxHealth() + "]");
+            vet.curedAnimal(animalToHeal);
+        }
+
+    }
+
+    public Animal getAnimalToHeal() {
+        Animal animalToHeal = null;
+        for (Gehege enc : enclosureList) {
+            animalToHeal = enc.getWeekestAnimal(animalToHeal);
+        }
+
+        return animalToHeal;
     }
 }

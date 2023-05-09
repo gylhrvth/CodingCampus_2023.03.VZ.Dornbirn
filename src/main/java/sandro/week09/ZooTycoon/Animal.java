@@ -17,7 +17,7 @@ public class Animal {
     private int critDmg;
 
 
-    Random rand = new Random();
+    static Random rand = new Random();
 
     public Animal(String name, String genus, Food food, double amount, int currentHealth, int maxHealth, int dmgPerBite) {
         this.name = Colors.COLORS[5] + name + Colors.RESET;
@@ -51,6 +51,21 @@ public class Animal {
         Animal ani = animal;
         ani.currentHealth = ani.maxHealth;
     }
+
+
+    public void heal(Vet vet){
+        int procentheal = rand.nextInt(30, 100);
+        int heal = Math.max(10, (int)(maxHealth * procentheal / 100.0));
+        System.out.println(name + " (Health: " + currentHealth + "/" + maxHealth + ")");
+
+        currentHealth = Math.min(maxHealth, currentHealth + heal);
+        String midText = "complete (" + procentheal + "%)";
+        if (currentHealth != maxHealth) {
+            midText = "for: " + heal + "HP(" + procentheal + "%)";
+        }
+        System.out.println(name + " gets healed " + midText + " from " + vet.getName() + " / " + name + " has now --> (Health: " + currentHealth + "/" + maxHealth + ")");
+    }
+
 
     public int getHealthprecent() {
         return (int) (100.0 / maxHealth * currentHealth);
@@ -86,6 +101,11 @@ public class Animal {
     public void animalfight(Animal vict, Animal aggro) {
         int fighttime = rand.nextInt(1, 5);
 
+        if (!vict.isAlive() || !aggro.isAlive()){
+            return;
+        }
+
+
         for (int i = 0; i < fighttime; i++) {
             System.out.println("Round: " + (i + 1));
             animalgetsBit(aggro, vict);
@@ -99,11 +119,13 @@ public class Animal {
             if (!vict.isAlive() && aggro.isAlive()) {
                 System.out.println(vict.name + " died in the Fight!");
                 System.out.println(aggro.name + " wins the Fight and is the Boss in the Enclosure");
+                return;
             }
 
             if (vict.isAlive() && !aggro.isAlive()) {
                 System.out.println(aggro.name + " died in the Fight!");
                 System.out.println(vict.name + " wins the Fight and is the Boss in the Enclosure");
+                return;
             }
         }
     }
@@ -112,6 +134,11 @@ public class Animal {
         int critTrigger = rand.nextInt(0, 100);
         Animal vic = victim;
         Animal agr = aggresor;
+
+        if (!vic.isAlive() || !agr.isAlive()){
+            return;
+        }
+
 
         if (critTrigger > 5) {
             System.out.println(agr.name + " bites " + vic.name + " for " + dmgPerBite + " Damage");
@@ -161,5 +188,15 @@ public class Animal {
     @Override
     public String toString() {
         return name + ": " + getHealthprecent() + "%";
+    }
+
+
+    Animal findLowestLifeAnimalByGyula(Animal bestChoise) {
+        if (bestChoise == null){
+            return this;
+        } else if (this.getHealthprecent() < bestChoise.getHealthprecent()){
+            bestChoise = this;
+        }
+        return bestChoise;
     }
 }
