@@ -31,17 +31,17 @@ public class Vet {
     }
 
     public void healAnimal(Animal animal) {
-        int procentheal = rand.nextInt(30, 100);
-        int anmimal1procent = animal.getMaxHealth() / 100;
-        int heal = anmimal1procent * procentheal;
-        System.out.println(animal.getName() + " (Health: " + animal.getCurrentHealth() + "\\" + animal.getMaxHealth() + ")");
-        animal.setCurrentHealth(animal.getCurrentHealth() + heal);
-        if (animal.getCurrentHealth() > animal.getMaxHealth()) {
-            animal.setCurrentHealth(animal.getMaxHealth());
-            System.out.println(animal.getName() + " gets healed complete (" + procentheal + "%)" + " from " + name + " / " + animal.getName() + " has now --> (Health: " + animal.getCurrentHealth() + "\\" + animal.getMaxHealth() + ")");
-        } else {
-            System.out.println(animal.getName() + " gets healed for: " + heal + "HP(" + procentheal + "%)" + " from " + name + " / " + animal.getName() + " has now --> (Health: " + animal.getCurrentHealth() + "\\" + animal.getMaxHealth() + ")");
-        }
+        animal.heal(this);
+//        int procentheal = rand.nextInt(30, 100);
+//        int heal = Math.max(10, (int)(animal.getMaxHealth() * procentheal / 100.0));
+//        System.out.println(animal.getName() + " (Health: " + animal.getCurrentHealth() + "\\" + animal.getMaxHealth() + ")");
+//        animal.setCurrentHealth(animal.getCurrentHealth() + heal);
+//        if (animal.getCurrentHealth() > animal.getMaxHealth()) {
+//            animal.setCurrentHealth(animal.getMaxHealth());
+//            System.out.println(animal.getName() + " gets healed complete (" + procentheal + "%)" + " from " + name + " / " + animal.getName() + " has now --> (Health: " + animal.getCurrentHealth() + "\\" + animal.getMaxHealth() + ")");
+//        } else {
+//            System.out.println(animal.getName() + " gets healed for: " + heal + "HP(" + procentheal + "%)" + " from " + name + " / " + animal.getName() + " has now --> (Health: " + animal.getCurrentHealth() + "\\" + animal.getMaxHealth() + ")");
+//        }
         //
 
 //        System.out.println(animal.getName() + " (Health: " + animal.getCurrentHealth() + "\\" + animal.getMaxHealth() + ")" + " gets healed complete from " + name);
@@ -50,7 +50,7 @@ public class Vet {
     }
 
     public void dailyRoutine(Zoo zoo) {
-        Animal animal = zoo.findOverallLowestAnimal();
+        Animal animal = zoo.findOverallLowestAnimalByGyula();
         if (animal != null) {
 //            if (animal.getCurrentHealth() == 0 || animal.getCurrentHealth() < 0){
 //                reviveAnimal(animal);

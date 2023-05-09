@@ -2,6 +2,7 @@ package mariechristine.week8.zoo;
 
 import lukas.week03.day4.Colors;
 
+
 public class Animal {
     private String species;
     private String animalName;
@@ -18,6 +19,7 @@ public class Animal {
         this.maxHealth = maxHealth;
         this.actualHealth = maxHealth;
         this.biteForce = biteForce;
+
     }
 
     public String getAnimalName() {
@@ -32,12 +34,12 @@ public class Animal {
         this.wasFed = wasFed;
     }
 
-    public int getMaxHealth() {
-        return maxHealth;
+    public int getActualHealth(){
+        return actualHealth;
     }
 
-    public void setMaxHealth(int maxHealth) {
-        this.maxHealth = maxHealth;
+    public int getMaxHealth() {
+        return maxHealth;
     }
 
     public boolean isAlive(){
@@ -54,6 +56,24 @@ public class Animal {
         }
     }
 
+    public void heal(int amount){
+        actualHealth = Math.min(actualHealth + amount, maxHealth);
+
+    }
+
+    private double getRelativeHealthInPercent(){
+        return 100 * actualHealth / (double)maxHealth;
+    }
+
+    public Animal getWeekestAnimal(Animal bestChoice) {
+        if (bestChoice == null){
+            bestChoice = this;
+        } else if (this.getRelativeHealthInPercent() < bestChoice.getRelativeHealthInPercent()){
+            bestChoice = this;
+        }
+        return bestChoice; //schwächste Tier wird zurückgegeben
+    }
+
     public String getSpecies() {
         return species;
     }
@@ -65,8 +85,5 @@ public class Animal {
     @Override
     public String toString() {
         return animalName + ", " + species;
-    }
-
-    public void simulate() {
     }
 }

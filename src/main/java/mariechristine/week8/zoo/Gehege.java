@@ -73,6 +73,14 @@ public class Gehege {
         }
     }
 
+
+    public Animal getWeekestAnimal(Animal bestChoice){
+        for (Animal animal: animalList) {
+            bestChoice = animal.getWeekestAnimal(bestChoice);
+        }
+        return bestChoice;
+    }
+
     @Override
     public String toString() {
         return enclosureName + animalList;
