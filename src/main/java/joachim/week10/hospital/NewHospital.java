@@ -1,4 +1,4 @@
-package joachim.week10;
+package joachim.week10.hospital;
 
 import java.util.List;
 import java.util.Vector;

@@ -1,4 +1,4 @@
-package joachim.week10;
+package joachim.week10.hospital;
 
 public class Client {
     private String name;
