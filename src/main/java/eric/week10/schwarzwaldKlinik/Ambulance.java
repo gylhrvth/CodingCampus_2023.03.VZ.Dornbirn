@@ -1,6 +1,6 @@
 package eric.week10.schwarzwaldKlinik;
 
-public class Ambulance extends Department {
+public class Ambulance {
     private int opensAt;
     private int closesAt;
     private int amountOfSeats;

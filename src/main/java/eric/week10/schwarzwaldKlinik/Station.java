@@ -1,9 +1,6 @@
 package eric.week10.schwarzwaldKlinik;
 
-public class Station extends Department {
+public class Station {
     private int amountOfRooms;
 
-    public Station(int amountOfRooms) {
-        this.amountOfRooms = amountOfRooms;
-    }
 }
