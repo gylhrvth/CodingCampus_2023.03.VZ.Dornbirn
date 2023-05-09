@@ -64,12 +64,11 @@ public class Zoo {
     }
 
     public void simulation(){
-        System.out.println();
+        for (Enclosure enc: enclosureList){
+            enc.initDay();
+        }
         for (Zookeeper keeper : keeperList) {
             keeper.simulationKeeper();
-        }
-        for (Enclosure enc : enclosureList) {
-            enc.simulationEnclosure();
         }
     }
     public boolean beforeSimulation(){
