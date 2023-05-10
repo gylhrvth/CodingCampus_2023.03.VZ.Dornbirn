@@ -1,9 +1,7 @@
 package mariechristine.week8.zoo;
 
-import eric.week09.zoo.Enclosure;
 import lukas.week03.day4.Colors;
 
-import java.awt.*;
 import java.util.Vector;
 
 public class Zoo {
