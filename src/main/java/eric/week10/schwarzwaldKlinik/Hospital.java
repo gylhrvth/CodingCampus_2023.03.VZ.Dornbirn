@@ -1,22 +1,29 @@
 package eric.week10.schwarzwaldKlinik;
 
-import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Hospital {
-    private List<Department> department;
+    private String name;
+    private int foundingYear;
 
-    public Hospital(List<Department> department) {
-        this.department = department;
+    private List<Department> departmentList;
+
+    public Hospital(String name, int foundingYear) {
+        this.name = name;
+        this.foundingYear = foundingYear;
+        departmentList = new ArrayList<>();
     }
 
-    public void getPatient(Patient patient){
-        for (Department department : department) {
-            if (department.canPatientRecover(patient)){
 
-            }
+    public void addDepartment(Department department){
+        departmentList.add(department);
+    }
+
+    public void dailyRoutine(){
+        for (Department department: departmentList){
+            department.dailyRoutine();
         }
     }
+
 }
