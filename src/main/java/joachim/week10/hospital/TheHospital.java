@@ -1,4 +1,4 @@
-package joachim.week10;
+package joachim.week10.hospital;
 
 public class TheHospital {
     public static void main(String[] args) {
