@@ -31,7 +31,7 @@ public class Room {
     }
 
     public void stepIn(Human h) {
-        System.out.println(h.getColor() + h.getName() + Colors.RESET+ " enters in " + name);
+        System.out.println(h.getColor() + h.getName() + Colors.RESET+ ": enters in " + name);
         if (!humanInRoomList.contains(h)) {
             humanInRoomList.add(h);
         }
@@ -60,6 +60,8 @@ public class Room {
     protected Vector<Room> getNeighborRooms() {
         return neighborRooms;
     }
+
+
 
     public int getCountOfVisitorsInRoom(){
         int count = 0;

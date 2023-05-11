@@ -77,7 +77,7 @@ public class Main {
         Guard guard3 = new Guard(pinakothek, "Lila", "Female", 28);
 
 
-         pinakothek.printStructure();
+        pinakothek.printStructure();
         pinakothek.simulateDay();
 
     }

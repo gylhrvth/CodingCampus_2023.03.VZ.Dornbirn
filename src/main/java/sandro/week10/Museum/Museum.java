@@ -1,7 +1,5 @@
 package sandro.week10.Museum;
 
-import joachim.week10.model.Visitor;
-
 import java.util.Random;
 import java.util.Vector;
 
@@ -98,7 +96,7 @@ public class Museum {
 
             System.out.println("Time: " + time);
             for (Human human : humanList) {
-                human.dailyRoutine();
+                human.dailyRoutine(i);
             }
 
             System.out.println("*******************************************************************************************");
