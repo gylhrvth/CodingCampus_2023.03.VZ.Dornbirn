@@ -38,7 +38,7 @@ public class Guard extends Human {
     }
 
     @Override
-    public void dailyRoutine (){
+    public void dailyRoutine (int tick){
         //if gallery occupied, observe guest
 
 

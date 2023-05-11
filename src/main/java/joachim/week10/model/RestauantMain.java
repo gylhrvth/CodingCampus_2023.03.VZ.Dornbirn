@@ -1,31 +1,56 @@
 package joachim.week10.model;
 
+import java.util.Random;
+
 public class RestauantMain {
     public static void main(String[] args) {
-        Table balcony1 = new Table("balcony1", 2);
-        Table balcony2 = new Table("balcony2", 4);
-        Table balcony3 = new Table("balcony3", 2);
+        Random rand = new Random();
 
-        Table inside1 = new Table("inside1", 8);
-        Table inside2 = new Table("inside2", 14);
-        Table inside3 = new Table("inside3", 6);
-        Table inside4 = new Table("inside4", 5);
-        Table inside5 = new Table("inside5", 7);
+        Menu menu = new Menu();
+        Food pizza = new Food("Pizza", 13.50);
+        Food bolognese = new Food("bolognese", 14.00);
+        Food steak = new Food("Steak", 48.60);
 
-        Table arena1 = new Table("arena1", 25);
-        Table arena2 = new Table("arena2", 35);
-        Table arena3 = new Table("arena3", 16);
-        Table arena4 = new Table("arena4", 4);
-        Table arena5 = new Table("arena5", 1);
-        Table arena6 = new Table("arena6", 8);
+        menu.addFood(pizza);
+        menu.addFood(bolognese);
+        menu.addFood(steak);
 
-        Room balcony = new Room("Balcony");
-        Room inside = new Room("Inside");
-        Room arena = new Room("Arena");
+        Server james = new Server("James");
+        Restaurant restaurant = new Restaurant("Götzes Pizzapalast", james, menu);
+
+
+        Table balcony1 = new Table(restaurant, "balcony1", 2);
+        Table balcony2 = new Table(restaurant, "balcony2", 4);
+        Table balcony3 = new Table(restaurant, "balcony3", 2);
+        Table balcony4 = new Table(restaurant, "balcony3", 4);
+
+
+        Table inside1 = new Table(restaurant, "inside1", 8);
+        Table inside2 = new Table(restaurant, "inside2", 14);
+        Table inside3 = new Table(restaurant, "inside3", 6);
+        Table inside4 = new Table(restaurant, "inside4", 5);
+        Table inside5 = new Table(restaurant, "inside5", 7);
+
+        Table arena1 = new Table(restaurant, "arena1", 25);
+        Table arena2 = new Table(restaurant, "arena2", 35);
+        Table arena3 = new Table(restaurant, "arena3", 16);
+        Table arena4 = new Table(restaurant, "arena4", 22);
+        Table arena5 = new Table(restaurant, "arena5", 28);
+        Table arena6 = new Table(restaurant, "arena6", 16);
+
+        Server harald = new Server("Harald");
+        Server gerlinde = new Server("Gerinde");
+        Server flora = new Server("Flora");
+
+        Room balcony = new Room("Balcony",harald);
+        Room inside = new Room("Inside",gerlinde);
+        Room arena = new Room("Arena",flora);
+
 
         balcony.addTable(balcony1);
         balcony.addTable(balcony2);
         balcony.addTable(balcony3);
+        balcony.addTable(balcony4);
 
         inside.addTable(inside1);
         inside.addTable(inside2);
@@ -40,22 +65,29 @@ public class RestauantMain {
         arena.addTable(arena5);
         arena.addTable(arena6);
 
-        Server harald = new Server("Harald");
-        Server gerlinde = new Server("Gerinde");
-        Server flora = new Server("Flora");
-
-        harald.addRoom(balcony);
-        flora.addRoom(inside);
-        gerlinde.addRoom(arena);
+        restaurant.addRoom(balcony);
+        restaurant.addRoom(inside);
+        restaurant.addRoom(arena);
 
 
-        Food pizza = new Food("Pizza", 13.50);
-        Food bolognese = new Food("bolognese", 14.00);
-        Food steak = new Food("Steak", 48.60);
 
-        Menu menu = new Menu();
-        menu.addFood(pizza);
-        menu.addFood(bolognese);
-        menu.addFood(steak);
+
+
+
+//        adding and leaving Visitors
+        for (int i = 8; i <= 17; i++) {
+            boolean open = i != 17;
+            System.out.println("Time: " + i + ":00");
+            for (int iGast = 1; iGast < rand.nextInt(1, 4); iGast++) {
+                VisitorGroup vg = new VisitorGroup("Group" + iGast, rand.nextInt(1, 20));
+                if (open) {
+                    restaurant.arrive(vg);
+                }
+            }
+            restaurant.leave(open);
+            if (i == 17) {
+                System.out.println("The restaurant closes");
+            }
+        }
     }
 }

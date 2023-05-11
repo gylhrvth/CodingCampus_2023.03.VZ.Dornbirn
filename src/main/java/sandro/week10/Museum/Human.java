@@ -20,7 +20,7 @@ public class Human {
         return name;
     }
 
-    public void dailyRoutine(){
+    public void dailyRoutine(int tick){
         // do NOTHING :-)
     }
 

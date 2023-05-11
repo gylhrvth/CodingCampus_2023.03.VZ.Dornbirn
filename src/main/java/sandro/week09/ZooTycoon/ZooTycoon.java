@@ -24,8 +24,8 @@ public class ZooTycoon {
         Enclosure enc3 = new Enclosure(zoo, "Reptile Terrarium", "Indoor", "Hot");
         Enclosure enc4 = new Enclosure(zoo, "Fish Tank", "Indoor", "Saltwater");
 
-        Animal animal1 = new Animal("Berta", "Cow", food1, 2, 100, 300, 20);
-        Animal animal2 = new Animal("El Torro", "Bull", food1, 4, 200, 500, 40);
+        Animal animal1 = new Animal("Baeba", "Cow", food1, 2, 100, 300, 20);
+        Animal animal2 = new Animal("Daetta", "Bull", food1, 4, 200, 500, 40);
         Animal animal3 = new Animal("Ragna", "Wolf", food2, 3, 120, 250, 60);
         Animal animal4 = new Animal("Lagerta", "Wolf", food2, 3, 100, 200, 40);
         Animal animal5 = new Animal("Basil", "Snake", food3, 5, 60, 100, 30);

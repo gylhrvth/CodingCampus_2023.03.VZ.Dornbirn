@@ -5,49 +5,87 @@ import lukas.week03.day4.Colors;
 import java.awt.*;
 
 public class Thief extends Guest {
-    public Thief(Museum m, String name, String gender, int age){
-        super(m, name,gender,age);
+
+    private boolean artworkStolen;
+
+
+    public Thief(Museum m, String name, String gender, int age) {
+        super(m, name, gender, age);
+        this.artworkStolen = false;
         timeToLeft = 1;
     }
 
     public void printMap() {
 
     }
-    public void move (){
+
+    public void move() {
         Room nextRoom = currentRoom.getRandomNextRoom();
         //stepout - stepin
         currentRoom.stepOut(this);
         nextRoom.stepIn(this);
         currentRoom = nextRoom;
 
-        if (currentRoom instanceof Corridor){
+        if (currentRoom instanceof Corridor) {
             //if room is corridor, find a gallery
-            System.out.println(getColor() + name + Colors.RESET +  ": There is nothing to steal for me");
+            System.out.println(getColor() + name + Colors.RESET + ": There is nothing to steal for me");
             timeToLeft = 1;
         } else {
-            //if observe runs more than 3steps, next move
+            //
             System.out.println(getColor() + name + Colors.RESET + ": Uhh, how much this /Artwork/ possible worth?");
-            timeToLeft = 10;
+
+            timeToLeft = 5;
         }
     }
+
+    public void stealArtwork() {
+        //try
+        timeToLeft = 5;
+        if (timeToLeft <= 0) {
+            //if success , removeStolenArtwork from Gallery , artworkStolen true , (give thief Artwork? to recover the Artwork if guard catch thief)
+
+            //
+        }
+    }
+
+    public void leave() {
+
+        currentRoom.stepOut(this);
+
+
+        //if !artworkStolen ticks increase % chance to leave
+
+        //if artworkStolen leave , (with recover artwork function, thief stays 5ticks in Entry to get catched)
+    }
+
+
     @Override
-    public void dailyRoutine (){
+    public void dailyRoutine(int tick) {
+        int timeStay = tick;
+        int potential = Museum.random.nextInt(1,299);
+
+        if (timeStay == 300 || timeStay > potential){
+            leave();
+        }
+
 
         --timeToLeft;
         if (timeToLeft > 0 && currentRoom.getCountOfVisitorsInRoom() < 1) {
-            // if I'm alone, move to next room
-            System.out.println(getColor() + name + Colors.RESET + ": I'm alone here, time to move on...");
-            timeToLeft = 0;
+            // if I'm alone
+            System.out.println(getColor() + name + Colors.RESET + ": I'm alone, time to steal /this Artwork/");
+            stealArtwork();
         }
+        if (artworkStolen) {
+            leave();
+        }
+
         //make a move
-        if (timeToLeft <= 0){
+        if (timeToLeft <= 0 && !artworkStolen) {
             move();
         }
 
 
-        //make a move
 
-        //if room is corridor, find a gallery
 
         //if gallery empty, next move
 

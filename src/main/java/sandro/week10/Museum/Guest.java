@@ -32,13 +32,31 @@ public class Guest extends Human {
             System.out.println(getColor() + name + Colors.RESET + ": This corridor is boring. I should find a Gallery with actual Artwork");
             timeToLeft = 1;
         } else {
+            // current room is Gallery and has Artwork , admireArtwork
             //if observe runs more than 3steps, next move
             System.out.println(getColor() + name + Colors.RESET + ": Ohh this is quit a nice /Artwork/");     //insert Artwork from room!
             timeToLeft = 10;
         }
     }
+
+
+    public void leave (){
+        // get ticks, %chance increase to leave
+    }
+
+    public void admireArtwork(){
+        // picks artwork in room, 10ticks admire
+    }
+
     @Override
-    public void dailyRoutine (){
+    public void dailyRoutine (int tick){
+        int timeStay = tick;
+        int potential = Museum.random.nextInt(1,299);
+
+        if (timeStay == 300 || timeStay > potential){
+            leave();
+        }
+
 
         if (currentRoom instanceof Gallery){
 
