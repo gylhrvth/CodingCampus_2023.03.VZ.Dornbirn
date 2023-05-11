@@ -6,21 +6,27 @@ public class Department {
     private String name;
     private boolean full = true;
     private Vector<Disease> diseasesList;
+    private Vector<Ward> wardList;
 
-    public Department(Hospital hospital, String name) {
+    public Department(String name) {
         this.name = name;
         diseasesList = new Vector<>();
-        hospital.addDepartment(this);
+
     }
 
     public String getName() {
         return name;
     }
 
+    public void addWard(Ward wardList){
+    }
+
+
     public boolean isFullyOccupied() {
         return full;
     }
 
     public void printStructure(){
+        System.out.println("\n_________________________________\nDepartment: " + getName());
     }
 }
