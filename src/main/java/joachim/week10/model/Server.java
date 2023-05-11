@@ -4,24 +4,34 @@ import java.util.List;
 import java.util.Vector;
 
 public class Server {
-    private List<Visitor> visitorList;
-    private List<Room> roomList;
-    public Server(String name){
-        this.visitorList = new Vector<>();
-        this.roomList = new Vector<>();
-    }
-    public void addVisitor(Visitor v){
-        visitorList.add(v);
-    }
-    public void addRoom(Room r){
-        roomList.add(r);
+    private String name;
+    private List<Food> order;
+    private List<Food> allorder;
+
+    public Server(String name) {
+        this.name = name;
     }
 
-    public List<Visitor> getVisitorList() {
-        return visitorList;
+    public void addFood(Food f) {
+        order.add(f);
     }
 
-    public List<Room> getRoomList() {
-        return roomList;
+    public void addAllorder(List<Food> f) {
+        if (f != null) {
+            allorder.addAll(f);
+        }
+    }
+
+    public List<Food> getAllorder() {
+        return allorder;
+    }
+
+    public List<Food> getOrder() {
+        return order;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }
