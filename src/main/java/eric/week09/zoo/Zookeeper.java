@@ -58,8 +58,8 @@ public class Zookeeper {
             System.out.println(Colors.COLORS[2] + name + Colors.RESET + " didn't get an enclosure to clean");
             return;
         }
-        for (Enclosure enclosure : enclosureList) {
-            enclosure.enclosureSimulation(this);
-        }
+//        for (Enclosure enclosure : enclosureList) {
+//            enclosure.enclosureSimulation(this);
+//        }
     }
 }
