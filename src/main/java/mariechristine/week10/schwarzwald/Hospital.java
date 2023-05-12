@@ -15,8 +15,8 @@ public class Hospital {
         this.departmentList = new Vector<>();
     }
 
-    public void addDepartment(Department department){
-        if (!departmentList.contains(department)){
+    public void addDepartment(Department department) {
+        if (!departmentList.contains(department)) {
             departmentList.add(department);
         }
     }
@@ -36,9 +36,12 @@ public class Hospital {
         for (Department department : departmentList) {
             department.printStructure();
         }
+
     }
 
     public void simulate() {
+        System.out.println("***** " + Colors.COLORS[4] + name + Colors.RESET + " *****" + Colors.COLORS[4] + "\n            ENTRANCE" + Colors.RESET);
+
 
     }
 }

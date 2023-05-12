@@ -1,6 +1,7 @@
 package eric.week10.schwarzwaldKlinik;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Department {
@@ -20,13 +21,29 @@ public class Department {
         }
     }
 
-    public void dailyRoutine(){
-        for (Patient p : patientList) {
-            treatment(p);
+    public void removePatient(Patient patient){
+        if (patientList.contains(patient)){
+            patientList.remove(patient);
         }
     }
 
-    protected void treatment(Patient patient){
+    public void dailyRoutine(){
+        Iterator<Patient> it = patientList.iterator();
+        while(it.hasNext()) {
+            Patient p = it.next();
+            if(treatment(p)) {
+                it.remove();
+            }
+        }
+    }
+
+    /**
+     *
+     * @param patient
+     * @return True if patient should be removed, otherwise false
+     */
+    protected boolean treatment(Patient patient){
+        return false;
     }
 
 }

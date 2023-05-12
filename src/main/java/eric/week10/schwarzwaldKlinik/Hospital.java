@@ -6,7 +6,6 @@ import java.util.List;
 public class Hospital {
     private String name;
     private int foundingYear;
-
     private List<Department> departmentList;
 
     public Hospital(String name, int foundingYear) {
