@@ -1,8 +1,10 @@
 package mariechristine.week10.geometry;
 
+import mariechristine.week10.igeometry.CircleI;
 import mariechristine.week10.igeometry.IGeometry;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class GeometryMain {
@@ -12,23 +14,26 @@ public class GeometryMain {
         Rectangle r = new Rectangle(12, 7);
         Square s = new Square(5, 5);
 
-        System.out.println("Circle Area: " + c.getArea());
-        System.out.println("Circle Circumference " + c.getCircumference());
-        System.out.println("Triangle Area: " + t.getArea());
-        System.out.println("Triangle Circumference " + t.getCircumference());
-        System.out.println("Rectangle Circumference: " + r.getCircumference());
-        System.out.println("Rectangle Area " + r.getArea());
-        System.out.println("Rectangle Circumference " + r.getCircumference());
-        System.out.println("Square Area: " + s.getArea());
-        System.out.println("Square Circumference " + s.getCircumference());
-
         List<Geometry> geometries = new ArrayList<>();
         geometries.add(c);
         geometries.add(t);
         geometries.add(r);
         geometries.add(s);
 
+        for (Geometry g : geometries) {
+            System.out.println(g.getClass().getSimpleName() + " Area: " + g.getArea());
+            System.out.println(g.getClass().getSimpleName() + " Circumference " + g.getCircumference());
+        }
         System.out.println("***************************************************");
 
+
+
+        List<IGeometry> geoI = new ArrayList<>();
+        geoI.add(new CircleI(5));
+
+        for (IGeometry ig : geoI) {
+            System.out.println(ig.getClass().getSimpleName() + " Area: " + ig.getArea());
+            System.out.println(ig.getClass().getSimpleName() + " Circumference " + ig.getCircumference());
+        }
     }
 }

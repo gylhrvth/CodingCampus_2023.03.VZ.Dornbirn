@@ -1,10 +1,10 @@
 package mariechristine.week10.igeometry;
 
-public class Circle implements IGeometry {
+public class CircleI implements IGeometry {
 
     private double radius;
 
-    public Circle(double radius) {
+    public CircleI(double radius) {
         this.radius = radius;
     }
 
