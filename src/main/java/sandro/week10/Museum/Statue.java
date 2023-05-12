@@ -1,12 +1,20 @@
 package sandro.week10.Museum;
 
-public class Statue extends Kunstwerk {
+public class Statue extends Artwork {
     private String material;
-    private String figure;
+    private String subject;
 
-    public Statue(String name, String herkunft, int alter, double wert, String material, String figure) {
-        super(name, herkunft, alter, wert);
+    public Statue(String name, String origin, int created, String artist, String material, String subject) {
+        super(name, origin, created, artist);
         this.material = material;
-        this.figure = figure;
+        this.subject = subject;
     }
+
+
+
+    public void printStructure (){
+        System.out.println("---------------- Statue: "+ getName() + "\n------------------------ Origin: "+getOrigin() + "\n------------------------ Created in the Year: "+getCreated()
+                + "\n------------------------ Made by: " +getArtist() + "\n------------------------ Medium: "+material + "\n------------------------ Subject: " +subject);
+    }
+
 }

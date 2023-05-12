@@ -137,7 +137,7 @@ public class Zoo {
             System.out.println("Tag " + day + " FINISH...\n\n");
 
             try {
-                Thread.sleep(5000);
+                Thread.sleep(100000);
             }catch (InterruptedException ie) {}
         }
 

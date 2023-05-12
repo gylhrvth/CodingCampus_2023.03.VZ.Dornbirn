@@ -5,30 +5,46 @@ import java.util.Vector;
 
 public class Room {
     private List<Table> tableList;
-    private List<Server> serverList;
     private String name;
 
-    public Room(String name) {
+    private Server server;
+
+    public Room(String name, Server server) {
         this.tableList = new Vector<>();
-        this.serverList = new Vector<>();
         this.name = name;
+        this.server = server;
 
     }
+
 
     public void addTable(Table t) {
         tableList.add(t);
     }
 
-    public void addServer(Server s) {
-        serverList.add(s);
+    public Server order() {
+        for (Table table : tableList) {
+            if (table.getVisitorGroup() != null) {
+                this.server.addAllorder(table.order(this.server).getOrder());
+            }
+        }
+        return this.server;
     }
 
     public List<Table> getTableList() {
         return tableList;
     }
 
-    public List<Server> getServerList() {
-        return serverList;
+    public void leave(boolean open) {
+        for (Table table : tableList) {
+            table.leave(open);
+        }
+    }
+
+    public Table getPerfectTable(VisitorGroup vg, Table bestTable) {
+        for (Table tables : tableList) {
+            bestTable = tables.getPerfectTable(vg, bestTable);
+        }
+        return bestTable;
     }
 
 }
