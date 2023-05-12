@@ -1,9 +1,11 @@
 package eric.week10.schwarzwaldKlinik;
 
+import lukas.week03.day4.Colors;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Ambulance extends Department{
+public class Ambulance extends Department {
     private int openingTime;
     private int closingTime;
     private int amountOfSeats;
@@ -17,15 +19,22 @@ public class Ambulance extends Department{
         this.amountOfSeats = amountOfSeats;
     }
 
-
     @Override
-    protected void treatment(Patient patient) {
-        if (patient.getPainMeter() > 40) {
-            System.out.println("The patient " + patient.getName() + " is not in a condition to leave and will be admitted to the station");
+    protected boolean treatment(Patient patient) {
+        if (patient.getCurrentHP() < 50) {
+            System.out.println(Colors.COLORS[1] + "The patient " + Colors.RESET + patient.getName() + Colors.COLORS[1] + " is not in a condition to leave and will be admitted to the station" + Colors.RESET);
             responsibleStation.sendPatientToRoom(patient);
+//            if (patient.getCurrentHP() == 100){
+//                removePatient(patient);
+//            }
+            return true;
         } else {
-            System.out.println("Handle " + patient.getName() + "... and hope the best.");
+            System.out.println(Colors.COLORS[2] + "The patient " + Colors.RESET + patient.getName() + Colors.COLORS[2] + " was treated in the Ambulance and will leave shortly after" + Colors.RESET);
+            patient.treat();
+            if(patient.isHealed()) {
+                return true;
+            }
         }
+        return false;
     }
-
 }

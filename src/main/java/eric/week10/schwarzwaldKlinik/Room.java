@@ -1,31 +1,44 @@
 package eric.week10.schwarzwaldKlinik;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Room {
     private List<Patient> patientList;
     private int roomNumber;
+    private int getHP;
+    private boolean restorePatient;
+    private Department department;
 
-    public Room(int roomNumber) {
-        this.roomNumber =  roomNumber;
+    public Room(int roomNumber, Department responsibleDepartment) {
+        this.roomNumber = roomNumber;
         this.patientList = new ArrayList<>();
+        this.getHP = 10;
+        this.restorePatient = false;
+        this.department = responsibleDepartment;
     }
 
     public int getRoomNumber() {
         return roomNumber;
     }
 
-    public void admittedPatient(Patient patient){
+    public void admittedPatient(Patient patient) {
         patientList.add(patient);
     }
 
-    public void treatPatient(){
-        if (!patientList.isEmpty()){
+    public void treatPatient() {
+        if (!patientList.isEmpty()) {
             System.out.println("There is currently no patient in this room");
         }
-        for (Patient patient : patientList) {
-            patient.getTreatment();
+        Iterator<Patient> it = patientList.iterator();
+        while(it.hasNext()) {
+            Patient p = it.next();
+            p.treat();
+            if (p.isHealed()) {
+                department.removePatient(p);
+                it.remove();
+            }
         }
     }
 }

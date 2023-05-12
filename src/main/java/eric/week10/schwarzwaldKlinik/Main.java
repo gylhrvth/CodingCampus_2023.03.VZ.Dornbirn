@@ -8,18 +8,18 @@ public class Main {
         Ambulance ambulance = new Ambulance("Notfall Ambulance", station, 7, 15, 50);
 
 
-        Patient herald = new Patient("Herrald", "Gebrochener Fuß", 35);
-        Patient gertrud = new Patient("Gertrud", "Lungen Krebs", 99);
-        Patient thomas = new Patient("Thomas", "Geprellte Rippen", 40);
-        Patient hilde = new Patient("Hilde", "Husten", 15);
-        Patient otto = new Patient("Otto", "Sprunggelenk gerissen", 75);
+        Patient herald = new Patient("Herrald", "Gebrochener Fuß", 50, 100);
+        Patient gertrud = new Patient("Gertrud", "Lungen Krebs", 20, 100);
+        Patient thomas = new Patient("Thomas", "Geprellte Rippen", 60, 100);
+        Patient hilde = new Patient("Hilde", "Husten", 90,100);
+        Patient otto = new Patient("Otto", "Wasser in der Lunge", 5,100);
 
-        Room room1 = new Room(1);
-        Room room2 = new Room(2);
-        Room room3 = new Room(3);
-        Room room4 = new Room(4);
-        Room room5 = new Room(5);
-        Room room6 = new Room(6);
+        Room room1 = new Room(1, station);
+        Room room2 = new Room(2, station);
+        Room room3 = new Room(3, station);
+        Room room4 = new Room(4, station);
+        Room room5 = new Room(5, station);
+        Room room6 = new Room(6, station);
 
         station.addRoom(room1);
         station.addRoom(room2);
@@ -38,8 +38,8 @@ public class Main {
         ambulance.addPatient(hilde);
         ambulance.addPatient(otto);
 
-        for (int tag = 1; tag <= 10 ; tag++) {
-            System.out.println("Day [" + tag + "]");
+        for (int tag = 1; tag <= 7 ; tag++) {
+            System.out.println("\nDay [" + tag + "]");
             hospital.dailyRoutine();
         }
     }
