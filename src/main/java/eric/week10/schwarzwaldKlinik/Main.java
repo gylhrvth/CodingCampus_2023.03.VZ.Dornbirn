@@ -38,7 +38,7 @@ public class Main {
         ambulance.addPatient(hilde);
         ambulance.addPatient(otto);
 
-        for (int tag = 1; tag <= 7 ; tag++) {
+        for (int tag = 1; tag <= 8 ; tag++) {
             System.out.println("\nDay [" + tag + "]");
             hospital.dailyRoutine();
         }

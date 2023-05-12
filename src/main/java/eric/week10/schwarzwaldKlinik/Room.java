@@ -28,7 +28,7 @@ public class Room {
     }
 
     public void treatPatient() {
-        if (!patientList.isEmpty()) {
+        if (patientList.isEmpty()) {
             System.out.println("There is currently no patient in this room");
         }
         Iterator<Patient> it = patientList.iterator();
