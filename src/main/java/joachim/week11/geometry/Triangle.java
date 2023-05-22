@@ -15,7 +15,7 @@ public class Triangle extends Geometry{
     }
 
     @Override
-    double getarea() {
+    double getArea() {
         return 0.25 * hypotenuse * Math.sqrt(4*Math.pow(side,2) - Math.pow(hypotenuse,2));
     }
 }

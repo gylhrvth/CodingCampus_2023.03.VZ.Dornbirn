@@ -13,13 +13,13 @@ public class GeometryMain {
         Cirlce cirlce = new Cirlce(15);
 
         System.out.println("Rectangle");
-        System.out.println(rectangle.getarea());
+        System.out.println(rectangle.getArea());
         System.out.println(rectangle.getCircumference());
         System.out.println("\nTriangle");
-        System.out.println(triangle.getarea());
+        System.out.println(triangle.getArea());
         System.out.println(triangle.getCircumference());
         System.out.println("\nSquare");
-        System.out.println(square.getarea());
+        System.out.println(square.getArea());
         System.out.println(square.getCircumference());
         System.out.println("\nCircle");
         System.out.println(cirlce.getArea());
