@@ -24,14 +24,11 @@ public class Ambulance extends Department {
         if (patient.getCurrentHP() < 50) {
             System.out.println(Colors.COLORS[1] + "The patient " + Colors.RESET + patient.getName() + Colors.COLORS[1] + " is not in a condition to leave and will be admitted to the station" + Colors.RESET);
             responsibleStation.sendPatientToRoom(patient);
-//            if (patient.getCurrentHP() == 100){
-//                removePatient(patient);
-//            }
             return true;
         } else {
             System.out.println(Colors.COLORS[2] + "The patient " + Colors.RESET + patient.getName() + Colors.COLORS[2] + " was treated in the Ambulance and will leave shortly after" + Colors.RESET);
             patient.treat();
-            if(patient.isHealed()) {
+            if (patient.isHealed()) {
                 return true;
             }
         }

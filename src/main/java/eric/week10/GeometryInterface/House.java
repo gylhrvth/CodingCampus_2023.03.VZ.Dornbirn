@@ -9,19 +9,20 @@ public class House implements GeoInter{
 
     @Override
     public double getCircumferenceInter() {
-        double sideLength = (length * length * Math.sqrt(length)) / 4;
-        return 2 * (length + sideLength);
+        double triaLength = length * 3;
+        double squareLength = length * 4;
+        return triaLength + squareLength;
     }
 
     @Override
     public double getAreaInter() {
         double rectangleArea = length * length;
-        double triangleArea = 0.5 * length * length / 2;
+        double triangleArea = (length * length * Math.sqrt(length)) / 4;
         return rectangleArea + triangleArea;
     }
 
     @Override
     public String toString() {
-        return "House";
+        return "House: \nCircumference: " + getCircumferenceInter() + "\nArea: " + getAreaInter();
     }
 }

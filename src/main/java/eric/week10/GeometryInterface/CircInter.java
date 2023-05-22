@@ -19,6 +19,6 @@ public class CircInter implements GeoInter {
 
     @Override
     public String toString() {
-        return "Circle";
+        return "Circle: \nCircumference: " + getCircumferenceInter() + "\nArea: " + getAreaInter();
     }
 }

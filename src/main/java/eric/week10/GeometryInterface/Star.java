@@ -21,6 +21,6 @@ public class Star implements GeoInter {
 
     @Override
     public String toString() {
-        return "Star";
+        return "Star: \nCircumference: " + getCircumferenceInter() + "\nArea: " + getAreaInter();
     }
 }

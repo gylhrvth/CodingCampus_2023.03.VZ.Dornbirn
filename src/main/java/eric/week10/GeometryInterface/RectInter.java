@@ -1,10 +1,10 @@
 package eric.week10.GeometryInterface;
 
-public class RectTria implements GeoInter {
+public class RectInter implements GeoInter {
     private double width;
     private double height;
 
-    public RectTria(double length, double height) {
+    public RectInter(double length, double height) {
         this.width = length;
         this.height = height;
     }
@@ -21,6 +21,6 @@ public class RectTria implements GeoInter {
 
     @Override
     public String toString() {
-        return "Rectangle";
+        return "Rectangle: \nCircumference: " + getCircumferenceInter() + "\nArea: " + getAreaInter();
     }
 }
