@@ -1,10 +1,9 @@
-package mariechristine.week10.igeometry;
+package eric.week10.GeometryAbstract;
 
-public class SquareI extends RectangleI {
-
+public class Square extends Rectangle {
     private double length;
 
-    public SquareI(double length) {
+    public Square(double length) {
         super(length, length);
         this.length = length;
     }

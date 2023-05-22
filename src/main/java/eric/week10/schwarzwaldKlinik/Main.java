@@ -7,7 +7,6 @@ public class Main {
         Station station = new Station("Station");
         Ambulance ambulance = new Ambulance("Notfall Ambulance", station, 7, 15, 50);
 
-
         Patient herald = new Patient("Herrald", "Gebrochener Fuß", 50, 100);
         Patient gertrud = new Patient("Gertrud", "Lungen Krebs", 20, 100);
         Patient thomas = new Patient("Thomas", "Geprellte Rippen", 60, 100);
@@ -28,7 +27,6 @@ public class Main {
         station.addRoom(room5);
         station.addRoom(room6);
 
-
         hospital.addDepartment(ambulance);
         hospital.addDepartment(station);
 
@@ -38,7 +36,7 @@ public class Main {
         ambulance.addPatient(hilde);
         ambulance.addPatient(otto);
 
-        for (int tag = 1; tag <= 7 ; tag++) {
+        for (int tag = 1; tag <= 8 ; tag++) {
             System.out.println("\nDay [" + tag + "]");
             hospital.dailyRoutine();
         }
