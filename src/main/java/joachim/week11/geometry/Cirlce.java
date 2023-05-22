@@ -13,7 +13,7 @@ public class Cirlce extends Geometry {
     }
 
     @Override
-    public double getarea() {
+    public double getArea() {
         return Math.pow(radius, 2) * Math.PI;
 
     }

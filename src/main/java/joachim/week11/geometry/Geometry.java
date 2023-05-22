@@ -1,6 +1,9 @@
 package joachim.week11.geometry;
 
 abstract class Geometry {
+    public double getLength;
+    public double getHypotenuse;
+
     public Geometry() {
     }
 
@@ -11,6 +14,4 @@ abstract class Geometry {
     double getArea() {
         return 0;
     }
-
-    abstract double getarea();
 }
