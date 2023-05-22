@@ -5,9 +5,9 @@ public class Triangle extends Geometry {
     private double length;
     private double height;
 
-    public Triangle(double length, double height) {
+    public Triangle(double length) {
         this.length = length;
-        this.height = height;
+        this.height = Math.sqrt(3.0/4.0) * length;
     }
 
     @Override

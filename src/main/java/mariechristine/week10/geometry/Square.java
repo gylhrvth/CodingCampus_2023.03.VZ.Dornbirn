@@ -1,17 +1,20 @@
 package mariechristine.week10.geometry;
 
 public class Square extends Rectangle {
-    public Square(double length, double width) {
-        super(length, width);
+
+    private double length;
+    public Square(double length) {
+        super(length, length);
+        this.length = length;
     }
 
     @Override
     public double getCircumference() {
-        return super.getCircumference();
+        return length * 4;
     }
 
     @Override
     public double getArea() {
-        return super.getArea();
+        return length * length;
     }
 }

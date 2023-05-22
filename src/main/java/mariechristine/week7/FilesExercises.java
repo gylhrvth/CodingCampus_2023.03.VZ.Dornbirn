@@ -1,7 +1,6 @@
 package mariechristine.week7;
 
 import java.io.File;
-import java.util.Arrays;
 
 public class FilesExercises {
     public static void main(String[] args) {
