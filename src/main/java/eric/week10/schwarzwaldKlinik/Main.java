@@ -7,7 +7,6 @@ public class Main {
         Station station = new Station("Station");
         Ambulance ambulance = new Ambulance("Notfall Ambulance", station, 7, 15, 50);
 
-
         Patient herald = new Patient("Herrald", "Gebrochener Fuß", 50, 100);
         Patient gertrud = new Patient("Gertrud", "Lungen Krebs", 20, 100);
         Patient thomas = new Patient("Thomas", "Geprellte Rippen", 60, 100);
@@ -27,7 +26,6 @@ public class Main {
         station.addRoom(room4);
         station.addRoom(room5);
         station.addRoom(room6);
-
 
         hospital.addDepartment(ambulance);
         hospital.addDepartment(station);

@@ -1,7 +1,5 @@
 package eric.week10.GeometryInterface;
 
-import eric.week10.GeometryAbstract.Geometry;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +10,7 @@ public class InterMain {
         geometry.add(new TriaInter(20));
         geometry.add(new CircInter(100));
         geometry.add(new SquareInter(50));
-        geometry.add(new RectTria(75,60));
+        geometry.add(new RectInter(75,60));
         geometry.add(new House(10));
         geometry.add(new Star(20));
 
@@ -22,6 +20,8 @@ public class InterMain {
         for (GeoInter geo : geometry){
             totalCirc += geo.getCircumferenceInter();
             totalArea += geo.getAreaInter();
+            System.out.println(geo);
+            System.out.println();
         }
 
         System.out.println("Total Circumference: " + totalCirc);

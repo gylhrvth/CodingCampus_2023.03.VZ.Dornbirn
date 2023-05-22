@@ -19,6 +19,6 @@ public class TriaInter implements GeoInter{
 
     @Override
     public String toString() {
-        return "Triangle";
+        return "Triangle: \nCircumference: " + getCircumferenceInter() + "\nArea: " + getAreaInter();
     }
 }

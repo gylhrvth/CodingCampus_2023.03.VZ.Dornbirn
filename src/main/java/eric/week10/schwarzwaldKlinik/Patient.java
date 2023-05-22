@@ -41,18 +41,18 @@ public class Patient {
         currentHP += getHP;
         currentHP = Math.min(maxHP, currentHP);
 
-        System.out.print(getName()+" ");
-
         if (currentHP < 10) {
-            System.out.println("The Patient is in critical condition and cannot leave the hospital");
+            System.out.println("The Patient " + getName() + " is in critical condition and cannot leave the hospital");
         } else if (currentHP < 25) {
-            System.out.println("The Patient has to stay in the Hospital to be treated");
+            System.out.println("The Patient " + getName() + " has to stay in the Hospital to be treated");
         } else if (currentHP < 50) {
-            System.out.println("The Patient is on his way to get Better");
+            System.out.println("The Patient " + getName() + " is on his way to get Better");
+        } else if (currentHP < 75){
+            System.out.println("The Patient " + getName() + " is almost fully recovered");
         } else if (currentHP < 100) {
-            System.out.println("The patient will soon be discharged");
+            System.out.println("The patient " + getName() + " will soon be discharged");
         } else if (currentHP == maxHP) {
-            System.out.println("The patient is healed!!!");
+            System.out.println("The patient " + getName() + " has recovered and left the hospital");
         }
     }
 }

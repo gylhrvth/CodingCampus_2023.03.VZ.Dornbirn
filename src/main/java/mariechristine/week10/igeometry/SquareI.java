@@ -2,17 +2,20 @@ package mariechristine.week10.igeometry;
 
 public class SquareI extends RectangleI {
 
-    public SquareI(double length, double width) {
-        super(length, width);
+    private double length;
+
+    public SquareI(double length) {
+        super(length, length);
+        this.length = length;
     }
 
     @Override
     public double getCircumference() {
-        return super.getCircumference();
+        return length * 4;
     }
 
     @Override
     public double getArea() {
-        return super.getArea();
+        return length * length;
     }
 }

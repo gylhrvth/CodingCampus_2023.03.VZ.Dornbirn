@@ -1,6 +1,6 @@
 package eric.week10.GeometryInterface;
 
-public class SquareInter extends RectTria{
+public class SquareInter extends RectInter {
     private double length;
 
     public SquareInter(double length) {
@@ -20,6 +20,6 @@ public class SquareInter extends RectTria{
 
     @Override
     public String toString() {
-        return "Square";
+        return "Square: \nCircumference: " + getCircumferenceInter() + "\nArea: " + getAreaInter();
     }
 }
