@@ -8,4 +8,5 @@ public abstract class Geometry {
     public abstract double getGetCircumference();
 
     public abstract double getGetArea();
+
 }
