@@ -1,5 +1,7 @@
 package sandro.week10.Museum;
 
+import lukas.week03.day4.Colors;
+
 public class Sign extends Artwork {
     private String material;
 
@@ -14,6 +16,9 @@ public class Sign extends Artwork {
         System.out.println("---------------- Sign: "+ getName() + "\n---------------------- Origin: "+getOrigin() + "\n---------------------- Created in the Year: "+getCreated()
                             + "\n---------------------- Made by: " +getArtist() + "\n---------------------- Medium: "+material);
     }
-
+    @Override
+    public String getColor() {
+        return Colors.COLORS[2];
+    }
 
 }

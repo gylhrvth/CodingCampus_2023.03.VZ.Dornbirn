@@ -50,15 +50,10 @@ public class FileCountSumRecursive {
         System.out.println(Colors.COLORS[5] + "Size of all found files is: " + Colors.COLORS[3] + sum + Colors.COLORS[5] + " bytes.");
         System.out.println(Colors.RESET);
     }
-
     public static void myMagicSort(File[] files) {
         for (int i = 0; i < files.length; i++) {
             for (int j = 0; j < files.length - i - 1; j++) {
-                if (
-
-                        (files[j].isFile() && !files[j + 1].isFile())
-                                || ((files[j].isFile() == files[j + 1].isFile()) && files[j].compareTo(files[j + 1]) > 0)
-                ) {
+                if ((files[j].isFile() && !files[j + 1].isFile()) || ((files[j].isFile() == files[j + 1].isFile()) && files[j].compareTo(files[j + 1]) > 0)) {
                     File temp = files[j];
                     files[j] = files[j + 1];
                     files[j + 1] = temp;
@@ -66,7 +61,6 @@ public class FileCountSumRecursive {
             }
         }
     }
-
     public static long sumOfFilesRecursive(File f) {
         File[] files = f.listFiles();
         long sum = 0;
