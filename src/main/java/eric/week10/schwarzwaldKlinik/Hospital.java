@@ -14,13 +14,12 @@ public class Hospital {
         departmentList = new ArrayList<>();
     }
 
-
-    public void addDepartment(Department department){
+    public void addDepartment(Department department) {
         departmentList.add(department);
     }
 
-    public void dailyRoutine(){
-        for (Department department: departmentList){
+    public void dailyRoutine() {
+        for (Department department : departmentList) {
             department.dailyRoutine();
         }
     }

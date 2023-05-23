@@ -37,7 +37,6 @@ public class ZooMain {
 
 
         pfleger.addGehegeList(ried);
-
         pfleger1.addGehegeList(terrarium);
         pfleger1.addGehegeList(alpenwiese);
 

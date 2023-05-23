@@ -28,11 +28,8 @@ public class Room {
     }
 
     public void treatPatient() {
-        if (!patientList.isEmpty()) {
-            System.out.println("There is currently no patient in this room");
-        }
         Iterator<Patient> it = patientList.iterator();
-        while(it.hasNext()) {
+        while (it.hasNext()) {
             Patient p = it.next();
             p.treat();
             if (p.isHealed()) {
