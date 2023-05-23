@@ -1,34 +1,30 @@
 package mariechristine.week12.filesystem;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+import lukas.week03.day4.Colors;
+
+import java.io.*;
 
 public class FileSystemTraversal {
     public static void main(String[] args) {
-        File startFile = new File("C:\\Users\\DCV\\IdeaProjects\\CodingCampus_2023.03.VZ.Dornbirn\\src\\main\\java\\mariechristine");
+        File startFile = new File("src/main/java/mariechristineXX");
 
-        navigateRecursive("", startFile, false);
+        try {
+            navigateRecursive(startFile);
+        } catch (FileNotFoundException e) {
+            System.out.println(Colors.COLORS[1] + "NOT FOUND:\n"  + Colors.RESET + e.getMessage());
+        }
 
     }
 
-    public static void navigateRecursive(String prefix, File startFile, boolean lastFile) {
-
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter file directory: ");
-        sc.nextLine();
-        try {
-            sc = new Scanner(new FileInputStream(startFile));
-            while (sc.hasNextLine()) {
-                System.out.println(sc.nextLine());
-            }
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-
+    public static void navigateRecursive(File startFile) throws FileNotFoundException {
+        if (!startFile.exists()) {
+            throw new FileNotFoundException(startFile.getAbsolutePath());
         }
 
+        navigateRecursive("", startFile, false);
+    }
 
+    private static void navigateRecursive(String prefix, File startFile, boolean lastFile) {
         System.out.println(prefix + (lastFile ? "└── " : "├── ") + startFile.getName());
 
         if (startFile.isDirectory()) {
@@ -36,6 +32,7 @@ public class FileSystemTraversal {
             for (int i = 0; i < content.length; i++) {
                 File f = content[i];
                 String newPrefix = (lastFile ? "    " : "│   ");
+
 
                 if (i != content.length - 1) {
                     navigateRecursive(prefix + newPrefix, f, false);
