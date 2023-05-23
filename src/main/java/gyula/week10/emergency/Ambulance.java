@@ -1,4 +1,4 @@
-package gyula.woche10.emergency;
+package gyula.week10.emergency;
 
 public class Ambulance extends EmergencyGroup {
     private String name;

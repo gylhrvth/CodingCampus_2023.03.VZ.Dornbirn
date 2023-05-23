@@ -1,6 +1,4 @@
-package gyula.woche10.emergency;
-
-import java.util.concurrent.Callable;
+package gyula.week10.emergency;
 
 public class Main {
     public static void main(String[] args) {

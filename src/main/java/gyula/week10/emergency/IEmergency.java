@@ -1,4 +1,4 @@
-package gyula.woche10.emergency;
+package gyula.week10.emergency;
 
 public interface IEmergency {
     public boolean isFree();

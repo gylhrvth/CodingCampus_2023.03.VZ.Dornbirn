@@ -1,4 +1,4 @@
-package gyula.woche10.emergency;
+package gyula.week10.emergency;
 
 public abstract class EmergencyGroup implements IEmergency{
     protected boolean inAction;

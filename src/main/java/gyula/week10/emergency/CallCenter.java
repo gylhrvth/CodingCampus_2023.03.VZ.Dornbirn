@@ -1,6 +1,5 @@
-package gyula.woche10.emergency;
+package gyula.week10.emergency;
 
-import java.util.Calendar;
 import java.util.Vector;
 
 public class CallCenter {

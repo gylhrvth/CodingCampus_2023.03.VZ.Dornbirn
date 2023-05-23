@@ -1,4 +1,4 @@
-package gyula.woche10.fileprocessor;
+package gyula.week10.fileprocessor;
 
 import java.io.File;
 import java.io.FileInputStream;
