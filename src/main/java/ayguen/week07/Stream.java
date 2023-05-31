@@ -1,7 +1,10 @@
 package ayguen.week07;
 
-import java.io.*;
-import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.util.Random;
 
 public class Stream {
 
@@ -14,9 +17,10 @@ public class Stream {
             ps.println("Hello World!");
             ps.close();
             System.out.println("File schreiben war erfolgreich");
-        } catch (FileNotFoundException fnfe){
+        } catch (FileNotFoundException fnfe) {
             System.out.println(f.getAbsolutePath() + " ist nicht erreichbar.");
         }
+
     }
 }
 

@@ -60,6 +60,6 @@ public class Zookeeper {
         }
 //        for (Enclosure enclosure : enclosureList) {
 //            enclosure.enclosureSimulation(this);
-//        }
+        }
     }
-}
+
