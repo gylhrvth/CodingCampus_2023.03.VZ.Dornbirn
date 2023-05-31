@@ -4,7 +4,7 @@ import java.io.File;
 
 public abstract class FileReceiver {
 
-    public abstract void  getFileReceived(int depth, File file);
+    public abstract void onFileReceived(int depth, File file);
     }
 
 

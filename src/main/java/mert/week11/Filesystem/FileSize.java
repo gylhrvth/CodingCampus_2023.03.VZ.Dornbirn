@@ -5,9 +5,18 @@ import java.io.File;
 public class FileSize extends FileReceiver {
     private long totalSize;
 
+    public FileSize() {
+        totalSize = 0;
+    }
 
     @Override
-    public void getFileReceived(int depth, File file) {
-        totalSize = file.length();
+    public void onFileReceived(int depth, File file) {
+        if (file.isFile()) {
+            totalSize += file.length();
+        }
+    }
+
+    long getTotalSize() {
+        return totalSize;
     }
 }
