@@ -16,9 +16,13 @@ public class Guard extends Human {
         currentRoom = m.getEntry();
         currentRoom.stepIn(this);
     }
+    @Override
     public void printMap() {
 
     }
+
+
+    @Override
     public void move (){
         Room nextRoom = currentRoom.getRandomNextRoom();
         //stepout - stepin
@@ -38,10 +42,8 @@ public class Guard extends Human {
     }
 
     @Override
-    public void dailyRoutine (int tick){
+    public void dailyRoutine (Museum m,int time){
         //if gallery occupied, observe guest
-
-
         --timeToLeft;
         if (timeToLeft > 0 && currentRoom.getCountOfVisitorsInRoom() < 1) {
             // if I'm alone, move to next room
@@ -52,12 +54,7 @@ public class Guard extends Human {
         if (timeToLeft <= 0){
             move();
         }
-
-
-
-
     }
-
 
     @Override
     public String getColor() {

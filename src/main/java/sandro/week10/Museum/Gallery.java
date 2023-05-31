@@ -1,16 +1,20 @@
 package sandro.week10.Museum;
 
 
+import java.util.List;
 import java.util.Vector;
 
 public class Gallery extends Room {
-    private Vector<Artwork> artworkList;
+    private List<Artwork> artworkList;
 
     public Gallery(String name) {
         super(name);
         this.artworkList = new Vector<>();
     }
 
+    public List<Artwork> getArtworkList() {
+        return artworkList;
+    }
 
     public void addArtwork(Artwork artwork) {
         if (!artworkList.contains(artwork)) {
@@ -54,8 +58,7 @@ public class Gallery extends Room {
 
     }
 
-    @Override
-    public String toString() {
-        return "Gallery: " + getName();
+    public String getColor(){
+        return "";
     }
 }

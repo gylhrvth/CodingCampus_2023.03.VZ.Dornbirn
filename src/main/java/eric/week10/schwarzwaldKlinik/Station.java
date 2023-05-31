@@ -3,7 +3,7 @@ package eric.week10.schwarzwaldKlinik;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Station extends Department{
+public class Station extends Department {
 
     private List<Room> roomList;
 
@@ -17,7 +17,7 @@ public class Station extends Department{
     }
 
     @Override
-    public void dailyRoutine(){
+    public void dailyRoutine() {
         if (roomList.isEmpty()) {
             System.out.println("There is currently no room available ");
         }

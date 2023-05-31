@@ -1,5 +1,7 @@
 package sandro.week10.Museum;
 
+import lukas.week03.day4.Colors;
+
 public class Artwork {
     private String name;
     private String origin;
@@ -38,5 +40,9 @@ public class Artwork {
     @Override
     public String toString() {
         return getName();
+    }
+
+    public String getColor(){
+        return "";
     }
 }

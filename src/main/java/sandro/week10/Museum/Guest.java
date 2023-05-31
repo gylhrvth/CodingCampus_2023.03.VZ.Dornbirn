@@ -6,59 +6,87 @@ public class Guest extends Human {
 
     protected int timeToLeft;
     protected Room currentRoom;
+    private int arrive;
+    private boolean inBuilding;
 
-
-    public Guest(Museum m, String name, String gender, int age){
-        super (name,gender,age);
+    public Guest(Museum m, String name, String gender, int age, int arrive) {
+        super(name, gender, age);
         timeToLeft = 1;
+        this.arrive = arrive;
+        this.inBuilding = true;
 
         m.addHuman(this);
         //Start = MainCorridor
         currentRoom = m.getEntry();
         currentRoom.stepIn(this);
     }
+
+    public int getArrive() {
+        return arrive;
+    }
+
+    @Override
     public void printMap() {
 
     }
-    public void move (){
+
+    @Override
+    public void move() {
         Room nextRoom = currentRoom.getRandomNextRoom();
         //stepout - stepin
         currentRoom.stepOut(this);
         nextRoom.stepIn(this);
         currentRoom = nextRoom;
 
-        if (currentRoom instanceof Corridor){
+        if (currentRoom instanceof Corridor) {
             //if room is corridor, find a gallery
             System.out.println(getColor() + name + Colors.RESET + ": This corridor is boring. I should find a Gallery with actual Artwork");
             timeToLeft = 1;
-        } else {
+        }
+
+        else if (currentRoom instanceof Gallery && ((Gallery) currentRoom).getCountOfArtworksInRoom() < 1) {
+            //gallery is empty
+            System.out.println(getColor() + name + Colors.RESET + ": This gallery is empty. I should find a Gallery with actual Artwork");
+            timeToLeft = 1;
+        }
+
+        else {
             // current room is Gallery and has Artwork , admireArtwork
             //if observe runs more than 3steps, next move
-            System.out.println(getColor() + name + Colors.RESET + ": Ohh this is quit a nice /Artwork/");     //insert Artwork from room!
+            System.out.println(getColor() + name + Colors.RESET + ": Ohh this is quit a nice " +Colors.COLORS[2] + currentRoom.getArtworkList().get(Museum.random.nextInt(currentRoom.getArtworkList().size())) +Colors.RESET);     //insert Artwork from room!
             timeToLeft = 10;
         }
     }
 
+    public void setInBuilding(boolean inBuilding) {
+        this.inBuilding = inBuilding;
+    }
 
-    public void leave (){
+    public void leave(Museum m) {
+        m.removeHuman(this);
+        int newGuestCount = m.getMaxGuestallowed() - 1;
+        m.setMaxGuestallowed(newGuestCount);
+        setInBuilding(false);
+        System.out.println(getColor() + name + Colors.RESET +": "+ Colors.COLORS[3] + "Goes Home " + Colors.RESET);
+
         // get ticks, %chance increase to leave
     }
 
-    public void admireArtwork(){
+    public void admireArtwork() {
         // picks artwork in room, 10ticks admire
     }
 
     @Override
-    public void dailyRoutine (int tick){
-        int timeStay = tick;
-        int potential = Museum.random.nextInt(1,299);
+    public void dailyRoutine(Museum m, int acttime) {
+        int timeSpendinMusem = acttime - arrive;
+        int timeToGo = Museum.random.nextInt(100, 300);
 
-        if (timeStay == 300 || timeStay > potential){
-            leave();
+        if (timeSpendinMusem > timeToGo) {
+            leave(m);
         }
 
 
-        if (currentRoom instanceof Gallery){
+        if (currentRoom instanceof Gallery) {
 
         }
 
@@ -69,10 +97,9 @@ public class Guest extends Human {
 //            timeToLeft = 0;
 //        }
         //make a move
-        if (timeToLeft <= 0){
+        if (timeToLeft <= 0) {
             move();
         }
-
 
 
         //make a move

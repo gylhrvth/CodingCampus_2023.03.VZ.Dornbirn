@@ -1,6 +1,6 @@
 package sandro.week10.Museum;
 
-public class Human {
+public abstract class Human {
     protected String name;
     private String gender;
     private int age;
@@ -12,20 +12,20 @@ public class Human {
         this.gender = gender;
     }
 
-    public void printMap() {
-
-    }
+    public abstract void printMap();
 
     public String getName() {
         return name;
     }
+    public abstract void move();
 
-    public void dailyRoutine(int tick){
-        // do NOTHING :-)
-    }
+    public abstract void dailyRoutine(Museum m,int time);
 
     public String getColor(){
         return "";
     }
 
+    public void leave(){
+
+    }
 }
