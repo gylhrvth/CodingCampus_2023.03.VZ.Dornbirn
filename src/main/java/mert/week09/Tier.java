@@ -14,7 +14,7 @@ public class Tier {
     boolean beobachten = false;
     private int maxGesundheit;
     private int bissKraft;
-    private Vector<Tier> tierList;
+    
 
 
     public Tier(String name, String gattung, int maxGesundheit, int bissKraft) {
