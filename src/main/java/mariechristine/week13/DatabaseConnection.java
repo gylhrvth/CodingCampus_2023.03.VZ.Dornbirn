@@ -14,7 +14,7 @@ public class DatabaseConnection {
         try { //Verbindung zur SQL-Datenbank
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mondial?useUnicode=true&characterEncoding=utf8", "marie", "marie");
 
-            //Abfrage; gesuchter Parameter wird mir einem Fragezeichen definiert
+            //Abfrage; gesuchter Parameter wird mit einem Fragezeichen definiert
             PreparedStatement ps = conn.prepareStatement("SELECT Name, Population FROM city where name like ?");
             ps.setString(1, searchText + "%"); //index in SQL beginnt bei 1
             ResultSet rs = ps.executeQuery();
