@@ -1,6 +1,7 @@
 package mariechristine.week14;
 
 import mariechristine.week13.DataBase;
+import mariechristine.week13.model.Account;
 import mariechristine.week13.model.Customer;
 
 import java.sql.Connection;
@@ -21,7 +22,13 @@ public class DataBaseTest {
 
         for (Customer c : manager.getCustomers()) {
             c.setName(c.getName() + "1");
+            manager.updateCustomer(c);
         }
+
+        //Kunde kommt in Bank
+        Customer max = manager.createCustomer("Max", "Adalgata 5, 500 Saudakrok");
+
+
 
     }
 }

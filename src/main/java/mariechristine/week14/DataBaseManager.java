@@ -71,4 +71,21 @@ public class DataBaseManager {
 
         return customers;
     }
+
+    public void updateCustomer(Customer updateCustomer) throws SQLException {
+        PreparedStatement stmt = connection.prepareStatement("UPDATE Kunde SET Name = ? WHERE KundenID = ?");
+        stmt.setString(1, updateCustomer.getName());
+        stmt.setLong(2, updateCustomer.getCustomerID());
+        stmt.executeUpdate();
+    }
+
+    public void connect(Customer customer, Account account, String role) throws SQLException {
+        PreparedStatement stmt = connection.prepareStatement("INSERT INTO Konto" +
+                "(Konto_KundenID_FK, role)" + "VALUES(?, ?, ?)");
+        stmt.setLong(1, customer.getCustomerID());
+        stmt.setLong(2, account.getAccountID());
+        stmt.setString(3, role);
+        stmt.executeUpdate();
+        stmt.close();
+    }
 }
