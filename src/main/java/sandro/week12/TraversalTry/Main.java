@@ -1,4 +1,4 @@
-package sandro.week12.TraversalUsefull;
+package sandro.week12.TraversalTry;
 
 import lukas.week03.day4.Colors;
 

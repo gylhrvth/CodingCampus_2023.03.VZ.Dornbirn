@@ -1,4 +1,4 @@
-package sandro.week12.TraversalGyula;
+package sandro.week12.TraversalUsefull;
 
 import java.io.File;
 import java.io.FileNotFoundException;
