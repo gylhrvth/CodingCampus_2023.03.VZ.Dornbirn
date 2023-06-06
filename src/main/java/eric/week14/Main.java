@@ -8,7 +8,7 @@ public class Main {
 
 
 //        bd.neuerKunde("eric");
-        bd.openKonto("Inhaber", 2, 2);
+//        bd.openKonto("Inhaber", 2, 2);
 //        bd.openKonto("Inhaber", 1, 0);
 
 
