@@ -11,7 +11,6 @@ public class Enclosure {
     private static Random rand = new Random();
     private String enclosureName;
     private List<Animal> animalList;
-
     private boolean hasToClean;
 
 
