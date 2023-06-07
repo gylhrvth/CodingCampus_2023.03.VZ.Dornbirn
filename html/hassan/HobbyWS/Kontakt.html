@@ -5,18 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontakt</title>
+    <style>
+        body {
+            display: grid;
+            place-items: center;
+            height: 100vh;
+            background-color: beige;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 20px;
+            border: 2px solid darkgray;
+            border-radius: 5px;
+            background-color: white;
+            text-align: center;
+        }
+
+        h1, h2, p {
+            color: #333333;
+        }
+
+        h1 {
+            color: darkgreen;
+        }
+
+        h2 {
+            color: darkgreen;
+        }
+
+        p {
+            color: gray;
+        }
+    </style>
 </head>
 <body>
-    <h1 style="color: #670101;">Kontakt</h1>
-    
-    <p style="color: #666666;">Hassan Zayn</p>
-    <p style="color: #666666;">Ort: Feldkirch</p>
-    <p style="color: #666666;">Tel: +43066099911199</p>
-    <p style="color: #666666;">Email: zaynhassan9@gmail.com</p>
-    
-    <p style="color: #666666;">Ich freue mich auf Ihren Anruf oder Ihre E-Mail und bin hochmotiviert, Ihnen weiterzuhelfen.
-    <br>
-    <a href="über_mich.html">zurück zur Hauptseite.</a>
-    </p>
-  </body>
-  </html>
+    <div class="container">
+        <h1>Kontakt</h1>
+
+        <div>
+            <h2>Hassan Zayn</h2>
+            <p>Ort: Feldkirch</p>
+            <p>Tel: +43066099911199</p>
+            <p>Email: zaynhassan9@gmail.com</p>
+            <p>Ich freue mich auf Ihren Anruf oder Ihre E-Mail und bin motiviert, Ihnen weiterzuhelfen.
+                <br>
+                <a href="über_mich.html">Zurück zur Hauptseite</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
