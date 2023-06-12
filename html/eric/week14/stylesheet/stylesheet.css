@@ -5,6 +5,42 @@
     text-align: center;
 }
 
+.container>h1{
+    color: white;
+}
+
+.infoAboutMe>p{
+    color: white;
+}
+
+
+a {
+    color: darkgrey;
+}
+
+a:visited {
+    color: black;
+    background-color: darkgray;
+}
+
+.myHobbies>h1{
+    color: white;
+}
+
+.myHobbies>h4{
+    color: white;
+}
+
+.myHobbies>p{
+    color: white;
+}
+
+.myHobbies>ul{
+    color: white;
+}
+
+
+
 .me {
     display: flex;
     align-items: center;
@@ -17,7 +53,8 @@
     border-color: rgb(68, 77, 74);
     height: 384px;
     width: 300px;
-    box-shadow: 10px 10px 5px rgb(74, 57, 107);
+    box-shadow: -10px -10px 5px rgb(74, 57, 107);
+    image-rendering: auto;
 }
 
 
@@ -33,83 +70,24 @@
 }
 
 .topnav a {
-    float: left;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgb(145, 92, 182, .4);
+    padding: 15px 40px;
+    border-radius: 4px;
+    font-weight: normal;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in-out;
 }
 
 .topnav a:hover {
-    background-color: #ddd;
-    color: black;
+    color: rgb(238, 25, 192);
+    box-shadow: 10px 15px 20px rgba(145, 92, 182, .4);
 }
 
 .topnav a.active {
-    background-color: rgb(74, 57, 107);
-    color: black;
-}
-
-.Phone {
-    position: relative;
-    display: flex;
-    float: left;
-}
-
-.Phone>img {
-    display: block;
-    width: 150px;
-    height: auto;
-}
-
-.phoneText {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 200px;
-    width: 200px;
-    opacity: 0.1;
-    transition: 1.5s ease;
-}
-
-.phone:hover .phoneText {
-    opacity: 1;
-}
-
-.text {
-    color: rgb(0, 0, 0);
-    font-size: 20px;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-.Mail {
-    display: flex;
-    float: left;
-    padding-left: 10em;
-    margin-top: 2px;
-}
-
-.Mail>img {
-    display: block;
-    width: 200px;
-    height: auto;
-}
-
-.MailText {
-    margin-top: 10px;
-}
-
-.text {
-    padding-top: 5em;
+    background-color: rgb(145, 92, 182);
+    color: white;
 }
 
 p {
@@ -117,11 +95,10 @@ p {
 
 }
 
-.bodyThatsMe {
+body {
     background-image: url("../pictures/minimalism-4k-for-mac-desktop-wallpaper-preview.jpg");
     background-repeat: no-repeat;
 }
-
 
 .myHobbies {
     padding-top: 2em;
@@ -129,4 +106,76 @@ p {
 
 .feedback {
     color: #000000;
+}
+
+.resume-img{
+    padding: 20px 0px 0px 20px;
+    image-rendering:optimizeSpeed
+}
+
+.contact{
+    align-items: center;
+    position: relative;
+    border-style: solid;
+    height: 250px;
+    width: 450px;
+    margin-top: 200px;
+    margin: auto;
+    background-color: bisque;
+}
+
+.contact-info-name{
+    background-color: black;
+    color: white;
+    margin-bottom: 1px;
+    padding-bottom: 1px;
+}
+
+.contact-info-job{
+    padding: 0px;
+    font-size: 10px;
+    margin-top: 1px;
+    margin-left: 20px;
+    margin-bottom: 60px;
+}
+
+.contact-info-Mail{
+    padding-bottom: 50px;
+    padding-left: 5px;
+    font-size: 14px;
+}
+
+.contact-info-address{
+    padding-left: 5px;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.contact-info-telefone{
+    padding-left: 5px;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.contact-info-img{
+    float: right;
+    image-rendering: auto;
+    -webkit-filter: grayscale(2);
+    max-height: fit-content;
+    margin-top: -210px
+}
+
+.download-link{
+    margin-top: 20px;
+    margin-left: 20px;
+    padding-bottom: 1px;
+}
+
+.download-link-img{
+    display: block;
+    margin-left: 25px;
+}
+
+.download-text{
+    margin-top: 1px;
 }
