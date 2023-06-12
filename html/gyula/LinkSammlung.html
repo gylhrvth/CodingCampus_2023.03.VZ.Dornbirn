@@ -13,6 +13,28 @@ a {
 a:visited{
     color:darkmagenta;
 }
+
+.interessant > p::first-letter{
+    font-size: 2em;
+}
+
+.interessant > p{
+    background-color: hsl(40, 50%, 93%);
+    margin-block: 0;
+    padding: 5px;
+}
+.interessant > p:nth-child(2n+1){
+    background-color: hsl(40, 49%, 83%);
+}
+
+.interessant > p:last-child::after {
+    display: inline-block;
+    content: "";
+    border-top: .3rem solid black;
+    width: 60%;
+    margin: 0 20%;
+    transform: translateY(+2rem);
+}
 </style>
 </head>
 <body>
@@ -21,5 +43,14 @@ a:visited{
     <a href="size.html">Size</a>
     <a href="button.html">Button</a>
     <a href="audiotest.html">audiotest</a>
+
+    <h1>Selectoren</h1>
+    <div class="interessant">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat aperiam consequuntur temporibus necessitatibus, eaque id iusto soluta, delectus saepe explicabo, autem molestiae neque dignissimos blanditiis nam velit recusandae. Maiores, officiis?</p>
+    <p>Tenetur nisi quas, debitis officia ea, deserunt nihil ullam recusandae aperiam similique dolorum, ipsam quo porro saepe iure soluta natus! Doloremque porro reprehenderit molestiae tempore expedita, quasi explicabo earum quis.</p>
+    <p>Libero quos nulla aut, id eligendi praesentium facere unde facilis, totam neque officia accusamus ipsam repellat! Beatae minus voluptate ex culpa dolore mollitia at minima, dolorem voluptates repellendus eligendi pariatur.</p>
+    <p>Distinctio, itaque quam. Sapiente, provident cum. Tempora commodi ex quos harum vitae at fugiat eum maxime error sit quas, est aliquid ullam, aliquam dolores, voluptatem quisquam repellendus quia exercitationem aperiam!</p>
+    <p>Consequuntur consequatur error accusantium commodi maiores id quisquam temporibus corporis sequi reprehenderit aperiam perferendis neque placeat ipsam, in aliquam ut a ab laudantium, velit numquam praesentium nam beatae explicabo! Repudiandae.</p>
+    </div>
 </body>
 </html>
