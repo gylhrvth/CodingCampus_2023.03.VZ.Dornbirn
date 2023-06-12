@@ -1,0 +1,140 @@
+h1 {
+  color: aquamarine;
+}
+
+h2 {
+  color: violet;
+}
+
+p {
+  color: rgb(173, 5, 69);
+
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.grid-container {
+  display: flow-root;
+  grid-template-columns: auto;
+  gap: 10px;
+  background-color: #21f360;
+  border-radius: 10px;
+  padding: 10px;
+  max-width: 500px;
+}
+
+.grid-container>div {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.Button1 {
+  background-color: aquamarine;
+  border: solid black 1px;
+  border-radius: 10px;
+  padding: 5px;
+  text-align: center;
+  box-shadow: 2px 2px 5px blue;
+  cursor: pointer;
+}
+
+.Button1:hover {
+  background-color: rgb(25, 11, 116);
+  color: rgb(192, 184, 248);
+  transition: color 300ms;
+  transition: background-color 300ms;
+}
+
+@keyframes Button1-ani {
+  0% {
+    background-color: red;
+    transform: scale(0);
+    left: 0px;
+    top: 0px;
+  }
+
+  33% {
+    background-color: yellow;
+    transform: scale(0.33);
+    left: 600px;
+    top: 300px;
+  }
+
+  66% {
+    background-color: yellow;
+    transform: scale(0.66);
+    left: 0px;
+    top: 600px;
+  }
+
+  100% {
+    background-color: red;
+    transform: scale(1);
+    left: 0px;
+    top: 0px;
+  }
+}
+
+@keyframes Button2-ani {
+  0% {
+    background-color: red;
+    left: 2000px;
+    top: 0px;
+  }
+
+  25% {
+    background-color: violet;
+    left: 0px;
+    top: 1000px;
+  }
+
+  50% {
+    background-color: cyan;
+    left: 2000px;
+    top: 0px;
+  }
+
+  75% {
+    background-color: green;
+    left: 0px;
+    top: 1000px;
+  }
+
+  100% {
+    background-color: red;
+    left: 2000px;
+    top: 0px;
+    transform: rotate(360deg);
+  }
+}
+
+.Button1-animation {
+  animation-name: Button1-ani;
+  animation-duration: 0.1s;
+  position: relative;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.Button2-animation {
+  animation-name: Button2-ani;
+  animation-duration: 0.1s;
+  position: relative;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+}
+
+.item1>img {
+  border-radius: 9999px;
+}
+
+.grid-container>.container,
+.container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  background-color: transparent;
+  border: none;
+}

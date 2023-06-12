@@ -1,6 +1,20 @@
+@font-face {
+    font-family: Anton;
+    src: url('fonts/Anton-Regular.ttf');
+}
+
 .kopfzeile {
     color:hsl(160, 80%, 30%);
-    background-color: hsl(160, 20%, 80%);
+    /*background-color: hsl(160, 20%, 80%);*/
+/*
+    background-image: url('gyula.jpg');
+    background-size: cover;
+*/
+    background-image: linear-gradient(to right, 
+            hsl(160, 20%, 70%),
+            hsl(160, 20%, 100%));
+
+    font-family: Anton, Tahoma, Verdana, sans-serif;
     font-size: 60px;
     font-weight: 900;
     text-align: center;
