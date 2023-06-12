@@ -37,6 +37,7 @@ p {
   padding: 5px;
   text-align: center;
   box-shadow: 2px 2px 5px blue;
+  cursor: pointer;
 }
 
 .item1 > img {
