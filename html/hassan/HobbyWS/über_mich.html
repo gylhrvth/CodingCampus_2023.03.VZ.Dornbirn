@@ -22,7 +22,7 @@
             border: 2px solid darkgray;
             border-radius: 5px;
             background-color: white;
-            text-align: center;
+            text-align: left;
         }
 
         h1, h2, p, ul {
@@ -44,16 +44,48 @@
         ul {
             color: #333333;
         }
+
+        .navbar {
+            background-color: #333;
+            padding: 10px;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar li {
+            display: inline;
+        }
+
+        .navbar li a {
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        .navbar li a:hover {
+            background-color: #666;
+        }
     </style>
 </head>
 <body>
+    <div class="navbar">
+        <ul>
+            <li><a href="über_mich.html">Über mich</a></li>
+            <li><a href="Boxen.html">Boxen</a></li>
+            <li><a href="Kontakt.html">Kontakt</a></li>
+        </ul>
+    </div>
+
     <div class="container">
         <h1>Über mich</h1>
 
         <div>
             <h2>Hassan Zayn - Amateur-Boxer</h2>
             <p>Hallo! Mein Name ist Hassan und ich bin 20 Jahre alt. Seit 4 Jahren betreibe ich leidenschaftlich gerne Amateur-Boxen. Für mich ist Boxen nicht nur ein Sport, sondern auch eine Art des Lebens. Es hat mir geholfen, Disziplin, Ausdauer und mentale Stärke zu entwickeln.</p>
-            <p><a href="Boxen.html">Mehr über das Boxen lernen</a></p>
         </div>
 
         <div>
@@ -65,7 +97,6 @@
                 <li>Training: Neben meiner eigenen Boxkarriere habe ich auch Erfahrung im Training von anderen Menschen. Ich kann Ihnen helfen, Ihre Techniken zu verbessern, Ihre Fitness zu steigern und Ihre Ziele im Boxen zu erreichen.</li>
             </ul>
             <p>Wenn Sie Interesse daran haben, mehr über mich und das Boxen zu erfahren oder gerne mit mir zusammen trainieren möchten, zögern Sie nicht, sich bei mir zu melden. Ich freue mich darauf, von Ihnen zu hören!</p>
-            <p><a href="Kontakt.html">Rufen Sie doch einfach an ;)</a></p>
         </div>
     </div>
 </body>
