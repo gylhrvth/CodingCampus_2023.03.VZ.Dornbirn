@@ -138,3 +138,11 @@ p {
   background-color: transparent;
   border: none;
 }
+
+.bg-image{
+  height: 100px;
+  width: 100%;
+  background-image: url(Background.avif);
+  background-position: 0 600px;
+  background-size: cover;
+}
