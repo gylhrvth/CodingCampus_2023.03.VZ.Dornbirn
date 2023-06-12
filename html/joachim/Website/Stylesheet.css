@@ -40,11 +40,99 @@ p {
   cursor: pointer;
 }
 
-.item1 > img {
+.Button1:hover {
+  background-color: rgb(25, 11, 116);
+  color: rgb(192, 184, 248);
+  transition: color 300ms;
+  transition: background-color 300ms;
+}
+
+@keyframes Button1-ani {
+  0% {
+    background-color: red;
+    transform: scale(0);
+    left: 0px;
+    top: 0px;
+  }
+
+  33% {
+    background-color: yellow;
+    transform: scale(0.33);
+    left: 600px;
+    top: 300px;
+  }
+
+  66% {
+    background-color: yellow;
+    transform: scale(0.66);
+    left: 0px;
+    top: 600px;
+  }
+
+  100% {
+    background-color: red;
+    transform: scale(1);
+    left: 0px;
+    top: 0px;
+  }
+}
+
+@keyframes Button2-ani {
+  0% {
+    background-color: red;
+    left: 2000px;
+    top: 0px;
+  }
+
+  25% {
+    background-color: violet;
+    left: 0px;
+    top: 1000px;
+  }
+
+  50% {
+    background-color: cyan;
+    left: 2000px;
+    top: 0px;
+  }
+
+  75% {
+    background-color: green;
+    left: 0px;
+    top: 1000px;
+  }
+
+  100% {
+    background-color: red;
+    left: 2000px;
+    top: 0px;
+    transform: rotate(360deg);
+  }
+}
+
+.Button1-animation {
+  animation-name: Button1-ani;
+  animation-duration: 0.1s;
+  position: relative;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.Button2-animation {
+  animation-name: Button2-ani;
+  animation-duration: 0.1s;
+  position: relative;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+}
+
+.item1>img {
   border-radius: 9999px;
 }
 
-.grid-container > .container, .container{
+.grid-container>.container,
+.container {
   display: grid;
   grid-template-columns: 50% 50%;
   background-color: transparent;
