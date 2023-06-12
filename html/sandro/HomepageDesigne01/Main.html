@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        
+        body {
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        /* Style the header */
+        .header {
+          grid-area: header;
+          background-color: #f1f1f1;
+          padding: 30px;
+          text-align: center;
+          font-size: 35px;
+        }
+        
+        /* The grid container */
+        .grid-container {
+          display: grid;
+          grid-template-areas: 
+            'header header header header header header' 
+            'left middle middle middle middle right' 
+            'footer footer footer footer footer footer';
+          /* grid-column-gap: 10px; - if you want gap between the columns */
+        } 
+        
+        .left,
+        .middle,
+        .right {
+          padding: 10px;
+          height: 100%; /* Should be removed. Only for demonstration */
+        }
+        
+        /* Style the left column */
+        .left {
+          grid-area: left;
+          background-color: hsl(0, 9%, 68%);
+          
+        }
+        
+        /* Style the middle column */
+        .middle {
+          grid-area: middle;
+          
+        }
+        
+        /* Style the right column */
+        .right {
+          grid-area: right;
+          background-color: hsl(0, 9%, 68%);
+          
+        }
+        
+        /* Style the footer */
+        .footer {
+          grid-area: footer;
+          background-color: hsl(0, 0%, 95%);
+          padding: 10px;
+          text-align: center;
+        }
+        
+        /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+        @media (max-width: 600px) {
+          .grid-container  {
+            grid-template-areas: 
+              'header header header header header header' 
+              'left left left left left left' 
+              'middle middle middle middle middle middle' 
+              'right right right right right right' 
+              'footer footer footer footer footer footer';
+          }
+        }
+        </style>
+
+
+</head>
+<body>
+    <div class="grid-container">
+        <div class="header">
+          <h2>Header</h2>
+        </div>
+        
+        <div class="left">Left Bar
+            Navigation
+        </div>
+        <div class="middle">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur mollitia ea, ex impedit sint non incidunt sequi est nesciunt ipsa, ad porro tenetur rerum qui architecto ipsum, deleniti totam quae?
+        Fugit iure debitis assumenda sapiente iusto minus iste voluptas nemo consequatur tenetur, autem similique, suscipit, quae a! Totam, dicta. Aspernatur, asperiores! Laboriosam, officia eaque. Dolor, dolores. Voluptatem voluptas perferendis officia!
+        Amet repudiandae quaerat quisquam doloribus, sit aspernatur labore placeat quibusdam id reprehenderit pariatur? Nihil expedita velit, accusantium tempora, saepe ab consequuntur voluptates perspiciatis alias numquam est fuga veniam quibusdam soluta.
+        Tenetur vero eum, voluptas illum esse sequi similique illo veniam amet reprehenderit mollitia optio quos, rerum quo odio laudantium ratione. Cupiditate, magni? Deserunt eveniet quisquam modi eum repellat a laboriosam!
+        Totam voluptas maiores, quisquam cumque voluptatem rerum facere commodi quas, expedita non perspiciatis doloremque esse quis beatae itaque quidem quaerat omnis eligendi ab? Doloremque beatae dolores debitis sunt soluta alias.
+        Iste explicabo commodi, culpa ipsum id, maiores aliquid ad consequuntur, aliquam eius error eaque quod delectus enim repellendus architecto blanditiis recusandae sunt. Atque aspernatur eveniet obcaecati vero est dolorem alias?
+        Dicta aliquid accusantium optio, nulla nihil officiis reiciendis. Incidunt sint illo nemo error sunt magni deserunt pariatur, ab eius hic iure quis delectus voluptatum? Dicta modi facilis repudiandae in! Recusandae.
+        Exercitationem quae debitis id. Nihil quas nostrum nulla modi est consequuntur laborum ipsa, velit quam magnam. Nulla sapiente totam dolores quasi obcaecati ullam voluptates dignissimos, maxime error officiis voluptatibus similique.
+        Numquam officiis soluta, iste magni unde dolorum quidem pariatur, voluptate molestias doloremque aperiam rerum placeat voluptates quia itaque ipsum veritatis aut id inventore modi voluptatum delectus, assumenda perferendis? Voluptas, blanditiis?
+        Recusandae earum vitae odio dolor aliquid, totam modi! Blanditiis rem mollitia nam ad magnam et magni voluptatum quasi dolor, repellat earum impedit maiores excepturi eum totam suscipit quod! Animi, libero!
+        Nemo voluptas quasi quo doloremque alias architecto harum quisquam temporibus, ab saepe officia deleniti enim. Voluptas vitae doloremque molestias, libero aspernatur iusto error eos dolore consectetur rerum tempora sit impedit.
+        Necessitatibus minima, ipsam atque accusantium dignissimos voluptates animi cumque doloribus debitis dolorem beatae quae laudantium iure qui harum sunt! Doloribus nesciunt distinctio assumenda, magni necessitatibus eaque mollitia omnis dolores perferendis.
+        Esse facilis aliquam explicabo nemo. Suscipit voluptas ullam similique quisquam et voluptatibus rerum porro, ipsam voluptatum quia, itaque provident iusto doloremque cum tempora deleniti nisi totam dolore at, omnis adipisci?
+        Error omnis dolore ab odio ipsa sint pariatur magnam, velit dolorem unde ullam, aspernatur architecto quod ad voluptatibus, similique suscipit. Placeat, maxime dicta! Veritatis nihil eaque nulla provident quod natus.
+        Odit reprehenderit libero commodi corrupti quia aperiam necessitatibus? Debitis id ipsum consequatur. Quo optio dolorem doloremque adipisci voluptatem delectus nemo sit at nam ex, saepe cumque eligendi amet recusandae illo!
+        Repellat omnis ut nobis cumque veniam in iure quasi ab accusamus, amet nemo officia sit quo vel eveniet unde dignissimos sunt rem labore recusandae temporibus necessitatibus laudantium. Illo, nulla libero.
+        Repellendus ut modi repellat et molestiae facilis officia consequatur sint nihil natus, libero consequuntur voluptatem hic commodi fuga perspiciatis quae corrupti labore cupiditate rem cumque? Nobis excepturi quidem debitis provident.
+        Ad, modi repellendus adipisci tenetur quibusdam aspernatur sequi illo harum labore vitae corrupti nisi, soluta cumque praesentium corporis ratione eum, eveniet excepturi similique explicabo commodi aut dolorum repellat fuga. Quaerat!
+        Iusto alias a rerum omnis repudiandae ut ullam quasi nostrum amet dolor. Aliquam ipsam provident, sapiente officia voluptates debitis? Quaerat quam ratione ad ullam numquam tenetur velit placeat, nihil veniam?
+        Commodi recusandae accusamus vero officiis mollitia a fuga saepe consectetur. Vero culpa sunt aspernatur at omnis veritatis quasi officiis, deserunt ullam doloribus nihil sint suscipit perferendis repellat. Magnam, ullam reprehenderit.</div>  
+        <div class="right">RightBar</div>
+        
+        <div class="footer">
+          <p>link zur startseite und button der auf dieser Seite nach oben springt</p>
+        </div>
+      </div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .bg-image{
+        height: 200px;
+        width: 100%;
+        background-image: url(gyula.jpg);
+        background-size: cover;
+        position: relative;
+        margin-bottom: 2em;
+        background-position: 0 -200px;
+    }
+
+    .top-left {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+
+    .top-right {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .bottom-left {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+    }
+
+
+    .bottom-right {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .center-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+    }
+
+    p{
+        font-size: 5vw;
+        font-weight: 700;
+        color:lightgreen;
+    }
+</style>
+</head>
+<body>
+    <h1>Hello World!</h1>
+    <div class="bg-image">
+        <p class="top-left">Es ist ein Text</p>
+    </div>
+    <div class="bg-image">
+        <p class="top-right">Es ist ein Text</p>
+    </div>
+    <div class="bg-image">
+        <p class="bottom-left">Es ist ein Text</p>
+    </div>
+    <div class="bg-image">
+        <p class="bottom-right">Es ist ein Text</p>
+    </div>
+    <div class="bg-image">
+        <div class="center-center"><p>Es ist ein Text</p></div>
+    </div>
+</body>
+</html>
