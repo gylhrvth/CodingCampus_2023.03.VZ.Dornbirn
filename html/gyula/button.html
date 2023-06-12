@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.btn{
+    background-color: hsl(248, 82%, 85%);
+    color: black;
+    border: solid black 1px;
+    border-radius: 3px;
+    padding: 5px;
+    text-align: center;
+    transition: color 300ms;
+    transition: background-color 300ms;
+    box-shadow: 5px 5px 5px hsla(248, 82%, 85%, 0.3);
+    cursor: pointer;
+}
+
+
+.btn:hover{
+    background-color: rgb(25, 11, 116);
+    color: rgb(192, 184, 248);
+    transition: color 300ms;
+    transition: background-color 300ms;
+}
+
+@keyframes button-bg-animation {
+  0% {background-color: red;
+    font-size: 1em;
+    }
+  50% {background-color: yellow;
+        font-size: 2em;
+    }
+  100% {
+    background-color: red;
+    font-size: 1em;
+}
+}
+
+.btn-animation{
+    animation-name: button-bg-animation;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+}
+
+
+    </style>
+</head>
+<body>
+    <h1>Button als Form-Button</h1>
+    <form action="">
+        <input type="button" value="Hello">
+    </form>
+    <h1>Button als DIV mit Image/Text</h1>
+
+    <div class="container">
+        <div class="btn" onclick="playAudio()">
+            Start Musik
+        </div>
+        <div class="btn btn-animation" onclick="gotoVolAt()">
+            vol.at Aufrufen
+        </div>
+    </div>
+    <audio id="mySound">
+        <source src="audio/sample-6s.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+        let x = document.getElementById('mySound');
+        function playAudio() {
+          x.play();
+         }  
+
+         function gotoVolAt(){
+            document.location = "https://vol.at"
+         }
+    </script>
+
+</body>
+</html>
