@@ -1,55 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style> 
-    .container {
-            width: 100px;
-          height: 100px;
-          background: hsl(0, 100%, 50%);
-          transition: width 2s, height 2s, transform 2s;
-          display: flex;
-          align-items: center;
-        }
-        
-        .container:hover {
-          width: 300px;
-          height: 300px;
-          background:hsl(69, 87%, 48%) ;
-          transform: rotate(360deg);
-        }
+    <style>
+      .container {
+        width: 100px;
+        height: 100px;
+        background: hsl(0, 100%, 50%);
+        transition: width 2s, height 2s, transform 2s;
+        display: flex;
+        align-items: center;
+      }
 
-        .container > div {
-          height: fit-content;
-          text-align: center;
-          width: 100%;
-        }
-        
-        .btn-animation{
-          animation-name: example;
-          animation-duration: 4s;
-          position: relative;
-          animation-iteration-count:  infinite;
-        }  
-          
-          
-  
-        @keyframes example {
-          0%   {background-color:red; left:0px; top:0px;}
-          25%  {background-color:yellow; left:600px; top:0px;}
-          50%  {background-color:blue; left:600px; top:600px;}
-          75%  {background-color:green; left:0px; top:600px;}
-          100% {background-color:red; left:0px; top:0px;}
-        }
-        </style>
-</head>
-<body>
-    
-  <div class="container btn-animation">
-    <div>Jetzt Bestellen</div>
-</div>
+      .container:hover {
+        width: 300px;
+        height: 300px;
+        background: hsl(69, 87%, 48%);
+        transform: rotate(360deg);
+      }
 
-</body>
+      .container > div {
+        height: fit-content;
+        text-align: center;
+        width: 100%;
+      }
+
+      .btn-animation {
+        animation-name: example;
+        animation-duration: 4s;
+        position: relative;
+        animation-iteration-count: infinite;
+      }
+
+      @keyframes example {
+        0% {
+          background-color: red;
+          left: 0px;
+          top: 0px;
+        }
+        25% {
+          background-color: yellow;
+          left: 600px;
+          top: 0px;
+        }
+        50% {
+          background-color: blue;
+          left: 600px;
+          top: 600px;
+        }
+        75% {
+          background-color: green;
+          left: 0px;
+          top: 600px;
+        }
+        100% {
+          background-color: red;
+          left: 0px;
+          top: 0px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container btn-animation">
+      <div>Jetzt Bestellen</div>
+    </div>
+  </body>
 </html>

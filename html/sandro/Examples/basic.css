@@ -1,0 +1,13 @@
+.kopfzeile{color:hsl(241, 80%, 40%);
+    font-size: 60px;
+    font-weight: 900;
+}
+
+h2{
+    color:hsl(224, 80%, 40%);
+}
+
+
+body{
+    margin:0;
+}
