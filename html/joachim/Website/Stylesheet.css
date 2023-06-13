@@ -30,6 +30,21 @@ p {
   font-size: 15px;
 }
 
+.flex-container{
+  display: flex;
+  gap: 10px;
+  background-color: #21f360;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.flex-container >*{
+  flex-grow: 1;
+}
+.sticky{
+  position: sticky;
+  top: 0px;
+}
 .Button1 {
   background-color: aquamarine;
   border: solid black 1px;
@@ -41,7 +56,7 @@ p {
 }
 
 .Button1:hover {
-  background-color: rgb(25, 11, 116);
+  background-color: rgb(10, 180, 152);
   color: rgb(192, 184, 248);
   transition: color 300ms;
   transition: background-color 300ms;
@@ -124,8 +139,9 @@ p {
   position: relative;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-
 }
+
+
 
 .item1>img {
   border-radius: 9999px;
@@ -145,4 +161,31 @@ p {
   background-image: url(Background.avif);
   background-position: 0 600px;
   background-size: cover;
+}
+
+.space{
+  background-color:#FFFFFF;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+
+.space div {
+  width: 100%;
+  height: 40px; 
+}
+
+.upwards {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  background-color:azure;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 40px;
 }
