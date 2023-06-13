@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About me</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+.backgroundimage{
+    background-image: url("https://images.unsplash.com/photo-1682687218608-5e2522b04673?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyNnx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60");
+    background-size: cover;
+    color: white;
+    height: 400px;
+    font-size: x-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+     display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 500px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    bottom: 100;
+  
+}
+
+.dropdown-content2 {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 500px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    right: 0; 
+    bottom: 100;
+}
+.dropdown:hover .dropdown-content2 {
+  display: grid;
+}
+
+.dropdown:hover .dropdown-content {
+  display: grid;
+}
+
+
+</style>
+
+<body class="body">
+    <div class="container">
+        <div class="backgroundimage">
+            <h1>About me</h1>
+        </div>
+            <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0"><h1>Oh was ist denn das?</h1></a>
+
+            <div class="dropdown">
+                <span style="font-size: xx-large;">Oldies</span>
+                <div class="dropdown-content">
+                    <p><img src="https://media.istockphoto.com/id/108268992/de/foto/rock-band.jpg?s=2048x2048&w=is&k=20&c=8_kg4MJ9haMxUbX-Ggqy8Dkfh-BT1vMdX9TVtYQ9d4c="></p>
+                </div>
+            </div>
+
+            <div style="float: right;">
+                <div class="dropdown">
+                    <span style="font-size: xx-large;">Gemüse</span>
+                        <div class="dropdown-content2">
+                            <p><img
+                                src="https://media.istockphoto.com/id/156775639/de/foto/gem%C3%BCse-rock-band.jpg?s=2048x2048&w=is&k=20&c=pjhKBIOVuXWnTyKkxfYXqzOYI9YqXvM8yrKXrWJJ73A=">
+                            </p>
+                        </div>
+                </div>
+            </div>
+                <p></p>
+            <div>
+                <a href="frontsite.html"><h2>Zurück</h2></a>
+            </div>
+        </div>
+</body>
+</html>
