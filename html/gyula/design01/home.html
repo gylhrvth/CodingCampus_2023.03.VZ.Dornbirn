@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    body{
+        margin:0;
+        overflow: hidden;
+    }
+
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .navleft, .navright{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .grid1{
+        display: grid;
+        grid-template-columns: 20% 80%;
+    }
+    .grid2{
+        display: grid;
+        grid-template-columns: 75% 25%;
+    }
+
+    .scrollbar{
+        overflow-y: scroll;
+        height: 85vh;
+    }
+    .sticky{
+        position: sticky;
+        top:0;
+    }
+</style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navleft">
+            <h1>Menu A</h1>
+            <h1>Menu B</h1>
+            <h1>Menu C</h1>
+        </div>
+        <div class="navright">
+            <h1>Menu D</h1>
+        </div>
+    </div>
+    <div class="grid1">
+        <div class="left">
+            <div>menu 1</div>
+            <div>menu 2</div>
+            <div>menu 3</div>
+            <div>menu 4</div>
+            <div>menu 5</div>
+        </div>
+        <div class="scrollbar grid2">
+            <div class="main">
+                <div>
+                    <h2>Thema</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium fugiat atque accusamus, aliquid incidunt necessitatibus ipsum recusandae cupiditate quos distinctio expedita natus ad! Quos.</p>
+                    <p>Dolorem sequi explicabo iusto dolores quis laudantium unde autem, hic veritatis temporibus quas soluta recusandae molestiae nobis adipisci sed magni quos aut itaque perspiciatis deleniti eveniet. Optio, laboriosam quia! Natus?</p>
+                    <p>Labore perspiciatis magni incidunt, itaque, laboriosam ab modi consectetur accusantium sapiente voluptates quam quos doloremque vitae nam quidem dolores. Consectetur aliquam nemo sunt delectus eaque dicta itaque eligendi, in nobis?</p>
+                </div>
+                <div>
+                    <h2>Thema</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet consequatur cumque tempora veritatis quaerat labore ex aliquam maiores! Error minus expedita cumque doloremque fugit ipsam, mollitia eum et quis asperiores?</p>
+                    <p>Ut possimus quia dolores incidunt quam atque commodi non eveniet quod eum fuga vero veritatis, suscipit aliquam facere facilis temporibus recusandae eligendi rerum, perferendis laudantium iure similique necessitatibus! Laborum, quos!</p>
+                    <p>Esse cupiditate corrupti eaque repellat quisquam minus accusamus laboriosam voluptates rem, eum omnis, alias est aspernatur enim incidunt, veniam pariatur tenetur velit obcaecati distinctio doloribus! Eveniet optio similique ipsa dolore!</p>
+                </div>
+                <div>
+                    <h2>Thema</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt accusantium beatae itaque exercitationem sunt dolores ipsa. Aperiam, obcaecati, facilis culpa dolore magnam distinctio eaque odio officiis ullam consequuntur consequatur amet!</p>
+                    <p>Obcaecati ipsum laudantium eaque illum similique, vero voluptas! Repellat, sint odio delectus officia molestias voluptatum, blanditiis eligendi aperiam at natus beatae magni. Expedita perferendis laborum cupiditate quasi voluptates inventore aliquid?</p>
+                </div>
+            </div>
+            <div class="right">
+                <div class="sticky">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus quidem quis distinctio, sit quia voluptatem laborum culpa nulla fugiat dolor nihil fugit adipisci animi nam veritatis autem voluptas rerum cupiditate.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
