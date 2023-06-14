@@ -7,28 +7,45 @@
     <style>
       body {
         margin: 0;
-        overflow: hidden;
       }
 
       .navbar {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-between;
       }
 
       .navleft,
       .navright {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
       }
 
       .grid1 {
         display: grid;
-        grid-template-columns: 20% 80%;
+        grid-template-columns: 100%;
       }
       .grid2 {
         display: grid;
-        grid-template-columns: 75% 25%;
+        grid-template-columns: 100%;
+      }
+
+@media only screen and (min-width: 600px) {
+  body {
+        overflow: hidden;
+      }
+
+        .navbar {
+        flex-direction: row;
+      }
+
+      .navleft,
+      .navright {
+        flex-direction: row;
+      }
+
+      .grid1 {
+        grid-template-columns: 20% 80%;
       }
 
       .scrollbar {
@@ -39,6 +56,14 @@
         position: sticky;
         top: 0;
       }
+
+}
+
+@media only screen and (min-width: 800px) {
+  .grid2 {
+        grid-template-columns: 75% 25%;
+      } 
+}
     </style>
   </head>
   <body>
