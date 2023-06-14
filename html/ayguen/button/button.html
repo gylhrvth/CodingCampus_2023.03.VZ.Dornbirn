@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn{
+            background-color: rgb(189, 142, 233);
+            border: solid black 1px;
+            border-radius: 3px;
+            padding: 5px;
+            text-align: center;
+            max-width: 100px;
+            transition: 2s;
+            box-shadow: 3px 3px 3px gray;
+        }
+        .btn:hover{
+            background-color: rgb(141, 141, 141);
+            border: solid beige;
+            max-width: 500px;
+            
+        }
+        @keyframes button-bg-animation{
+            0% {background-color: aqua;
+            font-size: 1em;
+        max-width: 100px;
+            }  
+           
+            50% {
+            background-color: yellowgreen;
+            font-size: 2em;
+            max-width: 130px;
+            }
+        
+            100%{
+                max-width: 100px;
+
+            }
+        }
+        .btn-animation{
+            animation-name: button-bg-animation;
+            animation-duration: 0.9s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+    </style>
+</head>
+<body>
+    <h1>Button als Form-Button</h1>
+    <form action="">
+        <input type="button" value="Hello">
+    </form>
+    <h1>Button als DIV mit Image/Text</h1>
+    <div class="btn btn-animation" onclick="goToVolAt()">vol.at</div>
+    <script>
+        function goToVolAt(){
+            document.location= "https://vol.at"
+        }
+    </script>
+</body>
+</html>
