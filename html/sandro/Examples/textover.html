@@ -6,7 +6,7 @@
     <title>Document</title>
     <style>
         .container {
-  position: relative;
+            position: relative;
 }
         .bg-image{
             height: 800px;
@@ -35,16 +35,25 @@
             left: 20px;
         }
         .center {
-            position: absolute;
-            top: 50%;
             width: 100%;
-            text-align: center;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 }
-        p{
-            font-size: 5vw;
+p{
+            font-size: 1vw;
             font-weight: 700;
+            animation: fontSizer 2s infinite;
+            margin-block-start: 0;
+            margin-block-end: 0;
         }
 
+        @keyframes fontSizer {
+            0% {font-size: 1vw;}
+            50% {font-size: 5vw;}
+            100% {font-size: 1vw;}
+        }
     </style>
 </head>
 <body>
@@ -55,7 +64,9 @@
         <p class="top-right" style="color: aliceblue;">Es ist ein Text</p>
         <p class="bot-right" style="color: aliceblue;">Es ist ein Text</p>
         <p class="bot-left" style="color: aliceblue;">Es ist ein Text</p>
-        <p class="center" style="color:white;">Es ist ein Text</p>
+        <div class="center">
+            <p style="color:white;">Es ist ein Text</p>
+        </div>
     </div>
 </div>
 </body>
