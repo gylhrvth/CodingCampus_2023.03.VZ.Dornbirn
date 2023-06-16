@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      input[type="text"],
+      input[type="passwort"] {
+        background-color: purple;
+        color: greenyellow;
+        border: solid black 1px;
+        border-radius: 999px;
+        padding: 5px 10px 5px 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Formular</h1>
+
+    <form action="">
+        <p>
+      <label for="userName">User name</label><br />
+      <input type="text" name="userName" id="userName" onkeyup="userNameChange()" />
+      <span id="errorUserName">ERROR</span>
+    </p>
+    <p>
+      <label for="passwort">Passwort</label><br />
+      <input type="text" name="passwort" id="passwort" /><br />
+    </p>
+    <p>
+      <input type="button" value="login" />
+    </p>
+    </form>
+    <script>
+        function userNameChange(){
+            let errorField = document.getElementById("errorUserName")
+            let inputFieldUserName = document.getElementById("userName")
+            let content = inputFieldUserName.value
+
+            if (!content.includes("mert")){
+                errorField.innerText = "Unknown User: " + inputFieldUserName.value
+            }else {
+                errorField.innerText = "OK"
+            }
+           
+        }
+    </script>
+  </body>
+</html>

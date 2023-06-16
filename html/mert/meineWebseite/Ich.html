@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="basic.css" />
+  </head>
+  <style>
+    .rechtsbündig {
+      float: right;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: auto;
+      background-color: aliceblue;
+      padding: auto;
+    }
+    .grid-item {
+      background-color: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      font-size: 30px;
+      text-align: center;
+    }
+    .interessant > p {
+      background-color: hsl(40, 50%, 93%);
+      margin-block: 0;
+      padding: 5px;
+    }
+    .width {
+      margin-left: 10%;
+      width: 80%;
+      background-color: #2196f3;
+    }
+    .sticky {
+      position: sticky;
+      top: 0;
+    }
+    .container {
+      display: flex;
+      flex-direction: row;
+     flex-direction: column-reverse;
+    }
+    body{
+        background: linear-gradient(to right, gray, yellow);
+        background-size: 100% ;
+    }
+
+    .btn {round-color: hsl(190, 82%, 85%);
+      color: black;
+      border: solid black 1px;
+      border-radius: 3px;
+      padding: 5px;
+      text-align: center;
+      box-shadow: 5px 5px 5px hsla(190, 82%, 85%, 0.3);
+      cursor: pointer;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <a href="Kontakt.html">
+        <div class="btn">Kontakt</div>
+      </a>
+      <a href="hobby.html">
+        <div class="btn">Hobby</div>
+      </a>
+    </div>
+
+    <img src="settings_FILL0_wght400_GRAD0_opsz48.svg" alt="asdf" />
+
+    <h1 class="schrift1">Über mich</h1>
+    <p style="font-family: schrift1">
+      Ich bin Mert 26 Jahre alt
+      <img
+        src="https://images.unsplash.com/photo-1610563166150-b34df4f3bcd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1076&q=80"
+        class="rechtsbündig"
+        width="500"
+        alt=""
+      />
+    </p>
+    <p>mache seit März eine Ausbildung als Softwäreentwickler</p>
+  </body>
+</html>

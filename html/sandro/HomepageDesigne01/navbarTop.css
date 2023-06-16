@@ -1,0 +1,31 @@
+.navbar {
+    display: none;
+    z-index: 9;
+    background-image: linear-gradient(
+      to right,
+      hsl(39, 100%, 50%),
+      hsl(0, 100%, 50%),
+      hsl(39, 100%, 50%)
+    );
+    border: solid rgba(3, 3, 3, 0.567) 5px;
+    border-radius: 40px;     
+  }
+
+  .navleft,
+      .navright {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .navleft > * {
+        padding: 3em;
+        margin-right: 10px;
+        margin-left: 10px;
+      }
+
+      .navright > * {
+        padding: 3em;
+        margin-right: 10px;
+        margin-left: 10px;
+      }

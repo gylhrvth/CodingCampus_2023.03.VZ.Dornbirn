@@ -7,9 +7,22 @@
     <style>
       body {
         margin: 0;        
-        background-image: url(../ersteProjekt/guitar.jpg);
-        background-size: cover;
+        
       }
+
+      .bg-image{
+        background-color: black;
+        position: fixed;
+        right: 0;
+        z-index: -10;
+        transform: rotateY(180deg);
+        width: 100vw;
+      }
+
+      .bg-image>img{        
+        height: 100vh;
+      }
+
       .leftnavbar {
         display: flex;
         justify-content: center;
@@ -190,6 +203,10 @@
     }
 
     @media only screen and (min-width: 700px) and (min-height: 700px){
+    .bg-image>img{
+        transform: rotateY(180deg);        
+      }
+
     body{
         overflow: hidden;
     }
@@ -233,6 +250,7 @@
     </style>
   </head>
   <body>
+    <div class="bg-image"><img src="../ersteProjekt/guitar.jpg" alt="" srcset=""></div>
     <div class="navbar">
       <div class="navleft">
         <div class="btntop">Menu A</div>
