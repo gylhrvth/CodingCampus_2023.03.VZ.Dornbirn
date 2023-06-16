@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,29 +8,82 @@
     <title>MyHobbyProject</title>
 
     <link rel="stylesheet" href="../marie.css">
+
+    <style>
+        body,
+        html {
+            height: 100%;  
+            margin: 0%;
+        }
+
+
+        .footerAudio input[type=button]{
+            width: 10vw;
+            height: 10vw;
+            border-radius: 999px;
+            box-shadow: 5px 5px 4px hsl(140, 90%, 78%);
+        }
+    </style>
 </head>
 
-<body>
-    <h1 style="color:hsl(300, 66%, 27%)">Hi, it's me, Marie!</h1>
-    <h3>Welcome to my webpage!</h3>
-    <div>
-    <p>I'm a passionate guitar, piano & violine player!</p>
-    <p><span class="go">Music is my life!</span></p>
-    <ul>That's it.</ul>
-    <ul>Click here to know more about my hobby!</ul>
-    <ul>1... 2... <span>3...</span></ul>
 
-    <p><ul><a href="hobbyPage2.html">go!</a></ul></p>
-   
-    <img src="womanEguitar.jpg" alt="Das ist eine Gitarristin.">
-    
-    
-    <ol>
-        <li>Haha</li>
-        <li>Hoho</li>
-        <li>Hehe</li>
-    </ol>
+<body style="background-image: url(womanEguitar.jpg)" ;>
+    <div class="semiTransparent">
 
-</div>
+        <div class="navbar">
+            <nav>
+                <ul>
+                    <li><a href="MyHobby.html">Home</a></li>
+                    <li><a href="hobbyPage2.html">About Me</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <h1>Hi, it's me, Marie!</h1>
+        <div class="bgimg">
+            <p class="top-left"></p>
+        </div>
+
+        <h4>Welcome to my webpage!</h4>
+
+        <div class="textFront">
+            <p>I'm a passionate guitar, piano & violine player!</p>
+        </div>
+        <p><a href="hobbyPage2.html">
+                <div class="btn">CLICK!</div>
+            </a>
+        <div class="textFront2">...here, to find out more about my hobby!</div>
+        </p>
+
+    </div>
+    <footer>
+        <div class="footerAudio">
+            <input type="button" value="Start" id="musicStartStop" onclick="musicStartStop()">
+        </div>
+    </footer>
+    <audio id="audio_without_controls"><source src="hypnotic.mp3" type="audio/mp3"
+        > Ihr Browser kann dieses Audio nicht wiedergeben.
+    </audio>
+
+
+    <script>
+let musicRun = 0;
+function musicStartStop(){
+    musicRun = 1 - musicRun;
+    console.log(musicRun)
+
+    let button = document.getElementById("musicStartStop")
+    let audio = document.getElementById("audio_without_controls")
+    if (musicRun > 0){
+        button.value = "Stop"
+        audio.play()
+    } else {
+        button.value = "Start"
+        audio.pause()
+    }
+}
+    </script>
 </body>
+
 </html>
