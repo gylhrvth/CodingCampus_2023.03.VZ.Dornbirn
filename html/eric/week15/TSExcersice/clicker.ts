@@ -1,10 +1,12 @@
-const button = document.getElementById("myButton")!
-const counter = document.getElementById("counter")!
+let clickCount = 0
 
-let countButton = 0;
+function countClick() {
+    if (localStorage.getItem("clickCount")) {
+        clickCount = parseInt(localStorage.getItem("clickCount"))
+        document.getElementById("count").textContent = clickCount.toString()
+    }
 
-button.addEventListener("click", () => {
-
-    countButton++
-    counter.textContent = countButton.toString()
-})
+    clickCount++
+    document.getElementById("count").textContent = clickCount.toString()
+    localStorage.setItem("clickCount", clickCount.toString())
+}

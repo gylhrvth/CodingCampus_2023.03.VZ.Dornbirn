@@ -1,16 +1,16 @@
 let clickcount = 0
 
 if (localStorage.getItem("clickcount")) {
-    clickcount = parseInt(localStorage.getItem("clickcount"))
-    document.getElementById("count").textContent = clickcount
+    clickCount = parseInt(localStorage.getItem("clickcount"))
+    document.getElementById("count").textContent = clickCount
 }
 
 function count(){
     
-    clickcount ++
+    clickCount ++
 
-    document.getElementById("count").textContent = clickcount 
-    localStorage.setItem("clickcount", clickcount.toString())
+    document.getElementById("count").textContent = clickCount 
+    localStorage.setItem("clickcount", clickCount.toString())
 }
 function addDatum(){
     const timestamp = document.createElement("div")

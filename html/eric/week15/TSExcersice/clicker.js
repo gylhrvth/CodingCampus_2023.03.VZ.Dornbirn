@@ -1,7 +1,10 @@
-var button = document.getElementById("myButton");
-var counter = document.getElementById("counter");
-var countButton = 0;
-button.addEventListener("click", function () {
-    countButton++;
-    counter.textContent = countButton.toString();
-});
+var clickCount = 0;
+function countClick() {
+    if (localStorage.getItem("clickCount")) {
+        clickCount = parseInt(localStorage.getItem("clickCount"));
+        document.getElementById("count").textContent = clickCount.toString();
+    }
+    clickCount++;
+    document.getElementById("count").textContent = clickCount.toString();
+    localStorage.setItem("clickCount", clickCount.toString());
+}
