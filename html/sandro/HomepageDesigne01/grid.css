@@ -1,0 +1,34 @@
+.grid1 {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-items: start;
+  }
+
+  .grid2 {
+    display: grid;
+    grid-template-columns: auto;
+  }
+
+
+  .right {
+    padding-left: 10px;
+    color: hsl(0, 81%, 6%);
+    border: solid hsl(45, 84%, 80%);
+    border-radius: 5px;
+    background-color: rgba(247, 180, 161, 0.7);
+    padding-left: 10px;
+    margin: 1em 10px 0 10px;
+    font-size: 23px;      
+  }
+
+
+
+  .main {
+    color: hsl(45, 84%, 80%);
+    border: solid hsl(45, 84%, 80%);
+    border-radius: 5px;
+    background-color: rgba(247, 225, 161, 0.3);
+    padding-left: 10px;
+    margin: 4.5em 10px 0 10px;
+    font-size: 23px;      
+  }

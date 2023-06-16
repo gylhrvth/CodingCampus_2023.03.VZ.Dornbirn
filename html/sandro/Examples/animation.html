@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .btn3 {
+        color: hsl(180, 76%, 5%);
+        border: solid hsl(0, 0%, 0%) 3px;
+        border-radius: 5px;
+        padding: 5px;
+        text-align: center;
+        max-width: 50%;
+        box-shadow: 5px 5px 5px hsla(240, 94%, 20%, 0.404);
+        cursor: pointer;
+      }
+      .btn2 {
+        color: hsl(180, 76%, 5%);
+        border: solid hsl(0, 0%, 0%) 3px;
+        border-radius: 5px;
+        padding: 5px;
+        text-align: center;
+        max-width: 50%;
+        height: auto;
+        transition: max-width 2s, color 5s;
+        box-shadow: 5px 5px 5px hsla(240, 94%, 20%, 0.404);
+        cursor: pointer;
+        position: absolute;
+        top: 300px;
+      }
+      .btn {
+        color: hsl(180, 76%, 5%);
+        border: solid hsl(0, 0%, 0%) 3px;
+        border-radius: 5px;
+        padding: 5px;
+        text-align: center;
+        max-width: 50%;
+        height: auto;
+        transition: max-width 2s, color 5s;
+        box-shadow: 5px 5px 5px hsla(240, 94%, 20%, 0.404);
+        cursor: pointer;
+        position: absolute;
+        top: 100px;
+        right: 100px;
+      }
+
+      .btn:hover {
+        color: rgb(17, 114, 41);
+        max-width: 300px;
+      }
+
+      .btn-animation {
+        animation-name: button-gb-animation;
+        animation-duration: 2s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+      }
+      @keyframes button-gb-animation {
+        0% {
+          background-color: red;
+          font-size: 1em;
+        }
+        50% {
+          background-color: yellow;
+          font-size: 2em;
+        }
+        100% {
+          background-color: red;
+          font-size: 1em;
+        }
+      }
+
+      .btn3 {
+      }
+    </style>
+  </head>
+  <body>
+    <div class="btn btn-animation" onclick="gotoYT()">
+      We are going out of Business !!! 50 % 70% 90% Rabatt
+    </div>
+    <div class="btn2 btn-animation" onclick="gotoYT()">
+      We are going out of Business !!! 50 % 70% 90% Rabatt
+    </div>
+    <div style="display: flex; justify-content: center; margin-top: 200px">
+      <div class="btn3 btn-animation" onclick="gotoYT()">
+        We are going out of Business !!! 50 % 70% 90% Rabatt
+      </div>
+    </div>
+
+    <script>
+      function gotoYT() {
+        document.location = "https://youtube.com";
+      }
+    </script>
+  </body>
+</html>

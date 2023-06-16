@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input[type="text"],
+      input[type="password"] {
+        background-color: skyblue;
+        color: red;
+        border: solid black 1px;
+        border-radius: 999px;
+        padding: 5px 10px 5px 10px;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Formular</h1>
+    <form action="">
+      <p>
+        <label for="userName">User name:</label><br />
+        <input type="text" name="userName" id="userName" onkeyup="userNameChange()"/>
+        <span id="errorUserName"></span>
+      </p>
+      <p>
+        <label for="password">Password:</label><br />
+        <input type="password" name="password" id="password" /><br />
+      </p>
+      <p>
+        <input type="button" value="Login" />
+      </p>
+    </form>
+    <script>
+      function userNameChange() {
+        let errorField = document.getElementById("errorUserName")
+        let inputFieldUserName = document.getElementById("userName")
+        let content = inputFieldUserName.value
+
+        if(!content.includes("Hassan")){
+            errorField.innerText ="Unknown User:  " + inputFieldUserName.value
+        }else{
+            errorField.innerText= "Valid Username"
+        }
+
+      }
+    </script>
+  </body>
+</html>

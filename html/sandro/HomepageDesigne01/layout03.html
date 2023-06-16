@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;        
+        
+      }
+
+      .bg-image{
+        background-color: black;
+        position: fixed;
+        right: 0;
+        z-index: -10;
+        transform: rotateY(180deg);
+        width: 100vw;
+      }
+
+      .bg-image>img{        
+        height: 100vh;
+      }
+
+      .leftnavbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .leftnavbarcenter {
+        background-image: linear-gradient(
+          hsl(39, 100%, 50%),
+          hsl(0, 100%, 50%),
+          hsl(39, 100%, 50%)
+        );
+        border: solid rgba(3, 3, 3, 0.567) 5px;
+        border-radius: 40px;
+      }
+      .leftnavbarcenter > div{
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+
+      .navbar {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-image: linear-gradient(
+          to right,
+          hsl(39, 100%, 50%),
+          hsl(0, 100%, 50%),
+          hsl(39, 100%, 50%)
+        );
+        border: solid rgba(3, 3, 3, 0.567) 5px;
+        border-radius: 40px;
+      }
+
+      .navleft,
+      .navright {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .navleft > * {
+        padding: 3em;
+        margin-right: 10px;
+        margin-left: 10px;
+      }
+
+      .navright > * {
+        padding: 3em;
+        margin-right: 10px;
+        margin-left: 10px;
+      }
+
+      .grid1 {
+        display: grid;
+        grid-template-columns: auto;
+      }
+
+      .grid2 {
+        display: grid;
+        grid-template-columns: auto;
+      }
+
+      .sticky {
+        position: sticky;
+        top: 0;
+      }
+
+     
+
+      .right {
+        padding-left: 10px;
+        color: hsl(0, 81%, 6%);
+        border: solid hsl(45, 84%, 80%);
+        border-radius: 5px;
+        background-color: rgba(247, 180, 161, 0.7);
+        padding-left: 10px;
+      }
+
+      .right,
+      .main {
+       font-size: 23px;
+      }
+
+      .main {
+        color: hsl(45, 84%, 80%);
+        border: solid hsl(45, 84%, 80%);
+        border-radius: 5px;
+        background-color: rgba(247, 225, 161, 0.3);
+        padding-left: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      .btntop {
+        background-image: radial-gradient(
+          hsl(0, 0%, 0%),
+          hsl(0, 82%, 26%),
+          hsl(0, 91%, 30%)
+        );
+        color: hsl(42, 100%, 50%);
+        border: solid hsl(0, 88%, 51%) 3px;
+        border-radius: 40px;
+        padding: 15px 40px;
+        margin: 15px;
+
+        transition: max-width 2s, color 500ms, background-color 500ms;
+        box-shadow: 5px 5px 5px hsla(240, 94%, 20%, 0.404);
+        cursor: pointer;
+        display: grid;
+        justify-content: center;
+        align-content: center;
+      }
+
+      .btntop:hover {
+        background-image: radial-gradient(
+          hsl(39, 100%, 50%),
+          hsl(0, 100%, 50%),
+          hsl(0, 94%, 25%)
+        );
+        color: hsl(0, 0%, 0%);
+        border: solid rgba(3, 3, 3, 0.567);
+        max-width: 300px;
+      }
+
+      .btnleft {
+        background-image: radial-gradient(
+          hsl(0, 0%, 0%),
+          hsl(0, 82%, 26%),
+          hsl(0, 91%, 30%)
+        );
+        color: hsl(42, 100%, 50%);
+        border: solid hsl(0, 88%, 51%) 3px;
+        border-radius: 40px;
+        padding: 15px 30px 15px 30px;
+        transition: color 500ms, background-color 500ms;
+        box-shadow: 5px 5px 5px hsla(240, 94%, 20%, 0.404);
+        cursor: pointer;
+        display: grid;
+        justify-content: center;
+        align-content: center;
+      }
+
+      .btnleft:hover {
+        background-image: radial-gradient(
+          hsl(39, 100%, 50%),
+          hsl(0, 100%, 50%),
+          hsl(0, 94%, 25%)
+        );
+        color: hsl(0, 0%, 0%);
+        border: solid rgba(3, 3, 3, 0.567);
+      }
+    .menuA{
+        background-image: radial-gradient(
+          hsl(0, 0%, 0%),
+          hsl(0, 82%, 26%),
+          hsl(0, 91%, 30%)
+        );
+        color: hsl(42, 100%, 50%);
+        border: solid hsl(0, 88%, 51%) 3px;
+        border-radius: 40px;
+        padding: 15px 30px 15px 30px;
+        transition: width 2s, color 500ms, background-color 500ms;
+        box-shadow: 5px 5px 5px hsla(240, 94%, 20%, 0.404);
+        cursor: pointer;
+        display: grid;
+        justify-content: center;
+        align-content: center;
+    }
+    .menuA:hover{
+        background-image: radial-gradient(
+          hsl(39, 100%, 50%),
+          hsl(0, 100%, 50%),
+          hsl(0, 94%, 25%)
+        );
+        color: hsl(0, 0%, 0%);
+        border: solid rgba(3, 3, 3, 0.567);
+    }
+
+    @media only screen and (min-width: 700px) and (min-height: 700px){
+    .bg-image>img{
+        transform: rotateY(180deg);        
+      }
+
+    body{
+        overflow: hidden;
+    }
+    .scrollbar {
+        overflow-y: scroll;
+        height: 85vh;
+      }
+
+    .navbar {
+        flex-direction: row;
+    }
+
+    .navleft, .navright {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+
+    .grid1 {        
+        grid-template-columns: auto auto;
+      }          
+}    
+
+@media only screen and (min-width: 1000px){
+    .navbar {
+        flex-direction: row;
+    }
+
+
+    .navleft, .navright {
+        flex-direction: row;
+      }    
+
+    .grid2 {
+        grid-template-columns: 75% 25%;
+    }
+
+
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="bg-image"><img src="../ersteProjekt/guitar.jpg" alt="" srcset=""></div>
+    <div class="navbar">
+      <div class="navleft">
+        <div class="btntop">Menu A</div>
+        <div class="btntop">Menu B</div>
+        <div class="btntop">Menu C</div>
+        <div class="btntop">Menu D</div>
+      </div>
+      <div class="navright">
+        <div class="btntop">Menu E</div>
+        <div class="btntop">Menu F</div>
+        <div class="btntop">Menu G</div>
+      </div>
+    </div>
+
+    <div class="grid1">
+      <div class="leftnavbar">
+         <div class="leftnavbarcenter">
+            <div class="btnleft" onclick="playsong(0)">Song 1</div>
+            <div class="btnleft" onclick="playsong(1)">Song 2</div>
+            <div class="btnleft">Menu C</div>
+            <div class="btnleft">Menu D</div>
+            <div class="btnleft">Menu E</div>
+            <div class="btnleft">Menu F</div>
+            <div class="btnleft" onclick="stopPlaysong()">STOP!</div>   
+         </div>
+      </div>
+      <div class="scrollbar grid2">
+        <div class="main">
+          <div>
+            <h2>Thema</h2>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Dolorem sequi explicabo iusto dolores quis laudantium unde autem,
+              hic veritatis temporibus quas soluta recusandae molestiae nobis
+              adipisci sed magni quos aut itaque perspiciatis deleniti eveniet.
+              Optio, laboriosam quia! Natus?
+            </p>
+            <p>
+              Labore perspiciatis magni incidunt, itaque, laboriosam ab modi
+              consectetur accusantium sapiente voluptates quam quos doloremque
+              vitae nam quidem dolores. Consectetur aliquam nemo sunt delectus
+              eaque dicta itaque eligendi, in nobis?
+            </p>
+          </div>
+          <div>
+            <h2>Thema</h2>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Dolorem sequi explicabo iusto dolores quis laudantium unde autem,
+              hic veritatis temporibus quas soluta recusandae molestiae nobis
+              adipisci sed magni quos aut itaque perspiciatis deleniti eveniet.
+              Optio, laboriosam quia! Natus?
+            </p>
+            <p>
+              Labore perspiciatis magni incidunt, itaque, laboriosam ab modi
+              consectetur accusantium sapiente voluptates quam quos doloremque
+              vitae nam quidem dolores. Consectetur aliquam nemo sunt delectus
+              eaque dicta itaque eligendi, in nobis?
+            </p>
+          </div>
+          <div>
+            <h2>Thema</h2>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Dolorem sequi explicabo iusto dolores quis laudantium unde autem,
+              hic veritatis temporibus quas soluta recusandae molestiae nobis
+              adipisci sed magni quos aut itaque perspiciatis deleniti eveniet.
+              Optio, laboriosam quia! Natus?
+            </p>
+            <p>
+              Labore perspiciatis magni incidunt, itaque, laboriosam ab modi
+              consectetur accusantium sapiente voluptates quam quos doloremque
+              vitae nam quidem dolores. Consectetur aliquam nemo sunt delectus
+              eaque dicta itaque eligendi, in nobis?
+            </p>
+          </div>
+          <div>
+            <h2>Thema</h2>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Dolorem sequi explicabo iusto dolores quis laudantium unde autem,
+              hic veritatis temporibus quas soluta recusandae molestiae nobis
+              adipisci sed magni quos aut itaque perspiciatis deleniti eveniet.
+              Optio, laboriosam quia! Natus?
+            </p>
+            <p>
+              Labore perspiciatis magni incidunt, itaque, laboriosam ab modi
+              consectetur accusantium sapiente voluptates quam quos doloremque
+              vitae nam quidem dolores. Consectetur aliquam nemo sunt delectus
+              eaque dicta itaque eligendi, in nobis?
+            </p>
+          </div>
+          <div>
+            <h2>Thema</h2>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Dolorem sequi explicabo iusto dolores quis laudantium unde autem,
+              hic veritatis temporibus quas soluta recusandae molestiae nobis
+              adipisci sed magni quos aut itaque perspiciatis deleniti eveniet.
+              Optio, laboriosam quia! Natus?
+            </p>
+            <p>
+              Labore perspiciatis magni incidunt, itaque, laboriosam ab modi
+              consectetur accusantium sapiente voluptates quam quos doloremque
+              vitae nam quidem dolores. Consectetur aliquam nemo sunt delectus
+              eaque dicta itaque eligendi, in nobis?
+            </p>
+          </div>
+          <div>
+            <h2>Thema</h2>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet
+              consequatur cumque tempora veritatis quaerat labore ex aliquam
+              maiores! Error minus expedita cumque doloremque fugit ipsam,
+              mollitia eum et quis asperiores?
+            </p>
+            <p>
+              Ut possimus quia dolores incidunt quam atque commodi non eveniet
+              quod eum fuga vero veritatis, suscipit aliquam facere facilis
+              temporibus recusandae eligendi rerum, perferendis laudantium iure
+              similique necessitatibus! Laborum, quos!
+            </p>
+            <p>
+              Esse cupiditate corrupti eaque repellat quisquam minus accusamus
+              laboriosam voluptates rem, eum omnis, alias est aspernatur enim
+              incidunt, veniam pariatur tenetur velit obcaecati distinctio
+              doloribus! Eveniet optio similique ipsa dolore!
+            </p>
+          </div>
+          <div>
+            <h2>Thema</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt
+              accusantium beatae itaque exercitationem sunt dolores ipsa.
+              Aperiam, obcaecati, facilis culpa dolore magnam distinctio eaque
+              odio officiis ullam consequuntur consequatur amet!
+            </p>
+            <p>
+              Obcaecati ipsum laudantium eaque illum similique, vero voluptas!
+              Repellat, sint odio delectus officia molestias voluptatum,
+              blanditiis eligendi aperiam at natus beatae magni. Expedita
+              perferendis laborum cupiditate quasi voluptates inventore aliquid?
+            </p>
+          </div>
+        </div>
+        <div class="right">
+          <div class="sticky">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+              quidem quis distinctio, sit quia voluptatem laborum culpa nulla
+              fugiat dolor nihil fugit adipisci animi nam veritatis autem
+              voluptas rerum cupiditate.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <audio id="songNr2">
+        <source src="songNr2.mp3" type="audio/mpeg"></source>
+    </audio>
+
+    <audio id="songNr1">
+        <source src="songNr1.mp3" type="audio/mpeg"></source>
+    </audio>
+
+    <script>
+        let audio = [
+            document.getElementById("songNr1"),
+            document.getElementById("songNr2")
+    ]
+
+        function playsong(songId){
+            stopPlaysong()
+            audio[songId].play()
+
+            //setTimeout(()=>{ stopPlaysong()}, 4000)
+        }
+
+        function stopPlaysong(){
+            audio.forEach(element => {
+                element.pause()    
+            });            
+        }
+    </script>
+
+  </body>
+</html>

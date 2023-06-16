@@ -1,0 +1,306 @@
+
+.container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.container>h1 {
+    color: white;
+}
+
+.infoAboutMe>p {
+    color: white;
+}
+
+a {
+    color: darkgrey;
+}
+
+a:visited {
+    color: black;
+    background-color: darkgray;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.gym-dropdown {
+    position: relative;
+    padding: 10px;
+}
+
+.games-dropdown {  
+    position: relative;
+    padding: 10px;
+}
+
+.reading-dropdown {
+    position: relative;
+    padding: 10px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.gym-dropdown:hover .dropdown-content{
+    display: block;
+}
+
+.games-dropdown:hover .dropdown-content{
+    display: block;
+}
+
+.reading-dropdown:hover .dropdown-content{
+    display: block;
+}
+
+.myHobbies>h1 {
+    color: black;
+}
+
+.myHobbies>h4 {
+    color: white;
+}
+
+.myHobbies>p {
+    color: white;
+}
+
+.myHobbies>ul {
+    color: white;
+}
+
+.me {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.me>img {
+    border-radius: 5%;
+    border-style: solid;
+    border-color: rgb(68, 77, 74);
+    height: 10em;
+    box-shadow: -10px -10px 5px rgb(74, 57, 107);
+    image-rendering: auto;
+}
+
+.infoAboutMe {
+    font-weight: bold;
+    text-align: center;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #000000;
+    position: relative;
+}
+
+.topnav a {
+    background-color: black;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.topnav a:hover {
+    color: rgb(166, 64, 197);
+    box-shadow: 5px 1px 5px rgba(145, 92, 182, .4);
+}
+
+.topnav a.active {
+    background-color: rgb(120, 16, 141);
+    color: white;
+}
+
+p {
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+body {
+    background-image: url("../pictures/minimalism-4k-for-mac-desktop-wallpaper-preview.jpg");
+    background-repeat: no-repeat;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2vw;
+}
+
+.myHobbies {
+    padding-top: 2em;
+}
+
+.feedback {
+    color: #000000;
+}
+
+.resume-img {
+    padding: 20px 0px 0px 20px;
+    image-rendering: optimizeSpeed
+}
+
+.contact {
+    align-items: center;
+    position: relative;
+    border-style: solid;
+    height: 17em;
+    width: 30em;
+    margin: auto;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    background-color: bisque;
+}
+
+.contact-info-name {
+    background-color: black;
+    color: white;
+    margin-bottom: 1px;
+    padding-bottom: 1px;
+}
+
+.contact-info-job {
+    padding: 0px;
+    font-size: .3rem;
+    margin-top: .7rem;
+    margin-left: .7rem;
+    margin-bottom: .8rem;
+}
+
+.contact-info-Mail {
+    padding-left: 1em;
+    font-size: .5rem;
+    margin-bottom: .5rem;
+}
+
+.contact-info-address {
+    padding-left: 1em;
+    font-size: .5rem;
+    margin-bottom: .5rem;
+}
+
+.contact-info-telefone {
+    padding-left: 1em;
+    font-size: .5rem;
+    margin-bottom: .5rem;
+}
+
+.contact-info-img>img {
+    float: right;
+    height: 3.5rem;
+    -webkit-filter: grayscale(2);
+}
+
+.download-link {
+    margin-top: 20px;
+    margin-left: 20px;
+    padding-bottom: 1px;
+}
+
+.download-link-img {
+    display: block;
+    margin-left: 25px;
+}
+
+.download-text {
+    margin-top: 1px;
+}
+
+
+@media screen and (max-width= 400px ) {
+    .body {
+        line-height: 1.5;
+    }
+
+    .contact {
+        height: 10em;
+        width: 30em;
+    }
+    
+    .contact-info-job {
+        padding: 0;
+        font-size: .9rem;
+        margin-top: 1rem;
+        margin-left: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .contact-info-Mail {
+        padding-left: 1em;
+        font-size: .6rem;
+        margin-bottom: .5rem;
+    }
+    
+    .contact-info-address {
+        padding-left: 1em;
+        font-size: .6rem;
+        margin-bottom: .5rem;
+    }
+    
+    .contact-info-telefone {
+        padding-left: 1em;
+        font-size: .6rem;
+        margin-bottom: .5rem;
+    }
+    
+    .contact-info-img>img {
+        float: right;
+        height: 4rem;
+        -webkit-filter: grayscale(2);
+    }
+}
+
+@media screen and(max-width="600px"){
+    .topnav{
+        flex-direction: column;
+        padding-top: 50px;
+    }
+
+    .topnav a{
+        margin-top: 50px;
+        margin-right: 0;
+        margin-bottom: 10px;
+        word-break: break-all;
+    }
+}
+
+@media only screen and (min-width="720px") {
+    .body{
+        line-height: 1.2;
+    }
+    .topnav {
+        display: flex;
+        grid-template-columns: auto auto auto;
+        padding-top: 15px;
+    }
+    
+    .topnav a {
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.8);
+        background: rgb(145, 92, 182, .4);
+        padding: 15px 40px;
+        margin-right: 5px;
+        border-radius: 4px;
+        font-weight: normal;
+        text-transform: uppercase;
+        transition: all 0.2s ease-in-out;
+    }
+    
+    .topnav a:hover {
+        color: rgb(166, 64, 197);
+        box-shadow: 5px 1px 5px rgba(145, 92, 182, .4);
+    }
+    
+    .topnav a.active {
+        background-color: rgb(120, 16, 141);
+        color: white;
+    }
+}

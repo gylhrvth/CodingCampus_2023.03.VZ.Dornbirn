@@ -1,0 +1,33 @@
+.containerOne{
+    float: left;
+    height: 100vh;
+    width: 30%;
+    padding: 10px;
+    background-color: red;
+}
+
+.containerTwo{
+    float: left;
+    height: 100vh;
+    width: 30%;
+    padding: 10px;
+    background-color: green;
+}
+
+.containerThree{
+    float: left;
+    height: 100vh;
+    width: 30%;
+    padding: 10px;
+    background-color: blue;
+}
+
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+p {
+    text-align: center;
+}

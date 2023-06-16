@@ -1,0 +1,75 @@
+html {
+    height: 100%;
+}
+
+body {
+    display: inline-block;
+    margin: 0px;
+    height: 50%;
+    background-color: black;
+    color: antiquewhite;
+    background-image: url("Graues-Kaetzchen-auf-Decke-shutterstock-dezi-134747402.jpg");
+    background-size: 300px;
+    backdrop-filter: blur(10px);
+}
+
+h1,
+h2 {
+    overflow: hidden;
+    color: tomato;
+}
+
+div>h1 {
+    color: yellow;
+}
+
+.myText {
+    letter-spacing: 30px;
+    font-weight: bold;
+}
+
+div>.myText {
+    color: green;
+}
+
+.blackField {
+    background-color: black;
+}
+
+.whiteField {
+    background-color: white;
+}
+
+.blackField,
+.whiteField {
+    width: 50px;
+    height: 50px;
+}
+
+.ticTacToe {
+    width: fit-content;
+    background-color: aqua;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.blackField2 {
+    grid-area: blackField;
+    background-color: black;
+    width: 50px;
+    height: 50px;
+}
+
+.whiteField2 {
+    grid-area: whiteField;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+}
+
+.ticTacToe2 {
+    background-color: aqua;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "blackField whiteField blackField whiteField blackField whiteField blackField";
+}

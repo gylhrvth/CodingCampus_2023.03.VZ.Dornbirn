@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            position: relative;
+}
+        .bg-image{
+            height: 800px;
+            width: 100%;
+            background-image: url(../projektHomepage/guitar.jpg);
+            background-size: cover;
+        }
+        .top-left{
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .top-right{
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .bot-right{
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+        .bot-left{
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+        }
+        .center {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+}
+p{
+            font-size: 1vw;
+            font-weight: 700;
+            animation: fontSizer 2s infinite;
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+
+        @keyframes fontSizer {
+            0% {font-size: 1vw;}
+            50% {font-size: 5vw;}
+            100% {font-size: 1vw;}
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello World!</h1>
+    <div class="container">
+    <div class="bg-image">
+        <p class="top-left" style="color: aliceblue;">Es ist ein Text</p>
+        <p class="top-right" style="color: aliceblue;">Es ist ein Text</p>
+        <p class="bot-right" style="color: aliceblue;">Es ist ein Text</p>
+        <p class="bot-left" style="color: aliceblue;">Es ist ein Text</p>
+        <div class="center">
+            <p style="color:white;">Es ist ein Text</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

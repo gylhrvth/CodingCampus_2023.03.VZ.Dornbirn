@@ -1,0 +1,60 @@
+.btntop {
+    z-index: 11;
+    background-image: radial-gradient(
+      hsl(0, 0%, 0%),
+      hsl(0, 82%, 26%),
+      hsl(0, 91%, 30%)
+    );
+    color: hsl(42, 100%, 50%);
+    border: solid hsl(0, 88%, 51%) 3px;
+    border-radius: 40px;
+    padding: 5px 10px;
+    margin: 5px;
+
+    transition: max-width 2s, color 500ms, background-color 500ms;
+    box-shadow: 5px 5px 5px hsla(240, 94%, 20%, 0.404);
+    cursor: pointer;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .btntop:hover {
+    z-index: 11;
+    background-image: radial-gradient(
+      hsl(39, 100%, 50%),
+      hsl(0, 100%, 50%),
+      hsl(0, 94%, 25%)
+    );
+    color: hsl(0, 0%, 0%);
+    border: solid rgba(3, 3, 3, 0.567);
+    max-width: 300px;
+  }
+
+  .btnleft {
+    background-image: radial-gradient(
+      hsl(0, 0%, 0%),
+      hsl(0, 82%, 26%),
+      hsl(0, 91%, 30%)
+    );
+    color: hsl(42, 100%, 50%);
+    border: solid hsl(0, 88%, 51%) 3px;
+    border-radius: 30px;
+    padding: 5px 10px 5px 10px;
+    transition: color 500ms, background-color 500ms;
+    box-shadow: 5px 5px 5px hsla(240, 94%, 20%, 0.404);
+    cursor: pointer;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .btnleft:hover {
+    background-image: radial-gradient(
+      hsl(39, 100%, 50%),
+      hsl(0, 100%, 50%),
+      hsl(0, 94%, 25%)
+    );
+    color: hsl(0, 0%, 0%);
+    border: solid rgba(3, 3, 3, 0.567);
+  }

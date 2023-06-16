@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meine Website - Kontakt</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #4e54c8, #a9adf8);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    nav {
+      background: #333;
+      text-align: center;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: inline-block;
+    }
+    nav li {
+      display: inline;
+    }
+    nav a {
+      display: inline-block;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+    }
+    nav a:hover {
+      background: #555;
+    }
+    h1 {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    input[type="text"],
+    input[type="email"], 
+    textarea[type="text"] {
+        background-color: white;
+        color: black;
+        border: solid black 1px;
+        border-radius: 999px;
+       
+        padding: 5px 10px 5px 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="akjsldfhasd.html">Ich</a></li>
+      <li><a href="hobby2.html">Hobby</a></li>
+      <li><a href="kontakt2.html">Kontakt</a></li>
+    </ul>
+  </nav>
+  
+  <h1> Kontakt</h1>
+  <p>Vielen Dank für Ihren Besuch auf meiner Website. Wenn Sie Fragen haben oder an einer Zusammenarbeit interessiert sind, können Sie mich gerne kontaktieren. Hier sind meine Kontaktdaten:</p>
+ 
+  <h2>Kontaktdaten</h2>
+
+  
+  <p>Name: Mert Dülger</p>
+  <p>Adresse: Böschenmahdstraße 3d</p>
+  <p>E-Mail: duelger_mert@hotmail.com</p>
+  <p>Telefon: +43 699 110 385 22</p>
+
+  <h2>Kontaktformular</h2>
+
+
+  <form action="/action_page.php">
+    <label for="name">Name</label><br>
+    <input type="text" id="name" name="name" required ><br>
+
+    <label for="email">E-Mail</label><br>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="message">Nachricht</label><br>
+    <textarea id="message" name="message" rows="3" required></textarea><br>
+
+    <input type="submit" value="Senden">
+</form>
+
+
+
+</body>
+</html>

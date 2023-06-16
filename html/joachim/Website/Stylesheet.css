@@ -1,31 +1,238 @@
-h1{
-    color: aquamarine;
+h1 {
+  color: aquamarine;
 }
 
-h2{
-    color: violet;
+h2 {
+  color: violet;
 }
 
-p{
-    color: rgb(173, 5, 69);
-
-    font-family:'Courier New', Courier, monospace;
+h3 {
+  margin: 50px;
+  margin-top: 15px;
+  padding: 15px;
 }
-body {
-    background-image: url("Background.avif");
+
+p {
+  color: rgb(173, 5, 69);
+
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .grid-container {
-    display: grid;
-    grid-template-columns: auto;
-    gap: 10px;
-    background-color: #2196F3;
-    padding: 10px;
+  display: flow-root;
+  grid-template-columns: auto auto;
+  gap: 10px;
+  background-color: #21f360;
+  border-radius: 10px;
+  padding: 10px;
+  max-width: 500px;
+}
+
+.grid-container>div {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 15px;
+
+}
+
+.grid-container2 {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 10px;
+  background-color: #21f360;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+
+.flex-container {
+  display: flex;
+  grid-template-columns: auto;
+  gap: 100px;
+  background-color: #21f360;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.flex-container>* {
+  flex-grow: 1;
+}
+
+
+
+.sticky {
+  position: sticky;
+  width: 100px;
+  bottom: 18px;
+}
+
+.Button1 {
+  background-color: aquamarine;
+  border: solid black 1px;
+  border-radius: 10px;
+  padding: 5px;
+  text-align: center;
+  box-shadow: 2px 2px 5px blue;
+  cursor: pointer;
+  overflow: scroll;
+  user-select: none;
+}
+
+.Button1:hover {
+  background-color: rgb(10, 180, 152);
+  color: rgb(192, 184, 248);
+  transition: color 300ms;
+  transition: background-color 300ms;
+}
+
+@keyframes Button1-ani {
+  0% {
+    background-color: red;
+    transform: scale(0);
+    left: 0px;
+    top: 0px;
   }
-  
-  .grid-container > div {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid black;
-    text-align: center;
-    font-size: 30px;
+
+  33% {
+    background-color: yellow;
+    transform: scale(0.33);
+    left: 600px;
+    top: 300px;
   }
+
+  66% {
+    background-color: yellow;
+    transform: scale(0.66);
+    left: 0px;
+    top: 600px;
+  }
+
+  100% {
+    background-color: red;
+    transform: scale(1);
+    left: 0px;
+    top: 0px;
+  }
+}
+
+@keyframes Button2-ani {
+  0% {
+    background-color: red;
+    left: 2000px;
+    top: 0px;
+  }
+
+  25% {
+    background-color: violet;
+    left: 0px;
+    top: 1000px;
+  }
+
+  50% {
+    background-color: cyan;
+    left: 2000px;
+    top: 0px;
+  }
+
+  75% {
+    background-color: green;
+    left: 0px;
+    top: 1000px;
+  }
+
+  100% {
+    background-color: red;
+    left: 2000px;
+    top: 0px;
+    transform: rotate(360deg);
+  }
+}
+
+.Button1-animation {
+  animation-name: Button1-ani;
+  animation-duration: 0.1s;
+  position: relative;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.Button2-animation {
+  animation-name: Button2-ani;
+  animation-duration: 0.1s;
+  position: relative;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+
+
+.item1>img {
+  border-radius: 9999px;
+}
+
+.grid-container>.container,
+.container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  background-color: transparent;
+  border: none;
+}
+
+.bg-image {
+  height: 100px;
+  width: 100%;
+  background-image: url(Background.avif);
+  background-position: 0 600px;
+  background-size: cover;
+}
+
+.space {
+  background-color: #FFFFFF;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+
+.space div {
+  width: 100%;
+  height: 40px;
+}
+
+.upwards {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  background-color: azure;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 40px;
+}
+
+.footer {
+  border-bottom: 0px;
+  width: 100%;
+  background-color: rgb(3, 90, 148);
+  color: white;
+  text-align: left;
+  height: 100%;
+}
+
+
+@media only screen and (min-width: 700px) {
+  .grid-container2 {
+    grid-template-columns: 350px auto;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .grid-container2 {
+    grid-template-columns: 20% auto;
+  }
+}
