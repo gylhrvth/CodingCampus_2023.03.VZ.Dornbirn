@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input[userName],
+      input[password] {
+        border-style: solid 1px;
+        border-radius: 100%;
+        font-size: 1em;
+        padding: 1em, 2em, 2em, 1em;
+        background-color: lightgray;
+      }
+
+      label[userName],
+      label[password] {
+        border-style: solid 1px;
+        border-radius: 1000%;
+        font-size: 1em;
+        padding: 1em, 2em, 2em, 1em;
+        background-color: black;
+      }
+
+      p{
+        font-size: .7rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Formular</h1>
+    <form action="">
+      <p>
+        <label for="userName">User Name:</label><br />
+        <input
+          type="userName"
+          name="userName"
+          id="userName"
+          onkeyup="userNameChange()"
+        />
+        <span id="errorUserName"></span><br />
+      </p>
+      <p>
+        <label for="password">Password:</label><br />
+        <input type="password" name="password" id="password" /><br />
+      </p>
+      <p>
+        <input type="button" value="Login" />
+      </p>
+    </form>
+
+    <script>
+      function userNameChange() {
+        let errorField = document.getElementById("errorUserName")
+        let inputFieldUserName = document.getElementById("userName");
+        let content = inputFieldUserName.value;
+
+        if (content !== "Eric") {
+          errorField.innerText="Unknown User: " + inputFieldUserName.value
+        } else {
+            errorField.innerText="OK"
+        }
+    }
+    </script>
+  </body>
+</html>
