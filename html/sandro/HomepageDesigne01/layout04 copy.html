@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="navbarTop.css">
+    <link rel="stylesheet" href="navbarLeft.css">
+    <link rel="stylesheet" href="generally.css">
+    <link rel="stylesheet" href="grid.css">
+    <link rel="stylesheet" href="buttons.css">
+    <link rel="stylesheet" href="700x700.css">
+    <link rel="stylesheet" href="1000x1000.css">
+    <style>
+      body {
+        margin: 0;        
+        background-image: url(../ersteProjekt/guitarFlip.jpg);
+      }
+
+      body.visibleNavBar .navbar{
+        display: flex;
+      }
+
+      .hamburgerMenu{
+        z-index: 10;
+        background-color: black;
+        padding: 10px;
+        width: 100%;
+        cursor: pointer;
+        
+      }
+
+      body.visibleNavBar .hamburgerMenu{
+        width: 10%;
+        background-color: transparent;
+      }
+
+    </style>
+  </head>
+  <body>
+
+   
+
+
+    <div class="hamburgerMenu posFixTop" onclick="toggleMenu()">
+      <img src="menu_FILL0_wght400_GRAD0_opsz48.svg" alt="menu" srcset="">      
+    </div>
+    <div id="navbarOnTop" class="navbar sticky">
+      <div class="navleft">
+        <div class="btntop">Menu A</div>
+        <div class="btntop">Menu B</div>
+        <div class="btntop">Menu C</div>
+        <div class="btntop">Menu D</div>
+      </div>
+      <div class="navright">
+        <div class="btntop">Menu E</div>
+        <div class="btntop">Menu F</div>
+        <div class="btntop">Menu G</div>
+      </div>
+    </div>
+
+    <div class="grid1">
+      <div class="leftnavbar">
+         <div class="leftnavbarcenter">
+            <div class="btnleft" onclick="playsong(0)">Song 1</div>
+            <div class="btnleft" onclick="playsong(1)">Song 2</div>
+            <div class="btnleft">Menu C</div>
+            <div class="btnleft">Menu D</div>
+            <div class="btnleft">Menu E</div>
+            <div class="btnleft">Menu F</div>
+            <div class="btnleft" onclick="stopPlaysong()">STOP!</div>   
+         </div>
+      </div>
+      <div class="scrollbar grid2">
+        <div class="main">
+          <div>
+            <h2>Thema</h2>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Dolorem sequi explicabo iusto dolores quis laudantium unde autem,
+              hic veritatis temporibus quas soluta recusandae molestiae nobis
+              adipisci sed magni quos aut itaque perspiciatis deleniti eveniet.
+              Optio, laboriosam quia! Natus?
+            </p>
+            <p>
+              Labore perspiciatis magni incidunt, itaque, laboriosam ab modi
+              consectetur accusantium sapiente voluptates quam quos doloremque
+              vitae nam quidem dolores. Consectetur aliquam nemo sunt delectus
+              eaque dicta itaque eligendi, in nobis?
+            </p>
+          </div>
+          <div>
+            <h2>Thema</h2>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Dolorem sequi explicabo iusto dolores quis laudantium unde autem,
+              hic veritatis temporibus quas soluta recusandae molestiae nobis
+              adipisci sed magni quos aut itaque perspiciatis deleniti eveniet.
+              Optio, laboriosam quia! Natus?
+            </p>
+            <p>
+              Labore perspiciatis magni incidunt, itaque, laboriosam ab modi
+              consectetur accusantium sapiente voluptates quam quos doloremque
+              vitae nam quidem dolores. Consectetur aliquam nemo sunt delectus
+              eaque dicta itaque eligendi, in nobis?
+            </p>
+          </div>
+          <div>
+            <h2>Thema</h2>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Dolorem sequi explicabo iusto dolores quis laudantium unde autem,
+              hic veritatis temporibus quas soluta recusandae molestiae nobis
+              adipisci sed magni quos aut itaque perspiciatis deleniti eveniet.
+              Optio, laboriosam quia! Natus?
+            </p>
+            <p>
+              Labore perspiciatis magni incidunt, itaque, laboriosam ab modi
+              consectetur accusantium sapiente voluptates quam quos doloremque
+              vitae nam quidem dolores. Consectetur aliquam nemo sunt delectus
+              eaque dicta itaque eligendi, in nobis?
+            </p>
+          </div>
+          <div>
+            <h2>Thema</h2>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Dolorem sequi explicabo iusto dolores quis laudantium unde autem,
+              hic veritatis temporibus quas soluta recusandae molestiae nobis
+              adipisci sed magni quos aut itaque perspiciatis deleniti eveniet.
+              Optio, laboriosam quia! Natus?
+            </p>
+            <p>
+              Labore perspiciatis magni incidunt, itaque, laboriosam ab modi
+              consectetur accusantium sapiente voluptates quam quos doloremque
+              vitae nam quidem dolores. Consectetur aliquam nemo sunt delectus
+              eaque dicta itaque eligendi, in nobis?
+            </p>
+          </div>
+          <div>
+            <h2>Thema</h2>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Dolorem sequi explicabo iusto dolores quis laudantium unde autem,
+              hic veritatis temporibus quas soluta recusandae molestiae nobis
+              adipisci sed magni quos aut itaque perspiciatis deleniti eveniet.
+              Optio, laboriosam quia! Natus?
+            </p>
+            <p>
+              Labore perspiciatis magni incidunt, itaque, laboriosam ab modi
+              consectetur accusantium sapiente voluptates quam quos doloremque
+              vitae nam quidem dolores. Consectetur aliquam nemo sunt delectus
+              eaque dicta itaque eligendi, in nobis?
+            </p>
+          </div>
+          <div>
+            <h2>Thema</h2>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet
+              consequatur cumque tempora veritatis quaerat labore ex aliquam
+              maiores! Error minus expedita cumque doloremque fugit ipsam,
+              mollitia eum et quis asperiores?
+            </p>
+            <p>
+              Ut possimus quia dolores incidunt quam atque commodi non eveniet
+              quod eum fuga vero veritatis, suscipit aliquam facere facilis
+              temporibus recusandae eligendi rerum, perferendis laudantium iure
+              similique necessitatibus! Laborum, quos!
+            </p>
+            <p>
+              Esse cupiditate corrupti eaque repellat quisquam minus accusamus
+              laboriosam voluptates rem, eum omnis, alias est aspernatur enim
+              incidunt, veniam pariatur tenetur velit obcaecati distinctio
+              doloribus! Eveniet optio similique ipsa dolore!
+            </p>
+          </div>
+          <div>
+            <h2>Thema</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt
+              accusantium beatae itaque exercitationem sunt dolores ipsa.
+              Aperiam, obcaecati, facilis culpa dolore magnam distinctio eaque
+              odio officiis ullam consequuntur consequatur amet!
+            </p>
+            <p>
+              Obcaecati ipsum laudantium eaque illum similique, vero voluptas!
+              Repellat, sint odio delectus officia molestias voluptatum,
+              blanditiis eligendi aperiam at natus beatae magni. Expedita
+              perferendis laborum cupiditate quasi voluptates inventore aliquid?
+            </p>
+          </div>
+        </div>
+        <div class="right">
+          <div class="sticky">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+              quidem quis distinctio, sit quia voluptatem laborum culpa nulla
+              fugiat dolor nihil fugit adipisci animi nam veritatis autem
+              voluptas rerum cupiditate.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eligendi, laboriosam nesciunt reiciendis soluta, nobis praesentium
+              fugiat atque accusamus, aliquid incidunt necessitatibus ipsum
+              recusandae cupiditate quos distinctio expedita natus ad! Quos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <audio id="songNr2">
+        <source src="songNr2.mp3" type="audio/mpeg"></source>
+    </audio>
+
+    <audio id="songNr1">
+        <source src="songNr1.mp3" type="audio/mpeg"></source>
+    </audio>
+
+    <script>
+        let audio = [
+            document.getElementById("songNr1"),
+            document.getElementById("songNr2")
+    ]
+
+        function playsong(songId){
+            stopPlaysong()
+            audio[songId].play()
+
+            //setTimeout(()=>{ stopPlaysong()}, 4000)
+        }
+
+        function stopPlaysong(){
+            audio.forEach(element => {
+                element.pause()    
+            });            
+        }
+
+
+        function toggleMenu() {
+          document.body.classList.toggle('visibleNavBar')
+        } 
+    </script>
+
+  </body>
+</html>

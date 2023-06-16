@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="../formular.css">
+
+    <style>
+
+
+
+    </style>
+</head>
+
+<body style="background-color: rgb(197, 168, 194)" ;>
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li><a href="MyHobby.html">Home</a></li>
+                <li><a href="hobbyPage2.html">About Me</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <h1>Leave a comment, if you like my page!</h1><br>
+
+    <div class="flexContainer2">
+        <div>
+            <div class="formula">
+                <form action="mailto:marie85@gmx.net" method="post" enctype="text/plain">
+                    Name: <input type="text" size="12" maxlength="25" name="name" id="name"
+                        onkeyup="userNameChange()"><br>
+                    <span id="errorUserName" onkeyup="errorUserName()">Error!</span><br>
+                    Tell me your favourite music genre!<br>
+
+                    <select multiple name="music" size="4">
+                        <option value="ska">Ska</option>
+                        <option value="ska">Rock</option>
+                        <option value="ska">Metal</option>
+                        <option value="ska">Classic</option>
+                        <option value="ska">Hip Hop</option>
+                        <option value="ska">Jazz</option>
+                        <option value="ska">Techno</option>
+                    </select><br><br>
+
+                    <span>Wanna say Something?   </span><input type="text" size="10" maxlength="50" name="greeting">
+                    <input type="submit" value="Send!">
+                    <br>
+                     Or being lazy? Then just point&click! <br>
+                    <input type="checkbox" name="mood" value="super" />Super<br />
+                    <input type="checkbox" name="mood" value="boring" />Boring<br />
+                    <input type="checkbox" name="mood" value="better" />Better call a professional web developer!<br />
+                    <input type="submit" value="Send!">
+            </div>
+            </form>
+
+            <script>
+                function userNameChange() {
+                    let errorField = document.getElementById("errorUserName")
+                    let inputFieldUserName = document.getElementById("name")
+                    let content = inputFieldUserName.value
+
+                    if (!content.includes("marie")) {
+                        errorField.innerText = "Unknown User: " + inputFieldUserName.value
+                    } else {
+                        errorField.innerText = "OK"
+                    }
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>

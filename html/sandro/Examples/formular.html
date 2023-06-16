@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input[type="text"],
+      input[type="password"] {
+        border: solid black 1px;
+        border-radius: 99px;
+        padding: 5px 10px 5px 10px;
+        margin-bottom: 5px;
+      }
+
+      input[type="button"] {
+        position: relative;
+        left: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>formular</h1>
+    <form action="">
+      <p>
+        <label for="username">User Name:</label><br />
+        <input
+          type="text"
+          name="username"
+          id="username"
+          onkeyup="userNameChange()"
+        />
+        <span id="errorUsername">Enter UserName</span><br />
+      </p>
+      <p>
+        <label for="passwort">Passwort:</label><br />
+        <input type="password" name="password" id="password" /><br />
+      </p>
+      <p>
+        <input type="button" value="Login" />
+      </p>
+    </form>
+
+    <script>
+      function userNameChange() {
+        let errorField = document.getElementById("errorUsername")
+        let inputFieldUsername = document.getElementById("username");
+        let content = inputFieldUsername.value;
+
+        
+        if (!content.includes("sandro")) {
+          errorField.innerText = "Unknown User :" + inputFieldUsername.value;
+        } else{
+            errorField.innerText ="Username found!"
+        }
+      }
+    </script>
+  </body>
+</html>
