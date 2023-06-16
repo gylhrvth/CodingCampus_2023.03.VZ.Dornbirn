@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    input[type=text],
+    input[type=password] {
+
+        border: solid black 0.5px;
+        border-radius: 999px;
+        color: aquamarine;
+        background-color: rgb(1, 119, 119);
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+</style>
+
+
+<body>
+    <h1>Formular</h1>
+    <form action="">
+        <p>
+            <label for="userName">User name</label><br>
+            <input type="text" name="userName" id="userName" onkeyup="usernNameChange()">
+            <span id="errorUserName">ERROR</span>
+        </p>
+        <p>
+
+            <label for="password">Password</label><br>
+            <input type="password" name="password" id="password"><br>
+        </p>
+        <p>
+
+            <input type="button" value="Login"><br>
+        </p>
+    </form>
+    <script>
+        function usernNameChange() {
+            let errorField = document.getElementById("errorUserName")
+            let inputFieldUserName = document.getElementById("userName")
+            let content = inputFieldUserName.value
+
+            if (!content.includes("Joachim")) {
+                errorField.innerText = "YOU SHALL NOT PASS"
+            } else{
+                errorField.innerText = "PASS"
+            }
+        }
+    </script>
+</body>
+
+</html>
