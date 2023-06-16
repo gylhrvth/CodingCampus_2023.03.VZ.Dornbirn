@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .gerade{
+        color: blueviolet;
+    }
+</style>
+</head>
+<body>
+    <h1>Test 1</h1>
+    <h1>Test 2</h1>
+    <h1>Test 3</h1>
+    <h1>Test 4</h1>
+    <h1>Test 5</h1>
+
+    <script>
+console.log("Hello World")
+console.log('Hello "World"!')
+
+let counter = 0
+let name = "Gyula"
+const job = "Software Developer"
+
+for (let i = 0; i < 3; ++i){
+    console.log("Hello " + name + " " + (1 + i) + ".")
+}
+
+if (name === "Gyula"){
+    console.log("Check!")
+} else {
+    console.log("Noooo!")
+}
+
+
+console.log(job + " has length: " + job.length)
+console.log(`${job} has length: ${job.length}`)
+
+let nameList = ["Sandro", "Beni", "Mert", "Gyula"]
+nameList.sort()
+console.log(nameList)
+
+for (let i = 0; i < nameList.length; ++i){
+    console.log(`${1 + i}. ${nameList[i]}`)
+}
+nameList.forEach(element => {
+    console.log(element)
+});
+
+let gerade = false
+document.body.childNodes.forEach(element => {
+    if (element.nodeName === 'H1'){
+        console.log(element.innerText)
+        if (gerade){
+            element.classList.add("gerade")
+        }
+        gerade = !gerade
+     }
+})
+
+let namesListCAPITAL = nameList.map((value, index, array) => {
+    return value.toUpperCase();
+});
+console.log(namesListCAPITAL)
+
+let car = {
+    manufacture: 'Ford',
+    type: 'Mustang',
+    year: 1975
+}
+
+console.log(car)
+car.color = 'green'
+console.log(car)
+
+Object.keys(car).forEach(element =>{
+    console.log(element)
+})
+
+const myCars = [
+    car,
+    {
+        manufacture: 'Opel',
+        type: 'Corsa',
+        year: 1995,
+        color: "weiß"        
+    },
+    {
+        manufacture: 'Opel',
+        type: 'Astra',
+        year: 1995,
+        color: "green"        
+    },    
+]
+
+console.log(myCars)
+console.log(myCars.filter((value, index, array) => {
+    return value.color === 'green';
+}))
+
+setTimeout(() => {
+    console.log('Ready. :-)')
+}, 5000);
+
+setInterval(() => {
+    let allH1 = [...document.body.getElementsByTagName('h1')]
+    allH1.forEach(element => {
+            element.classList.toggle('gerade')
+        })}, 1000)
+
+
+
+    </script>
+</body>
+</html>
