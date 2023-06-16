@@ -1,0 +1,13 @@
+.sticky {
+    position: sticky;
+    top: 0;
+  }
+
+  .posFixTop{
+    position: fixed;
+    top: 0;
+  }
+
+  .postionFixVH{
+    position: fixed;        
+  }

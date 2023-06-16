@@ -1,0 +1,13 @@
+@media only screen and (min-width: 1000px){
+  
+    .navbar {
+        flex-direction: row;
+    }
+    .navleft, .navright {
+        flex-direction: row;
+      }    
+    .grid2 {
+        grid-template-columns: 75% 25%;
+    }
+
+}
