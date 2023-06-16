@@ -1,0 +1,73 @@
+.text-information {
+    color: black;
+    font-size: 300%;
+    text-align: center;
+}
+
+.container {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.container2 {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.container a {
+    flex-basis: 50%;
+    padding: 8px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+
+.containerBackground {
+    background-image: url("https://images.unsplash.com/photo-1471275287446-f463543ee84f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGdpdGFycmUlMjBwZmxhbnplbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60");
+    background-size: cover;
+    color: white;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: x-large;
+    border-radius: 999px;
+
+}
+
+@font-face {
+    font-family: 'FjallaOne';
+    src: url('FjallaOne-Regular.ttf');
+}
+
+.body {
+    background-image: url("https://images.unsplash.com/photo-1582738411706-bfc8e691d1c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'FjallaOne', sans-serif;
+}
+
+.header {
+    color: hsl(54, 58%, 51%);
+    background-color: hsl(160, 20%, 80%);
+    font-size: 60px;
+    font-weight: 900;
+    text-align: center;
+    padding: 30px;
+}
+
+.backgroundColorFlow {
+    background: linear-gradient(to right, rgb(202, 175, 92), rgb(243, 238, 238));
+    padding: 8px;
+    border-radius: 3%;
+}
