@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="user"></div>
+
+    <script>
+readDataFromAPI()
+
+async function readDataFromAPI(){
+    let result = await fetch('https://randomuser.me/api/')
+    if (result.ok){
+        let data = await result.json()
+        let dataUser = data.results[0]
+        console.log('Data:', dataUser)
+        processData(dataUser)
+    } else {
+        console.log('fetch failed', result)
+    }
+}
+
+async function processData(dataUser){
+
+    let userElement = document.getElementById("user")
+        let divUserName = document.createElement('div')
+        let spanFirstName = document.createElement('span')
+        spanFirstName.innerText = dataUser.name.first + " "
+        divUserName.appendChild(spanFirstName)
+
+        let spanLastName = document.createElement('span')
+        spanLastName.innerText = dataUser.name.last
+        divUserName.appendChild(spanLastName)
+        userElement.appendChild(divUserName)
+
+        let divPhoto = document.createElement('div')
+        let imgPhoto = document.createElement('img')
+        imgPhoto.src = dataUser.picture.large
+        imgPhoto.alt = dataUser.name.first + ' ' + dataUser.name.last
+        divPhoto.appendChild(imgPhoto)
+        userElement.appendChild(divPhoto)
+} 
+    </script>
+</body>
+</html>
